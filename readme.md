@@ -9,4 +9,4 @@ This repository contains the source code for the Riverscapes Analysis Vewier and
 
 ## License
 
-[GNU Public License Version 3](https://raw.githubusercontent.com/Riverscapes/gcd/master/LICENSE)
+[GNU Public License Version 3](https://raw.githubusercontent.com/Riverscapes/RaveAddIn/master/LICENSE)
