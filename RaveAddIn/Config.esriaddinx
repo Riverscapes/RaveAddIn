@@ -1,0 +1,66 @@
+﻿<ESRI.Configuration xmlns="http://schemas.esri.com/Desktop/AddIns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Name>RAVE</Name>
+  <AddInID>{67c9bba1-7371-430f-b4ca-6b2545de71df}</AddInID>
+  <Description>Riverscapes River Analyst And Explorer AddIn</Description>
+  <Version>1.0</Version>
+  <Image>Images\RaveAddIn.png</Image>
+  <Author>Philip Bailey</Author>
+  <Company>North Arrow Research Ltd.</Company>
+  <Date>9/10/2018</Date>
+  <Targets>
+    <Target name="Desktop" version="10.4" />
+  </Targets>
+  <AddIn language="CLR" library="RaveAddIn.dll" namespace="RaveAddIn">
+    <ArcMap>
+      <Commands>
+        <!-- Project Menu -->
+        <Button id="RAVE_AddIn_OpenProjectButton" class="RaveAddIn.AddInCommands.btnOpenProject" message="Browse and select an existing Riverscapes project file (*.rs.xml) in a project folder." caption="Open Riverscapes Project..." tip="Open an existing Riverscapes Project" category="RAVE" image="Images\OpenProject.png" />
+        <Button id="RAVE_AddIn_CloseProjectButton" class="RaveAddIn.AddInCommands.btnCloseProject" onDemand="false" message="Close the current project and hide the project explorer dockable window. This will not delete any data or remove any layers from ArcMap." caption="Close Project" tip="Close the current project" category="RAVE" image="" />
+        <Button id="RAVE_AddIn_DockableProjectExplorerButton" class="RaveAddIn.AddInCommands.btnProjectExplorer2" onDemand="false" message="The GCD Project Explorer is the main interface for creating, managing and displaying data within a GCD project. It is a dockable window within ArcMap that contains an interactive hierarchy of contents of a GCD project." caption="GCD Project Explorer" tip="Open the GCD Project Explorer Dockable Window" category="GCD" image="Images\GCD.png" />
+        <Button id="RAVE_AddIn_ProjectPropertiesButton" class="RaveAddIn.AddInCommands.btnProjectProperties" onDemand="false" message="Edit the properties for the current GCD project." caption="Project Properties" tip="Edit the properties of the current GCD project" category="RAVE" image="Images\Options.png" />
+
+        <!-- Help Menu-->
+        <Button id="RAVE_AddIn_AboutButton" class="RaveAddIn.AddInCommands.btnAbout" message="Provides information about the version, authors and funding for the Geomorphic Change Detection (GCD)." caption="About RAVE" tip="Information About the RAVE AddIn" category="RAVE" image="Images\RAVEAddIn.png" />
+        <Button id="RAVE_AddIn_OnlineHelp" class="RaveAddIn.AddInCommands.btnOnlineHelp" message="Open the GCD Online Help" caption="Online GCD Help" category="GCD" image="Images\Help.png" />
+        <Button id="RAVE_AddIn_WebSite" class="RaveAddIn.AddInCommands.btnWebSite" message="Open the GCD Software Web Site" caption="GCD Web Site" category="GCD" image="Images\Help.png" />
+        <Button id="RAVE_AddIn_XSWebSite" class="GCDAddIn.Help.btnCrossSectionViewerWebSite" message="Open the Cross Section Viewer Software Web Site" caption="Cross Section Viewer Web Site" category="RAVE" image="Images\Help.png" />
+      </Commands>
+      <Toolbars>
+        <Toolbar caption="River Analysis and Explorer" showInitially="true" id="RAVE_AddIn_Toolbar">
+          <Items>
+            <Menu refID="RAVE_AddIn_ProjectMenu" separator="true" />
+            <Menu refID="RAVE_AddIn_HelpMenu" />
+          </Items>
+        </Toolbar>
+      </Toolbars>
+      <Extensions>
+        <Extension id="North_Arrow_Research_RaveAddIn_RaveExtension" class="RaveExtension" productName="Riverscapes RAVE AddIn" autoLoad="true">
+          <Description>Riverscapes River Analyst and Explorer addIn Extension</Description>
+        </Extension>
+      </Extensions>
+      <DockableWindows>
+        <DockableWindow id="RAVE_AddIn_ucProjectExplorer" class="ucProjectExplorer+AddinImpl" caption="RAVE Project Explorer" image="Images\ucProjectExplorer.png">
+          <InitialPlacement height="300" width="300" state="pinned" position="left" />
+        </DockableWindow>
+      </DockableWindows>
+      <Menus>
+        <Menu caption="RAVE" isRootMenu="true" id="RAVE_AddIn_ProjectMenu">
+          <Items>
+            <Button refID="RAVE_AddIn_NewProjectButton" />
+            <Button refID="RAVE_AddIn_OpenProjectButton" />
+            <Button refID="RAVE_AddIn_DockableProjectExplorerButton" />
+            <Button refID="RAVE_AddIn_ProjectPropertiesButton"  />
+            <Button refID="RAVE_AddIn_CloseProjectButton"/>
+          </Items>
+        </Menu>
+        <Menu caption="Help" isRootMenu="false" id="RAVE_AddIn_HelpMenu">
+          <Items>
+            <Button refID="RAVE_AddIn_OnlineHelp" />
+            <Button refID="RAVE_AddIn_WebSite" />
+            <Button refID="RAVE_AddIn_AboutButton" separator="true"/>
+          </Items>
+        </Menu>
+      </Menus>
+    </ArcMap>
+  </AddIn>
+</ESRI.Configuration>
