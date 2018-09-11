@@ -17,7 +17,7 @@ namespace RaveAddIn.AddInCommands
             }
             catch (Exception ex)
             {
-                GCDCore.GCDException.HandleException(ex);
+                RaveException.HandleException(ex);
             }
 
             ArcMap.Application.CurrentTool = null;

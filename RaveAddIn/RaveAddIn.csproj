@@ -116,6 +116,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="RaveException.cs" />
     <Compile Include="RaveExtension.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -170,6 +171,12 @@
     <AddInContent Include="Images\NewProject.png" />
     <AddInContent Include="Images\OpenProject.png" />
     <AddInContent Include="Images\Options.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\naru\naru.csproj">
+      <Project>{1f496953-a809-4086-990b-884a5077bdc4}</Project>
+      <Name>naru</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <ZipFileExtension>esriAddIn</ZipFileExtension>

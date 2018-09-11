@@ -61,7 +61,25 @@ namespace RaveAddIn.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to http://riverscapes.xyz.
+        ///   Looks up a localized string similar to River Analysis and Viewer Explorer.
+        /// </summary>
+        internal static string ApplicationNameLong {
+            get {
+                return ResourceManager.GetString("ApplicationNameLong", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to RAVE.
+        /// </summary>
+        internal static string ApplicationNameShort {
+            get {
+                return ResourceManager.GetString("ApplicationNameShort", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to http://rave.riverscapes.xyz.
         /// </summary>
         internal static string HelpBaseURL {
             get {
@@ -70,7 +88,16 @@ namespace RaveAddIn.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to http://riverscapes.xyz.
+        ///   Looks up a localized string similar to https://github.com/Riverscapes/RaveAddIn/issues.
+        /// </summary>
+        internal static string NewIssueURL {
+            get {
+                return ResourceManager.GetString("NewIssueURL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to http://rave.riverscapes.xyz.
         /// </summary>
         internal static string WebSiteURL {
             get {
