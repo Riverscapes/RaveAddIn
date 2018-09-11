@@ -3,7 +3,7 @@ title: Project Menu
 weight: 1
 ---
 
-The main entry point to begin using the GCD Software is the `Project` Menu:
+The main entry point to begin using the RAVE Software is the `Project` Menu:
 
 ![Menu_Project]({{ site.baseurl }}/assets/images/CommandRefs/01_Project/ProjectMenu_AddIn.png)
 

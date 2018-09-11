@@ -1,10 +1,10 @@
 # Site title will be used everywhere
-title: Geomorphic Change Detection Software
+title: River Analysis and Viewer Explorer
 description: > # this means to ignore newlines until "baseurl:"
-  Online help and documentation site for the GCD
+  Online help and documentation site for the RAVE
 
 # Final root url of the site. No ending slash. No subdirectory
-url: http://gcd.riverscapes.xyz
+url: http://rave.riverscapes.xyz
 # If the site is in a subdirectory you should do it like this: "/subdirectory". Otherwise ""
 # baseurl: "/gcd"
 # When serving locally what port should we use:
@@ -71,10 +71,6 @@ settings:
     - title: "RC Help"
       url: http://riverscapes.xyz/rc-help.html
 
-collections:
-  releasenotes:
-    output: true
-
 # Redirecting from apps can be tricky so we use a key-value system
 # key: must be in the set [A-Za-z0-9_] (no spaces, no dashes)
 # url: must be relative url, no leading slash.
@@ -88,13 +84,4 @@ AppRedirects:
     url: Download/release_notes.html
   - key: OpenProject
     url: Help/Commands/project-menu/open-project.html
-  - key: CleanRaster
-    url: Help/Commands/data-prep-menu/a-clean-raster-tool.html
-  - key: NewDEM
-    url: Help/Commands/gcd-project-explorer/Inputs/DEM_Surveys/add-dem-survey.html
-  - key: frmLinearExtractionProperties
-    url: Help/Commands/gcd-project-explorer/Inputs/DEM_Surveys/DEMSurvey/CalculateLinearExtraction.html	
-  - key: frmSurfaceProperties
-    url: Help/Commands/gcd-project-explorer/Inputs/DEM_Surveys/DEMSurvey/edit-dem-survey-properties.html
-  - key: frmProfileRouteProperties
-    url: Help/Commands/gcd-project-explorer/Inputs/ProfileRoutes/
+  
