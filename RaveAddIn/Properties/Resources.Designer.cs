@@ -79,7 +79,7 @@ namespace RaveAddIn.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to http://rave.riverscapes.xyz.
+        ///   Looks up a localized string similar to http://rave.riverscapes.xyz/Help.
         /// </summary>
         internal static string HelpBaseURL {
             get {
@@ -93,6 +93,16 @@ namespace RaveAddIn.Properties {
         internal static string NewIssueURL {
             get {
                 return ResourceManager.GetString("NewIssueURL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap RaveAddIn {
+            get {
+                object obj = ResourceManager.GetObject("RaveAddIn", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
