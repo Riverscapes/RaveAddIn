@@ -1,12 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Diagnostics;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace RaveAddIn
@@ -20,7 +13,7 @@ namespace RaveAddIn
 
         private void frmAbout_Load(object sender, EventArgs e)
         {
-            Text = string.Format("About the {0}", Properties.Resources.ApplicationNameShort);
+            Text = string.Format("About {0}", Properties.Resources.ApplicationNameShort);
             lblProductName.Text = Properties.Resources.ApplicationNameLong;
             webBrowser1.Url = new Uri("http://rave.riverscapes.xyz/dotnetack.html");
             lblVersion.Text = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();

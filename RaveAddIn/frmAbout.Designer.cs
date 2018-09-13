@@ -61,7 +61,7 @@
             // 
             this.cmdOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.cmdOK.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.cmdOK.Location = new System.Drawing.Point(432, 320);
+            this.cmdOK.Location = new System.Drawing.Point(432, 335);
             this.cmdOK.Name = "cmdOK";
             this.cmdOK.Size = new System.Drawing.Size(75, 23);
             this.cmdOK.TabIndex = 1;
@@ -180,7 +180,7 @@
             this.grpAcknowledgements.Controls.Add(this.webBrowser1);
             this.grpAcknowledgements.Location = new System.Drawing.Point(12, 164);
             this.grpAcknowledgements.Name = "grpAcknowledgements";
-            this.grpAcknowledgements.Size = new System.Drawing.Size(495, 150);
+            this.grpAcknowledgements.Size = new System.Drawing.Size(495, 165);
             this.grpAcknowledgements.TabIndex = 12;
             this.grpAcknowledgements.TabStop = false;
             this.grpAcknowledgements.Text = "Acknowledgements";
@@ -191,7 +191,7 @@
             this.webBrowser1.Location = new System.Drawing.Point(3, 16);
             this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.Size = new System.Drawing.Size(489, 131);
+            this.webBrowser1.Size = new System.Drawing.Size(489, 146);
             this.webBrowser1.TabIndex = 0;
             // 
             // frmAbout
@@ -200,7 +200,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.cmdOK;
-            this.ClientSize = new System.Drawing.Size(519, 355);
+            this.ClientSize = new System.Drawing.Size(519, 370);
             this.Controls.Add(this.grpAcknowledgements);
             this.Controls.Add(this.grpSupport);
             this.Controls.Add(this.label1);
