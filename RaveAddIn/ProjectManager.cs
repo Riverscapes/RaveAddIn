@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
+using System.Xml;
 
 namespace RaveAddIn
 {
@@ -15,37 +17,33 @@ namespace RaveAddIn
     {
         public const string RasterExtension = "tif";
 
-        public static RaveProject Project { get; internal set; }
+        public static List<RaveProject> Projects { get; internal set; }
 
         // Simplifies the path combinations above
         public static DirectoryInfo CombinePaths(DirectoryInfo parentDir, string subDir) { return new DirectoryInfo(Path.Combine(parentDir.FullName, subDir)); }
 
-
-        public static void CreateProject(RaveProject project)
+        public static RaveProject OpenProject(FileInfo projectFile)
         {
-            project.Save();
-            Project = project;
+            if (Projects == null)
+                Projects = new List<RaveProject>();
+
+            if (Projects.Any(x => string.Compare(x.ProjectFile.FullName, projectFile.FullName, true) == 0))
+            {
+                return Projects.First(x => string.Compare(x.ProjectFile.FullName, projectFile.FullName, true) == 0);
+            }
+
+            XmlDocument xmlDoc = new XmlDocument();
+            xmlDoc.Load(projectFile.FullName);
+
+            string projectName = xmlDoc.SelectSingleNode("Project/Name").InnerText;
+            string projectType = xmlDoc.SelectSingleNode("Project/ProjectType").InnerText;
+            FileInfo businessLogic = GetBusinessLogic(projectType);
+
+            RaveProject project = new RaveProject(projectFile, businessLogic, projectName, projectType);
+            Projects.Add(project);
+            return project;
         }
 
-        public static void OpenProject(FileInfo projectFile)
-        {
-            Project = RaveProject.Load(projectFile);
-        }
-
-        public static void RefreshProject()
-        {
-            Project = RaveProject.Load(Project.ProjectFile);
-        }
-
-        public static void OpenProject(RaveProject project)
-        {
-            Project = project;
-        }
-
-        public static void CloseCurrentProject()
-        {
-            Project = null;
-            GC.Collect();
-        } 
+       
     }
 }

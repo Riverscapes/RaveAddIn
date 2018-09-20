@@ -35,6 +35,7 @@ namespace RaveAddIn.AddInCommands
                         Properties.Settings.Default.LastUsedProjectFolder = System.IO.Path.GetDirectoryName(f.FileName);
                         Properties.Settings.Default.Save();
 
+                        // This will cause the project tree to reload all open projects
                         btnProjectExplorer.ShowProjectExplorer(true);
                     }
                     catch (Exception ex)

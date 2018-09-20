@@ -8,7 +8,8 @@ namespace RaveAddIn.AddInCommands
         {
             try
             {
-                ProjectManager.CloseCurrentProject();
+                throw new NotImplementedException("Cannot close projects any more. Remove this button.");
+                //ProjectManager.CloseCurrentProject();
 
                 btnProjectExplorer.ShowProjectExplorer(false);
             }
@@ -22,7 +23,7 @@ namespace RaveAddIn.AddInCommands
 
         protected override void OnUpdate()
         {
-            Enabled = ProjectManager.Project != null;
+            Enabled = false;// ProjectManager.Project != null;
         }
     }
 }

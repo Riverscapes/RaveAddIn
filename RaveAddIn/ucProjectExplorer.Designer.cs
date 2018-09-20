@@ -28,22 +28,36 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucProjectExplorer));
             this.treProject = new System.Windows.Forms.TreeView();
+            this.imgList = new System.Windows.Forms.ImageList(this.components);
             this.SuspendLayout();
             // 
             // treProject
             // 
             this.treProject.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.treProject.ImageIndex = 0;
+            this.treProject.ImageList = this.imgList;
             this.treProject.Location = new System.Drawing.Point(0, 0);
             this.treProject.Name = "treProject";
-            this.treProject.Size = new System.Drawing.Size(300, 300);
+            this.treProject.SelectedImageIndex = 0;
+            this.treProject.Size = new System.Drawing.Size(346, 326);
             this.treProject.TabIndex = 0;
+            this.treProject.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treProject_NodeMouseClick);
+            // 
+            // imgList
+            // 
+            this.imgList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imgList.ImageStream")));
+            this.imgList.TransparentColor = System.Drawing.Color.Transparent;
+            this.imgList.Images.SetKeyName(0, "RaveAddIn_16px.png");
+            this.imgList.Images.SetKeyName(1, "BrowseFolder.ico");
             // 
             // ucProjectExplorer
             // 
             this.Controls.Add(this.treProject);
             this.Name = "ucProjectExplorer";
-            this.Size = new System.Drawing.Size(300, 300);
+            this.Size = new System.Drawing.Size(346, 326);
             this.ResumeLayout(false);
 
         }
@@ -51,5 +65,6 @@
         #endregion
 
         private System.Windows.Forms.TreeView treProject;
+        private System.Windows.Forms.ImageList imgList;
     }
 }
