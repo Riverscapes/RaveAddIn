@@ -52,6 +52,8 @@
             this.imgList.TransparentColor = System.Drawing.Color.Transparent;
             this.imgList.Images.SetKeyName(0, "RaveAddIn_16px.png");
             this.imgList.Images.SetKeyName(1, "BrowseFolder.ico");
+            this.imgList.Images.SetKeyName(2, "raster.png");
+            this.imgList.Images.SetKeyName(3, "vector.png");
             // 
             // ucProjectExplorer
             // 

@@ -8,12 +8,10 @@ namespace RaveAddIn
 {
     public class RaveExtension : ESRI.ArcGIS.Desktop.AddIns.Extension
     {
-        public readonly Dictionary<string, List<BusinessLogicXML>> BusinessLogicXML;
-
+   
         public RaveExtension()
         {
-            BusinessLogicXML = new Dictionary<string, List<BusinessLogicXML>>();
-        }
+         }
 
         protected override void OnStartup()
         {
@@ -22,39 +20,10 @@ namespace RaveAddIn
             //
             // WireDocumentEvents();
 
-            LoadBusinessLogicXML();
+ 
         }
 
-        private void LoadBusinessLogicXML()
-        {
-            string folder = Path.Combine(Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location), "XML");
-
-            foreach (string xmlPath in Directory.GetFiles(folder, "*.xml"))
-            {
-                try
-                {
-                    XmlDocument xmlDoc = new XmlDocument();
-                    xmlDoc.Load(xmlPath);
-
-                    XmlNode nodProjectType = xmlDoc.SelectSingleNode("Project/ProjectType");
-                    XmlNode nodName = xmlDoc.SelectSingleNode("Project/Name");
-
-                    if (nodProjectType is XmlNode && !string.IsNullOrEmpty(nodProjectType.InnerText))
-                    {
-                        if (!BusinessLogicXML.ContainsKey(nodProjectType.InnerText))
-                        {
-                            BusinessLogicXML[nodProjectType.InnerText] = new List<BusinessLogicXML>();
-                        }
-
-                        BusinessLogicXML[nodProjectType.InnerText].Add(new BusinessLogicXML(nodName.InnerText, nodProjectType.InnerText, xmlPath));
-                    }
-                }
-                catch (Exception)
-                {
-                    // Do nothing, continue onto the next business logic file
-                }
-            }
-        }
+    
 
         private void WireDocumentEvents()
         {

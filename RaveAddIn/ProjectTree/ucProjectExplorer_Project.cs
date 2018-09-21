@@ -9,13 +9,15 @@ namespace RaveAddIn
 {
     partial class ucProjectExplorer
     {
-        private ContextMenuStrip BuildProjectCMS()
+        private void BuildProjectCMS()
         {
-            ContextMenuStrip cms = new ContextMenuStrip(components);
-            cms.Items.Add("Explore Project Folder", Properties.Resources.BrowseFolder, OnExplore);
-            cms.Items.Add("View Project MetaData", Properties.Resources.metadata, OnMetaData);
-            cms.Items.Add("Close Project", null, OnClose);
-            return cms;
+            if (cmsProject != null)
+                return;
+
+            cmsProject = new ContextMenuStrip(components);
+            cmsProject.Items.Add("Explore Project Folder", Properties.Resources.BrowseFolder, OnExplore);
+            cmsProject.Items.Add("View Project MetaData", Properties.Resources.metadata, OnMetaData);
+            cmsProject.Items.Add("Close Project", null, OnClose);
         }
 
         private void treProject_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
@@ -45,8 +47,8 @@ namespace RaveAddIn
 
             MetaData.frmMetaData frm = new MetaData.frmMetaData("Riverscapes Project", proj.MetDataNode);
 
-            frm.MetaDataItems.Insert(0, new MetaData.MetaDataItem("Project Name", proj.Name));
-            frm.MetaDataItems.Insert(1, new MetaData.MetaDataItem("Project Type", proj.ProjectType));
+            //frm.MetaDataItems.Insert(0, new MetaData.MetaDataItem("Project Name", proj.Name));
+            //frm.MetaDataItems.Insert(1, new MetaData.MetaDataItem("Project Type", proj.ProjectType));
             frm.MetaDataItems.Insert(2, new MetaData.MetaDataItem("Project File", proj.ProjectFile.FullName));
             frm.ShowDialog();
         }

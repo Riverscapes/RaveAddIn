@@ -101,7 +101,6 @@
       <DependentUpon>frmMetaData.cs</DependentUpon>
     </Compile>
     <Compile Include="MetaData\MetaDataItem.cs" />
-    <Compile Include="ProjectManager.cs" />
     <Compile Include="ProjectTree\ProjectNode.cs" />
     <Compile Include="ProjectTree\TreeNodeBase.cs" />
     <Compile Include="ProjectTree\ucProjectExplorer_Project.cs">
@@ -241,6 +240,7 @@
     </Content>
     <Content Include="XML\rca.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="XML\rvd.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

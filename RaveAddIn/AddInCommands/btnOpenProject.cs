@@ -31,7 +31,18 @@ namespace RaveAddIn.AddInCommands
                 {
                     try
                     {
-                        ProjectManager.OpenProject(new System.IO.FileInfo(f.FileName));
+                        ESRI.ArcGIS.esriSystem.IUID pUI = new ESRI.ArcGIS.esriSystem.UID();
+                        pUI.Value = ThisAddIn.IDs.ucProjectExplorer;
+
+                        ESRI.ArcGIS.Framework.IDockableWindow docWin = ArcMap.DockableWindowManager.GetDockableWindow((ESRI.ArcGIS.esriSystem.UID)pUI);
+                        if (docWin is ESRI.ArcGIS.Framework.IDockableWindow)
+                        {
+                            // Try and refresh the project window.
+                            ucProjectExplorer.AddinImpl winImpl = ESRI.ArcGIS.Desktop.AddIns.AddIn.FromID<ucProjectExplorer.AddinImpl>(ThisAddIn.IDs.ucProjectExplorer);
+                            winImpl.UI.LoadProject(new System.IO.FileInfo(f.FileName));
+                        }
+
+                        //ProjectManager.OpenProject(new System.IO.FileInfo(f.FileName));
                         Properties.Settings.Default.LastUsedProjectFolder = System.IO.Path.GetDirectoryName(f.FileName);
                         Properties.Settings.Default.Save();
 

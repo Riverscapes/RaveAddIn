@@ -7,6 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Xml;
 using RaveAddIn.ProjectTree;
+using System.IO;
 
 namespace RaveAddIn
 {
@@ -64,18 +65,14 @@ namespace RaveAddIn
 
         #endregion
 
-        public void LoadTree()
-        {
-            ContextMenuStrip cms = BuildProjectCMS();
-            ProjectManager.Projects.ForEach(x => LoadProject(x, cms));
-        }
+        private ContextMenuStrip cmsProject;
 
-        private void LoadProject(RaveProject project, ContextMenuStrip cms)
+        public void LoadProject(FileInfo projectFile)
         {
             // Detect if project is already in tree and simply select the node and return;
             foreach (TreeNode rootNod in treProject.Nodes)
             {
-                if (RaveProject.IsSame((RaveProject)rootNod.Tag, project))
+                if (RaveProject.IsSame((RaveProject)rootNod.Tag, projectFile))
                 {
                     treProject.SelectedNode = rootNod;
                     rootNod.Expand();
@@ -83,19 +80,24 @@ namespace RaveAddIn
                 }
             }
 
-            TreeNodeBase node = new ProjectTree.TreeNodeBase(string.Format("{0} ({1})", project.Name, project.ProjectType), "Project", "Projects", 0);
-            node.ContextMenuStrip = cms;
-            node.Tag = project;
-            treProject.Nodes.Add(node);
+            BuildProjectCMS();
 
-            XmlDocument xmlDoc = new XmlDocument();
-            xmlDoc.Load(project.ProjectFile.FullName);
-            AddInputsNode(node, xmlDoc.SelectSingleNode("Project/Inputs"));
-            AddRealizations(node, xmlDoc.SelectSingleNode("Project/Realizations"));
+            RaveProject newProject = new RaveProject(projectFile);
+
+            newProject.LoadTree(treProject, cmsProject);
+
+            //TreeNodeBase node = new TreeNodeBase(string.Format("{0} ({1})", project.Name, project.ProjectType), "Project", "Projects", 0);
+            //node.ContextMenuStrip = cms;
+            //node.Tag = project;
+            //treProject.Nodes.Add(node);
+
+            //XmlDocument xmlDoc = new XmlDocument();
+            //xmlDoc.Load(project.ProjectFile.FullName);
+            //AddInputsNode(node, xmlDoc.SelectSingleNode("Project/Inputs"));
+            //AddRealizations(node, xmlDoc.SelectSingleNode("Project/Realizations"));
 
             // Select and expand the project node
-            treProject.SelectedNode = node;
-            node.ExpandAll();
+
         }
 
         private TreeNode AddInputsNode(TreeNode parentNode, XmlNode xmlInputs)

@@ -50,7 +50,7 @@ namespace RaveAddIn.AddInCommands
                     {
                         // Try and refresh the project window.
                         ucProjectExplorer.AddinImpl winImpl = ESRI.ArcGIS.Desktop.AddIns.AddIn.FromID<ucProjectExplorer.AddinImpl>(ThisAddIn.IDs.ucProjectExplorer);
-                        winImpl.UI.LoadTree();
+                        //winImpl.UI.LoadTree();
                     }
                     catch (Exception ex)
                     {
