@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using RaveAddIn.ProjectTree;
+using ESRI.ArcGIS.Carto;
 
 namespace RaveAddIn
 {
@@ -12,17 +13,19 @@ namespace RaveAddIn
     {
         private void BuildVectorCMS()
         {
-            if (cmsRaster != null)
+            if (cmsVector != null)
                 return;
 
-            cmsProject = new ContextMenuStrip(components);
-            cmsProject.Items.Add("Add Vector To Map", Properties.Resources.BrowseFolder, OnAddVector);
+            cmsVector = new ContextMenuStrip(components);
+            cmsVector.Items.Add("Add Vector To Map", Properties.Resources.BrowseFolder, OnAddVector);
         }
 
         public void OnAddVector(object sender, EventArgs e)
         {
-            Vector vector = (Vector)treProject.SelectedNode.Tag;
-            MessageBox.Show(vector.FilePath.FullName, "Add To Map");
+            TreeNode selNode = treProject.SelectedNode;
+            IGroupLayer parentGrpLyr = BuildArcMapGroupLayers(selNode);
+            Vector vector = (Vector)selNode.Tag;
+            ArcMapUtilities.AddToMap(vector.GISFileInfo, vector.Name, parentGrpLyr);
         }
     }
 }

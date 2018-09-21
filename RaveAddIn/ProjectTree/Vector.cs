@@ -9,7 +9,7 @@ namespace RaveAddIn.ProjectTree
 {
     public class Vector : GISItem
     {
-        public Vector(FileInfo filePath) : base(filePath)
+        public Vector(FileInfo filePath, string name) : base(filePath, name)
         {
 
         }

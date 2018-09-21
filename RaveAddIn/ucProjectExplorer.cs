@@ -9,6 +9,7 @@ using System.Xml;
 using RaveAddIn.ProjectTree;
 using System.IO;
 using System.Linq;
+using ESRI.ArcGIS.Carto;
 
 namespace RaveAddIn
 {
@@ -125,6 +126,18 @@ namespace RaveAddIn
             TreeNode theNode = treProject.GetNodeAt(e.X, e.Y);
             if (theNode is TreeNode)
                 treProject.SelectedNode = theNode;
+        }
+
+        public IGroupLayer BuildArcMapGroupLayers(TreeNode node)
+        {
+            IGroupLayer parentGrpLyr = null;
+
+            if (node.Parent is TreeNode)
+            {
+                parentGrpLyr = BuildArcMapGroupLayers(node.Parent);
+            }
+
+            return ArcMapUtilities.GetGroupLayer(node.Text, parentGrpLyr);
         }
     }
 }

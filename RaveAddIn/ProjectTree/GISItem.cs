@@ -9,11 +9,13 @@ namespace RaveAddIn.ProjectTree
 {
     public class GISItem
     {
-        public readonly FileInfo FilePath;
+        public readonly string Name;
+        public readonly FileInfo GISFileInfo;
 
-        public GISItem(FileInfo filePath)
+        public GISItem(FileInfo filePath, string name)
         {
-            FilePath = filePath;
+            GISFileInfo = filePath;
+            Name = name;
         }
     }
 }

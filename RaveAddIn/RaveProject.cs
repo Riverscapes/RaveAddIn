@@ -120,6 +120,7 @@ namespace RaveAddIn
             string projectName = GetLabel(nodBLRoot, projectXMLRoot);
 
             TreeNode tnProject = new TreeNode(projectName, 1, 1);
+            tnProject.Tag = this;
             treProject.Nodes.Add(tnProject);
 
             // Loop over all child nodes of the business logic XML and load them to the tree
@@ -211,12 +212,12 @@ namespace RaveAddIn
             {
                 case "raster":
                     imgIndex = 2;
-                    layer = new ProjectTree.Raster(absPath);
+                    layer = new ProjectTree.Raster(absPath, name);
                     break;
 
                 case "vector":
                     imgIndex = 3;
-                    layer = new ProjectTree.Vector(absPath);
+                    layer = new ProjectTree.Vector(absPath, name);
                     break;
             }
 
