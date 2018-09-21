@@ -20,16 +20,6 @@ namespace RaveAddIn
             cmsProject.Items.Add("Close Project", null, OnClose);
         }
 
-        private void treProject_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
-        {
-            if (e.Button != MouseButtons.Right)
-                return;
-
-            TreeNode theNode = treProject.GetNodeAt(e.X, e.Y);
-            if (theNode is TreeNode)
-                treProject.SelectedNode = theNode;
-        }
-
         public void OnExplore(object sender, EventArgs e)
         {
             RaveProject proj = (RaveProject)treProject.SelectedNode.Tag;

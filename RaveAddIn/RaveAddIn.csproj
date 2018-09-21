@@ -101,11 +101,20 @@
       <DependentUpon>frmMetaData.cs</DependentUpon>
     </Compile>
     <Compile Include="MetaData\MetaDataItem.cs" />
+    <Compile Include="ProjectTree\GISItem.cs" />
     <Compile Include="ProjectTree\ProjectNode.cs" />
+    <Compile Include="ProjectTree\Raster.cs" />
     <Compile Include="ProjectTree\TreeNodeBase.cs" />
     <Compile Include="ProjectTree\ucProjectExplorer_Project.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="ProjectTree\ucProjectExplorer_Raster.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ProjectTree\ucProjectExplorer_Vector.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ProjectTree\Vector.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

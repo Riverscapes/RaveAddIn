@@ -16,9 +16,10 @@ namespace RaveAddIn.Tests
         public void LoadTreeTest()
         {
             TreeView treProject = new TreeView();
-            ContextMenuStrip cmsProject = new ContextMenuStrip();
 
-            RaveProject.LoadTree(treProject, cmsProject, new System.IO.FileInfo(@"C:\Users\philip\RiverscapesData\CRB\Watershed\Asotin\Network\VBET\project.rs.xml"));
+            RaveProject proj = new RaveProject(new System.IO.FileInfo(@"C:\Users\philip\RiverscapesData\CRB\Watershed\Asotin\Network\VBET\project.rs.xml"));
+
+            proj.LoadTree(treProject);
 
             treProject.Nodes.OfType<TreeNode>().ToList().ForEach(x => PrintTree(x, 0));
         }

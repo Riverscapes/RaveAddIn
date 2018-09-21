@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using System.Xml;
 using RaveAddIn.ProjectTree;
 using System.IO;
+using System.Linq;
 
 namespace RaveAddIn
 {
@@ -66,6 +67,9 @@ namespace RaveAddIn
         #endregion
 
         private ContextMenuStrip cmsProject;
+        private ContextMenuStrip cmsFolder;
+        private ContextMenuStrip cmsVector;
+        private ContextMenuStrip cmsRaster;
 
         public void LoadProject(FileInfo projectFile)
         {
@@ -80,71 +84,47 @@ namespace RaveAddIn
                 }
             }
 
-            BuildProjectCMS();
 
             RaveProject newProject = new RaveProject(projectFile);
 
-            newProject.LoadTree(treProject, cmsProject);
+            TreeNode tnProject = newProject.LoadTree(treProject);
 
-            //TreeNodeBase node = new TreeNodeBase(string.Format("{0} ({1})", project.Name, project.ProjectType), "Project", "Projects", 0);
-            //node.ContextMenuStrip = cms;
-            //node.Tag = project;
-            //treProject.Nodes.Add(node);
-
-            //XmlDocument xmlDoc = new XmlDocument();
-            //xmlDoc.Load(project.ProjectFile.FullName);
-            //AddInputsNode(node, xmlDoc.SelectSingleNode("Project/Inputs"));
-            //AddRealizations(node, xmlDoc.SelectSingleNode("Project/Realizations"));
-
-            // Select and expand the project node
-
+            AssignContextMenus(tnProject);
         }
 
-        private TreeNode AddInputsNode(TreeNode parentNode, XmlNode xmlInputs)
+        private void AssignContextMenus(TreeNode node)
         {
-            TreeNode nodInputs = new ProjectTree.TreeNodeBase("Inputs", "Input", "Inputs", 1);
-            parentNode.Nodes.Add(nodInputs);
-
-            foreach (XmlNode xmlInput in xmlInputs.ChildNodes)
+            if (node.Tag is Raster)
             {
-                string relPath = xmlInput.SelectSingleNode("Path").InnerText;
-                string name = xmlInput.SelectSingleNode("Name").InnerText;
-
-                TreeNode nodInput = new ProjectTree.TreeNodeBase(name, "Input", "Inputs", 1);
-                nodInputs.Nodes.Add(nodInput);
+                BuildRasterCMS();
+                node.ContextMenuStrip = cmsRaster;
+            }
+            else if (node.Tag is Vector)
+            {
+                BuildVectorCMS();
+                node.ContextMenuStrip = cmsVector;
+            }
+            else if (node.Tag is RaveProject)
+            {
+                BuildProjectCMS();
+                node.ContextMenuStrip = cmsProject;
             }
 
-            return nodInputs;
-        }
-
-        private TreeNode AddRealizations(TreeNode parentNode, XmlNode xmlRealizations)
-        {
-            TreeNode nodRealizations = new ProjectTree.TreeNodeBase("Realizations", "realization", "Realizations", 1);
-            parentNode.Nodes.Add(nodRealizations);
-
-            AddAnalyses(nodRealizations, xmlRealizations.SelectSingleNode("Analyses"));
-
-            return nodRealizations;
-        }
-
-        private TreeNode AddAnalyses(TreeNode parentNode, XmlNode xmlAnalyses)
-        {
-            if (xmlAnalyses == null)
-                return null;
-
-            TreeNode nodAnalyses = new ProjectTree.TreeNodeBase("Analyses", "Analysis", "Analyses", 1);
-            parentNode.Nodes.Add(nodAnalyses);
-
-            foreach (XmlNode xmlItem in xmlAnalyses.ChildNodes)
+            // Assign context menus recursively
+            foreach (TreeNode n in node.Nodes)
             {
-                string name = xmlItem.SelectSingleNode("Name").InnerText;
-
-                TreeNode nodItem = new ProjectTree.TreeNodeBase(name, "Analysis", "Analyses", 1);
-                nodAnalyses.Nodes.Add(nodItem);
+                AssignContextMenus(n);
             }
-
-            return nodAnalyses;
         }
 
+        public void treProject_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
+        {
+            if (e.Button != MouseButtons.Right)
+                return;
+
+            TreeNode theNode = treProject.GetNodeAt(e.X, e.Y);
+            if (theNode is TreeNode)
+                treProject.SelectedNode = theNode;
+        }
     }
 }

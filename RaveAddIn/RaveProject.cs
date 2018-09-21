@@ -46,6 +46,11 @@ namespace RaveAddIn
             return string.Compare(proj1.ProjectFile.FullName, projectFile.FullName) == 0;
         }
 
+        private FileInfo AbsolutePath(string relativePath)
+        {
+            return new FileInfo(Path.Combine(ProjectFile.DirectoryName, relativePath));
+        }
+
         private static void LoadBusinessLogicXML()
         {
             string folder = Path.Combine(Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location), "XML");
@@ -88,7 +93,7 @@ namespace RaveAddIn
             }
         }
 
-        public void LoadTree(TreeView treProject, ContextMenuStrip cmsProject)
+        public TreeNode LoadTree(TreeView treProject)
         {
             XmlDocument xmlProject = new XmlDocument();
             xmlProject.Load(ProjectFile.FullName);
@@ -98,7 +103,7 @@ namespace RaveAddIn
             if (!BusinessLogicXML.ContainsKey(projectType))
             {
                 MessageBox.Show(string.Format("Failed to load project because there is no business logic file for projects of type '{0}'.", projectType), "Failed To Load Project", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
+                return null;
             }
 
             XmlDocument xmlBusiness = new XmlDocument();
@@ -108,7 +113,7 @@ namespace RaveAddIn
             if (!(nodBLRoot is XmlNode))
             {
                 MessageBox.Show("Business logic XML file does not contain 'Project/Node' XPath.", "Business Logic Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
+                return null;
             }
 
             XmlNode projectXMLRoot = xmlProject.SelectSingleNode("Project");
@@ -116,16 +121,17 @@ namespace RaveAddIn
 
             TreeNode tnProject = new TreeNode(projectName, 1, 1);
             treProject.Nodes.Add(tnProject);
-            tnProject.ContextMenuStrip = cmsProject;
 
             // Loop over all child nodes of the business logic XML and load them to the tree
             nodBLRoot.ChildNodes.OfType<XmlNode>().ToList().ForEach(x => LoadTreeNode(tnProject, x, projectXMLRoot, string.Empty));
 
             // Expand the project tree node now that all the items have been added
             tnProject.ExpandAll();
+
+            return tnProject;
         }
 
-        private static void LoadTreeNode(TreeNode tnParent, XmlNode xmlBusiness, XmlNode xmlProject, string xPath)
+        private void LoadTreeNode(TreeNode tnParent, XmlNode xmlBusiness, XmlNode xmlProject, string xPath)
         {
             if (xmlBusiness.NodeType == XmlNodeType.Comment)
                 return;
@@ -157,7 +163,7 @@ namespace RaveAddIn
             }
             else if (xmlBusiness.Name == "Node")
             {
-                PrintBusinessNode(xmlBusiness);
+                //PrintBusinessNode(xmlBusiness);
 
                 xPath = GetXPath(xmlBusiness, xPath);
 
@@ -166,7 +172,6 @@ namespace RaveAddIn
                 {
                     // This some kind of file (vector, raster, tile, image etc)
                     AddGISNode(tnParent, attType.InnerText, xmlProject.SelectSingleNode(xPath));
-
                 }
                 else
                 {
@@ -184,7 +189,7 @@ namespace RaveAddIn
             }
         }
 
-        private static void AddGISNode(TreeNode tnParent, string type, XmlNode nodGISNode)
+        private void AddGISNode(TreeNode tnParent, string type, XmlNode nodGISNode)
         {
             if (nodGISNode == null)
                 return;
@@ -197,48 +202,58 @@ namespace RaveAddIn
             }
 
             string name = nodGISNode.SelectSingleNode("Name").InnerText;
+            string path = nodGISNode.SelectSingleNode("Path").InnerText;
+            FileInfo absPath = AbsolutePath(path);
 
             int imgIndex = 0; // Default is riverscapes logo
+            ProjectTree.GISItem layer = null;
             switch (type.ToLower())
             {
-                case "raster": imgIndex = 2; break;
-                case "vector": imgIndex = 3; break;
+                case "raster":
+                    imgIndex = 2;
+                    layer = new ProjectTree.Raster(absPath);
+                    break;
+
+                case "vector":
+                    imgIndex = 3;
+                    layer = new ProjectTree.Vector(absPath);
+                    break;
             }
 
             TreeNode newNode = new TreeNode(name, imgIndex, imgIndex);
+            newNode.Tag = layer;
             tnParent.Nodes.Add(newNode);
-
         }
 
-        private static void PrintBusinessNode(XmlNode nod)
-        {
-            System.Diagnostics.Debug.Print("\nBL Node: " + nod.Name);
-            PrintAttributes(nod, "xpathlabel");
-            PrintAttributes(nod, "label");
-            PrintAttributes(nod, "xpath");
-            PrintAttributes(nod, "type");
-        }
+        //private static void PrintBusinessNode(XmlNode nod)
+        //{
+        //    System.Diagnostics.Debug.Print("\nBL Node: " + nod.Name);
+        //    PrintAttributes(nod, "xpathlabel");
+        //    PrintAttributes(nod, "label");
+        //    PrintAttributes(nod, "xpath");
+        //    PrintAttributes(nod, "type");
+        //}
 
-        private static void PrintAttributes(XmlNode nod, string attribute)
-        {
-            XmlAttribute attXPath = nod.Attributes[attribute];
-            if (attXPath is XmlAttribute)
-            {
-                if (string.IsNullOrEmpty(attXPath.InnerText))
-                {
-                    System.Diagnostics.Debug.Print(string.Format("{0}: <Empty>", attribute));
-                }
-                else
-                {
-                    System.Diagnostics.Debug.Print(string.Format("{0}: {1}", attribute, attXPath.InnerText));
-                }
-            }
-            else
-            {
-                System.Diagnostics.Debug.Print(string.Format("{0}: <Missing>", attribute));
-            }
+        //private static void PrintAttributes(XmlNode nod, string attribute)
+        //{
+        //    XmlAttribute attXPath = nod.Attributes[attribute];
+        //    if (attXPath is XmlAttribute)
+        //    {
+        //        if (string.IsNullOrEmpty(attXPath.InnerText))
+        //        {
+        //            System.Diagnostics.Debug.Print(string.Format("{0}: <Empty>", attribute));
+        //        }
+        //        else
+        //        {
+        //            System.Diagnostics.Debug.Print(string.Format("{0}: {1}", attribute, attXPath.InnerText));
+        //        }
+        //    }
+        //    else
+        //    {
+        //        System.Diagnostics.Debug.Print(string.Format("{0}: <Missing>", attribute));
+        //    }
 
-        }
+        //}
 
         private static string GetXPath(XmlNode businessLogicNode, string xPath)
         {
