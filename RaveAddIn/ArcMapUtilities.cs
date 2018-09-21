@@ -100,7 +100,7 @@ namespace RaveAddIn
 
                 case GISDataStorageTypes.ShapeFile:
                     IFeatureWorkspace pWS = (IFeatureWorkspace)ArcMapUtilities.GetWorkspace(fiFullPath);
-                    IFeatureClass pShapeFile = pWS.OpenFeatureClass(Path.GetFileNameWithoutExtension(fiFullPath.FullName));                   
+                    IFeatureClass pShapeFile = pWS.OpenFeatureClass(Path.GetFileNameWithoutExtension(fiFullPath.FullName));
                     pResultLayer = new FeatureLayer();
                     ((IFeatureLayer)pResultLayer).FeatureClass = pShapeFile;
                     break;
@@ -284,7 +284,22 @@ namespace RaveAddIn
                 return null;
             }
 
-            if (pParentGroupLayer != null)
+            if (pParentGroupLayer == null)
+            {
+                UID pId = new UID();
+                pId.Value = "{EDAD6644-1810-11D1-86AE-0000F8751720}";
+
+                IEnumLayer pEnum = ((IMapLayers)ArcMap.Document.FocusMap).Layers[pId, false];
+                ILayer pLayer = pEnum.Next();
+                while (pLayer != null)
+                {
+                    if (string.Compare(pLayer.Name, sName, true) == 0)
+                        return (IGroupLayer)pLayer;
+
+                    pLayer = pEnum.Next();
+                }
+            }
+            else
             {
                 // Try and find the group layer already in the hierarchy
                 ICompositeLayer pCompositeLayer = (ICompositeLayer)pParentGroupLayer;
@@ -296,6 +311,9 @@ namespace RaveAddIn
                     }
                 }
             }
+
+
+
 
             IGroupLayer pResultLayer = new GroupLayer();
             pResultLayer.Name = sName;

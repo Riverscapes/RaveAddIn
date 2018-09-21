@@ -17,7 +17,7 @@ namespace RaveAddIn
                 return;
 
             cmsVector = new ContextMenuStrip(components);
-            cmsVector.Items.Add("Add Vector To Map", Properties.Resources.BrowseFolder, OnAddVector);
+            cmsVector.Items.Add("Add Vector To Map", Properties.Resources.AddToMap, OnAddVector);
         }
 
         public void OnAddVector(object sender, EventArgs e)

@@ -61,6 +61,16 @@ namespace RaveAddIn.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap AddToMap {
+            get {
+                object obj = ResourceManager.GetObject("AddToMap", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to River Analysis and Viewer Explorer.
         /// </summary>
         internal static string ApplicationNameLong {

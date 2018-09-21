@@ -17,7 +17,7 @@ namespace RaveAddIn
                 return;
 
             cmsRaster = new ContextMenuStrip(components);
-            cmsRaster.Items.Add("Add Raster To Map", Properties.Resources.BrowseFolder, OnAddRaster);
+            cmsRaster.Items.Add("Add Raster To Map", Properties.Resources.AddToMap, OnAddRaster);
         }
 
         public void OnAddRaster(object sender, EventArgs e)
