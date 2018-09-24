@@ -17,10 +17,6 @@
 
         <!-- Project Menu -->
         <Button id="RAVE_AddIn_OpenProjectButton" class="RaveAddIn.AddInCommands.btnOpenProject" message="Browse and select an existing Riverscapes project file (*.rs.xml) in a project folder." caption="Open Riverscapes Project..." tip="Open an existing Riverscapes Project" category="RAVE" image="Images\OpenProject.png" />
-        <Button id="RAVE_AddIn_CloseProjectButton" class="RaveAddIn.AddInCommands.btnCloseProject" onDemand="false" message="Close the current project and hide the project explorer dockable window. This will not delete any data or remove any layers from ArcMap." caption="Close Project" tip="Close the current project" category="RAVE" image="" />
-        <Button id="RAVE_AddIn_DockableProjectExplorerButton" class="RaveAddIn.AddInCommands.btnProjectExplorer2" onDemand="false" message="The RAVE Project Explorer is the main interface for creating, managing and displaying data within a Riverscapes project. It is a dockable window within ArcMap that contains an interactive hierarchy of contents of a Riverscapes project." caption="RAVE Project Explorer" tip="Open the RAVE Project Explorer Dockable Window" category="RAVE" image="Images\RaveAddIn.png" />
-        <Button id="RAVE_AddIn_ProjectPropertiesButton" class="RaveAddIn.AddInCommands.btnProjectProperties" onDemand="false" message="Edit the properties for the current Riverscapes project." caption="Project Properties" tip="Edit the properties of the current Riverscapes project" category="RAVE" image="Images\Options.png" />
-        <Button id="RAVE_AddIn_ExploreProjectButton" class="RaveAddIn.AddInCommands.Project.btnProjectExploreFolder" onDemand="false" message="Open Windows Explorer at the current riverscapes project folder location." caption="Browse Project Folder" category="RAVE" image="Images\BrowseFolder.png" />
 
         <!-- Help Menu-->
         <Button id="RAVE_AddIn_AboutButton" class="RaveAddIn.AddInCommands.btnAbout" message="Provides information about the version, authors and funding for the RAVE software." caption="About RAVE" tip="Information About the RAVE AddIn" category="RAVE" image="Images\RAVEAddIn.png" />
@@ -49,12 +45,7 @@
       <Menus>
         <Menu caption="RAVE" isRootMenu="true" id="RAVE_AddIn_ProjectMenu">
           <Items>
-            <Button refID="RAVE_AddIn_NewProjectButton" />
             <Button refID="RAVE_AddIn_OpenProjectButton" />
-            <Button refID="RAVE_AddIn_DockableProjectExplorerButton" />
-            <Button refID="RAVE_AddIn_ProjectPropertiesButton"  />
-            <Button refID="RAVE_AddIn_CloseProjectButton"/>
-            <Button refID="RAVE_AddIn_ExploreProjectButton" separator="true"/>
           </Items>
         </Menu>
         <Menu caption="Help" isRootMenu="false" id="RAVE_AddIn_HelpMenu">

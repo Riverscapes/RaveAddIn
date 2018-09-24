@@ -87,7 +87,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AddInCommands\btnAbout.cs" />
-    <Compile Include="AddInCommands\btnCloseProject.cs" />
     <Compile Include="AddInCommands\btnOnlineHelp.cs" />
     <Compile Include="AddInCommands\btnOpenProject.cs" />
     <Compile Include="AddInCommands\btnProjectExplorer.cs" />
