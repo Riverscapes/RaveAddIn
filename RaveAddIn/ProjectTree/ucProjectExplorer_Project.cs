@@ -14,6 +14,8 @@ namespace RaveAddIn
             cmsProject.Items.Add("Browse Project Folder", Properties.Resources.BrowseFolder, OnExplore);
             cmsProject.Items.Add("View Project MetaData", Properties.Resources.metadata, OnMetaData);
             cmsProject.Items.Add("Add All Layers To The Map", Properties.Resources.AddToMap, OnAddChildrenToMap);
+            cmsProject.Items.Add("Customize Project Hierarchy", Properties.Resources.tree, OnBusinessLogic);
+            cmsProject.Items.Add("-");
             cmsProject.Items.Add("Close Project", null, OnClose);
         }
 
@@ -38,6 +40,31 @@ namespace RaveAddIn
             //frm.MetaDataItems.Insert(1, new MetaData.MetaDataItem("Project Type", proj.ProjectType));
             frm.MetaDataItems.Insert(2, new MetaData.MetaDataItem("Project File", proj.ProjectFile.FullName));
             frm.ShowDialog();
+        }
+
+        public void OnBusinessLogic(object sender, EventArgs e)
+        {
+            // Retrieve the project object.
+            TreeNode tnProject = treProject.SelectedNode;
+            RaveProject proj = (RaveProject)tnProject.Tag;
+
+            OpenFileDialog frm = new OpenFileDialog();
+            frm.Title = "Select Riverscapes Business Logic XML";
+            frm.InitialDirectory = proj.ProjectFile.DirectoryName;
+            frm.Filter = "Riverscapes Business Logic XML files (*.xml)|*.xml";
+
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                // Remove all the existing child nodes
+                tnProject.Nodes.Clear();
+
+                // Re-load the project tree using the selected business logic
+                TreeNode nodProject = proj.LoadTree(tnProject, new System.IO.FileInfo(frm.FileName));
+                if (nodProject is TreeNode)
+                {
+                    AssignContextMenus(nodProject);
+                }
+            }
         }
     }
 }

@@ -203,6 +203,7 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <None Include="Resources\AddToMap.png" />
+    <None Include="Resources\tree.png" />
     <Content Include="XML\XSD\project_explorer.xsd">
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

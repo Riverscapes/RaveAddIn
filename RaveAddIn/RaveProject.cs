@@ -95,10 +95,11 @@ namespace RaveAddIn
 
         public TreeNode LoadTree(TreeView treProject)
         {
+            // Determine the type of project
             XmlDocument xmlProject = new XmlDocument();
             xmlProject.Load(ProjectFile.FullName);
-
             string projectType = xmlProject.SelectSingleNode("Project/ProjectType").InnerText;
+
 
             if (!BusinessLogicXML.ContainsKey(projectType))
             {
@@ -106,9 +107,25 @@ namespace RaveAddIn
                 return null;
             }
 
-            XmlDocument xmlBusiness = new XmlDocument();
-            xmlBusiness.Load(BusinessLogicXML[projectType].First().XMLPath.FullName);
+            FileInfo businessLogicXML = BusinessLogicXML[projectType].First().XMLPath;
 
+            TreeNode tnProject = new TreeNode("TITLE_NOT_FOUND", 1, 1);
+            tnProject.Tag = this;
+            treProject.Nodes.Add(tnProject);
+
+            return LoadTree(tnProject, businessLogicXML);
+        }
+
+        public TreeNode LoadTree(TreeNode tnProject, FileInfo businessLogicXML)
+        {
+            // Determine the type of project
+            XmlDocument xmlProject = new XmlDocument();
+            xmlProject.Load(ProjectFile.FullName);
+            XmlNode projectXMLRoot = xmlProject.SelectSingleNode("Project");
+
+            // Load the business logic XML file and retrieve the root node
+            XmlDocument xmlBusiness = new XmlDocument();
+            xmlBusiness.Load(businessLogicXML.FullName);
             XmlNode nodBLRoot = xmlBusiness.SelectSingleNode("Project/Node");
             if (!(nodBLRoot is XmlNode))
             {
@@ -116,12 +133,8 @@ namespace RaveAddIn
                 return null;
             }
 
-            XmlNode projectXMLRoot = xmlProject.SelectSingleNode("Project");
-            string projectName = GetLabel(nodBLRoot, projectXMLRoot);
-
-            TreeNode tnProject = new TreeNode(projectName, 1, 1);
-            tnProject.Tag = this;
-            treProject.Nodes.Add(tnProject);
+            // Retrieve and apply the project name to the parent node
+            tnProject.Text = GetLabel(nodBLRoot, projectXMLRoot);
 
             // Loop over all child nodes of the business logic XML and load them to the tree
             nodBLRoot.ChildNodes.OfType<XmlNode>().ToList().ForEach(x => LoadTreeNode(tnProject, x, projectXMLRoot, string.Empty));
@@ -226,36 +239,6 @@ namespace RaveAddIn
             newNode.Tag = layer;
             tnParent.Nodes.Add(newNode);
         }
-
-        //private static void PrintBusinessNode(XmlNode nod)
-        //{
-        //    System.Diagnostics.Debug.Print("\nBL Node: " + nod.Name);
-        //    PrintAttributes(nod, "xpathlabel");
-        //    PrintAttributes(nod, "label");
-        //    PrintAttributes(nod, "xpath");
-        //    PrintAttributes(nod, "type");
-        //}
-
-        //private static void PrintAttributes(XmlNode nod, string attribute)
-        //{
-        //    XmlAttribute attXPath = nod.Attributes[attribute];
-        //    if (attXPath is XmlAttribute)
-        //    {
-        //        if (string.IsNullOrEmpty(attXPath.InnerText))
-        //        {
-        //            System.Diagnostics.Debug.Print(string.Format("{0}: <Empty>", attribute));
-        //        }
-        //        else
-        //        {
-        //            System.Diagnostics.Debug.Print(string.Format("{0}: {1}", attribute, attXPath.InnerText));
-        //        }
-        //    }
-        //    else
-        //    {
-        //        System.Diagnostics.Debug.Print(string.Format("{0}: <Missing>", attribute));
-        //    }
-
-        //}
 
         private static string GetXPath(XmlNode businessLogicNode, string xPath)
         {
