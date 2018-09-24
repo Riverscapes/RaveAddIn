@@ -17,6 +17,7 @@ namespace RaveAddIn
             cmsProject = new ContextMenuStrip(components);
             cmsProject.Items.Add("Explore Project Folder", Properties.Resources.BrowseFolder, OnExplore);
             cmsProject.Items.Add("View Project MetaData", Properties.Resources.metadata, OnMetaData);
+            cmsProject.Items.Add("Add All Layers To The Map", Properties.Resources.AddToMap, OnAddChildrenToMap);
             cmsProject.Items.Add("Close Project", null, OnClose);
         }
 

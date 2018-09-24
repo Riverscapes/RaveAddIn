@@ -312,9 +312,6 @@ namespace RaveAddIn
                 }
             }
 
-
-
-
             IGroupLayer pResultLayer = new GroupLayer();
             pResultLayer.Name = sName;
 

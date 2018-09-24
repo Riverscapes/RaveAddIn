@@ -110,12 +110,26 @@ namespace RaveAddIn
                 BuildProjectCMS();
                 node.ContextMenuStrip = cmsProject;
             }
+            else
+            {
+                BuildFolderCMS();
+                node.ContextMenuStrip = cmsFolder;
+            }
 
             // Assign context menus recursively
             foreach (TreeNode n in node.Nodes)
             {
                 AssignContextMenus(n);
             }
+        }
+
+        private void BuildFolderCMS()
+        {
+            if (cmsFolder != null)
+                return;
+
+            cmsFolder = new ContextMenuStrip(components);
+            cmsFolder.Items.Add("Add All Layers To The Map", Properties.Resources.AddToMap, OnAddChildrenToMap);
         }
 
         public void treProject_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
@@ -138,6 +152,23 @@ namespace RaveAddIn
             }
 
             return ArcMapUtilities.GetGroupLayer(node.Text, parentGrpLyr);
+        }
+
+        public void OnAddChildrenToMap(object sender, EventArgs e)
+        {
+            AddChildrenToMap(treProject.SelectedNode);
+        }
+
+        private void AddChildrenToMap(TreeNode e)
+        {
+            e.Nodes.OfType<TreeNode>().ToList().ForEach(x => AddChildrenToMap(x));
+
+            if (e.Tag is GISItem)
+            {
+                GISItem layer = (GISItem) e.Tag;
+                IGroupLayer parentGrpLyr = BuildArcMapGroupLayers(e);
+                ArcMapUtilities.AddToMap(layer.GISFileInfo, layer.Name, parentGrpLyr);
+            }
         }
     }
 }

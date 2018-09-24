@@ -176,6 +176,7 @@ namespace RaveAddIn
                 }
                 else
                 {
+                    // Group Layer / Folder
                     string label = GetLabel(xmlBusiness, xmlProject);
                     TreeNode newNode = new TreeNode(label, 1, 1);
                     tnParent.Nodes.Add(newNode);
