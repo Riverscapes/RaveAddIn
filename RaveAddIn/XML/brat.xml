@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:noNamespaceSchemaLocation="XSD/project_explorer.xsd">
+ <Name>BRAT</Name>
+ <ProjectType>BRAT</ProjectType>
+ <Node xpathlabel="Name">
+  <Children>
+    <Repeater label="Realizations" xpath="Realizations/BRAT">
+      <!-- this is a template for how each realization should render-->
+      <Node xpathlabel="Name">
+        <Children collapsed="false">
+          <Node label="Analyses">
+            <Children>
+              <Repeater label="Outputs" xpath="Analyses/Analysis/Outputs/Vector">
+                <Node xpathlabel="Name" type="vector" symbology="conflict" />
+              </Repeater>
+            </Children>
+          </Node>
+          <Node label="Inputs" xpath="Inputs">
+            <Children>
+              <Node label="Vegetation">
+                <Children>
+                  <Node xpathlabel="Name" xpath="ExistingVegetation" type="raster" symbology=""/>
+                  <Node xpathlabel="Name" xpath="HistoricVegetation" type="raster" symbology=""/>
+                </Children>
+              </Node>
+              <Node label="Drainage Network" xpath="DrainageNetworks">
+                <Children>
+                  <Node xpathlabel="Name" xpath="Network" type="vector" symbology="Network"/>
+                  <Repeater label="Buffers" xpath="Network/Buffers">
+                    <Node xpathlabel="Name" xpath="Buffer" type="vector" symbology="Thiessen"/>
+                  </Repeater>
+                </Children>
+              </Node>
+              <Node label="Topography" xpath="Topography">
+                <Children>
+                  <Node xpathlabel="Name" xpath="DEM" type="raster" symbology=""/>
+                  <Node xpathlabel="Name" xpath="Flow" type="vector" symbology=""/>
+                  <Node xpathlabel="Name" xpath="LandUse" type="raster" symbology=""/>
+                  <Node xpathlabel="Name" xpath="Roads" type="vector" symbology=""/>
+                  <Node xpathlabel="Name" xpath="Railroads" type="vector" symbology=""/>
+                  <Node xpathlabel="Name" xpath="Canals" type="vector" symbology=""/>
+                </Children>
+              </Node>
+            </Children>
+          </Node>
+        </Children>
+      </Node>
+    </Repeater>
+  </Children>
+</Node>
+</Project>

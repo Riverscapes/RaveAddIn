@@ -204,10 +204,16 @@
     </None>
     <None Include="Resources\AddToMap.png" />
     <None Include="Resources\tree.png" />
+    <Content Include="XML\brat.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="XML\XSD\project_explorer.xsd">
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Symbology\BRAT\conflict.lyr">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <AddInContent Include="Images\Help.png" />

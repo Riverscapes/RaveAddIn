@@ -71,6 +71,33 @@ namespace RaveAddIn.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to RAVE.
+        /// </summary>
+        internal static string AppDataFolder {
+            get {
+                return ResourceManager.GetString("AppDataFolder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Symbology.
+        /// </summary>
+        internal static string AppDataSymbologyFolder {
+            get {
+                return ResourceManager.GetString("AppDataSymbologyFolder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Shared.
+        /// </summary>
+        internal static string AppDataSymbologySharedFolder {
+            get {
+                return ResourceManager.GetString("AppDataSymbologySharedFolder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to River Analysis and Viewer Explorer.
         /// </summary>
         internal static string ApplicationNameLong {

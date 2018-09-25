@@ -9,7 +9,7 @@ namespace RaveAddIn.ProjectTree
 {
     public class Raster : GISItem
     {
-        public Raster(FileInfo filepath, string name) : base(filepath, name)
+        public Raster(RaveProject project, FileInfo filepath, string name, string symbology) : base(project, filepath, name, symbology)
         {
 
         }

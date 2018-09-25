@@ -10,8 +10,11 @@ namespace RaveAddIn
     public class RaveProject
     {
         public readonly FileInfo ProjectFile;
+        public DirectoryInfo Folder { get { return ProjectFile.Directory; } }
+        public readonly string ProjectType;
+
         //public readonly string Name;
-        //public readonly string ProjectType;
+
 
         private static Dictionary<string, List<BusinessLogicXML>> _BusinessLogicXML;
         public static Dictionary<string, List<BusinessLogicXML>> BusinessLogicXML
@@ -33,7 +36,27 @@ namespace RaveAddIn
         {
             ProjectFile = projectFile;
             //Name = name;
-            //ProjectType = projectType;
+
+            try
+            {
+                XmlDocument xmlDoc = new XmlDocument();
+                xmlDoc.Load(projectFile.FullName);
+
+                string xPath = "Project/ProjectType";
+                XmlNode nodProjectType = xmlDoc.SelectSingleNode(xPath);
+                if (nodProjectType == null)
+                    throw new Exception("Missing XML node at " + xPath);
+
+                if (string.IsNullOrEmpty(nodProjectType.InnerText))
+                    throw new Exception(string.Format("The project type at XPath '{0}' contains no value. This XPath cannot be empty.", xPath));
+
+                ProjectType = nodProjectType.InnerText;
+            }
+            catch (Exception ex)
+            {
+                ex.Data["Project File"] = projectFile.FullName;
+                throw;
+            }
         }
 
         public static bool IsSame(RaveProject proj1, RaveProject proj2)
@@ -99,7 +122,6 @@ namespace RaveAddIn
             XmlDocument xmlProject = new XmlDocument();
             xmlProject.Load(ProjectFile.FullName);
             string projectType = xmlProject.SelectSingleNode("Project/ProjectType").InnerText;
-
 
             if (!BusinessLogicXML.ContainsKey(projectType))
             {
@@ -184,8 +206,18 @@ namespace RaveAddIn
                 XmlAttribute attType = xmlBusiness.Attributes["type"];
                 if (attType is XmlAttribute)
                 {
+                    XmlNode gisNode = xmlProject;
+                    if (!string.IsNullOrEmpty(xPath))
+                        gisNode = xmlProject.SelectSingleNode(xPath);
+
+                    // Retrieve symbology key from business logic
+                    string symbology = string.Empty;
+                    XmlAttribute attSym = xmlBusiness.Attributes["symbology"];
+                    if (attSym is XmlAttribute && !String.IsNullOrEmpty(attSym.InnerText))
+                        symbology = attSym.InnerText;
+
                     // This some kind of file (vector, raster, tile, image etc)
-                    AddGISNode(tnParent, attType.InnerText, xmlProject.SelectSingleNode(xPath));
+                    AddGISNode(tnParent, attType.InnerText, gisNode, symbology);
                 }
                 else
                 {
@@ -204,7 +236,7 @@ namespace RaveAddIn
             }
         }
 
-        private void AddGISNode(TreeNode tnParent, string type, XmlNode nodGISNode)
+        private void AddGISNode(TreeNode tnParent, string type, XmlNode nodGISNode, string symbology)
         {
             if (nodGISNode == null)
                 return;
@@ -225,13 +257,13 @@ namespace RaveAddIn
             switch (type.ToLower())
             {
                 case "raster":
-                    imgIndex = 2;
-                    layer = new ProjectTree.Raster(absPath, name);
+                    imgIndex = absPath.Exists ? 2 : 4;
+                    layer = new ProjectTree.Raster(this, absPath, name, symbology);
                     break;
 
                 case "vector":
-                    imgIndex = 3;
-                    layer = new ProjectTree.Vector(absPath, name);
+                    imgIndex = absPath.Exists ? 3 : 5;
+                    layer = new ProjectTree.Vector(this, absPath, name, symbology);
                     break;
             }
 

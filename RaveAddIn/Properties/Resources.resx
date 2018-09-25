@@ -148,4 +148,13 @@
   <data name="tree" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\tree.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="AppDataFolder" xml:space="preserve">
+    <value>RAVE</value>
+  </data>
+  <data name="AppDataSymbologyFolder" xml:space="preserve">
+    <value>Symbology</value>
+  </data>
+  <data name="AppDataSymbologySharedFolder" xml:space="preserve">
+    <value>Shared</value>
+  </data>
 </root>
