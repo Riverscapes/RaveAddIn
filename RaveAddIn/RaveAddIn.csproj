@@ -107,7 +107,6 @@
     <Compile Include="AddInCommands\btnProjectExplorer.cs" />
     <Compile Include="AddInCommands\btnWebSite.cs" />
     <Compile Include="ArcMapUtilities.cs" />
-    <Compile Include="BusinessLogicXML.cs" />
     <Compile Include="Config.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Config.esriaddinx</DependentUpon>
@@ -125,13 +124,7 @@
       <DependentUpon>frmMetaData.cs</DependentUpon>
     </Compile>
     <Compile Include="MetaData\MetaDataItem.cs" />
-    <Compile Include="ProjectTree\GISItem.cs" />
-    <Compile Include="ProjectTree\ucProjectExplorer_Project.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="ProjectTree\ucProjectExplorer_GIS.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="GISLayer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

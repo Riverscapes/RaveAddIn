@@ -126,6 +126,15 @@ namespace RaveAddIn.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to XML.
+        /// </summary>
+        internal static string BusinessLogicXMLFolder {
+            get {
+                return ResourceManager.GetString("BusinessLogicXMLFolder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap expand {

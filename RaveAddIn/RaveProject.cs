@@ -13,21 +13,6 @@ namespace RaveAddIn
         public DirectoryInfo Folder { get { return ProjectFile.Directory; } }
         public readonly string ProjectType;
 
-        private static Dictionary<string, List<BusinessLogicXML>> _BusinessLogicXML;
-        public static Dictionary<string, List<BusinessLogicXML>> BusinessLogicXML
-        {
-            get
-            {
-                if (_BusinessLogicXML == null)
-                {
-                    _BusinessLogicXML = new Dictionary<string, List<RaveAddIn.BusinessLogicXML>>();
-                    LoadBusinessLogicXML();
-                }
-
-                return _BusinessLogicXML;
-            }
-        }
-
         public RaveProject(FileInfo projectFile)
         {
             ProjectFile = projectFile;
@@ -64,35 +49,63 @@ namespace RaveAddIn
             return new FileInfo(Path.Combine(ProjectFile.DirectoryName, relativePath));
         }
 
-        private static void LoadBusinessLogicXML()
+        /// <summary>
+        /// Determine the location of the business lofic XML file for this project
+        /// </summary>
+        /// <remarks>
+        /// The following locations will be searched in order for a 
+        /// file with an XPath of /Project/ProjectType that matches (case insenstive)
+        /// the ProjectType of this project object.
+        /// 
+        /// 1. ProjectFolder
+        /// 2. %APPDATA%\RAVE\XML
+        /// 3. SOFTWARE_DEPLOYMENT\XML
+        /// 
+        /// </remarks>
+        private FileInfo LoadBusinessLogicXML()
         {
-            string folder = Path.Combine(Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location), "XML");
-
-            foreach (string xmlPath in Directory.GetFiles(folder, "*.xml"))
+            List<string> SearchFolders = new List<string>()
             {
-                try
+                ProjectFile.DirectoryName,
+                Path.Combine(ucProjectExplorer.AppDataFolder.FullName, Properties.Resources.BusinessLogicXMLFolder),
+                Path.Combine(ucProjectExplorer.DeployFolder.FullName, Properties.Resources.BusinessLogicXMLFolder),
+            };
+
+            foreach (string folder in SearchFolders)
+            {
+                if (!Directory.Exists(folder))
+                    continue;
+
+                foreach (string xmlPath in Directory.GetFiles(folder, "*.xml"))
                 {
-                    XmlDocument xmlDoc = new XmlDocument();
-                    xmlDoc.Load(xmlPath);
+                    // Ignore project files that also end in *.xml
+                    if (xmlPath.ToLower().EndsWith(".rs.xml"))
+                        continue;
 
-                    XmlNode nodProjectType = xmlDoc.SelectSingleNode("Project/ProjectType");
-                    XmlNode nodName = xmlDoc.SelectSingleNode("Project/Name");
-
-                    if (nodProjectType is XmlNode && !string.IsNullOrEmpty(nodProjectType.InnerText))
+                    try
                     {
-                        if (!BusinessLogicXML.ContainsKey(nodProjectType.InnerText))
-                        {
-                            BusinessLogicXML[nodProjectType.InnerText] = new List<BusinessLogicXML>();
-                        }
+                        XmlDocument xmlDoc = new XmlDocument();
+                        xmlDoc.Load(xmlPath);
 
-                        BusinessLogicXML[nodProjectType.InnerText].Add(new BusinessLogicXML(nodName.InnerText, nodProjectType.InnerText, xmlPath));
+                        XmlNode nodProjectType = xmlDoc.SelectSingleNode("Project/ProjectType");
+                        XmlNode nodName = xmlDoc.SelectSingleNode("Project/Name");
+
+                        if (nodProjectType is XmlNode && !string.IsNullOrEmpty(nodProjectType.InnerText))
+                        {
+                            if (string.Compare(nodProjectType.InnerText, ProjectType, true) == 0)
+                            {
+                                return new FileInfo(xmlPath);
+                            }
+                        }
+                    }
+                    catch (Exception)
+                    {
+                        // Do nothing, continue onto the next business logic file
                     }
                 }
-                catch (Exception)
-                {
-                    // Do nothing, continue onto the next business logic file
-                }
             }
+
+            return null;
         }
 
         public XmlNode MetDataNode
@@ -117,7 +130,16 @@ namespace RaveAddIn
             tnProject.Tag = this;
             treProject.Nodes.Add(tnProject);
 
-            return LoadProjectIntoNode(tnProject);
+            TreeNode tnResult = LoadProjectIntoNode(tnProject);
+
+            // If nothing returned then something went wrong. Remove the temporary node.
+            if (tnResult == null)
+            {
+                tnProject.Remove();
+                MessageBox.Show(string.Format("Failed to load project because there is no business logic file for projects of type '{0}'.", ProjectType), "Missing Business Logic XML File", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+            return tnResult;
         }
 
         public TreeNode LoadProjectIntoNode(TreeNode tnProject)
@@ -125,15 +147,13 @@ namespace RaveAddIn
             // Remove all the existing child nodes (required if refreshing existing tree node)
             tnProject.Nodes.Clear();
 
-            if (!BusinessLogicXML.ContainsKey(ProjectType))
+            FileInfo businessLogic = LoadBusinessLogicXML();
+            if (businessLogic == null)
             {
-                MessageBox.Show(string.Format("Failed to load project because there is no business logic file for projects of type '{0}'.", ProjectType), "Failed To Load Project", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return null;
             }
 
-            FileInfo businessLogicXML = BusinessLogicXML[ProjectType].First().XMLPath;
-
-            return LoadTree(tnProject, businessLogicXML);
+            return LoadTree(tnProject, businessLogic);
         }
 
         public TreeNode LoadTree(TreeNode tnProject, FileInfo businessLogicXML)
@@ -252,7 +272,7 @@ namespace RaveAddIn
             }
 
             TreeNode newNode = new TreeNode(name, imgIndex, imgIndex);
-            newNode.Tag = new ProjectTree.GISItem(this, absPath, name, symbology);
+            newNode.Tag = new ProjectTree.GISLayer(this, absPath, name, symbology);
             tnParent.Nodes.Add(newNode);
         }
 

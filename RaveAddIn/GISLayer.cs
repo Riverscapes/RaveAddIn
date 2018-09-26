@@ -1,19 +1,18 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 
 namespace RaveAddIn.ProjectTree
 {
-    public class GISItem
+    public class GISLayer
     {
         public readonly RaveProject Project;
         public readonly string Name;
-        public readonly FileInfo GISFileInfo;
+        public readonly FileInfo FilePath;
         public readonly string SymbologyKey;
 
-        public GISItem(RaveProject project, FileInfo filePath, string name, string symbologyKey)
+        public GISLayer(RaveProject project, FileInfo filePath, string name, string symbologyKey)
         {
             Project = project;
-            GISFileInfo = filePath;
+            FilePath = filePath;
             Name = name;
             SymbologyKey = symbologyKey;
         }
