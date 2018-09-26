@@ -13,7 +13,7 @@ namespace RaveAddIn.ProjectTree
         public readonly string Name;
         public readonly FileInfo GISFileInfo;
         public readonly string SymbologyKey;
-        public FileInfo LayerFile { get; internal set; }
+        //public FileInfo LayerFile { get; internal set; }
 
         /// <summary>
         /// Determine the location of the layer file for this GIS item
@@ -36,30 +36,7 @@ namespace RaveAddIn.ProjectTree
             Name = name;
             SymbologyKey = symbologyKey;
             
-            string appDataFolder = Path.Combine(Environment.SpecialFolder.ApplicationData.ToString(), Properties.Resources.AppDataFolder, Properties.Resources.AppDataSymbologyFolder);
-            string deployFolder = Path.Combine(Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location), Properties.Resources.AppDataSymbologyFolder);
-
-            List<string> SearchFolders = new List<string>()
-            {
-                Project.Folder.FullName,
-                Path.Combine(appDataFolder, Project.ProjectType),
-                Path.Combine(appDataFolder, Properties.Resources.AppDataSymbologySharedFolder),
-                Path.Combine(deployFolder, Project.ProjectType),
-                Path.Combine(deployFolder, Properties.Resources.AppDataSymbologySharedFolder),
-            };
-
-            foreach (string folder in SearchFolders)
-            {
-                if (Directory.Exists(folder))
-                {
-                    string path = Path.ChangeExtension(Path.Combine(folder, SymbologyKey), "lyr");
-                    if (File.Exists(path))
-                    {
-                        LayerFile = new FileInfo(path);
-                        break;
-                    }
-                }
-            }
+            
 
         }
     }

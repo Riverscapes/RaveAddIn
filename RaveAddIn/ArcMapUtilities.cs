@@ -1,9 +1,12 @@
 ﻿using System;
 using ESRI.ArcGIS.ArcMapUI;
 using ESRI.ArcGIS.Carto;
+using ESRI.ArcGIS.ArcCatalog;
+using ESRI.ArcGIS.Catalog;
 using ESRI.ArcGIS.Geodatabase;
 using ESRI.ArcGIS.esriSystem;
 using ESRI.ArcGIS.DataSourcesRaster;
+using ESRI.ArcGIS.DataSourcesFile;
 using System.Collections;
 using System.IO;
 using System.Collections.Generic;
@@ -124,6 +127,8 @@ namespace RaveAddIn
                 pResultLayer.Name = sLayerName;
             }
 
+            ApplySymbology(pResultLayer, fiSymbologyLayerFile);
+
             if (pGroupLayer == null)
             {
                 ((IMapLayers)ArcMap.Document.FocusMap).InsertLayer(pResultLayer, true, 0);
@@ -138,6 +143,37 @@ namespace RaveAddIn
             ArcMap.Document.CurrentContentsView.Refresh(null);
 
             return pResultLayer;
+        }
+
+        private static void ApplySymbology(ILayer layer, FileInfo symbology)
+        {
+            if (symbology == null || !symbology.Exists)
+                return;
+
+            IGxLayer pGXLayer = new GxLayer();
+            IGxFile pGXFile = (IGxFile)pGXLayer;
+            pGXFile.Path = symbology.FullName;
+
+            if (layer is IRasterLayer)
+            {
+                if (pGXLayer.Layer is IRasterLayer)
+                {
+                    IRasterLayer prlayer = (IRasterLayer)pGXLayer.Layer;
+                    ((IRasterLayer)layer).Renderer = prlayer.Renderer;
+                }
+                else
+                {
+                    throw new Exception(string.Format("Cannot apply symbology file to raster layer {0}. file: {1}", layer.Name, symbology.FullName));
+                }
+            }
+            else if (layer is IGeoFeatureLayer)
+            {
+                if (pGXLayer.Layer is IGeoFeatureLayer)
+                {
+                    IGeoFeatureLayer pGFLayer = (IGeoFeatureLayer)pGXLayer.Layer;
+                    ((IGeoFeatureLayer)layer).Renderer = pGFLayer.Renderer;
+                }
+            }
         }
 
         public static ILayer GetLayerBySource(FileSystemInfo fiFullPath)

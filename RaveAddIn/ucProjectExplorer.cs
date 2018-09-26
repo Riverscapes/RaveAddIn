@@ -69,8 +69,8 @@ namespace RaveAddIn
 
         private ContextMenuStrip cmsProject;
         private ContextMenuStrip cmsFolder;
-        private ContextMenuStrip cmsVector;
-        private ContextMenuStrip cmsRaster;
+        //private ContextMenuStrip cmsVector;
+        private ContextMenuStrip cmsGIS;
 
         public void LoadProject(FileInfo projectFile)
         {
@@ -95,15 +95,10 @@ namespace RaveAddIn
 
         private void AssignContextMenus(TreeNode node)
         {
-            if (node.Tag is Raster)
+            if (node.Tag is GISItem)
             {
-                BuildRasterCMS();
-                node.ContextMenuStrip = cmsRaster;
-            }
-            else if (node.Tag is Vector)
-            {
-                BuildVectorCMS();
-                node.ContextMenuStrip = cmsVector;
+                BuildGISCMS();
+                node.ContextMenuStrip = cmsGIS;
             }
             else if (node.Tag is RaveProject)
             {
