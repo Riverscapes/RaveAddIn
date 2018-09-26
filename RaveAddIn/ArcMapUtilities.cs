@@ -1,31 +1,16 @@
 ﻿using System;
-using ESRI.ArcGIS.ArcMapUI;
 using ESRI.ArcGIS.Carto;
-using ESRI.ArcGIS.ArcCatalog;
 using ESRI.ArcGIS.Catalog;
 using ESRI.ArcGIS.Geodatabase;
 using ESRI.ArcGIS.esriSystem;
 using ESRI.ArcGIS.DataSourcesRaster;
-using ESRI.ArcGIS.DataSourcesFile;
-using System.Collections;
 using System.IO;
-using System.Collections.Generic;
-using RaveAddIn.ProjectTree;
+using ESRI.ArcGIS.CartoUI;
 
 namespace RaveAddIn
 {
     public struct ArcMapUtilities
     {
-        public enum BrowseGISTypes
-        {
-            Point,
-            Line,
-            Polygon,
-            Raster,
-            TIN,
-            Any
-        };
-
         public enum GISDataStorageTypes
         {
             RasterFile,
@@ -45,21 +30,6 @@ namespace RaveAddIn
             Esri_CoverageAnnotationLayer, //{0C22A4C7-DAFD-11D2-9F46-00C04F6BC78E}
             Esri_GroupLayer, //{EDAD6644-1810-11D1-86AE-0000F8751720}
             Esri_AnyLayer
-        }
-
-        public static IRasterDataset GetRasterDataset(RaveAddIn.ProjectTree.Raster raster)
-        {
-            IWorkspace pWorkspace = GetWorkspace(raster.GISFileInfo);
-            IRasterDataset pRDS = ((IRasterWorkspace)pWorkspace).OpenRasterDataset(raster.GISFileInfo.Name);
-
-            int refsLeft = 0;
-            do
-            {
-                refsLeft = System.Runtime.InteropServices.Marshal.ReleaseComObject(pWorkspace);
-            }
-            while (refsLeft > 0);
-
-            return pRDS;
         }
 
         public static ILayer AddToMap(FileSystemInfo fiFullPath, string sLayerName, IGroupLayer pGroupLayer, FileInfo fiSymbologyLayerFile = null, bool bAddToMapIfPresent = false)
@@ -154,6 +124,7 @@ namespace RaveAddIn
             IGxFile pGXFile = (IGxFile)pGXLayer;
             pGXFile.Path = symbology.FullName;
 
+
             if (layer is IRasterLayer)
             {
                 if (pGXLayer.Layer is IRasterLayer)
@@ -172,8 +143,33 @@ namespace RaveAddIn
                 {
                     IGeoFeatureLayer pGFLayer = (IGeoFeatureLayer)pGXLayer.Layer;
                     ((IGeoFeatureLayer)layer).Renderer = pGFLayer.Renderer;
+
+                    IRendererPropertyPage pRendererPropPage = GetVectorPropertyPage(pGFLayer.Renderer);
+                    if (pRendererPropPage != null)
+                    {
+                        ((IGeoFeatureLayer)layer).RendererPropertyPageClassID = pRendererPropPage.ClassID;
+                    }
                 }
             }
+        }
+
+        private static IRendererPropertyPage GetVectorPropertyPage(IFeatureRenderer renderer)
+        {
+            if (renderer is ClassBreaksRenderer) return (IRendererPropertyPage)new GraduatedColorPropertyPage();
+            else if (renderer is SimpleRenderer) return (IRendererPropertyPage)new SingleSymbolPropertyPage();
+            else if (renderer is UniqueValueRenderer) return (IRendererPropertyPage)new StackedChartPropertyPage();
+            return null;
+
+            //if (renderer is BarChartPropertyPage) return (IRendererPropertyPage)new BarChartPropertyPage();
+            //else if (renderer is BiUniqueValuePropertyPage) return (IRendererPropertyPage)new BiUniqueValuePropertyPage();
+            //else if (renderer is CadUniqueValuePropertyPage) return (IRendererPropertyPage)new CadUniqueValuePropertyPage();
+            //else if (renderer is CombiUniqueValuePropertyPage) return (IRendererPropertyPage)new CombiUniqueValuePropertyPage();
+            //else if (renderer is StackedChartPropertyPage) return (IRendererPropertyPage)new StackedChartPropertyPage();
+            //else if (renderer is GraduatedSymbolPropertyPage) return (IRendererPropertyPage)new GraduatedSymbolPropertyPage();
+            //else if (renderer is LookupSymbolPropertyPage) return (IRendererPropertyPage)new LookupSymbolPropertyPage();
+            //else if (renderer is MultiDotDensityPropertyPage) return (IRendererPropertyPage)new MultiDotDensityPropertyPage();
+            //else if (renderer is PieChartPropertyPage) return (IRendererPropertyPage)new PieChartPropertyPage();
+            //else if (renderer is ProportionalSymbolPropertyPage) return (IRendererPropertyPage)new ProportionalSymbolPropertyPage();
         }
 
         public static ILayer GetLayerBySource(FileSystemInfo fiFullPath)
@@ -284,34 +280,6 @@ namespace RaveAddIn
             return null;
         }
 
-        /// <summary>
-        /// Get the group layer from the ArcMap TOC with the specified name, creating it if needed.
-        /// </summary>
-        /// <param name="pArcMap">ArcMap</param>
-        /// <param name="sName">The name of the group layer</param>
-        /// <param name="bCreateIfNeeded">If true then the group layer will be created if it doesn't exist</param>
-        /// <returns>The group layer </returns>
-        /// <remarks>The default is to create the group layer if it doesn't exist</remarks>
-        public static IGroupLayer GetGroupLayer(string sName, bool bCreateIfNeeded = true)
-        {
-            if (string.IsNullOrEmpty(sName))
-            {
-                // This route might be needed if the GCD calls this function without an open project.
-                return null;
-            }
-
-            // Try and get the group layer with the name
-            IGroupLayer pGrpLayer = (IGroupLayer)GetLayerByName(sName, eEsriLayerTypes.Esri_GroupLayer);
-            if (!(pGrpLayer is IGroupLayer))
-            {
-                pGrpLayer = new GroupLayer();
-                pGrpLayer.Name = sName;
-                ((IMapLayers)ArcMap.Document.FocusMap).InsertLayer(pGrpLayer, true, 0);
-            }
-
-            return pGrpLayer;
-        }
-
         public static IGroupLayer GetGroupLayer(string sName, IGroupLayer pParentGroupLayer, bool bCreateIfNeeded = true)
         {
             if (string.IsNullOrEmpty(sName))
@@ -361,49 +329,6 @@ namespace RaveAddIn
             }
 
             return pResultLayer;
-        }
-
-        public static FileSystemInfo GetPathFromLayer(ILayer pL)
-        {
-            if (pL == null || pL is ICompositeLayer)
-            {
-                return null;
-            }
-
-            FileSystemInfo siResult = null;
-            if (pL is IFeatureLayer)
-            {
-                IFeatureLayer pFL = (IFeatureLayer)pL;
-
-                //check if featureclass is nothing (this can happen if the underlying file has been deleted but the layer is still in the TOC - FP Sep 10 2014
-                if (pFL.FeatureClass != null)
-                {
-                    string sPath = ((IDataset)pFL.FeatureClass).Workspace.PathName;
-                    if (pFL.FeatureClass.FeatureDataset is IFeatureDataset)
-                    {
-                        sPath = Path.Combine(sPath, pFL.FeatureClass.FeatureDataset.Name);
-                    }
-                    sPath = Path.Combine(sPath, ((IDataset)pFL.FeatureClass).Name);
-
-                    if (((IDataset)pFL.FeatureClass).Workspace.Type == esriWorkspaceType.esriFileSystemWorkspace)
-                    {
-                        sPath = Path.ChangeExtension(sPath, "shp");
-                    }
-
-                    siResult = new FileInfo(sPath);
-                }
-            }
-            else if (pL is IRasterLayer)
-            {
-                siResult = new FileInfo(((IRasterLayer)pL).FilePath);
-            }
-            else if (pL is ITinLayer)
-            {
-                IDataset pDS = (IDataset)pL;
-                siResult = new DirectoryInfo(System.IO.Path.Combine(pDS.Workspace.PathName, pDS.Name));
-            }
-
-            return siResult;
         }
 
         /// <summary>
@@ -748,26 +673,5 @@ namespace RaveAddIn
         //    }
         //}
 
-
-        public static IRasterLayer IsRasterLayerInGroupLayer(System.IO.FileSystemInfo rasterPath, IGroupLayer pGrpLyr)
-        {
-            ICompositeLayer compositeLayer = pGrpLyr as ICompositeLayer;
-            if (compositeLayer != null & compositeLayer.Count > 0)
-            {
-                for (int i = 0; i <= compositeLayer.Count - 1; i++)
-                {
-                    if (compositeLayer.Layer[i] is IRasterLayer)
-                    {
-                        IRasterLayer pLayer = (IRasterLayer)compositeLayer.Layer[i];
-                        if (string.Compare(pLayer.FilePath, rasterPath.FullName, true) == 0)
-                        {
-                            return pLayer;
-                        }
-                    }
-                }
-            }
-
-            return null;
-        }
     }
 }

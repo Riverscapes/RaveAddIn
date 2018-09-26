@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
-using System.Xml;
 using RaveAddIn.ProjectTree;
 using System.IO;
 using System.Linq;
@@ -69,7 +63,6 @@ namespace RaveAddIn
 
         private ContextMenuStrip cmsProject;
         private ContextMenuStrip cmsFolder;
-        //private ContextMenuStrip cmsVector;
         private ContextMenuStrip cmsGIS;
 
         public void LoadProject(FileInfo projectFile)
@@ -85,9 +78,7 @@ namespace RaveAddIn
                 }
             }
 
-
             RaveProject newProject = new RaveProject(projectFile);
-
             TreeNode tnProject = newProject.LoadTree(treProject);
 
             AssignContextMenus(tnProject);

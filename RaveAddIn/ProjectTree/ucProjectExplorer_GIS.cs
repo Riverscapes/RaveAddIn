@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using RaveAddIn.ProjectTree;
 using ESRI.ArcGIS.Carto;
@@ -32,6 +29,20 @@ namespace RaveAddIn
             ArcMapUtilities.AddToMap(layer.GISFileInfo, layer.Name, parentGrpLyr, symbology);
         }
 
+        /// <summary>
+        /// Determine the location of the layer file for this GIS item
+        /// </summary>
+        /// <remarks>
+        /// The following locations will be searched in order for a 
+        /// file with the name SYMBOLOGY_KEY.lyr
+        /// 
+        /// 1. ProjectFolder
+        /// 2. %APPDATA%\RAVE\MODEL
+        /// 3. %APPDATA%\RAVE\Shared
+        /// 4. SOFTWARE_DEPLOYMENT\MODEL
+        /// 5. SOFTWARE_DEPLOYMENT\Shared
+        /// 
+        /// </remarks>
         private FileInfo GetSymbology(GISItem layer)
         {
             string appDataFolder = Path.Combine(Environment.SpecialFolder.ApplicationData.ToString(), Properties.Resources.AppDataFolder, Properties.Resources.AppDataSymbologyFolder);

@@ -13,9 +13,6 @@ namespace RaveAddIn
         public DirectoryInfo Folder { get { return ProjectFile.Directory; } }
         public readonly string ProjectType;
 
-        //public readonly string Name;
-
-
         private static Dictionary<string, List<BusinessLogicXML>> _BusinessLogicXML;
         public static Dictionary<string, List<BusinessLogicXML>> BusinessLogicXML
         {
@@ -30,12 +27,10 @@ namespace RaveAddIn
                 return _BusinessLogicXML;
             }
         }
-
-
-        public RaveProject(FileInfo projectFile)//, string name, string projectType)
+        
+        public RaveProject(FileInfo projectFile)
         {
             ProjectFile = projectFile;
-            //Name = name;
 
             try
             {
@@ -57,11 +52,6 @@ namespace RaveAddIn
                 ex.Data["Project File"] = projectFile.FullName;
                 throw;
             }
-        }
-
-        public static bool IsSame(RaveProject proj1, RaveProject proj2)
-        {
-            return IsSame(proj1, proj2.ProjectFile);
         }
 
         public static bool IsSame(RaveProject proj1, FileInfo projectFile)
@@ -172,15 +162,6 @@ namespace RaveAddIn
             if (xmlBusiness.NodeType == XmlNodeType.Comment)
                 return;
 
-            //if (xmlBusiness.Name != "Children")
-            //{
-            //    System.Diagnostics.Debug.Print("---------------");
-            //    System.Diagnostics.Debug.Print(tnParent.Text);
-            //    System.Diagnostics.Debug.Print(xmlBusiness.Name);
-            //    System.Diagnostics.Debug.Print(xmlProject.Name);
-            //    System.Diagnostics.Debug.Print(xPath);
-            //}
-
             if (xmlBusiness.Name == "Repeater")
             {
                 string label = GetLabel(xmlBusiness, xmlProject);
@@ -199,8 +180,6 @@ namespace RaveAddIn
             }
             else if (xmlBusiness.Name == "Node")
             {
-                //PrintBusinessNode(xmlBusiness);
-
                 xPath = GetXPath(xmlBusiness, xPath);
 
                 XmlAttribute attType = xmlBusiness.Attributes["type"];
@@ -253,22 +232,19 @@ namespace RaveAddIn
             FileInfo absPath = AbsolutePath(path);
 
             int imgIndex = 0; // Default is riverscapes logo
-            ProjectTree.GISItem layer = null;
             switch (type.ToLower())
             {
                 case "raster":
                     imgIndex = absPath.Exists ? 2 : 4;
-                    layer = new ProjectTree.Raster(this, absPath, name, symbology);
                     break;
 
                 case "vector":
                     imgIndex = absPath.Exists ? 3 : 5;
-                    layer = new ProjectTree.Vector(this, absPath, name, symbology);
                     break;
             }
 
             TreeNode newNode = new TreeNode(name, imgIndex, imgIndex);
-            newNode.Tag = layer;
+            newNode.Tag = new ProjectTree.GISItem(this, absPath, name, symbology);
             tnParent.Nodes.Add(newNode);
         }
 

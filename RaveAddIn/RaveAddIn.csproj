@@ -57,6 +57,9 @@
     <Reference Include="ESRI.ArcGIS.Carto, Version=10.4.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL">
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
+    <Reference Include="ESRI.ArcGIS.CartoUI, Version=10.4.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="ESRI.ArcGIS.Catalog, Version=10.4.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL">
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
@@ -123,16 +126,12 @@
     </Compile>
     <Compile Include="MetaData\MetaDataItem.cs" />
     <Compile Include="ProjectTree\GISItem.cs" />
-    <Compile Include="ProjectTree\ProjectNode.cs" />
-    <Compile Include="ProjectTree\Raster.cs" />
-    <Compile Include="ProjectTree\TreeNodeBase.cs" />
     <Compile Include="ProjectTree\ucProjectExplorer_Project.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="ProjectTree\ucProjectExplorer_GIS.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ProjectTree\Vector.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
