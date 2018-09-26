@@ -92,7 +92,7 @@ namespace RaveAddIn
         /// </summary>
         /// <remarks>
         /// C:\Users\USERNAME\AppData\Roaming\RAVE</remarks>
-        public static DirectoryInfo AppDataFolder { get { return new DirectoryInfo(Path.Combine(Environment.SpecialFolder.ApplicationData.ToString(), Properties.Resources.AppDataFolder)); } }
+        public static DirectoryInfo AppDataFolder { get { return new DirectoryInfo(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), Properties.Resources.AppDataFolder)); } }
 
         /// <summary>
         /// Software deployment folder
