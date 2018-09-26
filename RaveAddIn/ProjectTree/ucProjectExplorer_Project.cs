@@ -21,8 +21,20 @@ namespace RaveAddIn
 
         public void OnExplore(object sender, EventArgs e)
         {
-            RaveProject proj = (RaveProject)treProject.SelectedNode.Tag;
-            System.Diagnostics.Process.Start(proj.ProjectFile.Directory.FullName);
+            System.IO.FileInfo file = null;
+            object tag = treProject.SelectedNode.Tag;
+
+            if (tag is RaveProject)
+            {
+                file = ((RaveProject)tag).ProjectFile;
+            }
+            else if (tag is ProjectTree.GISItem)
+            {
+                file = ((ProjectTree.GISItem)tag).GISFileInfo;
+            }
+
+            if (file is System.IO.FileInfo)
+                System.Diagnostics.Process.Start(file.Directory.FullName);
         }
 
         public void OnClose(object sender, EventArgs e)

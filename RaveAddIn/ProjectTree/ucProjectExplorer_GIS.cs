@@ -16,6 +16,7 @@ namespace RaveAddIn
 
             cmsGIS = new ContextMenuStrip(components);
             cmsGIS.Items.Add("Add To Map", Properties.Resources.AddToMap, OnAddGISToMap);
+            cmsGIS.Items.Add("Browse Folder", Properties.Resources.BrowseFolder, OnExplore);
         }
 
         public void OnAddGISToMap(object sender, EventArgs e)
