@@ -79,7 +79,7 @@ namespace RaveAddIn
             }
 
             RaveProject newProject = new RaveProject(projectFile);
-            TreeNode tnProject = newProject.LoadTree(treProject);
+            TreeNode tnProject = newProject.LoadNewProject(treProject);
 
             AssignContextMenus(tnProject);
         }
@@ -116,6 +116,7 @@ namespace RaveAddIn
 
             cmsFolder = new ContextMenuStrip(components);
             cmsFolder.Items.Add("Add All Layers To The Map", Properties.Resources.AddToMap, OnAddChildrenToMap);
+            cmsFolder.Items.Add("Expand All Child Nodes", Properties.Resources.expand, OnExpandChildren);
         }
 
         public void treProject_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)

@@ -126,6 +126,16 @@ namespace RaveAddIn.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap expand {
+            get {
+                object obj = ResourceManager.GetObject("expand", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to http://rave.riverscapes.xyz/Help.
         /// </summary>
         internal static string HelpBaseURL {
@@ -159,6 +169,16 @@ namespace RaveAddIn.Properties {
         internal static System.Drawing.Bitmap RaveAddIn {
             get {
                 object obj = ResourceManager.GetObject("RaveAddIn", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap refresh {
+            get {
+                object obj = ResourceManager.GetObject("refresh", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

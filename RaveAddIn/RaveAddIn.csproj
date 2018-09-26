@@ -212,6 +212,8 @@
     </None>
     <None Include="Resources\AddToMap.png" />
     <None Include="Resources\tree.png" />
+    <None Include="Resources\refresh.png" />
+    <None Include="Resources\expand.png" />
     <Content Include="XML\brat.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

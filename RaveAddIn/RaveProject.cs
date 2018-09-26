@@ -27,7 +27,7 @@ namespace RaveAddIn
                 return _BusinessLogicXML;
             }
         }
-        
+
         public RaveProject(FileInfo projectFile)
         {
             ProjectFile = projectFile;
@@ -106,24 +106,32 @@ namespace RaveAddIn
             }
         }
 
-        public TreeNode LoadTree(TreeView treProject)
+        /// <summary>
+        /// Load a project into the tree that doesn't already exist
+        /// </summary>
+        /// <param name="treProject"></param>
+        /// <returns></returns>
+        public TreeNode LoadNewProject(TreeView treProject)
         {
-            // Determine the type of project
-            XmlDocument xmlProject = new XmlDocument();
-            xmlProject.Load(ProjectFile.FullName);
-            string projectType = xmlProject.SelectSingleNode("Project/ProjectType").InnerText;
-
-            if (!BusinessLogicXML.ContainsKey(projectType))
-            {
-                MessageBox.Show(string.Format("Failed to load project because there is no business logic file for projects of type '{0}'.", projectType), "Failed To Load Project", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return null;
-            }
-
-            FileInfo businessLogicXML = BusinessLogicXML[projectType].First().XMLPath;
-
             TreeNode tnProject = new TreeNode("TITLE_NOT_FOUND", 1, 1);
             tnProject.Tag = this;
             treProject.Nodes.Add(tnProject);
+
+            return LoadProjectIntoNode(tnProject);
+        }
+
+        public TreeNode LoadProjectIntoNode(TreeNode tnProject)
+        {
+            // Remove all the existing child nodes (required if refreshing existing tree node)
+            tnProject.Nodes.Clear();
+
+            if (!BusinessLogicXML.ContainsKey(ProjectType))
+            {
+                MessageBox.Show(string.Format("Failed to load project because there is no business logic file for projects of type '{0}'.", ProjectType), "Failed To Load Project", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return null;
+            }
+
+            FileInfo businessLogicXML = BusinessLogicXML[ProjectType].First().XMLPath;
 
             return LoadTree(tnProject, businessLogicXML);
         }

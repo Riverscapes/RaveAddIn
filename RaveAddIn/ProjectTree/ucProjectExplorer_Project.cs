@@ -11,9 +11,13 @@ namespace RaveAddIn
                 return;
 
             cmsProject = new ContextMenuStrip(components);
+            cmsProject.Items.Add("Expand All Child Nodes", Properties.Resources.expand, OnExpandChildren);
+            cmsProject.Items.Add("-");
             cmsProject.Items.Add("Browse Project Folder", Properties.Resources.BrowseFolder, OnExplore);
             cmsProject.Items.Add("View Project MetaData", Properties.Resources.metadata, OnMetaData);
             cmsProject.Items.Add("Add All Layers To The Map", Properties.Resources.AddToMap, OnAddChildrenToMap);
+            cmsProject.Items.Add("-");
+            cmsProject.Items.Add("Refresh Project Hierarchy", Properties.Resources.refresh, OnRefreshProject);
             cmsProject.Items.Add("Customize Project Hierarchy", Properties.Resources.tree, OnBusinessLogic);
             cmsProject.Items.Add("-");
             cmsProject.Items.Add("Close Project", null, OnClose);
@@ -77,6 +81,26 @@ namespace RaveAddIn
                     AssignContextMenus(nodProject);
                 }
             }
+        }
+
+        public void OnRefreshProject(object sender, EventArgs e)
+        {
+            // Retrieve the project object.
+            TreeNode tnProject = treProject.SelectedNode;
+            RaveProject proj = (RaveProject)tnProject.Tag;
+
+            // Load the project into this same node
+            proj.LoadProjectIntoNode(tnProject);
+
+            if (tnProject is TreeNode)
+            {
+                AssignContextMenus(tnProject);
+            }
+        }
+
+        public void OnExpandChildren(object sender, EventArgs e)
+        {
+            treProject.SelectedNode.ExpandAll();
         }
     }
 }

@@ -19,7 +19,7 @@ namespace RaveAddIn.Tests
 
             RaveProject proj = new RaveProject(new System.IO.FileInfo(@"C:\Users\philip\RiverscapesData\CRB\Watershed\Asotin\Network\VBET\project.rs.xml"));
 
-            proj.LoadTree(treProject);
+            proj.LoadNewProject(treProject);
 
             treProject.Nodes.OfType<TreeNode>().ToList().ForEach(x => PrintTree(x, 0));
         }
