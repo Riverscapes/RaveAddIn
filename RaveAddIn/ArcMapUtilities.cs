@@ -4,8 +4,8 @@ using ESRI.ArcGIS.Catalog;
 using ESRI.ArcGIS.Geodatabase;
 using ESRI.ArcGIS.esriSystem;
 using ESRI.ArcGIS.DataSourcesRaster;
-using System.IO;
 using ESRI.ArcGIS.CartoUI;
+using System.IO;
 
 namespace RaveAddIn
 {

@@ -136,7 +136,7 @@ namespace RaveAddIn
             if (tnResult == null)
             {
                 tnProject.Remove();
-                MessageBox.Show(string.Format("Failed to load project because there is no business logic file for projects of type '{0}'.", ProjectType), "Missing Business Logic XML File", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(string.Format("Failed to load project because there is no valid business logic XML file for projects of type '{0}'.", ProjectType), "Missing Business Logic XML File", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
             return tnResult;

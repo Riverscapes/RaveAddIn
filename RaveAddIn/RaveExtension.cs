@@ -8,10 +8,9 @@ namespace RaveAddIn
 {
     public class RaveExtension : ESRI.ArcGIS.Desktop.AddIns.Extension
     {
-   
         public RaveExtension()
         {
-         }
+        }
 
         protected override void OnStartup()
         {
@@ -19,11 +18,7 @@ namespace RaveAddIn
             // TODO: Uncomment to start listening to document events
             //
             // WireDocumentEvents();
-
- 
         }
-
-    
 
         private void WireDocumentEvents()
         {
@@ -41,14 +36,11 @@ namespace RaveAddIn
                 ESRI.ArcGIS.Framework.IMessageDialog msgBox = new ESRI.ArcGIS.Framework.MessageDialogClass();
                 return msgBox.DoModal("BeforeCloseDocument Event", "Abort closing?", "Yes", "No", ArcMap.Application.hWnd);
             };
-
         }
 
         void ArcMap_NewDocument()
         {
             // TODO: Handle new document event
         }
-
     }
-
 }
