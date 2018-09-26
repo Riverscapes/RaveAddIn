@@ -12,7 +12,7 @@ namespace RaveAddIn.AddInCommands
             }
             catch (Exception ex)
             {
-                RaveException.HandleException(ex);
+                ErrorHandling.frmException.HandleException(ex, "Error Launching RAVE Web Site", string.Empty);
             }
 
             ArcMap.Application.CurrentTool = null;

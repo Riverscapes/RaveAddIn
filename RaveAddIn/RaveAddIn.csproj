@@ -128,11 +128,18 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Config.esriaddinx</DependentUpon>
     </Compile>
+    <Compile Include="ErrorHandling\ExceptionBase.cs" />
     <Compile Include="frmAbout.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmAbout.Designer.cs">
       <DependentUpon>frmAbout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ErrorHandling\frmException.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ErrorHandling\frmException.designer.cs">
+      <DependentUpon>frmException.cs</DependentUpon>
     </Compile>
     <Compile Include="MetaData\frmMetaData.cs">
       <SubType>Form</SubType>
@@ -165,7 +172,6 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="RaveException.cs" />
     <Compile Include="RaveExtension.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -197,6 +203,9 @@
   <ItemGroup>
     <EmbeddedResource Include="frmAbout.resx">
       <DependentUpon>frmAbout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ErrorHandling\frmException.resx">
+      <DependentUpon>frmException.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MetaData\frmMetaData.resx">
       <DependentUpon>frmMetaData.cs</DependentUpon>
@@ -235,12 +244,6 @@
     <AddInContent Include="Images\NewProject.png" />
     <AddInContent Include="Images\OpenProject.png" />
     <AddInContent Include="Images\Options.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\naru\naru.csproj">
-      <Project>{1f496953-a809-4086-990b-884a5077bdc4}</Project>
-      <Name>naru</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <AddInContent Include="Images\RaveAddIn_16px.png" />

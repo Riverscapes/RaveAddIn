@@ -1,9 +1,4 @@
-﻿using RaveAddIn;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 
 namespace RaveAddIn.AddInCommands
 {
@@ -17,7 +12,7 @@ namespace RaveAddIn.AddInCommands
             }
             catch (Exception ex)
             {
-                RaveException.HandleException(ex);
+                ErrorHandling.frmException.HandleException(ex, "Error displaying RAVE Project Explorer.", string.Empty);
             }
 
             ArcMap.Application.CurrentTool = null;
@@ -54,7 +49,7 @@ namespace RaveAddIn.AddInCommands
                     }
                     catch (Exception ex)
                     {
-                        naru.error.ExceptionUI.HandleException(ex,"Error showing project explorer.", string.Empty);
+                        ErrorHandling.frmException.HandleException(ex, "Error showing project explorer.", string.Empty);
                     }
                 }
             }

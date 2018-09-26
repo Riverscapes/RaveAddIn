@@ -13,7 +13,7 @@ namespace RaveAddIn.AddInCommands
             }
             catch (Exception ex)
             {
-                RaveException.HandleException(ex);
+                ErrorHandling.frmException.HandleException(ex, "Error Showing RAVE About Form", string.Empty);
             }
 
             ArcMap.Application.CurrentTool = null;

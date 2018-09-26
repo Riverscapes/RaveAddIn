@@ -57,7 +57,7 @@ namespace RaveAddIn.AddInCommands
             }
             catch (Exception ex)
             {
-                RaveException.HandleException(ex);
+                ErrorHandling.frmException.HandleException(ex, "Error Opening Project", string.Empty);
             }
 
             ArcMap.Application.CurrentTool = null;
