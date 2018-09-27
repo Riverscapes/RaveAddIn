@@ -52,5 +52,5 @@ Remember to put your symbology information under a folder called `RAVE\Symbology
 ## Video Demonstration
 
 <div class="responsive-embed">
-<iframe width="800" height="600" src="https://youtu.be/msaGPVzmnxk" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+<iframe width="800" height="600" src="https://youtu.be/msaGPVzmnxk" frameborder="0" allow="autoplay; encrypted-media; allowfullscreen"></iframe>
 </div>
