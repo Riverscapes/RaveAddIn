@@ -23,8 +23,8 @@ You can add any GIS layer to the current ArcMap document by right clicking and c
 |Search Folder|Example|
 |---|---|
 |Adjacent to the parent riverscapes project file.|`D:\MyProjects\dem.lyr`|
-|`%APPDATA%\RAVE\<model_name>\<symbology_key>.lyr`|`%APPDATA%\BRAT\dem.lyr`|
-|`%APPDATA%\RAVE\Shared\<symbology_key>.lyr`|`%APPDATA%\RAVE\Shared\dem.lyr`|
+|`%APPDATA%\RAVE\<model_name>\<symbology_key>.lyr`|`%APPDATA%\RAVE\Symbology\BRAT\dem.lyr`|
+|`%APPDATA%\RAVE\Shared\<symbology_key>.lyr`|`%APPDATA%\RAVE\Symbology\Shared\dem.lyr`|
 |`<software_installation_folder>\Symbology\<Model>\<symbology>.lyr`|*Hidden folder*|
 |`<software_installation_folder>\Symbology\Shared<symbology>.lyr`|*Hidden folder*|
 

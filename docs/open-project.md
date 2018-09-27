@@ -1,5 +1,6 @@
 ---
 title: Open a Project
+weight: 3
 ---
 
 Launch ArcMap and make sure that the RAVE toolbar is visible. If it is not then right click in the empty toolbar area in the top right of ArcMap and choose "River Analysis Viewer and Explorer". This will open the toolbar which can then be docked anywhere you like within ArcMap.

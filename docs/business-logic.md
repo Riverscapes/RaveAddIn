@@ -1,10 +1,42 @@
 ---
 title: Business logic XML
+weight: 98
 ---
 
-## Business logic XML
+The purpose of the business logic XML is to translate Riverscpaes projects and determine how they should be displayed in the RAVE project explorer. In other words, the Riverscapes project file defines **what** layers exist with the project, while the business logic file defines **how** these layers should be organized within the project explorer tree.
 
-The purpose of the business logic XML is to translate `project.rs.xml` files into project trees with elements that can be added to a map.
+![business logic]({{site.baseurl}}/assets/images/business_logic.png)
+
+## Where does RAVE Look for Business Logic XML Files?
+
+When RAVE attempts to load a Riverscapes project it looks in three locations to find an appropraite business logic XML file. RAVE uses the first business logic file that it finds that contains the same project type specified at the top of the business logic file. See the [symbology page](symbology.html#where-is-my-appdata-folder) for how to locate your APPDATA folder.
+
+|Search Folder|Example|
+|---|---|
+|Adjacent to the parent riverscapes project file.|`D:\MyProjects\dem.lyr`|
+|`%APPDATA%\RAVE\XML`|`%APPDATA%\RAVE\XML\brat.xml`|
+|`<software_installation_folder>\XML`|*Hidden folder*|
+
+## Altering Business Logic & Refreshing the Project Explorer
+
+You can change the business logic XML file while ArcMap and RAVE are in use, providing that the business logic file in question is either adjacent to the Riverscapes project file or in the APPDATA folder.
+
+1. Locate the business logic file being used and open it in any text editor.
+1. Make the desired changes to the business logic XML.
+1. Save the business logic XML file.
+1. Right click on the project node in the RAVE project explorer and choose "Refresh".
+
+![refresh]({{site.baseurl}}/assets/images/refresh.png)
+
+## Custom Business Logic
+
+You can apply a business logic file stored in a location on your computer other than the search folders described above by choosing the "Customize Project Hierarchy" option after right clicking on the project in the RAVE project explorer.
+
+![custom]({{site.baseurl}}/assets/images/custom.png)
+
+## Business logic Definition
+
+Here is an example of a business logic file for VBET projects:
 
 ``` xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -41,7 +73,7 @@ The purpose of the business logic XML is to translate `project.rs.xml` files int
 </Project>
 ```
 
-By layering the various building blocks together you should be able t accomplish a wide variety of tree structures.
+By layering the various building blocks together you should be able to accomplish a wide variety of tree structures.
 
 ### `<Project>`
 
@@ -59,12 +91,12 @@ They have one optional attribute: `collapsed="true/false"` which determines if t
 
 ### `<Node>`
 
-#### Tags:
+#### Tags
 
 * `<TileService>`: (optional) If your node is a tile service (`type="tile"`) then put its url here
 * `<Children>`: This node can have sub-nodes
 
-#### Attributes:
+#### Attributes
 
 Choose one of:
 * `label`: The literal string you want to assign to this node as a label
