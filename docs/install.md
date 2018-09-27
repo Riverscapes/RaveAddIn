@@ -1,6 +1,6 @@
 ---
-title: RAVE Installation & Updates
-weight: 1
+title: Installation & Updates
+weight: 2
 ---
 
 ## ArcGIS Add-In
