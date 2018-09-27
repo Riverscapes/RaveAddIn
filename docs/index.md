@@ -2,12 +2,11 @@
 title: RAVE AddIn
 ---
 
-Welcome to the River Analysis Viewer and Explorer (RAVE) software website. Here you will find [downloads]({{ site.baseurl }}/Download), [help]({{ site.baseurl }}/Help) and general information on the software.
+Welcome to the River Analysis Viewer and Explorer (RAVE) software website. Here you can find general information about the RAVE software, including information on [opening projects](open-project.html), [symbolizing layers](symbology.html) and controlling how projects are displayed using [business logic XML](business-logic.html).
 
 <a class="button large" href="https://github.com/Riverscapes/RaveAddIn/releases/latest">
         <img src="{{site.baseurl}}/assets/images/RiverscapesLogo_x16.png">
         &nbsp;&nbsp;Download RAVE</a>
-<a class="button large" href="{{ site.baseurl}}/Help"> <i class="fa fa-question-circle"></i>&nbsp;&nbsp;RAVE Help</a>
 
 ![RAVE]({{ site.baseurl}}/assets/images/rave.png)
 

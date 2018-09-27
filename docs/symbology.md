@@ -1,5 +1,6 @@
 ---
 title: Symbology
+weight: 5
 ---
 
 By default RAVE adds layers to the current ArcMap document using the default symbology. Rasters are added with a greyscale and vectors with a single symbol using a random color.
