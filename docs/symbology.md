@@ -7,13 +7,13 @@ By default RAVE adds layers to the current ArcMap document using the default sym
 
 ![Add To Map]({{site.baseurl}}/assets/images/add_to_map.png)
 
-You can override this behavior and apply specific symbology to different types of layers. For example you can use one raster symbolology for DEMs and another for vegetation. RAVE does this using ESRI layer files. Layer files contain two bits of information. First they possess a path to a specific GIS dataset on your computer and second they store the definition of how the dataset should be symbolized. RAVE only uses the latter and ignores the path to the dataset itself. In this way RAVE can apply the symbology stored in a single layer file to many layers of the same type. See the [video demonstration](#video-demonstration) at the bottom of this page for a demonstration for how this all works.
+You can override this behavior and apply specific symbology to different types of layers. For example you can use one raster symbolology for DEMs and another for vegetation. RAVE does this using ESRI layer files. Layer files contain two bits of information. First they possess a path to a specific GIS dataset on your computer and second they store the definition of how the dataset should be symbolized. RAVE only uses the latter and ignores the path to the dataset itself. In this way RAVE can apply the symbology stored in a single layer file to many layers of the same type. See the [video demonstration](#video-demonstration) at the bottom of this page to see for how all of this works.
 
 ## Symbology Keys
 
 Each layer within a GCD project tree has a symbology key  associated with it. These keys define the generic type of layer in question and they are used to pick which symbology to apply when adding the layer to the map. Examples might be "DEM", "Soil" or "Vegetation".
 
-The symbology keys are defined in the business logic XML that is used to load the Riverscapes project into the RAVE project explorer. In the illustration below the VBET.xml business logic file (1) defines a node in the tree for the DEM input (2) that when RAVE attempts to add the layer to the ArcMap table of contents it uses the symbology key of `raster_dem`. 
+The symbology keys are defined in the business logic XML that is used to load the Riverscapes project into the RAVE project explorer. In the illustration below the VBET.xml business logic file (1) defines a node in the tree for the DEM input (2) that when RAVE attempts to add the layer to the ArcMap table of contents (3) it uses the symbology key of `raster_dem` (4). 
 
 ![symbology keys]({{site.baseurl}}/assets/images/symbology_keys.png)
 
@@ -35,7 +35,7 @@ Notice above how RAVE first looks next to the project for layer files that only 
 
 ## Where Is my %APPDATA% folder?
 
-`%APPDATA%` is a shortcut to a special folder on your computer where applications can store configuration information. Typically it refers to the path `C:\<your_user_name>\AppData\Roaming`. This folder might be hidden and not visible by default but you can always browse to it regardless. You can reach this folder by opening Windows explorer and entering the text `%APPDATA%` into the address bar. 
+`%APPDATA%` is a shortcut to a special folder on your computer where applications can store configuration information. Typically it refers to the path `C:\<your_user_name>\AppData\Roaming`. This folder might be hidden and not visible by default but you can always browse to it regardless. You can reach this folder by opening Windows Explorer and entering the text `%APPDATA%` into the address bar. 
 
 ![appdata]({{site.baseurl}}/assets/images/appdata.png)
 
@@ -44,8 +44,8 @@ Remember to put your symbology information under a folder called `RAVE\Symbology
 ## How To Create a Layer File
 
 1. Add the layer in question to the current ArcMap document. You can do this using RAVE or using the typical ArcMap features to Add Data.
-2. Use ArcMap to symbolize the layer how you want it to appear for RAVE layers. Remember that depending on where you place this layer file (see below) this symbology might be applied more than just the layer in question. Configure the symbology accordingly. For example if you are configuring a percent slope layer but the current layer only contains slopes up to 20%, be sure to extend the symbology classification all the way up to 90% in case this symbology is used for layers with a different range.
-3. Right click on the layer in the ArcMap table of contents and choose `Save As Layer File...` Be sure to save it in the right location according to how you want RAVE to use the layer file (see next section).
+2. Use ArcMap to symbolize the layer how you want it to appear for RAVE layers. Remember that depending on where you place this layer file (see below) this symbology might be applied more than just the layer in question. Configure the symbology accordingly. For example, if you are configuring a percent slope layer but the current layer only contains slopes up to 20%, be sure to extend the symbology classification all the way up to 90% in case this symbology is used for layers with a different range.
+3. Right click on the layer in the ArcMap table of contents and choose `Save As Layer File...` Be sure to save it in the right location according to how you want RAVE to use the layer file (see previous section).
 
 ![layer file]({{site.baseurl}}/assets/images/layer_file.png)
 
