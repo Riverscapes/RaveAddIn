@@ -24,11 +24,6 @@ namespace RaveAddIn
             Process.Start(lnkWebSite.Text);
         }
 
-        private void lnkOnlineHelp_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            Process.Start(lnkOnlineHelp.Text);
-        }
-
         private void lnkIssues_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Process.Start(lnkIssues.Text);

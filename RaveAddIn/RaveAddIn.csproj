@@ -119,7 +119,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AddInCommands\btnAbout.cs" />
-    <Compile Include="AddInCommands\btnOnlineHelp.cs" />
     <Compile Include="AddInCommands\btnOpenProject.cs" />
     <Compile Include="AddInCommands\btnProjectExplorer.cs" />
     <Compile Include="AddInCommands\btnWebSite.cs" />

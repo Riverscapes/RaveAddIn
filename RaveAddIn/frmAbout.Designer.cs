@@ -35,10 +35,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.grpSupport = new System.Windows.Forms.GroupBox();
             this.lnkIssues = new System.Windows.Forms.LinkLabel();
-            this.lnkOnlineHelp = new System.Windows.Forms.LinkLabel();
             this.lnkWebSite = new System.Windows.Forms.LinkLabel();
             this.Label5 = new System.Windows.Forms.Label();
-            this.Label4 = new System.Windows.Forms.Label();
             this.Label3 = new System.Windows.Forms.Label();
             this.grpAcknowledgements = new System.Windows.Forms.GroupBox();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
@@ -52,7 +50,7 @@
             this.pictureBox1.Image = global::RaveAddIn.Properties.Resources.RaveAddIn;
             this.pictureBox1.Location = new System.Drawing.Point(12, 12);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(146, 146);
+            this.pictureBox1.Size = new System.Drawing.Size(131, 122);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -61,7 +59,7 @@
             // 
             this.cmdOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.cmdOK.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.cmdOK.Location = new System.Drawing.Point(432, 335);
+            this.cmdOK.Location = new System.Drawing.Point(417, 311);
             this.cmdOK.Name = "cmdOK";
             this.cmdOK.Size = new System.Drawing.Size(75, 23);
             this.cmdOK.TabIndex = 1;
@@ -99,14 +97,12 @@
             // grpSupport
             // 
             this.grpSupport.Controls.Add(this.lnkIssues);
-            this.grpSupport.Controls.Add(this.lnkOnlineHelp);
             this.grpSupport.Controls.Add(this.lnkWebSite);
             this.grpSupport.Controls.Add(this.Label5);
-            this.grpSupport.Controls.Add(this.Label4);
             this.grpSupport.Controls.Add(this.Label3);
             this.grpSupport.Location = new System.Drawing.Point(168, 68);
             this.grpSupport.Name = "grpSupport";
-            this.grpSupport.Size = new System.Drawing.Size(337, 90);
+            this.grpSupport.Size = new System.Drawing.Size(337, 66);
             this.grpSupport.TabIndex = 11;
             this.grpSupport.TabStop = false;
             this.grpSupport.Text = "Support";
@@ -114,25 +110,13 @@
             // lnkIssues
             // 
             this.lnkIssues.AutoSize = true;
-            this.lnkIssues.Location = new System.Drawing.Point(102, 66);
+            this.lnkIssues.Location = new System.Drawing.Point(102, 42);
             this.lnkIssues.Name = "lnkIssues";
-            this.lnkIssues.Size = new System.Drawing.Size(224, 13);
+            this.lnkIssues.Size = new System.Drawing.Size(219, 13);
             this.lnkIssues.TabIndex = 6;
             this.lnkIssues.TabStop = true;
-            this.lnkIssues.Text = "http://rave.riverscapes.xyz/Help/known-bugs";
+            this.lnkIssues.Text = "http://rave.riverscapes.xyz/known-bugs.html";
             this.lnkIssues.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkIssues_LinkClicked);
-            // 
-            // lnkOnlineHelp
-            // 
-            this.lnkOnlineHelp.AutoSize = true;
-            this.lnkOnlineHelp.LinkColor = System.Drawing.Color.Blue;
-            this.lnkOnlineHelp.Location = new System.Drawing.Point(102, 43);
-            this.lnkOnlineHelp.Name = "lnkOnlineHelp";
-            this.lnkOnlineHelp.Size = new System.Drawing.Size(161, 13);
-            this.lnkOnlineHelp.TabIndex = 5;
-            this.lnkOnlineHelp.TabStop = true;
-            this.lnkOnlineHelp.Text = "http://rave.riverscapes.xyz/Help";
-            this.lnkOnlineHelp.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkOnlineHelp_LinkClicked);
             // 
             // lnkWebSite
             // 
@@ -148,20 +132,11 @@
             // Label5
             // 
             this.Label5.AutoSize = true;
-            this.Label5.Location = new System.Drawing.Point(62, 66);
+            this.Label5.Location = new System.Drawing.Point(62, 42);
             this.Label5.Name = "Label5";
             this.Label5.Size = new System.Drawing.Size(37, 13);
             this.Label5.TabIndex = 3;
             this.Label5.Text = "Issues";
-            // 
-            // Label4
-            // 
-            this.Label4.AutoSize = true;
-            this.Label4.Location = new System.Drawing.Point(39, 43);
-            this.Label4.Name = "Label4";
-            this.Label4.Size = new System.Drawing.Size(60, 13);
-            this.Label4.TabIndex = 2;
-            this.Label4.Text = "Online help";
             // 
             // Label3
             // 
@@ -178,9 +153,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.grpAcknowledgements.Controls.Add(this.webBrowser1);
-            this.grpAcknowledgements.Location = new System.Drawing.Point(12, 164);
+            this.grpAcknowledgements.Location = new System.Drawing.Point(12, 140);
             this.grpAcknowledgements.Name = "grpAcknowledgements";
-            this.grpAcknowledgements.Size = new System.Drawing.Size(495, 165);
+            this.grpAcknowledgements.Size = new System.Drawing.Size(480, 165);
             this.grpAcknowledgements.TabIndex = 12;
             this.grpAcknowledgements.TabStop = false;
             this.grpAcknowledgements.Text = "Acknowledgements";
@@ -191,7 +166,7 @@
             this.webBrowser1.Location = new System.Drawing.Point(3, 16);
             this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.Size = new System.Drawing.Size(489, 146);
+            this.webBrowser1.Size = new System.Drawing.Size(474, 146);
             this.webBrowser1.TabIndex = 0;
             // 
             // frmAbout
@@ -200,7 +175,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.cmdOK;
-            this.ClientSize = new System.Drawing.Size(519, 370);
+            this.ClientSize = new System.Drawing.Size(504, 346);
             this.Controls.Add(this.grpAcknowledgements);
             this.Controls.Add(this.grpSupport);
             this.Controls.Add(this.label1);
@@ -233,10 +208,8 @@
         private System.Windows.Forms.Label label1;
         internal System.Windows.Forms.GroupBox grpSupport;
         internal System.Windows.Forms.LinkLabel lnkIssues;
-        internal System.Windows.Forms.LinkLabel lnkOnlineHelp;
         internal System.Windows.Forms.LinkLabel lnkWebSite;
         internal System.Windows.Forms.Label Label5;
-        internal System.Windows.Forms.Label Label4;
         internal System.Windows.Forms.Label Label3;
         private System.Windows.Forms.GroupBox grpAcknowledgements;
         private System.Windows.Forms.WebBrowser webBrowser1;

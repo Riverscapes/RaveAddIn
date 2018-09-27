@@ -18,7 +18,6 @@
 
         <!-- Help Menu-->
         <Button id="RAVE_AddIn_AboutButton" class="RaveAddIn.AddInCommands.btnAbout" message="Provides information about the version, authors and funding for the RAVE software." caption="About RAVE" tip="Information About the RAVE AddIn" category="RAVE" image="Images\RAVEAddIn.png" />
-        <Button id="RAVE_AddIn_OnlineHelp" class="RaveAddIn.AddInCommands.btnOnlineHelp" message="Open the RAVE Online Help" caption="Online RAVE Help" category="RAVE" image="Images\Help.png" />
         <Button id="RAVE_AddIn_WebSite" class="RaveAddIn.AddInCommands.btnWebSite" message="Open the RAVE Software Web Site" caption="RAVE Web Site" category="RAVE" image="Images\Help.png" />
       </Commands>
       <Toolbars>
@@ -43,7 +42,6 @@
       <Menus>
         <Menu caption="Help" isRootMenu="false"  id="RAVE_AddIn_HelpMenu">
           <Items>
-            <Button refID="RAVE_AddIn_OnlineHelp" />
             <Button refID="RAVE_AddIn_WebSite" />
             <Button refID="RAVE_AddIn_AboutButton" separator="true"/>
           </Items>
