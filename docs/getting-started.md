@@ -9,7 +9,7 @@ Before you can use the RAVE AddIn for ArcGIS you will need the following:
 
 1. ArcGIS 10.4 or above. (The RAVE AddIn does not work with ArcPro.)
 1. One or more Riverscapes compatible projects.
-1. A [business logic XML file](business-logic.html) that defines how to load each project type into the RAVE project explorer.
+1. A [business logic XML file](business-logic.html) that defines how to load each project type is displayed in the RAVE project explorer.
 
 ## RAVE Installation & Opening Your First Project
 

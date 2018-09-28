@@ -10,4 +10,4 @@ weight: 99
 
 ### Version 1.0.0 - 26 Sep 2018
 
-* Initial beta release
+* Initial beta release.

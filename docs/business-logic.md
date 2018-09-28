@@ -1,6 +1,6 @@
 ---
 title: Business logic XML
-weight: 98
+weight: 96
 ---
 
 The purpose of the business logic XML is to translate Riverscpaes projects and determine how they should be displayed in the RAVE project explorer. In other words, the Riverscapes project file defines **what** layers exist within a project, while the business logic file defines **how** these layers should be organized within the project explorer tree.
