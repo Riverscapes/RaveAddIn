@@ -33,9 +33,9 @@ The easiest and first way to experiment with symbolizing layers is to generate a
 
 Notice above how RAVE first looks next to the project for layer files that only apply to that project. Next it looks in the AppData folder for layer files that are specific to the project type in question (BRAT in the example above). Next it looks for generic layer files that are shared across all RAVE project types. Finally RAVE will look in the set of layer files that are shipped with the software, of which there are none currently. However we plan to start including generic layer files for common layer types in the near future.
 
-## Where Is my %APPDATA% folder?
+## Where Is my APPDATA folder?
 
-`%APPDATA%` is a shortcut to a special folder on your computer where applications can store configuration information. Typically it refers to the path `C:\<your_user_name>\AppData\Roaming`. This folder might be hidden and not visible by default but you can always browse to it regardless. You can reach this folder by opening Windows Explorer and entering the text `%APPDATA%` into the address bar. 
+`APPDATA` is a shortcut to a special folder on your computer where applications can store configuration information. Typically it refers to the path `C:\<your_user_name>\AppData\Roaming`. This folder might be hidden and not visible by default but you can always browse to it regardless. You can reach this folder by opening Windows Explorer and entering the text `%APPDATA%` into the address bar. 
 
 ![appdata]({{site.baseurl}}/assets/images/appdata.png)
 
