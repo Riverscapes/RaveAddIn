@@ -23,11 +23,11 @@ You can add any GIS layer to the current ArcMap document by right clicking and c
 
 |Search Folder|Example|
 |---|---|
-|Adjacent to the parent riverscapes project file.|`D:\MyProjects\dem.lyr`|
+|Adjacent to the parent riverscapes project file.|`D:\MyProjects\ProjectX\dem.lyr`|
 |`%APPDATA%\RAVE\Symbology\<model_name>\<symbology_key>.lyr`|`%APPDATA%\RAVE\Symbology\BRAT\dem.lyr`|
 |`%APPDATA%\RAVE\Symbology\Shared\<symbology_key>.lyr`|`%APPDATA%\RAVE\Symbology\Shared\dem.lyr`|
-|`<software_installation>\Symbology\<Model>\<symbology>.lyr`|*Hidden folder*|
-|`<software_installation>\Symbology\Shared<symbology>.lyr`|*Hidden folder*|
+|`<rave_install>\Symbology\<Model>\<symbology_key>.lyr`|*Hidden folder*|
+|`<rave_install>\Symbology\Shared\<symbology_key>.lyr`|*Hidden folder*|
 
 The easiest and first way to experiment with symbolizing layers is to generate a layer file and put it adjacent to the Riverscapes project. Once you're comfortable with the symbology then you can move the file into your `%APPDATA%\RAVE` location.
 
