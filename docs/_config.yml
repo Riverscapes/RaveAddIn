@@ -30,6 +30,7 @@ exclude:
   - LICENSE
   - README.md
   - _config.yml
+  - Gemfile*
 
 
 # These are theme settings that will be used to turn features on and off
