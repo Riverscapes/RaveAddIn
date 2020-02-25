@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:noNamespaceSchemaLocation="XSD/project_explorer.xsd">
+ <Name>Riverscapes Context</Name>
+ <ProjectType>RSContext</ProjectType>
+  <Node xpathlabel="Name" xpath="Realizations/RSContext">
+    <Children collapsed="false">
+      <Node label="Topography">
+        <Children>
+          <Node xpathlabel="Name" xpath="Realizations/RSContext/DEM" type="raster" symbology="dem"/>
+          <Node xpathlabel="Name" xpath="Realizations/RSContext/Raster[@id='HILLSHADE']" type="raster" symbology=""/>
+          <Node xpathlabel="Name" xpath="Realizations/RSContext/Raster[@id='SLOPE']" type="raster" symbology=""/>
+          <Node xpathlabel="Name" xpath="Realizations/RSContext/Raster[@id='FA']" type="raster" symbology=""/>
+          <Node xpathlabel="Name" xpath="Realizations/RSContext/Raster[@id='DA']" type="raster" symbology=""/>
+          <Node xpathlabel="Name" xpath="Realizations/RSContext/Raster[@id='HAND']" type="raster" symbology=""/>
+        </Children>
+      </Node>
+      <Node label="Vegetation">
+        <Children>
+          <Node xpathlabel="Name" xpath="Realizations/RSContext/Raster[@id='EXVEG']" type="raster" symbology=""/>
+          <Node xpathlabel="Name" xpath="Realizations/RSContext/Raster[@id='HISTVEG']" type="raster" symbology=""/>
+        </Children>
+      </Node>
+      <Node label="Hydrology">
+        <Children>
+          <Node xpathlabel="Name" xpath="Realizations/RSContext/Vector[@id='NHDFLOWLINE']" type="vector" symbology="flow_lines"/>
+          <Node xpathlabel="Name" xpath="Realizations/RSContext/Vector[@id='WBDHU2']" type="vector" symbology=""/>
+          <Node xpathlabel="Name" xpath="Realizations/RSContext/Vector[@id='WBDHU4']" type="vector" symbology=""/>
+          <Node xpathlabel="Name" xpath="Realizations/RSContext/Vector[@id='WBDHU6']" type="vector" symbology=""/>
+          <Node xpathlabel="Name" xpath="Realizations/RSContext/Vector[@id='WBDHU8']" type="vector" symbology=""/>
+          <Node xpathlabel="Name" xpath="Realizations/RSContext/Vector[@id='NHDAREA']" type="vector" symbology=""/>
+          <Node xpathlabel="Name" xpath="Realizations/RSContext/Vector[@id='NHDWATERBODY']" type="vector" symbology=""/>
+        </Children>
+      </Node>
+      <Node label="Transportation">
+        <Children>
+         <Node xpathlabel="Name" xpath="Realizations/RSContext/Vector[@id='ROADS']" type="vector" symbology=""/>
+          <Node xpathlabel="Name" xpath="Realizations/RSContext/Vector[@id='RAIL']" type="vector" symbology="railroads"/>
+          <Node xpathlabel="Name" xpath="Realizations/RSContext/Vector[@id='CANALS']" type="vector" symbology="canals_ditches"/>
+         </Children>
+      </Node>
+    </Children>
+  </Node>
+</Project>
