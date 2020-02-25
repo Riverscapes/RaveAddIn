@@ -13,7 +13,7 @@
   <AddIn language="CLR" library="RaveAddIn.dll" namespace="RaveAddIn">
     <ArcMap>
       <Commands>
-        <Button id="RAVE_AddIn_ToolbarExplorerButton" class="RaveAddIn.AddInCommands.btnProjectExplorer" message="The RAVE Project Explorer is the main interface for managing and displaying data within a GCD project. It is a dockable window within ArcMap that contains an interactive hierarchy of contents of a riveerscapes project." caption="" tip="Open the RAVE Project Explorer Dockable Window" category="RAVE" image="Images\RaveAddIn_16px.png" />
+        <Button id="RAVE_AddIn_ToolbarExplorerButton" class="RaveAddIn.AddInCommands.btnProjectExplorer" message="The RAVE Project Explorer is the main interface for managing and displaying data within a Riverscapes project. It is a dockable window within ArcMap that contains an interactive hierarchy of contents of a riveerscapes project." caption="" tip="Open the RAVE Project Explorer Dockable Window" category="RAVE" image="Images\RaveAddIn_16px.png" />
         <Button id="RAVE_AddIn_OpenProjectButton" class="RaveAddIn.AddInCommands.btnOpenProject" message="Browse and select an existing Riverscapes project file (*.rs.xml) in a project folder." caption="Open Riverscapes Project..." tip="Open an existing Riverscapes Project" category="RAVE" image="Images\OpenProject.png" />
 
         <!-- Help Menu-->

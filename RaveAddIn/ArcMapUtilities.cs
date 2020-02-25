@@ -39,7 +39,7 @@ namespace RaveAddIn
 
             // Only add if it doesn't exist already
             ILayer pResultLayer = GetLayerBySource(fiFullPath);
-            if (pResultLayer is ILayer && !bAddToMapIfPresent)
+            if ((pResultLayer is ILayer && string.Compare(pResultLayer.Name, sLayerName, true) == 0) && !bAddToMapIfPresent)
                 return pResultLayer;
 
             // Confirm that the symbology layer file exists

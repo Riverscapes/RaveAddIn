@@ -168,7 +168,10 @@ namespace RaveAddIn
                 parentGrpLyr = BuildArcMapGroupLayers(node.Parent);
             }
 
-            return ArcMapUtilities.GetGroupLayer(node.Text, parentGrpLyr);
+            if (node.Tag is GISLayer)
+                return parentGrpLyr;
+            else
+                return ArcMapUtilities.GetGroupLayer(node.Text, parentGrpLyr);
         }
 
         public void OnAddChildrenToMap(object sender, EventArgs e)

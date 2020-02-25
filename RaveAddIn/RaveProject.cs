@@ -190,9 +190,10 @@ namespace RaveAddIn
             if (xmlBusiness.NodeType == XmlNodeType.Comment)
                 return;
 
+            string label = GetLabel(xmlBusiness, xmlProject);
+
             if (xmlBusiness.Name == "Repeater")
             {
-                string label = GetLabel(xmlBusiness, xmlProject);
                 TreeNode newNode = new TreeNode(label, 1, 1);
                 tnParent.Nodes.Add(newNode);
                 tnParent = newNode;
@@ -217,6 +218,8 @@ namespace RaveAddIn
                     if (!string.IsNullOrEmpty(xPath))
                         gisNode = xmlProject.SelectSingleNode(xPath);
 
+                    label = GetLabel(xmlBusiness, gisNode);
+
                     // Retrieve symbology key from business logic
                     string symbology = string.Empty;
                     XmlAttribute attSym = xmlBusiness.Attributes["symbology"];
@@ -224,12 +227,11 @@ namespace RaveAddIn
                         symbology = attSym.InnerText;
 
                     // This some kind of file (vector, raster, tile, image etc)
-                    AddGISNode(tnParent, attType.InnerText, gisNode, symbology);
+                    AddGISNode(tnParent, attType.InnerText, gisNode, symbology, label);
                 }
                 else
                 {
                     // Group Layer / Folder
-                    string label = GetLabel(xmlBusiness, xmlProject);
                     TreeNode newNode = new TreeNode(label, 1, 1);
                     tnParent.Nodes.Add(newNode);
                     tnParent = newNode;
@@ -243,7 +245,7 @@ namespace RaveAddIn
             }
         }
 
-        private void AddGISNode(TreeNode tnParent, string type, XmlNode nodGISNode, string symbology)
+        private void AddGISNode(TreeNode tnParent, string type, XmlNode nodGISNode, string symbology, string label)
         {
             if (nodGISNode == null)
                 return;
@@ -255,7 +257,9 @@ namespace RaveAddIn
                 nodGISNode = nodGISNode.OwnerDocument.SelectSingleNode(string.Format("Project/Inputs/*[@id='{0}']", attRef.InnerText));
             }
 
-            string name = nodGISNode.SelectSingleNode("Name").InnerText;
+            if (string.IsNullOrEmpty(label))
+                label = nodGISNode.SelectSingleNode("Name").InnerText;
+
             string path = nodGISNode.SelectSingleNode("Path").InnerText;
             FileInfo absPath = AbsolutePath(path);
 
@@ -271,8 +275,8 @@ namespace RaveAddIn
                     break;
             }
 
-            TreeNode newNode = new TreeNode(name, imgIndex, imgIndex);
-            newNode.Tag = new ProjectTree.GISLayer(this, absPath, name, symbology);
+            TreeNode newNode = new TreeNode(label, imgIndex, imgIndex);
+            newNode.Tag = new ProjectTree.GISLayer(this, absPath, label, symbology);
             tnParent.Nodes.Add(newNode);
         }
 
@@ -292,21 +296,22 @@ namespace RaveAddIn
 
         private static string GetLabel(XmlNode businessLogicNode, XmlNode projectNode)
         {
-            XmlAttribute attXPath = businessLogicNode.Attributes["xpathlabel"];
-            if (attXPath is XmlAttribute && !string.IsNullOrEmpty(attXPath.InnerText))
-            {
-                XmlNode labelNode = projectNode.SelectSingleNode(attXPath.InnerText);
-                if (labelNode is XmlNode && !string.IsNullOrEmpty(labelNode.InnerText))
-                    return labelNode.InnerText;
-            }
-
+            // See if the business logic has a label attribute.
             XmlAttribute attLabel = businessLogicNode.Attributes["label"];
             if (attLabel is XmlAttribute && !string.IsNullOrEmpty(attLabel.InnerText))
             {
                 return attLabel.InnerText;
             }
 
-            return "TITLE_NOT_FOUND";
+            // See if the project node has a child Name node with valid inner text.
+            if (projectNode is XmlNode)
+            {
+                XmlNode nodName = projectNode.SelectSingleNode("Name");
+                if (nodName is XmlNode && !string.IsNullOrEmpty(nodName.InnerText))
+                    return nodName.InnerText;
+            }
+
+            return string.Empty;
         }
     }
 }
