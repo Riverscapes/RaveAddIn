@@ -12,7 +12,7 @@ port: 4001
 google_analytics: UA-60121403-8
 # Markdown style
 markdown: kramdown
-# Syntax highlighter.
+# Syntax highlighter
 highlighter: rouge
 
 # Choosing "default" layout means we don't need a "layout:default" in all our 
