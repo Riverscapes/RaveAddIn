@@ -182,6 +182,13 @@ namespace RaveAddIn
             // Expand the project tree node now that all the items have been added
             tnProject.ExpandAll();
 
+            // Loop over all tree nodes and collapse any group layers.
+            // This has to be done last once all the nodes have their children
+            List<TreeNode> allNodes = new List<TreeNode>();
+            foreach (TreeNode node in tnProject.Nodes)
+                GetAllNodes(allNodes, node);
+            allNodes.Where(x => x.Tag is string && string.Compare(x.Tag.ToString(), "Collapse", true) == 0).ToList().ForEach(x => x.Collapse());
+
             return tnProject;
         }
 
@@ -235,6 +242,15 @@ namespace RaveAddIn
                     TreeNode newNode = new TreeNode(label, 1, 1);
                     tnParent.Nodes.Add(newNode);
                     tnParent = newNode;
+
+                    XmlAttribute attCollapsed = xmlBusiness.Attributes["collapsed"];
+                    if (attCollapsed is XmlAttribute)
+                    {
+                        bool collapsed = false;
+                        if (bool.TryParse(attCollapsed.InnerText, out collapsed))
+                            if (collapsed)
+                                newNode.Tag = "Collapse";
+                    }
                 }
             }
 
@@ -243,6 +259,14 @@ namespace RaveAddIn
             {
                 xmlBusiness.ChildNodes.OfType<XmlNode>().ToList().ForEach(x => LoadTreeNode(tnParent, x, xmlProject, xPath));
             }
+        }
+
+        private void GetAllNodes(List<TreeNode> nodes, TreeNode node)
+        {
+            // Add the current node to the list
+            nodes.Add(node);
+            foreach (TreeNode child in node.Nodes)
+                GetAllNodes(nodes, child);
         }
 
         private void AddGISNode(TreeNode tnParent, string type, XmlNode nodGISNode, string symbology, string label)
@@ -274,6 +298,8 @@ namespace RaveAddIn
                     imgIndex = absPath.Exists ? 3 : 5;
                     break;
             }
+
+
 
             TreeNode newNode = new TreeNode(label, imgIndex, imgIndex);
             newNode.Tag = new ProjectTree.GISLayer(this, absPath, label, symbology);
