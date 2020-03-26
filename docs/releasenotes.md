@@ -3,6 +3,11 @@ title: Release Notes
 weight: 99
 ---
 
+### Version 1.0.3 - 26 Mar 2020
+
+* Fixed the ability to specify collapsed tree nodes in business logic XML
+* VBET and RS Context business logic improvements.
+
 ### Version 1.0.2 - 25 Feb 2020
 
 * Fixed bug with duplicated ArcMap ToC items when adding to the map.
