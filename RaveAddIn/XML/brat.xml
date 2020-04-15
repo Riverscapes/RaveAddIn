@@ -2,7 +2,7 @@
 <Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
  xsi:noNamespaceSchemaLocation="D:\Code\riverscapes\RaveAddIn\RaveAddIn\XML\XSD\project_explorer.xsd">
   <Name>BRAT</Name>
-  <ProjectType>BRAT8</ProjectType>
+  <ProjectType>BRAT</ProjectType>
   <Node xpathlabel="Name">
     <Children collapsed="false">
       <Node label="Outputs" xpath="Realizations/BRAT/Outputs">
