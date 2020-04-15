@@ -3,6 +3,10 @@ title: Release Notes
 weight: 99
 ---
 
+### Version 1.0.4 - 15 Apr 2020
+
+* Changing project type from BRAT8 to BRAT
+
 ### Version 1.0.3 - 26 Mar 2020
 
 * Fixed the ability to specify collapsed tree nodes in business logic XML
