@@ -4,8 +4,6 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.IO;
 using System.Xml;
 using System.Windows.Forms;
@@ -14,23 +12,6 @@ namespace RaveAddIn
 {
     public partial class frmOptions : Form
     {
-        private class BaseMapRegion
-        {
-            public readonly string Name;
-            public readonly bool IsSystem;
-
-            public override string ToString()
-            {
-                return string.Format("{0} ({1})", Name, IsSystem ? "system" : "user");
-            }
-
-            public BaseMapRegion(string name, bool system)
-            {
-                Name = name;
-                IsSystem = system;
-            }
-        }
-
         public frmOptions()
         {
             InitializeComponent();
@@ -43,37 +24,33 @@ namespace RaveAddIn
 
             try
             {
-                List<Tuple<string, bool>> searchFolders = new List<Tuple<string, bool>>()
+                foreach (string folder in new string[] { ucProjectExplorer.AppDataFolder.FullName, ucProjectExplorer.DeployFolder.FullName })
                 {
-                    new Tuple<string, bool>(ucProjectExplorer.AppDataFolder.FullName, false),
-                    new Tuple<string, bool>(ucProjectExplorer.DeployFolder.FullName, true)
-                };
-
-                foreach (Tuple<string, bool> location in searchFolders)
-                {
-                    string baseMapPath = Path.Combine(location.Item1, "BaseMaps.xml");
-                    XmlDocument xmlDoc = new XmlDocument();
-                    xmlDoc.Load(baseMapPath);
-                    foreach (XmlNode nodRegion in xmlDoc.SelectNodes("BaseMaps/Region"))
+                    string baseMapPath = Path.Combine(folder, "BaseMaps.xml");
+                    if (System.IO.File.Exists(baseMapPath))
                     {
-                        try
+                        XmlDocument xmlDoc = new XmlDocument();
+                        xmlDoc.Load(baseMapPath);
+                        foreach (XmlNode nodRegion in xmlDoc.SelectNodes("BaseMaps/Region"))
                         {
-                            XmlAttribute attName = nodRegion.Attributes["name"];
-                            if (attName != null)
+                            try
                             {
-                                string name = nodRegion.Attributes["name"].InnerText;
-                                if (!string.IsNullOrEmpty(name))
+                                XmlAttribute attName = nodRegion.Attributes["name"];
+                                if (attName != null)
                                 {
-                                    int index = cboRegion.Items.Add(new BaseMapRegion(name, location.Item2));
-                                    if (string.Compare(name, Properties.Settings.Default.BaseMap, true) == 0)
-                                        cboRegion.SelectedIndex = index;
+                                    string name = nodRegion.Attributes["name"].InnerText;
+                                    if (!string.IsNullOrEmpty(name))
+                                    {
+                                        if (!cboRegion.Items.Contains(name))
+                                            cboRegion.Items.Add(name);
+                                    }
                                 }
                             }
-                        }
-                        catch
-                        {
-                            // Do nothing. proceed to next region
-                            Console.WriteLine("Error loading base map region.");
+                            catch
+                            {
+                                // Do nothing. proceed to next region
+                                Console.WriteLine("Error loading base map region.");
+                            }
                         }
                     }
                 }
@@ -84,7 +61,16 @@ namespace RaveAddIn
                 Console.WriteLine("Error loading base map regions.");
             }
 
-            if (cboRegion.Items.Count > 0 && cboRegion.SelectedIndex < 0)
+            for (int i = 0; i < cboRegion.Items.Count; i++)
+            {
+                if (string.Compare(cboRegion.Items[i].ToString(), Properties.Settings.Default.BaseMap, true) == 0)
+                {
+                    cboRegion.SelectedIndex = i;
+                    break;
+                }
+            }
+
+            if (cboRegion.SelectedIndex < 0 && cboRegion.Items.Count > 0)
                 cboRegion.SelectedIndex = 0;
 
             chkLoadBaseMaps.Enabled = cboRegion.Items.Count > 0;
@@ -100,8 +86,8 @@ namespace RaveAddIn
         {
             Properties.Settings.Default.LoadBaseMaps = chkLoadBaseMaps.Checked;
 
-            if (chkLoadBaseMaps.Checked && cboRegion.SelectedItem is BaseMapRegion)
-                Properties.Settings.Default.BaseMap = ((BaseMapRegion)cboRegion.SelectedItem).Name;
+            if (chkLoadBaseMaps.Checked && cboRegion.SelectedIndex >= 0)
+                Properties.Settings.Default.BaseMap = cboRegion.Text;
             Properties.Settings.Default.Save();
         }
 

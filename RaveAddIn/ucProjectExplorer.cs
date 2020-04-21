@@ -298,7 +298,7 @@ namespace RaveAddIn
             // Remove the existing base maps
             if (treProject.Nodes.Count > 0 && string.Compare(treProject.Nodes[treProject.Nodes.Count - 1].Tag.ToString(), BaseMapsLabel, true) != 0)
             {
-                treProject.Nodes.Remove(treProject.Nodes[0]);
+                treProject.Nodes.Remove(treProject.Nodes[treProject.Nodes.Count - 1]);
             }
 
             // Exit if no base maps are required
@@ -328,10 +328,10 @@ namespace RaveAddIn
                             {
                                 TreeNode baseMapsNode = new TreeNode(BaseMapsLabel, 1, 1);
                                 baseMapsNode.Tag = BaseMapsTag;
-                                treProject.Nodes.Add(baseMapsNode);
+                                treProject.Nodes.Insert(treProject.Nodes.Count, baseMapsNode);
                             }
 
-                            LoadBaseMapsFromXML(treProject.Nodes[0], nodRegion);
+                            LoadBaseMapsFromXML(treProject.Nodes[treProject.Nodes.Count-1], nodRegion);
                             return;
                         }
                     }
