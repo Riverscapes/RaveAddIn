@@ -128,7 +128,7 @@ namespace RaveAddIn
         {
             TreeNode tnProject = new TreeNode("TITLE_NOT_FOUND", 1, 1);
             tnProject.Tag = this;
-            treProject.Nodes.Add(tnProject);
+            treProject.Nodes.Insert(0, tnProject);
 
             TreeNode tnResult = LoadProjectIntoNode(tnProject);
 

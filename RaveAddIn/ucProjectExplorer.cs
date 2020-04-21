@@ -5,6 +5,7 @@ using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using ESRI.ArcGIS.Carto;
+using System.Xml;
 
 namespace RaveAddIn
 {
@@ -14,9 +15,19 @@ namespace RaveAddIn
     /// </summary>
     public partial class ucProjectExplorer : UserControl
     {
+        public enum NodeInsertModes
+        {
+            Add,
+            Insert
+        };
+
+        private const string BaseMapsLabel = "Base Maps";
+        private const string BaseMapsTag = "BASEMAPS";
+
         private readonly ContextMenuStrip cmsProject;
         private readonly ContextMenuStrip cmsFolder;
         private readonly ContextMenuStrip cmsGIS;
+        private readonly ContextMenuStrip cmsWMS;
 
         public ucProjectExplorer(object hook)
         {
@@ -42,6 +53,9 @@ namespace RaveAddIn
             cmsGIS = new ContextMenuStrip(components);
             cmsGIS.Items.Add("Add To Map", Properties.Resources.AddToMap, OnAddGISToMap);
             cmsGIS.Items.Add("Browse Folder", Properties.Resources.BrowseFolder, OnExplore);
+
+            cmsWMS = new ContextMenuStrip(components);
+            cmsWMS.Items.Add("Add To Map", Properties.Resources.AddToMap, OnAddWMSToMap);
         }
 
         #region ERSI generated code 
@@ -104,7 +118,7 @@ namespace RaveAddIn
             // Detect if project is already in tree and simply select the node and return;
             foreach (TreeNode rootNod in treProject.Nodes)
             {
-                if (RaveProject.IsSame((RaveProject)rootNod.Tag, projectFile))
+                if (rootNod.Tag is RaveProject && RaveProject.IsSame((RaveProject)rootNod.Tag, projectFile))
                 {
                     treProject.SelectedNode = rootNod;
                     rootNod.Expand();
@@ -159,19 +173,19 @@ namespace RaveAddIn
         }
 
 
-        public IGroupLayer BuildArcMapGroupLayers(TreeNode node)
+        public IGroupLayer BuildArcMapGroupLayers(TreeNode node, NodeInsertModes topLevelMode = NodeInsertModes.Insert)
         {
             IGroupLayer parentGrpLyr = null;
 
             if (node.Parent is TreeNode)
             {
-                parentGrpLyr = BuildArcMapGroupLayers(node.Parent);
+                parentGrpLyr = BuildArcMapGroupLayers(node.Parent, topLevelMode);
             }
 
-            if (node.Tag is GISLayer)
+            if (node.Tag is GISLayer || node.Tag is WMSLayer)
                 return parentGrpLyr;
             else
-                return ArcMapUtilities.GetGroupLayer(node.Text, parentGrpLyr);
+                return ArcMapUtilities.GetGroupLayer(node.Text, parentGrpLyr, topLevelMode);
         }
 
         public void OnAddChildrenToMap(object sender, EventArgs e)
@@ -200,6 +214,22 @@ namespace RaveAddIn
             FileInfo symbology = GetSymbology(layer);
 
             ArcMapUtilities.AddToMap(layer.FilePath, layer.Name, parentGrpLyr, symbology);
+        }
+
+        public void OnAddWMSToMap(object sender, EventArgs e)
+        {
+            TreeNode selNode = treProject.SelectedNode;
+            IGroupLayer parentGrpLyr = BuildArcMapGroupLayers(selNode, NodeInsertModes.Add);
+            WMSLayer layer = (WMSLayer)selNode.Tag;
+
+            try
+            {
+                ArcMapUtilities.AddWMSTopMap(layer.Name, layer.URL, parentGrpLyr);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(string.Format("Error adding the Web Mapping Service to the map: {0}", ex.Message), Properties.Resources.ApplicationNameLong, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         /// <summary>
@@ -263,6 +293,82 @@ namespace RaveAddIn
                 System.Diagnostics.Process.Start(file.Directory.FullName);
         }
 
+        public void RefreshBaseMaps()
+        {
+            // Remove the existing base maps
+            if (treProject.Nodes.Count > 0 && string.Compare(treProject.Nodes[treProject.Nodes.Count - 1].Tag.ToString(), BaseMapsLabel, true) != 0)
+            {
+                treProject.Nodes.Remove(treProject.Nodes[0]);
+            }
+
+            // Exit if no base maps are required
+            if (!Properties.Settings.Default.LoadBaseMaps || string.IsNullOrEmpty(Properties.Settings.Default.BaseMap))
+            {
+                return;
+            }
+
+            List<string> searchFolders = new List<string>() {
+                ucProjectExplorer.AppDataFolder.FullName,
+                ucProjectExplorer.DeployFolder.FullName,
+            };
+
+            foreach (string folder in searchFolders)
+            {
+                string baseMapPath = Path.Combine(folder, "BaseMaps.xml");
+                if (File.Exists(baseMapPath))
+                {
+                    try
+                    {
+                        XmlDocument xmlDoc = new XmlDocument();
+                        xmlDoc.Load(baseMapPath);
+                        XmlNode nodRegion = xmlDoc.SelectSingleNode(string.Format("BaseMaps/Region[@name='{0}']", Properties.Settings.Default.BaseMap));
+                        if (nodRegion is XmlNode)
+                        {
+                            if (treProject.Nodes.Count < 1 || string.Compare(treProject.Nodes[treProject.Nodes.Count - 1].Tag.ToString(), BaseMapsLabel, true) != 0)
+                            {
+                                TreeNode baseMapsNode = new TreeNode(BaseMapsLabel, 1, 1);
+                                baseMapsNode.Tag = BaseMapsTag;
+                                treProject.Nodes.Add(baseMapsNode);
+                            }
+
+                            LoadBaseMapsFromXML(treProject.Nodes[0], nodRegion);
+                            return;
+                        }
+                    }
+                    catch
+                    {
+                        // Do nothing. Proceed to next base map file
+                    }
+                }
+            }
+        }
+
+        private void LoadBaseMapsFromXML(TreeNode nodParent, XmlNode nodXML)
+        {
+            foreach (XmlNode node in nodXML.ChildNodes)
+            {
+                try
+                {
+                    if (string.Compare(node.Name, "GroupLayer", true) == 0)
+                    {
+                        TreeNode groupNode = new TreeNode(node.Attributes["name"].InnerText, 1, 1);
+                        nodParent.Nodes.Add(groupNode);
+                        LoadBaseMapsFromXML(groupNode, node);
+                    }
+                    else if (string.Compare(node.Name, "Layer", true) == 0)
+                    {
+                        TreeNode newNode = nodParent.Nodes.Add(node.Attributes["name"].InnerText);
+                        newNode.Tag = new WMSLayer(newNode.Text, node.Attributes["url"].InnerText);
+                        newNode.ContextMenuStrip = cmsWMS;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    // Do nothing. Proceed to next XML node
+                }
+            }
+        }
+
         public void OnClose(object sender, EventArgs e)
         {
             treProject.SelectedNode.Remove();
@@ -323,6 +429,11 @@ namespace RaveAddIn
         public void OnExpandChildren(object sender, EventArgs e)
         {
             treProject.SelectedNode.ExpandAll();
+        }
+
+        private void ucProjectExplorer_Load(object sender, EventArgs e)
+        {
+            RefreshBaseMaps();
         }
     }
 }

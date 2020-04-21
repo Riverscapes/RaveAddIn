@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<BaseMaps>
+  <Region name="United States">
+    <GroupLayer name="USGS">
+      <Layer name="Topo Base Map" url="https://basemap.nationalmap.gov:443/arcgis/services/USGSTopo/MapServer/WmsServer?">
+        <Metadata>
+          <Meta name="Description">USGS Top Map Base Layer</Meta>
+        </Metadata>
+      </Layer>
+      <Layer name="Shaded Relief" url="https://basemap.nationalmap.gov:443/arcgis/services/USGSShadedReliefOnly/MapServer/WmsServer?">
+        <Metadata>
+          <Meta name="Description">USGS shaded relief</Meta>
+        </Metadata>
+      </Layer>
+    </GroupLayer>
+   </Region>
+</BaseMaps>

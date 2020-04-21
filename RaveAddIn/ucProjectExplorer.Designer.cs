@@ -62,6 +62,7 @@
             this.Controls.Add(this.treProject);
             this.Name = "ucProjectExplorer";
             this.Size = new System.Drawing.Size(346, 326);
+            this.Load += new System.EventHandler(this.ucProjectExplorer_Load);
             this.ResumeLayout(false);
 
         }

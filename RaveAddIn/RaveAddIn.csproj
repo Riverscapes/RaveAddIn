@@ -99,6 +99,9 @@
       <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
     </Reference>
+    <Reference Include="ESRI.ArcGIS.GISClient, Version=10.4.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="ESRI.ArcGIS.System">
       <Private>False</Private>
     </Reference>
@@ -120,6 +123,7 @@
   <ItemGroup>
     <Compile Include="AddInCommands\btnAbout.cs" />
     <Compile Include="AddInCommands\btnOpenProject.cs" />
+    <Compile Include="AddInCommands\btnOptions.cs" />
     <Compile Include="AddInCommands\btnProjectExplorer.cs" />
     <Compile Include="AddInCommands\btnWebSite.cs" />
     <Compile Include="ArcMapUtilities.cs" />
@@ -140,6 +144,12 @@
     <Compile Include="ErrorHandling\frmException.designer.cs">
       <DependentUpon>frmException.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmOptions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmOptions.Designer.cs">
+      <DependentUpon>frmOptions.cs</DependentUpon>
+    </Compile>
     <Compile Include="MetaData\frmMetaData.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -149,6 +159,7 @@
     <Compile Include="MetaData\MetaDataItem.cs" />
     <Compile Include="GISLayer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WMSLayer.cs" />
   </ItemGroup>
   <ItemGroup>
     <AddInContent Include="Config.esriaddinx">
@@ -206,12 +217,16 @@
     <EmbeddedResource Include="ErrorHandling\frmException.resx">
       <DependentUpon>frmException.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmOptions.resx">
+      <DependentUpon>frmOptions.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MetaData\frmMetaData.resx">
       <DependentUpon>frmMetaData.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="ucProjectExplorer.resx">
       <DependentUpon>ucProjectExplorer.cs</DependentUpon>
@@ -227,6 +242,9 @@
     <None Include="Resources\tree.png" />
     <None Include="Resources\refresh.png" />
     <None Include="Resources\expand.png" />
+    <Content Include="BaseMaps.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="XML\brat.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

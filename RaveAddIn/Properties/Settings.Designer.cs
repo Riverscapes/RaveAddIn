@@ -34,5 +34,29 @@ namespace RaveAddIn.Properties {
                 this["LastUsedProjectFolder"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string BaseMap {
+            get {
+                return ((string)(this["BaseMap"]));
+            }
+            set {
+                this["BaseMap"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool LoadBaseMaps {
+            get {
+                return ((bool)(this["LoadBaseMaps"]));
+            }
+            set {
+                this["LoadBaseMaps"] = value;
+            }
+        }
     }
 }

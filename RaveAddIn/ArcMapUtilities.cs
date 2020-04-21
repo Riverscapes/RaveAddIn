@@ -5,6 +5,7 @@ using ESRI.ArcGIS.Geodatabase;
 using ESRI.ArcGIS.esriSystem;
 using ESRI.ArcGIS.DataSourcesRaster;
 using ESRI.ArcGIS.CartoUI;
+using ESRI.ArcGIS.GISClient;
 using System.IO;
 
 namespace RaveAddIn
@@ -153,6 +154,55 @@ namespace RaveAddIn
             }
         }
 
+        public static void AddWMSTopMap(string title, string wmsURL, IGroupLayer parentGrpLayer)
+        {
+            // WMS GetCapabilities URL
+            IPropertySet propSet = new PropertySet();
+            propSet.SetProperty("URL", wmsURL);
+
+            IWMSGroupLayer wmsMapLayer = new WMSMapLayer() as IWMSGroupLayer;
+            IWMSConnectionName connName = new WMSConnectionName();
+
+            // set the property of the WMS layer to the Google Maps Engine
+            connName.ConnectionProperties = propSet;
+
+            // create a new data layer for the WMS layer to use
+            IDataLayer dataLayer = wmsMapLayer as IDataLayer;
+            dataLayer.Connect((IName)connName);
+
+            // create a new ArcMap layer and add the WMS.  Set the name.
+            IWMSServiceDescription serviceDesc = wmsMapLayer.WMSServiceDescription;
+            ILayer layer = wmsMapLayer as ILayer;
+            layer.Name = title;
+            layer.Visible = true;
+            //layer.Name = serviceDesc.WMSTitle;
+
+            // add the WMS layer to the ArcMap session
+            ((IMapLayers)ArcMap.Document.FocusMap).InsertLayerInGroup(parentGrpLayer, layer, true, 0);
+            //((IMapLayers)ArcMap.Document.FocusMap).InsertLayer(layer, true, 0);
+
+            if (wmsMapLayer is ICompositeLayer)
+            {
+                ChangeGroupLayerVisibility((ICompositeLayer)wmsMapLayer, true);
+            }
+
+            ArcMap.Document.UpdateContents();
+            ArcMap.Document.ActiveView.Refresh();
+            ArcMap.Document.CurrentContentsView.Refresh(null);
+        }
+
+        private static void ChangeGroupLayerVisibility(ICompositeLayer grpLayer, bool visible)
+        {
+            for (int i = 0; i < grpLayer.Count; i++)
+            {
+                grpLayer.Layer[i].Visible = visible;
+                if (grpLayer.Layer[i] is ICompositeLayer)
+                {
+                    ChangeGroupLayerVisibility((ICompositeLayer)grpLayer.Layer[i], visible);
+                }
+            }
+        }
+
         private static IRendererPropertyPage GetVectorPropertyPage(IFeatureRenderer renderer)
         {
             if (renderer is ClassBreaksRenderer) return (IRendererPropertyPage)new GraduatedColorPropertyPage();
@@ -280,7 +330,7 @@ namespace RaveAddIn
             return null;
         }
 
-        public static IGroupLayer GetGroupLayer(string sName, IGroupLayer pParentGroupLayer, bool bCreateIfNeeded = true)
+        public static IGroupLayer GetGroupLayer(string sName, IGroupLayer pParentGroupLayer, ucProjectExplorer.NodeInsertModes topLevelMode, bool bCreateIfNeeded = true)
         {
             if (string.IsNullOrEmpty(sName))
             {
@@ -325,7 +375,13 @@ namespace RaveAddIn
             }
             else
             {
-                ((IMapLayers)ArcMap.Document.FocusMap).AddLayer(pResultLayer);
+                if (topLevelMode == ucProjectExplorer.NodeInsertModes.Add)
+                    ((IMapLayers)ArcMap.Document.FocusMap).InsertLayer(pResultLayer, false, ArcMap.Document.FocusMap.LayerCount+1);
+               
+                else
+                {
+                    ((IMapLayers)ArcMap.Document.FocusMap).InsertLayer(pResultLayer, true, 0);
+                }
             }
 
             return pResultLayer;
