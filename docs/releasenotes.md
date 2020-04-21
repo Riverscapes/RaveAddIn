@@ -3,6 +3,10 @@ title: Release Notes
 weight: 99
 ---
 
+### Version 1.0.5 - 21 Apr 2020
+
+* New experimental Base Maps feature.
+
 ### Version 1.0.4 - 15 Apr 2020
 
 * Changing project type from BRAT8 to BRAT
