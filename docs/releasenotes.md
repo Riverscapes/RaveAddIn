@@ -3,6 +3,11 @@ title: Release Notes
 weight: 99
 ---
 
+### 1.0.5 - 22 Apr 2020
+
+* Extending Base Maps for United States
+* Fixed version number inconsistency
+
 ### Version 1.0.5 - 21 Apr 2020
 
 * New experimental Base Maps feature.
