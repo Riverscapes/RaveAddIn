@@ -5,12 +5,10 @@ title: Base Maps
 In addition to helping load riverscapes projects into the current ArcMap document, RAVE also supports loading base map layers.
 Base maps are [Web Mapping Services](https://en.wikipedia.org/wiki/Web_Map_Service) (WMS) that can be consumed over the internet and displayed underneath your local map layers. This is a new feature in RAVE and its worth reviewing the limitations further down this page before proceeding.
 
-The RAVE software install knows about several common WMS by default, but you can customize the list of base maps that RAVE can display by listing additional layers in a text file on your computer.
-
 # Enabling and Disabling Base Maps
 
 Click on **Options** in the RAVE Toolbar under the Help menu. Check the box to enable base maps to appear in the RAVE project 
-explorer and then select the "region" that you want to appear (see below). Click OK and the selected base maps should now appear at the bottom of the RAVE project explorer.
+explorer and then select the "region" that you want to appear. Click OK and the selected base maps should now appear at the bottom of the RAVE project explorer.
 
 ![steps]({{site.baseurl}}/assets/images/base_maps_steps.png)
 
