@@ -3,7 +3,7 @@ title: Base Maps
 ---
 
 In addition to helping load riverscapes projects into the current ArcMap document, RAVE also supports loading base map layers.
-Base maps are Web Mapping Services (WMS) that can be consumed over the internet and displayed underneath your local map layers. This is a new feature in RAVE and its worth reviewing the limitations further down this page before proceeding.
+Base maps are [Web Mapping Services](https://en.wikipedia.org/wiki/Web_Map_Service) (WMS) that can be consumed over the internet and displayed underneath your local map layers. This is a new feature in RAVE and its worth reviewing the limitations further down this page before proceeding.
 
 The RAVE software install knows about several common WMS by default, but you can customize the list of base maps that RAVE can display by listing additional layers in a text file on your computer.
 
