@@ -7,20 +7,25 @@
     <Children collapsed="false">
       <Node label="Transportation">
         <Children>
-          <Node xpathlabel="Name" xpath="Realizations/RSContext/Vector[@id='ROADS']" type="vector" symbology=""/>
-          <Node xpathlabel="Name" xpath="Realizations/RSContext/Vector[@id='RAIL']" type="vector" symbology="railroads"/>
-          <Node xpathlabel="Name" xpath="Realizations/RSContext/Vector[@id='CANALS']" type="vector" symbology="canals_ditches"/>
+          <Node xpathlabel="Name" xpath="Realizations/RSContext/Vector[@id='Roads']" type="vector" symbology=""/>
+          <Node xpathlabel="Name"     xpath="Realizations/RSContext/Vector[@id='Rail']" type="vector" symbology="railroads"/>
+          <Node xpathlabel="Name" xpath="Realizations/RSContext/Vector[@id='Canals']" type="vector" symbology="canals_ditches"/>
         </Children>
       </Node>
       <Node label="Hydrology">
         <Children>
-          <Node xpathlabel="Name" xpath="Realizations/RSContext/Vector[@id='NHDFLOWLINE']" type="vector" symbology="flow_lines"/>
+          <Node xpathlabel="Name" xpath="Realizations/RSContext/Vector[@id='NHDFlowline']" type="vector" symbology="flow_lines"/>																													   		  <Node xpathlabel="Name" xpath="Realizations/RSContext/Vector[@id='NHDFlowline']" type="vector" symbology="UpstreamDrainageArea"/>
           <Node xpathlabel="Name" xpath="Realizations/RSContext/Vector[@id='WBDHU2']" type="vector" symbology=""/>
           <Node xpathlabel="Name" xpath="Realizations/RSContext/Vector[@id='WBDHU4']" type="vector" symbology=""/>
-          <Node xpathlabel="Name" xpath="Realizations/RSContext/Vector[@id='WBDHU6']" type="vector" symbology=""/>
+          <Node xpathlabel="Name"
+
+xpath="Realizations/RSContext/Vector[@id='NHDPlusCatchment']" type="vector" 
+
+symbology=""/>
+          <Node xpathlabel="Name"  xpath="Realizations/RSContext/Vector[@id='WBDHU6']" type="vector" symbology=""/>
           <Node xpathlabel="Name" xpath="Realizations/RSContext/Vector[@id='WBDHU8']" type="vector" symbology=""/>
-          <Node xpathlabel="Name" xpath="Realizations/RSContext/Vector[@id='NHDAREA']" type="vector" symbology=""/>
-          <Node xpathlabel="Name" xpath="Realizations/RSContext/Vector[@id='NHDWATERBODY']" type="vector" symbology=""/>
+          <Node xpathlabel="Name" xpath="Realizations/RSContext/Vector[@id='NHDArea']" type="vector" symbology=""/>
+          <Node xpathlabel="Name" xpath="Realizations/RSContext/Vector[@id='NHDWaterbody']" type="vector" symbology=""/>
         </Children>
       </Node>
       <Node label="Topography">
@@ -30,7 +35,13 @@
           <Node xpathlabel="Name" xpath="Realizations/RSContext/Raster[@id='SLOPE']" type="raster" symbology=""/>
           <Node xpathlabel="Name" xpath="Realizations/RSContext/Raster[@id='FA']" type="raster" symbology=""/>
           <Node xpathlabel="Name" xpath="Realizations/RSContext/Raster[@id='DA']" type="raster" symbology=""/>
-          <Node xpathlabel="Name" xpath="Realizations/RSContext/Raster[@id='HAND']" type="raster" symbology=""/>
+          <Node xpathlabel="Name" xpath="Realizations/RSContext/Raster[@id='HAND']" type="raster" symbology=""/> 
+
+</Children>
+      </Node>
+      <Node label="Ownership">
+        <Children>
+          <Node xpathlabel="Name" xpath="Realizations/RSContext/Vector[@id='Ownership']" type="vector" symbology="flow_lines"/>
         </Children>
       </Node>
       <Node label="Vegetation">
