@@ -79,7 +79,7 @@
             this.chkLoadBaseMaps.Name = "chkLoadBaseMaps";
             this.chkLoadBaseMaps.Size = new System.Drawing.Size(187, 17);
             this.chkLoadBaseMaps.TabIndex = 3;
-            this.chkLoadBaseMaps.Text = "Include base maps in explorer tree";
+            this.chkLoadBaseMaps.Text = "Include basemaps in explorer tree";
             this.chkLoadBaseMaps.UseVisualStyleBackColor = true;
             this.chkLoadBaseMaps.CheckedChanged += new System.EventHandler(this.UpdateControls);
             // 

@@ -21,7 +21,7 @@ namespace RaveAddIn
             Insert
         };
 
-        private const string BaseMapsLabel = "Base Maps";
+        private const string BaseMapsLabel = "Basemaps";
         private const string BaseMapsTag = "BASEMAPS";
 
         private readonly ContextMenuStrip cmsProject;
