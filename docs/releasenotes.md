@@ -3,9 +3,13 @@ title: Release Notes
 weight: 99
 ---
 
+### 1.0.8 - 3 May 2020
+
+* Updated VBET business logic
+
 ### 1.0.7 - 2 May 2020
 
-* Updated Riverscapes Context Business Logic
+* Updated Riverscapes Context business logic
 * Base Maps changed to basemaps
 
 ### 1.0.6 - 22 Apr 2020
