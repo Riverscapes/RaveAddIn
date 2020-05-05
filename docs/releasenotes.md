@@ -3,6 +3,12 @@ title: Release Notes
 weight: 99
 ---
 
+### 1.0.9 - 5 May 2020
+
+* Joe's VBET business logic and layer files
+* Fixed bug when RAVE is searching for "Shared" layer files in deploy folder.
+* Generic files in business logic now appear in project tree and can be opened with right click. Use type `file` in [Node](http://rave.riverscapes.xyz/business-logic.html#node) tag.
+
 ### 1.0.8 - 3 May 2020
 
 * Updated VBET business logic
