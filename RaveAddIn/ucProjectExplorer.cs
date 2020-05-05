@@ -277,6 +277,9 @@ namespace RaveAddIn
         /// </remarks>
         private FileInfo GetSymbology(GISLayer layer)
         {
+            if (string.IsNullOrEmpty(layer.SymbologyKey))
+                return null;
+
             string appDataFolder = Path.Combine(ucProjectExplorer.AppDataFolder.FullName, Properties.Resources.AppDataSymbologyFolder);
             string deployFolder = Path.Combine(ucProjectExplorer.DeployFolder.FullName, Properties.Resources.AppDataSymbologyFolder);
 
