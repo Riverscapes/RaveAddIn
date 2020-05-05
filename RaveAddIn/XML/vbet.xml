@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:noNamespaceSchemaLocation="XSD/project_explorer.xsd">
   <Name>VBET</Name>
@@ -7,21 +7,24 @@
     <Children collapsed="false">
       <Node label="Inputs">
         <Children>
+          <Node label="Drainage Network">
+            <Children>
+              <Node xpathlabel="Name" xpath="Realizations/VBET/Inputs/Vector[@id='FLOWLINES']" type="vector" symbology="flow_lines"/>
+              <Node xpathlabel="Name" xpath="Realizations/VBET/Inputs/Vector[@id='FLOW_AREA']" type="vector" symbology="flow_lines"/>
+            </Children>
+          </Node>
+          <Node label="Lines of Evidence">
+            <Children>
+                <Node xpathlabel="Name" xpath="Realizations/VBET/Inputs/Raster[@id='SLOPE_RASTER']" type="raster" symbology="slopeDeg"/>
+                <Node xpathlabel="Name" xpath="Realizations/VBET/Inputs/Raster[@id='HAND_RASTER']" type="raster" symbology="hand"/>
+                <Node label="Active Channel" xpath="Realizations/VBET/Intermediates/Raster[@id='CHANNEL_RASTER']" type="raster" symbology="active_channel"/>
+            </Children>
+          </Node>
           <Node label="Topography">
             <Children>
-              <Node xpathlabel="Name" xpath="Realizations/VBET/Inputs/Raster[@id='SLOPE_RASTER']" type="raster" symbology=""/>
-              <Node xpathlabel="Name" xpath="Realizations/VBET/Intermediates/Raster[@id='CHANNEL_RASTER']" type="raster" symbology=""/>
-              <Node xpathlabel="Name" xpath="Realizations/VBET/Inputs/Raster[@id='HAND_RASTER']" type="raster" symbology=""/>
               <Node xpathlabel="Name" xpath="Realizations/VBET/Inputs/Raster[@id='HILLSHADE']" type="raster" symbology=""/>
-              <Node xpathlabel="Name" xpath="Realizations/VBET/Inputs/Vector[@id='FLOWLINES']" type="vector" symbology=""/>
-              <Node xpathlabel="Name" xpath="Realizations/VBET/Inputs/Vector[@id='FLOW_AREA']" type="vector" symbology=""/>
             </Children>
-          </Node>
-          <Node label="Drainage Network" xpath="DrainageNetworks">
-            <Children>
-              <Node xpathlabel="Name" xpath="Realizations/VBET/Vector[@id='FLOWLINES']" type="vector" symbology="flow_lines"/>
-            </Children>
-          </Node>
+            </Node>
         </Children>
       </Node>
       <Node label="Intermediates" collapsed="true">
