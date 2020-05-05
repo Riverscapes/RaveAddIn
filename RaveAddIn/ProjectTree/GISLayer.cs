@@ -2,18 +2,13 @@
 
 namespace RaveAddIn.ProjectTree
 {
-    public class GISLayer
+    public class GISLayer : ProjectDataset
     {
-        public readonly RaveProject Project;
-        public readonly string Name;
-        public readonly FileInfo FilePath;
         public readonly string SymbologyKey;
 
         public GISLayer(RaveProject project, FileInfo filePath, string name, string symbologyKey)
+            : base(project, filePath, name)
         {
-            Project = project;
-            FilePath = filePath;
-            Name = name;
             SymbologyKey = symbologyKey;
         }
     }

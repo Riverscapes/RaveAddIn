@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace RaveAddIn
+﻿
+namespace RaveAddIn.ProjectTree
 {
-   public class WMSLayer
+    public class WMSLayer
     {
         public readonly string Name;
         public readonly string URL;

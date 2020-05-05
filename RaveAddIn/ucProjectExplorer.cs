@@ -28,6 +28,7 @@ namespace RaveAddIn
         private readonly ContextMenuStrip cmsFolder;
         private readonly ContextMenuStrip cmsGIS;
         private readonly ContextMenuStrip cmsWMS;
+        private readonly ContextMenuStrip cmsFile;
 
         public ucProjectExplorer(object hook)
         {
@@ -56,6 +57,10 @@ namespace RaveAddIn
 
             cmsWMS = new ContextMenuStrip(components);
             cmsWMS.Items.Add("Add To Map", Properties.Resources.AddToMap, OnAddWMSToMap);
+
+            cmsFile = new ContextMenuStrip(components);
+            cmsFile.Items.Add("Open", Properties.Resources.RaveAddIn, OnOpenFile);
+            cmsFile.Items.Add("Browse Folder", Properties.Resources.BrowseFolder, OnExplore);
         }
 
         #region ERSI generated code 
@@ -141,6 +146,10 @@ namespace RaveAddIn
             {
                 node.ContextMenuStrip = cmsGIS;
             }
+            else if (node.Tag is ProjectDataset)
+            {
+                node.ContextMenuStrip = cmsFile;
+            }
             else if (node.Tag is RaveProject)
             {
                 node.ContextMenuStrip = cmsProject;
@@ -182,7 +191,7 @@ namespace RaveAddIn
                 parentGrpLyr = BuildArcMapGroupLayers(node.Parent, topLevelMode);
             }
 
-            if (node.Tag is GISLayer || node.Tag is WMSLayer)
+            if (node.Tag is GISLayer || node.Tag is ProjectTree.WMSLayer)
                 return parentGrpLyr;
             else
                 return ArcMapUtilities.GetGroupLayer(node.Text, parentGrpLyr, topLevelMode);
@@ -213,14 +222,21 @@ namespace RaveAddIn
 
             FileInfo symbology = GetSymbology(layer);
 
-            ArcMapUtilities.AddToMap(layer.FilePath, layer.Name, parentGrpLyr, symbology);
+            try
+            {
+                ArcMapUtilities.AddToMap(layer.FilePath, layer.Name, parentGrpLyr, symbology);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(string.Format("{0}\n\n{1}", ex.Message, layer.FilePath.FullName), "Error Adding Dataset To Map", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
 
         public void OnAddWMSToMap(object sender, EventArgs e)
         {
             TreeNode selNode = treProject.SelectedNode;
             IGroupLayer parentGrpLyr = BuildArcMapGroupLayers(selNode, NodeInsertModes.Add);
-            WMSLayer layer = (WMSLayer)selNode.Tag;
+            ProjectTree.WMSLayer layer = (ProjectTree.WMSLayer)selNode.Tag;
 
             try
             {
@@ -229,6 +245,19 @@ namespace RaveAddIn
             catch (Exception ex)
             {
                 MessageBox.Show(string.Format("Error adding the Web Mapping Service to the map: {0}", ex.Message), Properties.Resources.ApplicationNameLong, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        public void OnOpenFile(object sender, EventArgs e)
+        {
+            ProjectDataset ds = ((ProjectDataset)treProject.SelectedNode.Tag);
+            try
+            {
+                System.Diagnostics.Process.Start(ds.FilePath.FullName);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(string.Format("Error opening project item: {0}\n{1}", ds.FilePath.FullName, ex.Message), Properties.Resources.ApplicationNameLong, MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -284,9 +313,9 @@ namespace RaveAddIn
             {
                 file = ((RaveProject)tag).ProjectFile;
             }
-            else if (tag is ProjectTree.GISLayer)
+            else if (tag is ProjectTree.ProjectDataset)
             {
-                file = ((ProjectTree.GISLayer)tag).FilePath;
+                file = ((ProjectTree.ProjectDataset)tag).FilePath;
             }
 
             if (file is System.IO.FileInfo)
@@ -331,7 +360,7 @@ namespace RaveAddIn
                                 treProject.Nodes.Insert(treProject.Nodes.Count, baseMapsNode);
                             }
 
-                            LoadBaseMapsFromXML(treProject.Nodes[treProject.Nodes.Count-1], nodRegion);
+                            LoadBaseMapsFromXML(treProject.Nodes[treProject.Nodes.Count - 1], nodRegion);
                             return;
                         }
                     }
@@ -358,7 +387,7 @@ namespace RaveAddIn
                     else if (string.Compare(node.Name, "Layer", true) == 0)
                     {
                         TreeNode newNode = nodParent.Nodes.Add(node.Attributes["name"].InnerText);
-                        newNode.Tag = new WMSLayer(newNode.Text, node.Attributes["url"].InnerText);
+                        newNode.Tag = new ProjectTree.WMSLayer(newNode.Text, node.Attributes["url"].InnerText);
                         newNode.ContextMenuStrip = cmsWMS;
                     }
                 }

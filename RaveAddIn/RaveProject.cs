@@ -296,13 +296,20 @@ namespace RaveAddIn
 
                 case "vector":
                     imgIndex = absPath.Exists ? 3 : 5;
-                    break;
+                    break;                    
             }
 
-
-
             TreeNode newNode = new TreeNode(label, imgIndex, imgIndex);
-            newNode.Tag = new ProjectTree.GISLayer(this, absPath, label, symbology);
+
+            if (string.Compare(type, "file", true) == 0)
+            {
+                newNode.Tag = new ProjectTree.ProjectDataset(this, absPath, label);
+            }
+            else
+            {
+                newNode.Tag = new ProjectTree.GISLayer(this, absPath, label, symbology);
+            }
+
             tnParent.Nodes.Add(newNode);
         }
 
