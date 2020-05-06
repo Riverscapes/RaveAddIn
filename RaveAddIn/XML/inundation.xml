@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="./XSD/project_explorer.xsd">
+  <Name>Inundation Mapper</Name>
+  <ProjectType>Inundation</ProjectType>
+  <Node xpathlabel="Name">
+    <Children>
+      <Node label="Inputs">
+        <Children>
+          <Node xpathlabel="Name" xpath="Realizations/Inundation/Inputs/Raster[@id='AP_01']" type="raster" symbology=""/>
+        </Children>
+      </Node>
+       <Node label="Mapping">
+        <Children>
+          <Node xpathlabel="Name" xpath="Realizations/Inundation/Intermediates/Vector[@id='inundation_01']" type="raster" symbology="in"/>
+        </Children>
+      </Node>
+    </Children>
+  </Node>
+</Project>
