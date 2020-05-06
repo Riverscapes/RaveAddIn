@@ -94,6 +94,7 @@ namespace RaveAddIn
                         {
                             if (string.Compare(nodProjectType.InnerText, ProjectType, true) == 0)
                             {
+                                System.Diagnostics.Debug.Print(string.Format("Using business logic at {0}", xmlPath));
                                 return new FileInfo(xmlPath);
                             }
                         }
@@ -223,7 +224,10 @@ namespace RaveAddIn
                 {
                     XmlNode gisNode = xmlProject;
                     if (!string.IsNullOrEmpty(xPath))
+                    {
                         gisNode = xmlProject.SelectSingleNode(xPath);
+                        System.Diagnostics.Debug.Assert(gisNode is XmlNode);
+                    }
 
                     label = GetLabel(xmlBusiness, gisNode);
 
