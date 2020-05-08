@@ -1,18 +1,68 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:noNamespaceSchemaLocation="./XSD/project_explorer.xsd">
+<Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="./XSD/project_explorer.xsd">
   <Name>Inundation Mapper</Name>
   <ProjectType>Inundation</ProjectType>
   <Node xpathlabel="Name">
     <Children>
-      <Node label="Inputs">
+      <Node label="Output">
         <Children>
-          <Node xpathlabel="Name" xpath="Realizations/Inundation/Inputs/Raster[@id='AP_01']" type="raster" symbology=""/>
+          <Repeater label="Change Detections" xpath="Realizations/CDs">
+            <Node xpathlabel="Name">
+              <Children>
+                <Node xpathlabel="Name" xpath="Vector[@id='in_change_01']" type="vector" symbology="Changes in inundation type" />
+                <Repeater xpath="PDF">
+                  <Node xpathlabel="Name" type="file" />
+                </Repeater>
+              </Children>
+            </Node>
+          </Repeater>
         </Children>
       </Node>
-       <Node label="Mapping">
+      <Node label="Mapping">
         <Children>
-          <Node xpathlabel="Name" xpath="Realizations/Inundation/Intermediates/Vector[@id='inundation_01']" type="raster" symbology="in"/>
+          <Repeater label="DCEs" xpath="Mapping/DCEs">
+            <Node xpathlabel="Name">
+              <Children>
+                <Node xpathlabel="Name" xpath="Vector[@id='thalwegs_01']" type="vector" symbology="thalwegs" />
+                <Node label="Dam Crests">
+                  <Children>
+                    <Node label="Dam state" xpath="Vector[@id='damcrests_01']" type="vector" symbology="dam_state" />
+                    <Node label="Crest type" xpath="Vector[@id='damcrests_01']" type="vector" symbology="crests_type" />
+                  </Children>
+                </Node>
+                <Node label="Inundation">
+                  <Children>
+                    <Node label="Inundation Types" xpath="Vector[@id='inundation_01']" type="vector" symbology="inundation_types" />
+                    <Node label="Wetted Extent" xpath="Vector[@id='inundation_01']" type="vector" symbology="wetted_extent" />
+                  </Children>
+                </Node>
+              </Children>
+            </Node>
+          </Repeater>
+          <Node label="Riverscape">
+            <Children>
+              <Node xpathlabel="Name" xpath="Mapping/RS_Context/Vector[@id='vbcenterline_01']" type="vector" symbology="" />
+              <Node xpathlabel="Name" xpath="Mapping/RS_Context/Vector[@id='valleybottom_01']" type="vector" symbology="valley_bottom" />
+            </Children>
+          </Node>
+        </Children>
+      </Node>
+      <Node label="Inputs">
+        <Children>
+          <Node label="Imagery">
+            <Children>
+              <Node xpathlabel="Name" xpath="Inputs/Raster[@id='AP_01']" type="raster" symbology="ortho" />
+              <Node xpathlabel="Name" xpath="Inputs/Raster[@id='AP_02']" type="raster" symbology="ortho" />
+            </Children>
+          </Node>
+          <Node label="Context">
+            <Children>
+              <Node xpathlabel="Name" xpath="Inputs/Vector[@id='BRAT_01']" type="vector" symbology="BRAT" />
+              <Node xpathlabel="Name" xpath="Inputs/Vector[@id='VBET_01']" type="vector" symbology="VBET" />
+              <Node xpathlabel="Name" xpath="Inputs/DEM[@id='DEM_01']" type="raster" symbology="DEM" />
+              <Node xpathlabel="Name" xpath="Inputs/Vector[@id='hillshade_01']" type="vector" symbology="hillshade" />
+            </Children>
+          </Node>
         </Children>
       </Node>
     </Children>
