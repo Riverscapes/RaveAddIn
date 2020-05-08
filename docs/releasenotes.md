@@ -3,6 +3,10 @@ title: Release Notes
 weight: 99
 ---
 
+### 1.0.11 - 8 May 2020
+
+* Updated Inundation business logic and layer files
+
 ### 1.0.10 - 5 May 2020
 
 * Fixed [bug](https://github.com/Riverscapes/RaveAddIn/issues/24) where layers that don't have symbology were failing to add to map.
