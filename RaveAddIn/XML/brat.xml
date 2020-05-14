@@ -10,55 +10,90 @@
           <Node xpathlabel="Name" xpath="SQLiteDB[@id='BRATDB']" type="file" />
           <Node label="Capacity">
             <Children>
-              <Node label="Existing Dam Capacity" xpath="Vector[@id='SEGMENTED']" type="vector" symbology="oCC_EX"/>
-              <Node label="Existing Dam Size" xpath="Vector[@id='SEGMENTED']" type="vector" symbology="mCC_EX_CT"/>
-              <Node label="Historic Dam Capacity" xpath="Vector[@id='SEGMENTED']" type="vector" symbology="oCC_HPE"/>
-              <Node label="Existing Dam Size" xpath="Vector[@id='SEGMENTED']" type="vector" symbology="mCC_HPE_CT"/>
+              <Node label="Existing Dam Capacity" xpath="Vector" type="vector" symbology="oCC_EX"/>
+              <Node label="Existing Dam Size" xpath="Vector" type="vector" symbology="mCC_EX_CT"/>
+              <Node label="Historic Dam Capacity" xpath="Vector" type="vector" symbology="oCC_HPE"/>
+              <Node label="Existing Dam Size" xpath="Vector" type="vector" symbology="mCC_HPE_CT"/>
             </Children>
           </Node>
           <Node label="Management">
             <Children>
-              <Node label="Unsuitable or Limited Opportunities" xpath="Vector[@id='SEGMENTED']" type="vector" symbology="oPBRC_UD"/>
-              <Node label="Risk of Undesirable Dams" xpath="Vector[@id='SEGMENTED']" type="vector" symbology="oPBRC_UI"/>
-              <Node label="Restoration or Conservation Opportunities" xpath="Vector[@id='SEGMENTED']" type="vector" symbology="oPBRC_CR"/>
+              <Node label="Unsuitable or Limited Opportunities" xpath="Vector" type="vector" symbology="oPBRC_UD"/>
+              <Node label="Risk of Undesirable Dams" xpath="Vector" type="vector" symbology="oPBRC_UI"/>
+              <Node label="Restoration or Conservation Opportunities" xpath="Vector" type="vector" symbology="oPBRC_CR"/>
             </Children>
           </Node>
         </Children>
       </Node>
       <Node label="Intermediates" xpath="Realizations/BRAT/Outputs">
         <Children>
-          <Node label="Perennial" xpath="Vector[@id='SEGMENTED']" type="vector"/>
+          <Node label="Perennial" xpath="Vector" type="vector"/>
           <Node label="Topographic Index">
             <Children>
-              <Node label="Slope" xpath="Vector[@id='SEGMENTED']" type="vector" symbology="iGeo_Slope"/>
-              <Node label="Drainage Area" xpath="Vector[@id='SEGMENTED']" type="vector" symbology="iGeo_DA"/>
+              <Node label="Slope" xpath="Vector" type="vector" symbology="iGeo_Slope"/>
+              <Node label="Drainage Area" xpath="Vector" type="vector" symbology="iGeo_DA"/>
             </Children>
           </Node>
           <Node label="Hydrology">
             <Children>
-              <Node label="High Flow Stream Power" xpath="Vector[@id='SEGMENTED']" type="vector" symbology="iHyd_SP2"/>
-              <Node label="Base Flow Stream Power" xpath="Vector[@id='SEGMENTED']" type="vector" symbology="iHyd_SPLow"/>
+              <Node label="High Flow Stream Power" xpath="Vector" type="vector" symbology="iHyd_SP2"/>
+              <Node label="Base Flow Stream Power" xpath="Vector" type="vector" symbology="iHyd_SPLow"/>
             </Children>
           </Node>
           <Node label="Overall Vegetation Dam Capacity">
             <Children>
-              <Node label="Existing Veg Dam Building Capacity" xpath="Vector[@id='SEGMENTED']" type="vector" symbology="oVC_EX"/>
-              <Node label="Historic Veg Dam Building Capacity" xpath="Vector[@id='SEGMENTED']" type="vector" symbology="oVC_HPE"/>
+              <Node label="Existing Veg Dam Building Capacity" xpath="Vector" type="vector" symbology="oVC_EX"/>
+              <Node label="Historic Veg Dam Building Capacity" xpath="Vector" type="vector" symbology="oVC_HPE"/>
             </Children>
           </Node>
           <Node label="Anthropogenic Intermediates">
             <Children>
-              <Node label="Priority Beaver Translocation Areas" xpath="Vector[@id='SEGMENTED']" type="vector" symbology="conflict_dist_private"/>
-              <Node label="Land Ownership per Reach" xpath="Vector[@id='SEGMENTED']" type="vector" symbology="ADMIN_AGEN"/>
-              <Node label="Land Use Intensity" xpath="Vector[@id='SEGMENTED']" type="vector" symbology="iPC_LU"/>
-              <Node label="Distance to Closest Architecture" xpath="Vector[@id='SEGMENTED']" type="vector" symbology="oPC_Dist"/>
-              <Node label="Distance to Railroad" xpath="Vector[@id='SEGMENTED']" type="vector" symbology="iPC_Rail"/>
-              <Node label="Distance to Railroad in Valley Bottom" xpath="Vector[@id='SEGMENTED']" type="vector" symbology="iPC_RailVB"/>
-              <Node label="Distance to Road" xpath="Vector[@id='SEGMENTED']" type="vector" symbology="iPC_Road"/>
-              <Node label="Distance to Road Crossing" xpath="Vector[@id='SEGMENTED']" type="vector" symbology="iPC_RoadX"/>
-              <Node label="Distance to Road in Valley Bottom" xpath="Vector[@id='SEGMENTED']" type="vector" symbology="iPC_RoadVB"/>
-              <Node label="Distance to Points of Diversion" xpath="Vector[@id='SEGMENTED']" type="vector" symbology="iPC_DivPts"/>
-              <Node label="Distance to Canals/Ditches" xpath="Vector[@id='SEGMENTED']" type="vector" symbology="iPC_Canal"/>
+              <Node label="Priority Beaver Translocation Areas" xpath="Vector" type="vector" symbology="conflict_dist_private"/>
+              <Node label="Land Ownership per Reach" xpath="Vector" type="vector" symbology="ADMIN_AGEN"/>
+              <Node label="Land Use Intensity" xpath="Vector" type="vector" symbology="iPC_LU"/>
+              <Node label="Distance to Closest Architecture" xpath="Vector" type="vector" symbology="oPC_Dist"/>
+              <Node label="Distance to Railroad" xpath="Vector" type="vector" symbology="iPC_Rail"/>
+              <Node label="Distance to Railroad in Valley Bottom" xpath="Vector" type="vector" symbology="iPC_RailVB"/>
+              <Node label="Distance to Road" xpath="Vector" type="vector" symbology="iPC_Road"/>
+              <Node label="Distance to Road Crossing" xpath="Vector" type="vector" symbology="iPC_RoadX"/>
+              <Node label="Distance to Road in Valley Bottom" xpath="Vector" type="vector" symbology="iPC_RoadVB"/>
+              <Node label="Distance to Points of Diversion" xpath="Vector" type="vector" symbology="iPC_DivPts"/>
+              <Node label="Distance to Canals/Ditches" xpath="Vector" type="vector" symbology="iPC_Canal"/>
+            </Children>
+          </Node>
+        </Children>
+      </Node>
+	  <Node label="Inputs" xpath="Realizations/BRAT/Inputs">
+        <Children>
+          <Node label="Network">
+            <Children>
+              <Node label="Network" xpath="Vector[@id='FLOWLINES']" type="vector"/>
+			  <Node label="Flow Direction" xpath="Vector[@id='FLOWLINES']" type="vector"/>
+			  <Node label="Flow Area" xpath="Vector[@id='FLOW_AREA']" type="vector"/>
+			  <Node label="Waterbodies" xpath="Vector[@id='WATERBODIES']" type="vector"/>
+            </Children>
+          </Node>
+          <Node label="Vegetation">
+            <Children>
+			<Node label="Existing">
+				<Children>
+					<Node label="Existing Vegetation" xpath="Raster[@id='EXVEG']" type="raster"/>
+				</Children>		
+			</Node>
+			<Node label="Historic">
+				<Children>
+					<Node label="Historic Vegetation" xpath="Raster[@id='HISTVEG']" type="raster"/>
+				</Children>	
+			</Node>
+            </Children>
+          </Node>
+          <Node label="Topography">
+            <Children>
+				<Node label="Flow Accumulation" xpath="Raster[@id='FA']" type="raster"/>
+				<Node label="Drainage Area" xpath="Raster[@id='DA']" type="raster"/>
+				<Node label="Slope" xpath="Raster[@id='SLOPE']" type="raster"/>
+				<Node label="DEM" xpath="DEM" type="DEM"/>
+				<Node label="Hillshade" xpath="Raster[@id='HILLSHADE']" type="raster"/>
             </Children>
           </Node>
         </Children>
