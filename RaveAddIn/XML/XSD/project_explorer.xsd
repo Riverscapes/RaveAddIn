@@ -20,6 +20,7 @@
       <xs:enumeration value="raster" />
       <xs:enumeration value="tile" />
       <xs:enumeration value="file" />
+      <xs:enumeration value="tin" />
     </xs:restriction>
   </xs:simpleType>
 

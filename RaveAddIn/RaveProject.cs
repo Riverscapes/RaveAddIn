@@ -44,10 +44,10 @@ namespace RaveAddIn
             return string.Compare(proj1.ProjectFile.FullName, projectFile.FullName) == 0;
         }
 
-        private FileInfo AbsolutePath(string relativePath)
-        {
-            return new FileInfo(Path.Combine(ProjectFile.DirectoryName, relativePath));
-        }
+        //private FileInfo AbsolutePath(string relativePath)
+        //{
+        //    return new FileInfo(Path.Combine(ProjectFile.DirectoryName, relativePath));
+        //}
 
         /// <summary>
         /// Determine the location of the business lofic XML file for this project
@@ -289,31 +289,41 @@ namespace RaveAddIn
                 label = nodGISNode.SelectSingleNode("Name").InnerText;
 
             string path = nodGISNode.SelectSingleNode("Path").InnerText;
-            FileInfo absPath = AbsolutePath(path);
+            string absPath = Path.Combine(ProjectFile.DirectoryName, path);
 
-            int imgIndex = 0; // Default is riverscapes logo
+            ProjectTree.FileSystemDataset dataset = null;
             switch (type.ToLower())
             {
+                case "file":
+                    {
+                        dataset = new ProjectTree.FileSystemDataset(this, label, new FileInfo(absPath), 0);
+                        break;
+                    }
+
                 case "raster":
-                    imgIndex = absPath.Exists ? 2 : 4;
-                    break;
+                    {
+                        dataset = new ProjectTree.Raster(this, label, absPath, symbology);
+                        break;
+                    }
 
                 case "vector":
-                    imgIndex = absPath.Exists ? 3 : 5;
-                    break;                    
+                    {
+                        dataset = new ProjectTree.Vector(this, label, absPath, symbology);
+                        break;
+                    }
+
+                case "tin":
+                    {
+                        dataset = new ProjectTree.TIN(this, label, absPath);
+                        break;
+                    }
+
+                default:
+                    throw new Exception(string.Format("Unhandled Node type attribute string '{0}'", type));
             }
 
-            TreeNode newNode = new TreeNode(label, imgIndex, imgIndex);
-
-            if (string.Compare(type, "file", true) == 0)
-            {
-                newNode.Tag = new ProjectTree.ProjectDataset(this, absPath, label);
-            }
-            else
-            {
-                newNode.Tag = new ProjectTree.GISLayer(this, absPath, label, symbology);
-            }
-
+            TreeNode newNode = new TreeNode(label, dataset.ImageIndex, dataset.ImageIndex);
+            newNode.Tag = dataset;
             tnParent.Nodes.Add(newNode);
         }
 

@@ -6,10 +6,11 @@ namespace RaveAddIn.ProjectTree
     {
         public readonly RaveProject Project;
         public readonly string Name;
-        public readonly FileInfo FilePath;
+        public readonly FileSystemInfo FilePath; // TINs
 
-        public ProjectDataset(RaveProject project, FileInfo filePath, string name)
+        public ProjectDataset(RaveProject project, FileSystemInfo filePath, string name)
         {
+            filePath
             Project = project;
             FilePath = filePath;
             Name = name;

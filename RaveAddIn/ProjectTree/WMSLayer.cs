@@ -1,14 +1,16 @@
 ﻿
 namespace RaveAddIn.ProjectTree
 {
-    public class WMSLayer
+    class WMSLayer : BaseDataset, IGISLayer
     {
-        public readonly string Name;
         public readonly string URL;
 
-        public WMSLayer(string name, string url)
+        public string GISPath {  get { return URL; } }
+        public string SymbologyKey { get { return string.Empty; } }
+
+        public WMSLayer(string name, string url, int imageIndex)
+            : base(name, imageIndex)
         {
-            Name = name;
             URL = url;
         }
     }

@@ -142,11 +142,11 @@ namespace RaveAddIn
             if (node == null)
                 return;
 
-            if (node.Tag is GISLayer)
+            if (node.Tag is IGISLayer)
             {
                 node.ContextMenuStrip = cmsGIS;
             }
-            else if (node.Tag is ProjectDataset)
+            else if (node.Tag is FileSystemDataset)
             {
                 node.ContextMenuStrip = cmsFile;
             }
@@ -191,7 +191,7 @@ namespace RaveAddIn
                 parentGrpLyr = BuildArcMapGroupLayers(node.Parent, topLevelMode);
             }
 
-            if (node.Tag is GISLayer || node.Tag is ProjectTree.WMSLayer)
+            if (node.Tag is IGISLayer)
                 return parentGrpLyr;
             else
                 return ArcMapUtilities.GetGroupLayer(node.Text, parentGrpLyr, topLevelMode);
@@ -206,11 +206,11 @@ namespace RaveAddIn
         {
             e.Nodes.OfType<TreeNode>().ToList().ForEach(x => AddChildrenToMap(x));
 
-            if (e.Tag is GISLayer)
+            if (e.Tag is GISDataset)
             {
-                GISLayer layer = (GISLayer)e.Tag;
+                GISDataset layer = (GISDataset)e.Tag;
                 IGroupLayer parentGrpLyr = BuildArcMapGroupLayers(e);
-                ArcMapUtilities.AddToMap(layer.FilePath, layer.Name, parentGrpLyr);
+                ArcMapUtilities.AddToMap(layer.Path, layer.Name, parentGrpLyr);
             }
         }
 
@@ -218,17 +218,17 @@ namespace RaveAddIn
         {
             TreeNode selNode = treProject.SelectedNode;
             IGroupLayer parentGrpLyr = BuildArcMapGroupLayers(selNode);
-            GISLayer layer = (GISLayer)selNode.Tag;
+            GISDataset layer = (GISDataset)selNode.Tag;
 
             FileInfo symbology = GetSymbology(layer);
 
             try
             {
-                ArcMapUtilities.AddToMap(layer.FilePath, layer.Name, parentGrpLyr, symbology);
+                ArcMapUtilities.AddToMap(layer.Path, layer.Name, parentGrpLyr, symbology);
             }
             catch (Exception ex)
             {
-                MessageBox.Show(string.Format("{0}\n\n{1}", ex.Message, layer.FilePath.FullName), "Error Adding Dataset To Map", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show(string.Format("{0}\n\n{1}", ex.Message, layer.Path.FullName), "Error Adding Dataset To Map", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
@@ -250,14 +250,14 @@ namespace RaveAddIn
 
         public void OnOpenFile(object sender, EventArgs e)
         {
-            ProjectDataset ds = ((ProjectDataset)treProject.SelectedNode.Tag);
+            FileSystemDataset ds = ((FileSystemDataset)treProject.SelectedNode.Tag);
             try
             {
-                System.Diagnostics.Process.Start(ds.FilePath.FullName);
+                System.Diagnostics.Process.Start(ds.Path.FullName);
             }
             catch (Exception ex)
             {
-                MessageBox.Show(string.Format("Error opening project item: {0}\n{1}", ds.FilePath.FullName, ex.Message), Properties.Resources.ApplicationNameLong, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(string.Format("Error opening project item: {0}\n{1}", ds.Path.FullName, ex.Message), Properties.Resources.ApplicationNameLong, MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -275,7 +275,7 @@ namespace RaveAddIn
         /// 5. SOFTWARE_DEPLOYMENT\Shared
         /// 
         /// </remarks>
-        private FileInfo GetSymbology(GISLayer layer)
+        private FileInfo GetSymbology(GISDataset layer)
         {
             if (string.IsNullOrEmpty(layer.SymbologyKey))
                 return null;
@@ -309,20 +309,23 @@ namespace RaveAddIn
 
         public void OnExplore(object sender, EventArgs e)
         {
-            FileInfo file = null;
+            FileSystemInfo file = null;
             object tag = treProject.SelectedNode.Tag;
 
             if (tag is RaveProject)
             {
                 file = ((RaveProject)tag).ProjectFile;
             }
-            else if (tag is ProjectTree.ProjectDataset)
+            else if (tag is FileSystemDataset)
             {
-                file = ((ProjectTree.ProjectDataset)tag).FilePath;
+                file = ((FileSystemDataset)tag).Path;
             }
 
             if (file is System.IO.FileInfo)
-                System.Diagnostics.Process.Start(file.Directory.FullName);
+                System.Diagnostics.Process.Start(((FileInfo)file).Directory.FullName);
+            else
+                System.Diagnostics.Process.Start(((DirectoryInfo)file).Parent.FullName);
+              
         }
 
         public void RefreshBaseMaps()
@@ -390,7 +393,7 @@ namespace RaveAddIn
                     else if (string.Compare(node.Name, "Layer", true) == 0)
                     {
                         TreeNode newNode = nodParent.Nodes.Add(node.Attributes["name"].InnerText);
-                        newNode.Tag = new ProjectTree.WMSLayer(newNode.Text, node.Attributes["url"].InnerText);
+                        newNode.Tag = new ProjectTree.WMSLayer(newNode.Text, node.Attributes["url"].InnerText, 0);
                         newNode.ContextMenuStrip = cmsWMS;
                     }
                 }
