@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://raw.githubuser.content.com/Riverscapes/Program/master/Project/XSD/V1/Project.xsd">
+<Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/Riverscapes/RaveAddIn/master/RaveAddIn/XML/XSD/project_explorer.xsd">
   <Name>CHaMP Topo</Name>
   <ProjectType>topo</ProjectType>
   <Node xpathlabel="Name">
     <Children collapsed="false">
 
-      <Node label="Inputs" collapsed="true">
-        <Children>
+      <Node label="Inputs">
+        <Children collapsed="true">
           <Node label="Raw Survey Data">
             <Children>
               <Node label="Breaklines CAD DXF file" xpath="Inputs/Vector[@id='BreaklineDXF']" type="file" />
@@ -25,8 +25,8 @@
 
       <Node label="Topos">
         <Children>
-          <Node label="Auxiliary Survey Data" collapsed="true">
-            <Children>
+          <Node label="Auxiliary Survey Data">
+            <Children  collapsed="true">
               <Node label="Channel Units">
                 <Children>
                   <Node label="Unit ID" xpath="Realizations/Topography/TIN/ChannelUnits" type="vector" symbology="cu_UnitNum" />
@@ -49,8 +49,8 @@
             </Children>
           </Node>
 
-          <Node label="Topographic Survey Data" collapsed="true">
-            <Children>
+          <Node label="Topographic Survey Data">
+            <Children collapsed="true">
               <Node xpathlabel="Name" xpath="Realizations/SurveyData/SurveyExtents/Vector[@id='survey_extent']" type="vector" symbology="SurveyExtent" />
               <Node xpathlabel="Name" xpath="Realizations/SurveyData/Vector[@id='breaklines']" type="vector" symbology="breaklines" />
               <Node xpathlabel="Name" xpath="Realizations/SurveyData/Vector[@id='topo_points']" type="vector" symbology="pts_topo" />
@@ -61,7 +61,7 @@
             </Children>
           </Node>
 
-          <Node label="Topographic Derivatives" collapsed="false">
+          <Node label="Topographic Derivatives">
             <Children>
               <Node label="DEM Error Model">
                 <Children>
@@ -116,12 +116,12 @@
             </Children>
           </Node>
 
-          <Node label="Topography" collapsed="false">
-            <Children>
+          <Node label="Topography">
+            <Children collapsed="true">
               <Node label="TINs">
                 <Children>
-                  <Node xpathlabel="Name" xpath="Realizations/Topography/TIN" type="TIN" symbology="" />
-                  <Node xpathlabel="Name" xpath="Realizations/Topography/TIN/WaterSurfaceTIN" type="TIN" symbology="" />
+                  <Node xpathlabel="Name" xpath="Realizations/Topography/TIN" type="file" symbology="" />
+                  <Node xpathlabel="Name" xpath="Realizations/Topography/TIN/WaterSurfaceTIN" type="tin" symbology="" />
                 </Children>
               </Node>
               <Node label="Digital Elevation Models">
