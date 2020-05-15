@@ -1,6 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:noNamespaceSchemaLocation="XSD/project_explorer.xsd">
+<?xml version="1.0" encoding="utf-8" ?>
+<Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="XSD/project_explorer.xsd">
   <Name>Default</Name>
   <ProjectType>Default</ProjectType>
   <Node xpathlabel="Name">
@@ -12,13 +11,13 @@
             <Node label="Inputs" xpath="Inputs">
               <Children>
                 <Repeater label="Raster Layers" xpath="//Raster">
-                  <Node xpathlabel="Name" type="raster" symbology=""/>
+                  <Node xpathlabel="Name" type="raster" symbology="" />
                 </Repeater>
                 <Repeater label="Vector Layers" xpath="//Vector">
-                  <Node xpathlabel="Name" type="vector" symbology=""/>
+                  <Node xpathlabel="Name" type="vector" symbology="" />
                 </Repeater>
                 <Repeater label="Image Layers" xpath="//Image">
-                  <Node xpathlabel="Name" type="file"/>
+                  <Node xpathlabel="Name" type="file" />
                 </Repeater>
               </Children>
             </Node>

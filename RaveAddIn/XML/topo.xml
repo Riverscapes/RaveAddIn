@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/Riverscapes/RaveAddIn/master/RaveAddIn/XML/XSD/project_explorer.xsd">
+<Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="XSD/project_explorer.xsd">
   <Name>CHaMP Topo</Name>
   <ProjectType>topo</ProjectType>
   <Node xpathlabel="Name">
     <Children collapsed="false">
-
       <Node label="Inputs">
         <Children collapsed="true">
           <Node label="Raw Survey Data">
@@ -17,16 +16,14 @@
           <Node label="Survey Quality QA/QC">
             <Children>
               <Node label="Survey Quality SQLite Database" xpath="Inputs/SurveyQualityDB" type="file" />
-
             </Children>
           </Node>
         </Children>
       </Node>
-
       <Node label="Topos">
         <Children>
           <Node label="Auxiliary Survey Data">
-            <Children  collapsed="true">
+            <Children collapsed="true">
               <Node label="Channel Units">
                 <Children>
                   <Node label="Unit ID" xpath="Realizations/Topography/TIN/ChannelUnits" type="vector" symbology="cu_UnitNum" />
@@ -48,7 +45,6 @@
               </Node>
             </Children>
           </Node>
-
           <Node label="Topographic Survey Data">
             <Children collapsed="true">
               <Node xpathlabel="Name" xpath="Realizations/SurveyData/SurveyExtents/Vector[@id='survey_extent']" type="vector" symbology="SurveyExtent" />
@@ -60,7 +56,6 @@
               <Node xpathlabel="Name" xpath="Realizations/SurveyData/Vector[@id='error_points']" type="vector" symbology="pts_error" />
             </Children>
           </Node>
-
           <Node label="Topographic Derivatives">
             <Children>
               <Node label="DEM Error Model">
@@ -87,7 +82,6 @@
                   <Node xpathlabel="Name" xpath="Realizations/Topography/TIN/Thalweg" type="vector" symbology="thalweg" />
                 </Children>
               </Node>
-
               <Node label="Mapping">
                 <Children>
                   <Node label="Cross Sections, Profiles and Extents">
@@ -110,12 +104,10 @@
                       </Node>
                     </Children>
                   </Node>
-
                 </Children>
               </Node>
             </Children>
           </Node>
-
           <Node label="Topography">
             <Children collapsed="true">
               <Node label="TINs">
@@ -136,7 +128,6 @@
           </Node>
         </Children>
       </Node>
-
     </Children>
   </Node>
 </Project>

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:noNamespaceSchemaLocation="XSD/project_explorer.xsd">
+<Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="XSD/project_explorer.xsd">
     <Name>Electrical Conductivity</Name>
     <ProjectType>EC</ProjectType>
     <Node xpathlabel="Name">
@@ -12,7 +11,7 @@
                         <Node label="Inputs" xpath="Inputs">
                             <Children>
                                 <Repeater label="Vectors" xpath="Vector">
-                                    <Node xpathlabel="Name" xpath="Vector" type="vector" symbology=""/>
+                                    <Node xpathlabel="Name" xpath="Vector" type="vector" symbology="" />
                                 </Repeater>
                             </Children>
                         </Node>
@@ -20,7 +19,7 @@
                             <Children>
                                 <Node label="Outputs" xpath="Analysis/Outputs">
                                     <Children>
-                                        <Node xpathlabel="Name" xpath="Vector" type="vector" symbology="Conductivity"/>
+                                        <Node xpathlabel="Name" xpath="Vector" type="vector" symbology="Conductivity" />
                                     </Children>
                                 </Node>
                             </Children>
