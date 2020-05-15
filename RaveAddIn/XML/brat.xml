@@ -7,7 +7,7 @@
     <Children collapsed="false">
       <Node label="Outputs" xpath="Realizations/BRAT/Outputs">
         <Children>
-          <Node xpathlabel="Name" xpath="SQLiteDB[@id='BRATDB']" type="file" />
+          <Node xpathlabel="Name" xpath="SQLiteDB" type="file" />
           <Node label="Capacity">
             <Children>
               <Node label="Existing Dam Capacity" xpath="Vector" type="vector" symbology="oCC_EX"/>
@@ -19,19 +19,19 @@
           <Node label="Management">
             <Children>
               <Node label="Unsuitable or Limited Opportunities" xpath="Vector" type="vector" symbology="oPBRC_UD"/>
-              <Node label="Risk of Undesirable Dams" xpath="Vector" type="vector" symbology="oPBRC_UI"/>
-              <Node label="Restoration or Conservation Opportunities" xpath="Vector" type="vector" symbology="oPBRC_CR"/>
+              <Node label="Risk of Undesirable Dams" xpath="Vector" type="vector" symbology="oPBRC_CR"/>
+              <Node label="Restoration or Conservation Opportunities" xpath="Vector" type="vector" symbology="oPBRC_UI"/>
             </Children>
           </Node>
         </Children>
       </Node>
       <Node label="Intermediates" xpath="Realizations/BRAT/Outputs">
         <Children>
-          <Node label="Perennial" xpath="Vector" type="vector"/>
+          <Node label="Perennial" xpath="Vector" type="vector" symbology="IsPeren"/>
           <Node label="Topographic Index">
             <Children>
               <Node label="Slope" xpath="Vector" type="vector" symbology="iGeo_Slope"/>
-              <Node label="Drainage Area" xpath="Vector" type="vector" symbology="iGeo_DA"/>
+              <Node label="Drainage Area" xpath="Vector" type="vector" symbology="totDA_SqKm"/>
             </Children>
           </Node>
           <Node label="Hydrology">
@@ -48,7 +48,7 @@
           </Node>
           <Node label="Anthropogenic Intermediates">
             <Children>
-              <Node label="Priority Beaver Translocation Areas" xpath="Vector" type="vector" symbology="conflict_dist_private"/>
+			  <Node label="Priority Beaver Translocation Areas" xpath="Vector" type="vector" symbology="iPC_Privat"/>
               <Node label="Land Ownership per Reach" xpath="Vector" type="vector" symbology="ADMIN_AGEN"/>
               <Node label="Land Use Intensity" xpath="Vector" type="vector" symbology="iPC_LU"/>
               <Node label="Distance to Closest Architecture" xpath="Vector" type="vector" symbology="oPC_Dist"/>
@@ -67,33 +67,33 @@
         <Children>
           <Node label="Network">
             <Children>
-              <Node label="Network" xpath="Vector[@id='FLOWLINES']" type="vector"/>
-			  <Node label="Flow Direction" xpath="Vector[@id='FLOWLINES']" type="vector"/>
-			  <Node label="Flow Area" xpath="Vector[@id='FLOW_AREA']" type="vector"/>
-			  <Node label="Waterbodies" xpath="Vector[@id='WATERBODIES']" type="vector"/>
+              <Node label="Network" xpath="Vector[@id='FLOWLINES']" type="vector" symbology="Network"/>
+			  <Node label="Flow Direction" xpath="Vector[@id='FLOWLINES']" type="vector" symbology="FlowDirection"/>
+			  <Node label="Flow Area" xpath="Vector[@id='FLOW_AREA']" type="vector" symbology="FlowArea"/>
+			  <Node label="Waterbodies" xpath="Vector[@id='WATERBODIES']" type="vector" symbology="Waterbodies"/>
             </Children>
           </Node>
           <Node label="Vegetation">
             <Children>
 			<Node label="Existing">
 				<Children>
-					<Node label="Existing Vegetation" xpath="Raster[@id='EXVEG']" type="raster"/>
+					<Node label="Existing Vegetation" xpath="Raster[@id='EXVEG']" type="raster" symbology="ExistVeg"/>
 				</Children>		
 			</Node>
 			<Node label="Historic">
 				<Children>
-					<Node label="Historic Vegetation" xpath="Raster[@id='HISTVEG']" type="raster"/>
+					<Node label="Historic Vegetation" xpath="Raster[@id='HISTVEG']" type="raster" symbology="HistVeg"/>
 				</Children>	
 			</Node>
             </Children>
           </Node>
           <Node label="Topography">
             <Children>
-				<Node label="Flow Accumulation" xpath="Raster[@id='FA']" type="raster"/>
-				<Node label="Drainage Area" xpath="Raster[@id='DA']" type="raster"/>
-				<Node label="Slope" xpath="Raster[@id='SLOPE']" type="raster"/>
-				<Node label="DEM" xpath="DEM" type="DEM"/>
-				<Node label="Hillshade" xpath="Raster[@id='HILLSHADE']" type="raster"/>
+				<Node label="Flow Accumulation" xpath="Raster[@id='FA']" type="raster" symbology="FlowAccumulation"/>
+				<Node label="Drainage Area" xpath="Raster[@id='DA']" type="raster" symbology="FlowAccumulation"/>
+				<Node label="Slope" xpath="Raster[@id='SLOPE']" type="raster" symbology="Slope"/>
+				<Node label="DEM" xpath="DEM" type="DEM"  symbology="DEM"/>
+				<Node label="Hillshade" xpath="Raster[@id='HILLSHADE']" type="raster" symbology = "Hillshade"/>
             </Children>
           </Node>
         </Children>
