@@ -91,7 +91,7 @@
               <Node label="Flow Accumulation" xpath="Raster[@id='FA']" type="raster" symbology="FlowAccumulation" />
               <Node label="Drainage Area" xpath="Raster[@id='DA']" type="raster" symbology="FlowAccumulation" />
               <Node label="Slope" xpath="Raster[@id='SLOPE']" type="raster" symbology="Slope" />
-              <Node label="DEM" xpath="DEM" type="DEM" symbology="DEM" />
+              <Node label="DEM" xpath="DEM" type="raster" symbology="DEM" />
               <Node label="Hillshade" xpath="Raster[@id='HILLSHADE']" type="raster" symbology="Hillshade" />
             </Children>
           </Node>
