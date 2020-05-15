@@ -511,7 +511,7 @@ namespace RaveAddIn
             {
                 if (System.IO.Directory.Exists(sFullPath))
                 {
-                    return GISDataStorageTypes.RasterFile; // ESRI GRID (folder)
+                    return GISDataStorageTypes.TIN; // ESRI GRID (folder)
                 }
                 else
                 {
