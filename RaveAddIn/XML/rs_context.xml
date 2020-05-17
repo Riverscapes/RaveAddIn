@@ -26,16 +26,7 @@
           <Node xpathlabel="Name" xpath="Realizations/RSContext/Vector[@id='WBDHU12']" type="vector" symbology="" />
         </Children>
       </Node>
-      <Node label="Topography">
-        <Children>
-          <Node xpathlabel="Name" xpath="Realizations/RSContext/DEM" type="raster" symbology="dem" />
-          <Node xpathlabel="Name" xpath="Realizations/RSContext/Raster[@id='HILLSHADE']" type="raster" symbology="hillshade" />
-          <Node xpathlabel="Name" xpath="Realizations/RSContext/Raster[@id='SLOPE']" type="raster" symbology="slope" />
-          <Node xpathlabel="Name" xpath="Realizations/RSContext/Raster[@id='FA']" type="raster" symbology="flow_accumulation" />
-          <Node xpathlabel="Name" xpath="Realizations/RSContext/Raster[@id='DA']" type="raster" symbology="drainage_area" />
-          <Node xpathlabel="Name" xpath="Realizations/RSContext/Raster[@id='HAND']" type="raster" symbology="hand" />
-        </Children>
-      </Node>
+
       <Node label="Ownership">
         <Children>
           <Node xpathlabel="Name" xpath="Realizations/RSContext/Vector[@id='Ownership']" type="vector" symbology="" />
@@ -46,6 +37,19 @@
           <Node xpathlabel="Name" xpath="Realizations/RSContext/Raster[@id='EXVEG']" type="raster" symbology="existing_veg" />
           <Node xpathlabel="Name" xpath="Realizations/RSContext/Raster[@id='HISTVEG']" type="raster" symbology="historic_veg" />
         </Children>
+      </Node>
+      <Node label="Topography and Derivatives">
+        <Children>
+          <Node label="DEM (10 m NED)" xpath="Realizations/RSContext/DEM" type="raster" symbology="dem" />
+          <Node label="Slope Analysis" xpath="Realizations/RSContext/Raster[@id='SLOPE']" type="raster" symbology="slope" />
+          <Node xpathlabel="Name" xpath="Realizations/RSContext/Raster[@id='FA']" type="raster" symbology="flow_accumulation" />
+          <Node label="Drainage Area" xpath="Realizations/RSContext/Raster[@id='DA']" type="raster" symbology="drainage_area" />
+          <Node label="Detrended DEM (HAND - Height Above Nearest Drainge)" xpath="Realizations/RSContext/Raster[@id='HAND']" type="raster" symbology="hand" />
+        </Children>
+      </Node>
+
+      <Node label="Hillshade">
+        <Node xpathlabel="Name" xpath="Realizations/RSContext/Raster[@id='HILLSHADE']" type="raster" symbology="hillshade" />
       </Node>
     </Children>
   </Node>
