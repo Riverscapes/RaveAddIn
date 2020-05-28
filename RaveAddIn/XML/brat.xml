@@ -45,6 +45,13 @@
               <Node label="Historic Veg Dam Building Capacity" xpath="Vector" type="vector" symbology="oVC_HPE" />
             </Children>
           </Node>
+          <Node label="Vegetation Suitability Rasters">
+            <Children>
+              <Node label="Existing Veg Suitability" xpath="../Intermediates/Raster[@id='EXVEG_SUIT']" type="vector" symbology="veg_suitability"/>
+              <Node label="Historic Veg Suitability" xpath="../Intermediates/Raster[@id='HISTVEG_SUIT']" type="vector" symbology="veg_suitability" />
+            </Children>
+          </Node>
+
           <Node label="Anthropogenic Intermediates">
             <Children>
               <Node label="Priority Beaver Translocation Areas" xpath="Vector" type="vector" symbology="iPC_Privat" />
