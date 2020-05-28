@@ -218,6 +218,7 @@ namespace RaveAddIn
             else if (xmlBusiness.Name == "Node")
             {
                 xPath = GetXPath(xmlBusiness, xPath);
+                System.Diagnostics.Debug.Print(xPath);
 
                 XmlAttribute attType = xmlBusiness.Attributes["type"];
                 if (attType is XmlAttribute)
@@ -329,13 +330,21 @@ namespace RaveAddIn
 
         private static string GetXPath(XmlNode businessLogicNode, string xPath)
         {
-            XmlAttribute attXPath = businessLogicNode.Attributes["xpath"];
-            if (attXPath is XmlAttribute && !String.IsNullOrEmpty(attXPath.InnerText))
-            {
-                if (!string.IsNullOrEmpty(xPath))
-                    xPath += @"/";
 
-                xPath += attXPath.InnerText;
+            XmlAttribute attXPath = businessLogicNode.Attributes["xpath"];
+            try
+            {
+                if (attXPath is XmlAttribute && !String.IsNullOrEmpty(attXPath.InnerText))
+                {
+                    if (!string.IsNullOrEmpty(xPath))
+                        xPath += @"/";
+
+                    xPath += attXPath.InnerText;
+                }
+            }
+            catch(Exception ex)
+            {
+                throw new Exception("Error attempting get the XPath", ex) ;
             }
 
             return xPath;
@@ -343,19 +352,26 @@ namespace RaveAddIn
 
         private static string GetLabel(XmlNode businessLogicNode, XmlNode projectNode)
         {
-            // See if the business logic has a label attribute.
-            XmlAttribute attLabel = businessLogicNode.Attributes["label"];
-            if (attLabel is XmlAttribute && !string.IsNullOrEmpty(attLabel.InnerText))
+            try
             {
-                return attLabel.InnerText;
-            }
+                // See if the business logic has a label attribute.
+                XmlAttribute attLabel = businessLogicNode.Attributes["label"];
+                if (attLabel is XmlAttribute && !string.IsNullOrEmpty(attLabel.InnerText))
+                {
+                    return attLabel.InnerText;
+                }
 
-            // See if the project node has a child Name node with valid inner text.
-            if (projectNode is XmlNode)
+                // See if the project node has a child Name node with valid inner text.
+                if (projectNode is XmlNode)
+                {
+                    XmlNode nodName = projectNode.SelectSingleNode("Name");
+                    if (nodName is XmlNode && !string.IsNullOrEmpty(nodName.InnerText))
+                        return nodName.InnerText;
+                }
+            }
+            catch(Exception ex)
             {
-                XmlNode nodName = projectNode.SelectSingleNode("Name");
-                if (nodName is XmlNode && !string.IsNullOrEmpty(nodName.InnerText))
-                    return nodName.InnerText;
+                throw new Exception("Error attempting to get node label", ex);
             }
 
             return string.Empty;
