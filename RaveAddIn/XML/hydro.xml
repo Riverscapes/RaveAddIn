@@ -5,21 +5,28 @@
   <Node xpathlabel="Name">
     <Children collapsed="false">
 
-      <Node label="Inputs">
+      <Node label="Hydarulic Simulation(s)">
         <Children collapsed="true">
-          <Node label="Raw Survey Data">
+          <Node label="Outputs">
+            <Children collapsed="false">
+              <Node label="WaterDepth" xpath="Realizations/Hydro/Analyses/Analysis/Outputs/Raster[@id='Depth']" type="raster" symbology="wDepth" />
+              <Node label="Velocity Magnitude" xpath="Realizations/Hydro/Analyses/Analysis/Outputs/Raster[@id='Velocity_Magnitude']" type="raster" symbology="velocityMag" />
+              <Node label="Velocity Vectors" xpath="Realizations/Hydro/Analyses/Analysis/Outputs/Vector[@id='OUTPUTS_SHP']" type="vector" symbology="" />
+              <Node label="Water Surface Elevation" xpath="Realizations/Hydro/Analyses/Analysis/Outputs/Raster[@id='WSE']" type="raster" symbology="wsDEM" />
+              <Node label="Flow Direction" xpath="Realizations/Hydro/Analyses/Analysis/Outputs/Raster[@id='Direction']" type="raster" symbology="flowdir" />
+              <Node label="Bed Elevation" xpath="Realizations/Hydro/Analyses/Analysis/Outputs/Raster[@id='BedLevel']" type="raster" symbology="DEM" />
+            </Children>
+          </Node>
+          <Node label="Validation Comparison">
             <Children>
-              <Node label="Breaklines CAD DXF file" xpath="Inputs/Vector[@id='BreaklineDXF']" type="file" />
-              <Node label="Survey Instrument File (*.mjf)" xpath="Inputs/InstrumentFile" type="file" />
-              <Node label="Auxilary RAW Instrument File" xpath="Inputs/AuxInstrumentFile" type="file" />
+              <Node label="Water Depth (model vs surveyed)" xpath="Realizations/Hydro/Analyses/Analysis/Outputs/Raster[@id='WSE']" type="raster" symbology="depthError" />
             </Children>
           </Node>
 
-          
+
         </Children>
       </Node>
 
-      
 
     </Children>
   </Node>
