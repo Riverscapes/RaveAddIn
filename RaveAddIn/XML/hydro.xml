@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/Riverscapes/RaveAddIn/master/RaveAddIn/XML/XSD/project_explorer.xsd">
+  <Name>CHaMP Delft3D Hydraulic Model</Name>
+  <ProjectType>Hydro</ProjectType>
+  <Node xpathlabel="Name">
+    <Children collapsed="false">
+
+      <Node label="Inputs">
+        <Children collapsed="true">
+          <Node label="Raw Survey Data">
+            <Children>
+              <Node label="Breaklines CAD DXF file" xpath="Inputs/Vector[@id='BreaklineDXF']" type="file" />
+              <Node label="Survey Instrument File (*.mjf)" xpath="Inputs/InstrumentFile" type="file" />
+              <Node label="Auxilary RAW Instrument File" xpath="Inputs/AuxInstrumentFile" type="file" />
+            </Children>
+          </Node>
+
+          
+        </Children>
+      </Node>
+
+      
+
+    </Children>
+  </Node>
+</Project>
