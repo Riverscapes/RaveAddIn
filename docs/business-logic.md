@@ -3,21 +3,21 @@ title: Business logic XML
 weight: 96
 ---
 
-The purpose of the business logic XML is to translate Riverscpaes projects and determine how they should be displayed in the RAVE project explorer. In other words, the Riverscapes project file defines **what** layers exist within a project, while the business logic file defines **how** these layers should be organized within the project explorer tree and be dispalyed when added to map..
+The purpose of the business logic XML is to translate Riverscpaes projects and determine how they should be displayed in the RAVE project explorer. In other words, the Riverscapes project file defines **what** layers exist within a project, while the business logic file defines **how** these layers should be organized within the project explorer tree and be displayed when added to map..
 
-RAVE comes pre-loaded with business logic for Riverscape Consortium [registered models and tools](https://riverscapes.xyz/Tools/Technical_Reference/Documentation_Standards/Riverscapes_Projects/Program/).  Typically there is one business logic XML file for each type of Riverscapes project (e.g. BRAT, VBET, GCD etc). But it's also possible to have one or more custom business logic XML files for a single project type. This allows users to have different views of a single project type. Perhaps there's one during development and another for reviewing projects with clients etc. If you need this ability see the [custom business logic](#custom-business-logic) and [search folders](#where-does-rave-look-for-business-logic-xml-files) sections below.
+RAVE comes pre-loaded with business logic for Riverscape Consortium [registered models and tools](https://riverscapes.xyz/Tools/Technical_Reference/Documentation_Standards/Riverscapes_Projects/Program/).  Typically there is one business logic XML file for each type of Riverscapes project (e.g. BRAT, VBET, GCD, etc.). But it's also possible to have one or more custom business logic XML files for a single project type. This allows users to have different views of a single project type. Perhaps there's one during development and another for reviewing projects with clients etc.. If you need this ability see the [custom business logic](#custom-business-logic) and [search folders](#where-does-rave-look-for-business-logic-xml-files) sections below.
 
 ![business logic]({{site.baseurl}}/assets/images/business_logic.png)
 
 ## Where does RAVE Look for Business Logic XML Files?
 
-When RAVE attempts to load a Riverscapes project it looks in three locations to find an appropraite business logic XML file. The search order it uses is:
-1. User-loaded from **Customize Project Hiearchy** command (Priority 1)
+When RAVE attempts to load a Riverscapes project it looks in three locations to find an appropriate business logic XML file. The search order it uses is:
+1. User-loaded from **Customize Project Hierarchy** command (Priority 1)
 2. In the root directory of the current project (Priority 2)
 3. Local user default over-ride for that project type  (Priority 3)
-4. Defualt what ships with that version of RAVE (Priority 4)
+4. Default what ships with that version of RAVE (Priority 4) - *Note that you should always make sure you have the [latest verson of RAVE](https://github.com/Riverscapes/RaveAddIn/releases/latest) as default symbology and business logic updates are published in new releases.*
 
-RAVE uses the first business logic file that it finds that contains the same project type specified at the top of the business logic file. Note that Priorities 2 & 3 represent user customization and Priority 1 is where the user can manually load business logic with the **Customize Project Hiearchy** command (see below). See the [symbology page](symbology.html#where-is-my-appdata-folder) for how to locate your APPDATA folder.
+RAVE uses the first business logic file that it finds that contains the same project type specified at the top of the business logic file. Note that Priorities 2 & 3 represent user customization and Priority 1 is where the user can manually load business logic with the **Customize Project Hierarchy** command (see below). See the [symbology page](symbology.html#where-is-my-appdata-folder) for how to locate your APPDATA folder.
 
 
 |Search Folder|Example| Priority|
@@ -28,23 +28,24 @@ RAVE uses the first business logic file that it finds that contains the same pro
 
 [![refresh]({{site.baseurl}}/assets/images/RAVE-Order_650wl.png)]({{site.baseurl}}/assets/images/RAVE-Order_Full.png)
 
+## Loading Custom Business Logic
+
+You can load a custom business logic file stored in a location on your computer other than the search folders described above by choosing the **Customize Project Hierarchy** option after right clicking on the project in the RAVE project explorer.
+
+![custom]({{site.baseurl}}/assets/images/custom.png)
 
 ## Customizing Business Logic & Refreshing the Project Explorer
 
-You can change the business logic XML file while ArcMap and RAVE are in use, providing that the business logic file in question is either adjacent to the Riverscapes project file or in the APPDATA folder.
+You can customize the business logic XML file while ArcMap and RAVE are in use, providing that the business logic file in question is either adjacent to the Riverscapes project file or in the APPDATA folder. **WARNING** - the business logic is written in XML and is fiddly (see these instructions).  Make small changes locally incrementally (either in Priority 2 or 3 locations on disc), and frequently referesh and test within RAVE.
 
-1. Locate the business logic file you wish to use and open it in any text editor.
+1. Locate the business logic file you wish to use and open it in any text editor (we strongly recommend following [these instructions](https://riverscapes.xyz/Tools/Technical_Reference/Documentation_Standards/Riverscapes_Projects/xml_validation.html) for editing and authoring riverscapes XML in Visual Studio Code so that it validates your XML).
 1. Make the desired changes to the business logic XML.
 1. Save the business logic XML file (to project for Priority 2, or to `%APPDATA%\RAVE\XML\` for Priority 3).
 1. Right click on the project node in the RAVE project explorer and choose "Refresh".
 
 ![refresh]({{site.baseurl}}/assets/images/refresh.png)
 
-## Custom Business Logic
 
-You can apply a business logic file stored in a location on your computer other than the search folders described above by choosing the "Customize Project Hierarchy" option after right clicking on the project in the RAVE project explorer.
-
-![custom]({{site.baseurl}}/assets/images/custom.png)
 
 ## Business logic Definition
 
@@ -91,7 +92,7 @@ By layering the various building blocks together you should be able to accomplis
 
 ### `<Repeater>`
 
-Repeaters can contain `<Node>` types. The `<Node>` inside a will be applied to each repeated element found inside that repeater's xpath results.
+Repeaters can contain `<Node>` types. The `<Node>` inside a will be applied to each repeated element found inside that repeater's `xpath` results.
 
 Repeaters have one attribute: `xpath` that you can use to specify the object that is repeated in the project xml.
 
@@ -129,7 +130,31 @@ Nodes can have different data types which affect how (if) the node loads into th
 * `tile`: A url
 * `file`: catch-all for any other kind of file. Right now this will just open up finder/explorer to this location.
 
+------
+
 # Sharing your Business Logic with Someone Else
 
-## Suggesting a New Default Business Logic for RAVE for Existing or New Riverscape Project Type
+If you have gone to the extent of customizing and/or authoring your business logic, you have three main options for sharing it with others (in order of complexity).
 
+## Option 1:  Package up with a Riverscapes Project 
+Most RAVE users will have no idea what business logic is. If you have customized business logic for a specific Riverscapes Project, the easeist way to share it with someone else is to ship them your riverscapes project with the customized buisiness logic in the root of the project directory (as well as the `*.lyr` layer files the `symbology` keys point to). This video illustrates an example of this:
+
+<div class="responsive-embed">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/UOYYiOILwYY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+
+## Option 2:  Update their Local Deafults
+
+For an advanced RAVE user, you can send them the `*.xml` business logic file and corresponding  `*.lyr` layer files the `symbology` keys point to, and then instruct them as follows:
+1. Place the `*.xml` business logic file in the `%APPDATA%\RAVE\XML`folder (note they may need to create this folder if it does not exist).
+2. Place all the `*.lyr` layer file(s) in the `%APPDATA%\RAVE\Symbology\[NAME]`folder where `[NAME]` is the same case and name as the project type (e.g. for `brat.xml` business logic this would be a subfolder of name `brat`. Note, they may need to create this `Sybmology` folder if it does not exist.
+3. Load a riverscapes project, or if a project is already loaded **Refersh Project Hiearchary** tree. 
+
+This video illustrates how this works:
+<div class="responsive-embed">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/L7JGVlAaua0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+
+## Option 3: Suggesting a New Default Business Logic for RAVE for Existing or New Riverscape Project Type
+
+If you would like the Riverscapes Consortium development team to consider your business logic updates and symbology updates for the next release of RAVE, propose a [pull request  <i class="fa fa-github"></i>](https://github.com/Riverscapes/RaveAddIn/pulls) to the [RaveAddIn repository](https://github.com/Riverscapes/RaveAddIn) . If you are part of the Riverscapes Consortium development team, you can do this by making a local Branch, making your commits and pushes to that branch (name it something logical like `ProposedSybmologyMyModel`) and then log a pull request and ask for a review. If you are not part of the development team, you can fork the repo, make your changes on your own repo and then submit a pull request.  This request will be reviewed by the development team and they may ask for fixes after testing it. If accepted, this will be merged into the main branch and reflected in the next release. 
