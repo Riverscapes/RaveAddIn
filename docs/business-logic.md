@@ -3,29 +3,39 @@ title: Business logic XML
 weight: 96
 ---
 
-The purpose of the business logic XML is to translate Riverscpaes projects and determine how they should be displayed in the RAVE project explorer. In other words, the Riverscapes project file defines **what** layers exist within a project, while the business logic file defines **how** these layers should be organized within the project explorer tree.
+The purpose of the business logic XML is to translate Riverscpaes projects and determine how they should be displayed in the RAVE project explorer. In other words, the Riverscapes project file defines **what** layers exist within a project, while the business logic file defines **how** these layers should be organized within the project explorer tree and be dispalyed when added to map..
 
-Typically there is one business logic XML file for each type of Riverscapes project (e.g. BRAT, VBET, GCD etc). But it's also possible to have several business logic XML files for a single project type. This allows users to have different views of a single project type. Perhaps there's one during development and another for reviewing projects with clients etc. If you need this ability see the [custom business logic](#custom-business-logic) and [search folders](#where-does-rave-look-for-business-logic-xml-files) sections below.
+RAVE comes pre-loaded with business logic for Riverscape Consortium [registered models and tools](https://riverscapes.xyz/Tools/Technical_Reference/Documentation_Standards/Riverscapes_Projects/Program/).  Typically there is one business logic XML file for each type of Riverscapes project (e.g. BRAT, VBET, GCD etc). But it's also possible to have one or more custom business logic XML files for a single project type. This allows users to have different views of a single project type. Perhaps there's one during development and another for reviewing projects with clients etc. If you need this ability see the [custom business logic](#custom-business-logic) and [search folders](#where-does-rave-look-for-business-logic-xml-files) sections below.
 
 ![business logic]({{site.baseurl}}/assets/images/business_logic.png)
 
 ## Where does RAVE Look for Business Logic XML Files?
 
-When RAVE attempts to load a Riverscapes project it looks in three locations to find an appropraite business logic XML file. RAVE uses the first business logic file that it finds that contains the same project type specified at the top of the business logic file. See the [symbology page](symbology.html#where-is-my-appdata-folder) for how to locate your APPDATA folder.
+When RAVE attempts to load a Riverscapes project it looks in three locations to find an appropraite business logic XML file. The search order it uses is:
+1. User-loaded from **Customize Project Hiearchy** command (Priority 1)
+2. In the root directory of the current project (Priority 2)
+3. Local user default over-ride for that project type  (Priority 3)
+4. Defualt what ships with that version of RAVE (Priority 4)
 
-|Search Folder|Example|
-|---|---|
-|Adjacent to the parent riverscapes project file.|`D:\MyProjects\dem.lyr`|
-|`%APPDATA%\RAVE\XML`|`%APPDATA%\RAVE\XML\brat.xml`|
-|`<software_installation_folder>\XML`|*Hidden folder*|
+RAVE uses the first business logic file that it finds that contains the same project type specified at the top of the business logic file. Note that Priorities 2 & 3 represent user customization and Priority 1 is where the user can manually load business logic with the **Customize Project Hiearchy** command (see below). See the [symbology page](symbology.html#where-is-my-appdata-folder) for how to locate your APPDATA folder.
 
-## Altering Business Logic & Refreshing the Project Explorer
+
+|Search Folder|Example| Priority|
+|---|---|---|
+|In root directory of current riverscapes project file.|`D:\MyProjects\dem.lyr`| Priority 2|
+|`%APPDATA%\RAVE\XML`|`%APPDATA%\RAVE\XML\brat.xml`|Priority 3|
+|`<software_installation_folder>\XML`|*Hidden folder*|Priority 4 **DEFAULT**|
+
+[![refresh]({{site.baseurl}}/assets/images/RAVE-Order_650wl.png)]({{site.baseurl}}/assets/images/RAVE-Order_Full.png)
+
+
+## Customizing Business Logic & Refreshing the Project Explorer
 
 You can change the business logic XML file while ArcMap and RAVE are in use, providing that the business logic file in question is either adjacent to the Riverscapes project file or in the APPDATA folder.
 
-1. Locate the business logic file being used and open it in any text editor.
+1. Locate the business logic file you wish to use and open it in any text editor.
 1. Make the desired changes to the business logic XML.
-1. Save the business logic XML file.
+1. Save the business logic XML file (to project for Priority 2, or to `%APPDATA%\RAVE\XML\` for Priority 3).
 1. Right click on the project node in the RAVE project explorer and choose "Refresh".
 
 ![refresh]({{site.baseurl}}/assets/images/refresh.png)
@@ -118,3 +128,8 @@ Nodes can have different data types which affect how (if) the node loads into th
 * `vector`: shp files
 * `tile`: A url
 * `file`: catch-all for any other kind of file. Right now this will just open up finder/explorer to this location.
+
+# Sharing your Business Logic with Someone Else
+
+## Suggesting a New Default Business Logic for RAVE for Existing or New Riverscape Project Type
+
