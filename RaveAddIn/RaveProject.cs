@@ -292,6 +292,14 @@ namespace RaveAddIn
             string path = nodGISNode.SelectSingleNode("Path").InnerText;
             string absPath = Path.Combine(ProjectFile.DirectoryName, path);
 
+            short transparency = 0;
+            XmlAttribute attTransparency = nodGISNode.Attributes["transparency"];
+            if (attTransparency is XmlAttribute && !string.IsNullOrEmpty(attTransparency.InnerText))
+            {
+                if (!short.TryParse(attTransparency.InnerText, out transparency))
+                    System.Diagnostics.Debug.Print(string.Format("Invalid layer transparency for {0}: {1}", label, transparency));
+            }
+
             ProjectTree.FileSystemDataset dataset = null;
             switch (type.ToLower())
             {
@@ -303,19 +311,19 @@ namespace RaveAddIn
 
                 case "raster":
                     {
-                        dataset = new ProjectTree.Raster(this, label, absPath, symbology);
+                        dataset = new ProjectTree.Raster(this, label, absPath, symbology, transparency);
                         break;
                     }
 
                 case "vector":
                     {
-                        dataset = new ProjectTree.Vector(this, label, absPath, symbology);
+                        dataset = new ProjectTree.Vector(this, label, absPath, symbology, transparency);
                         break;
                     }
 
                 case "tin":
                     {
-                        dataset = new ProjectTree.TIN(this, label, absPath);
+                        dataset = new ProjectTree.TIN(this, label, absPath, transparency);
                         break;
                     }
 
@@ -342,9 +350,9 @@ namespace RaveAddIn
                     xPath += attXPath.InnerText;
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                throw new Exception("Error attempting get the XPath", ex) ;
+                throw new Exception("Error attempting get the XPath", ex);
             }
 
             return xPath;
@@ -369,7 +377,7 @@ namespace RaveAddIn
                         return nodName.InnerText;
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw new Exception("Error attempting to get node label", ex);
             }

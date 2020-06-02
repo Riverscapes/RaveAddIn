@@ -33,7 +33,7 @@ namespace RaveAddIn
             Esri_AnyLayer
         }
 
-        public static ILayer AddToMap(FileSystemInfo fiFullPath, string sLayerName, IGroupLayer pGroupLayer, FileInfo fiSymbologyLayerFile = null, bool bAddToMapIfPresent = false)
+        public static ILayer AddToMap(FileSystemInfo fiFullPath, string sLayerName, IGroupLayer pGroupLayer, FileInfo fiSymbologyLayerFile = null, bool bAddToMapIfPresent = false, short transparency = 0)
         {
             if (!fiFullPath.Exists)
                 return null;
@@ -98,7 +98,27 @@ namespace RaveAddIn
                 pResultLayer.Name = sLayerName;
             }
 
-            ApplySymbology(pResultLayer, fiSymbologyLayerFile);
+            try
+            {
+                ApplySymbology(pResultLayer, fiSymbologyLayerFile);
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.ToLower().Contains("symbology"))
+                {
+                    // DO Nothing
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            if (transparency > 0)
+            {
+                ILayerEffects pLayerEffects = (ILayerEffects)pResultLayer;
+                pLayerEffects.Transparency = transparency;
+            }
 
             if (pGroupLayer == null)
             {
@@ -376,8 +396,8 @@ namespace RaveAddIn
             else
             {
                 if (topLevelMode == ucProjectExplorer.NodeInsertModes.Add)
-                    ((IMapLayers)ArcMap.Document.FocusMap).InsertLayer(pResultLayer, false, ArcMap.Document.FocusMap.LayerCount+1);
-               
+                    ((IMapLayers)ArcMap.Document.FocusMap).InsertLayer(pResultLayer, false, ArcMap.Document.FocusMap.LayerCount + 1);
+
                 else
                 {
                     ((IMapLayers)ArcMap.Document.FocusMap).InsertLayer(pResultLayer, true, 0);

@@ -35,6 +35,7 @@
     <xs:attribute type="xs:string" name="xpath" use="optional"/>
     <xs:attribute type="datatype" name="type" use="optional"/>
     <xs:attribute type="xs:string" name="symbology" use="optional"/>
+    <xs:attribute type="xs:integer" name="transparency" use="optional" />
   </xs:complexType>
 
   <!-- Repeaters: loop over xml node "arrays" -->
