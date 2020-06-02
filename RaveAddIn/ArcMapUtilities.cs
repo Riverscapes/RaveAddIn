@@ -80,7 +80,7 @@ namespace RaveAddIn
                     break;
 
                 case GISDataStorageTypes.TIN:
-                    ITin pTIN = ((ITinWorkspace)pWorkspace).OpenTin(fiFullPath.FullName);
+                    ITin pTIN = ((ITinWorkspace)pWorkspace).OpenTin(System.IO.Path.GetFileName(fiFullPath.FullName));
                     pResultLayer = new TinLayer();
                     ((ITinLayer)pResultLayer).Dataset = pTIN;
                     pResultLayer.Name = fiFullPath.Name;
