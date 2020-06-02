@@ -95,5 +95,10 @@ namespace RaveAddIn
         {
 
         }
+
+        private void cmdBasemapHelp_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("http://rave.riverscapes.xyz/base-maps.html");
+        }
     }
 }

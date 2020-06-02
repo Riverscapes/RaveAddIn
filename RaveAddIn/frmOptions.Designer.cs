@@ -34,6 +34,7 @@
             this.chkLoadBaseMaps = new System.Windows.Forms.CheckBox();
             this.lblRegion = new System.Windows.Forms.Label();
             this.cboRegion = new System.Windows.Forms.ComboBox();
+            this.cmdBasemapHelp = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // cmdCancel
@@ -77,7 +78,7 @@
             this.chkLoadBaseMaps.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chkLoadBaseMaps.Location = new System.Drawing.Point(12, 12);
             this.chkLoadBaseMaps.Name = "chkLoadBaseMaps";
-            this.chkLoadBaseMaps.Size = new System.Drawing.Size(187, 17);
+            this.chkLoadBaseMaps.Size = new System.Drawing.Size(184, 17);
             this.chkLoadBaseMaps.TabIndex = 3;
             this.chkLoadBaseMaps.Text = "Include basemaps in explorer tree";
             this.chkLoadBaseMaps.UseVisualStyleBackColor = true;
@@ -98,8 +99,18 @@
             this.cboRegion.FormattingEnabled = true;
             this.cboRegion.Location = new System.Drawing.Point(99, 37);
             this.cboRegion.Name = "cboRegion";
-            this.cboRegion.Size = new System.Drawing.Size(350, 21);
+            this.cboRegion.Size = new System.Drawing.Size(320, 21);
             this.cboRegion.TabIndex = 5;
+            // 
+            // cmdBasemapHelp
+            // 
+            this.cmdBasemapHelp.Image = global::RaveAddIn.Properties.Resources.Help;
+            this.cmdBasemapHelp.Location = new System.Drawing.Point(426, 36);
+            this.cmdBasemapHelp.Name = "cmdBasemapHelp";
+            this.cmdBasemapHelp.Size = new System.Drawing.Size(23, 23);
+            this.cmdBasemapHelp.TabIndex = 6;
+            this.cmdBasemapHelp.UseVisualStyleBackColor = true;
+            this.cmdBasemapHelp.Click += new System.EventHandler(this.cmdBasemapHelp_Click);
             // 
             // frmOptions
             // 
@@ -108,6 +119,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.cmdCancel;
             this.ClientSize = new System.Drawing.Size(461, 332);
+            this.Controls.Add(this.cmdBasemapHelp);
             this.Controls.Add(this.cboRegion);
             this.Controls.Add(this.lblRegion);
             this.Controls.Add(this.chkLoadBaseMaps);
@@ -133,5 +145,6 @@
         private System.Windows.Forms.CheckBox chkLoadBaseMaps;
         private System.Windows.Forms.Label lblRegion;
         private System.Windows.Forms.ComboBox cboRegion;
+        private System.Windows.Forms.Button cmdBasemapHelp;
     }
 }

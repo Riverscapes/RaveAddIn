@@ -117,53 +117,56 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AppDataSymbologyFolder" xml:space="preserve">
+    <value>Symbology</value>
+  </data>
   <data name="HelpBaseURL" xml:space="preserve">
     <value>http://rave.riverscapes.xyz/Help</value>
   </data>
-  <data name="NewIssueURL" xml:space="preserve">
-    <value>https://github.com/Riverscapes/RaveAddIn/issues</value>
-  </data>
-  <data name="WebSiteURL" xml:space="preserve">
-    <value>http://rave.riverscapes.xyz</value>
-  </data>
-  <data name="ApplicationNameLong" xml:space="preserve">
-    <value>River Analysis and Viewer Explorer</value>
-  </data>
-  <data name="ApplicationNameShort" xml:space="preserve">
-    <value>RAVE</value>
-  </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="RaveAddIn" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Images\RaveAddIn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="BrowseFolder" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\BrowseFolder.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="AddToMap" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AddToMap.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="metadata" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\metadata.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="AddToMap" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\AddToMap.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ApplicationNameLong" xml:space="preserve">
+    <value>River Analysis and Viewer Explorer</value>
   </data>
-  <data name="tree" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\tree.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="BusinessLogicXMLFolder" xml:space="preserve">
+    <value>XML</value>
   </data>
-  <data name="AppDataFolder" xml:space="preserve">
+  <data name="NewIssueURL" xml:space="preserve">
+    <value>https://github.com/Riverscapes/RaveAddIn/issues</value>
+  </data>
+  <data name="ApplicationNameShort" xml:space="preserve">
     <value>RAVE</value>
-  </data>
-  <data name="AppDataSymbologyFolder" xml:space="preserve">
-    <value>Symbology</value>
-  </data>
-  <data name="AppDataSymbologySharedFolder" xml:space="preserve">
-    <value>Shared</value>
-  </data>
-  <data name="expand" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\expand.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="refresh" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\refresh.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="BusinessLogicXMLFolder" xml:space="preserve">
-    <value>XML</value>
+  <data name="expand" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\expand.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AppDataFolder" xml:space="preserve">
+    <value>RAVE</value>
+  </data>
+  <data name="tree" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\tree.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="WebSiteURL" xml:space="preserve">
+    <value>http://rave.riverscapes.xyz</value>
+  </data>
+  <data name="RaveAddIn" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\RaveAddIn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AppDataSymbologySharedFolder" xml:space="preserve">
+    <value>Shared</value>
+  </data>
+  <data name="BrowseFolder" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BrowseFolder.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Help" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Help.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

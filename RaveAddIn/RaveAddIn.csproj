@@ -251,6 +251,7 @@
     <Content Include="BaseMaps.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\Help.png" />
     <Content Include="XML\brat.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
