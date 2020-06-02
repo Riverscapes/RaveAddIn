@@ -238,8 +238,16 @@ namespace RaveAddIn
                     if (attSym is XmlAttribute && !String.IsNullOrEmpty(attSym.InnerText))
                         symbology = attSym.InnerText;
 
+                    short transparency = 0;
+                    XmlAttribute attTransparency = xmlBusiness.Attributes["transparency"];
+                    if (attTransparency is XmlAttribute && !string.IsNullOrEmpty(attTransparency.InnerText))
+                    {
+                        if (!short.TryParse(attTransparency.InnerText, out transparency))
+                            System.Diagnostics.Debug.Print(string.Format("Invalid layer transparency for {0}: {1}", label, transparency));
+                    }
+
                     // This some kind of file (vector, raster, tile, image etc)
-                    AddGISNode(tnParent, attType.InnerText, gisNode, symbology, label);
+                    AddGISNode(tnParent, attType.InnerText, gisNode, symbology, label, transparency);
                 }
                 else
                 {
@@ -274,7 +282,7 @@ namespace RaveAddIn
                 GetAllNodes(nodes, child);
         }
 
-        private void AddGISNode(TreeNode tnParent, string type, XmlNode nodGISNode, string symbology, string label)
+        private void AddGISNode(TreeNode tnParent, string type, XmlNode nodGISNode, string symbology, string label, short transparency)
         {
             if (nodGISNode == null)
                 return;
@@ -292,13 +300,7 @@ namespace RaveAddIn
             string path = nodGISNode.SelectSingleNode("Path").InnerText;
             string absPath = Path.Combine(ProjectFile.DirectoryName, path);
 
-            short transparency = 0;
-            XmlAttribute attTransparency = nodGISNode.Attributes["transparency"];
-            if (attTransparency is XmlAttribute && !string.IsNullOrEmpty(attTransparency.InnerText))
-            {
-                if (!short.TryParse(attTransparency.InnerText, out transparency))
-                    System.Diagnostics.Debug.Print(string.Format("Invalid layer transparency for {0}: {1}", label, transparency));
-            }
+       
 
             ProjectTree.FileSystemDataset dataset = null;
             switch (type.ToLower())

@@ -224,7 +224,7 @@ namespace RaveAddIn
 
             try
             {
-                ArcMapUtilities.AddToMap(layer.Path, layer.Name, parentGrpLyr, symbology);
+                ArcMapUtilities.AddToMap(layer.Path, layer.Name, parentGrpLyr, symbology, transparency: layer.Transparency);
             }
             catch (Exception ex)
             {
@@ -325,7 +325,7 @@ namespace RaveAddIn
                 System.Diagnostics.Process.Start(((FileInfo)file).Directory.FullName);
             else
                 System.Diagnostics.Process.Start(((DirectoryInfo)file).Parent.FullName);
-              
+
         }
 
         public void RefreshBaseMaps()
