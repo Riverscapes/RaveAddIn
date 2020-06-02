@@ -4,26 +4,13 @@
   <ProjectType>topo</ProjectType>
   <Node xpathlabel="Name">
     <Children collapsed="false">
-      <Node label="Inputs">
-        <Children collapsed="true">
-          <Node label="Raw Survey Data">
-            <Children>
-              <Node label="Breaklines CAD DXF file" xpath="Inputs/Vector[@id='BreaklineDXF']" type="file" />
-              <Node label="Survey Instrument File (*.mjf)" xpath="Inputs/InstrumentFile" type="file" />
-              <Node label="Auxilary RAW Instrument File" xpath="Inputs/AuxInstrumentFile" type="file" />
-            </Children>
-          </Node>
-          <Node label="Survey Quality QA/QC">
-            <Children>
-              <Node label="Survey Quality SQLite Database" xpath="Inputs/SurveyQualityDB" type="file" />
-            </Children>
-          </Node>
-        </Children>
-      </Node>
+
+     
+
       <Node label="Topos">
         <Children>
           <Node label="Auxiliary Survey Data">
-            <Children collapsed="true">
+            <Children  collapsed="true">
               <Node label="Channel Units">
                 <Children>
                   <Node label="Unit ID" xpath="Realizations/Topography/TIN/ChannelUnits" type="vector" symbology="cu_UnitNum" />
@@ -45,6 +32,7 @@
               </Node>
             </Children>
           </Node>
+
           <Node label="Topographic Survey Data">
             <Children collapsed="true">
               <Node xpathlabel="Name" xpath="Realizations/SurveyData/SurveyExtents/Vector[@id='survey_extent']" type="vector" symbology="SurveyExtent" />
@@ -56,8 +44,9 @@
               <Node xpathlabel="Name" xpath="Realizations/SurveyData/Vector[@id='error_points']" type="vector" symbology="pts_error" />
             </Children>
           </Node>
+
           <Node label="Topographic Derivatives">
-            <Children>
+            <Children collapsed="true">
               <Node label="DEM Error Model">
                 <Children>
                   <Node label="Associated Surfaces">
@@ -82,34 +71,39 @@
                   <Node xpathlabel="Name" xpath="Realizations/Topography/TIN/Thalweg" type="vector" symbology="thalweg" />
                 </Children>
               </Node>
+
               <Node label="Mapping">
-                <Children>
+                <Children collapsed="true">
                   <Node label="Cross Sections, Profiles and Extents">
                     <Children>
                       <Node label="Surveyed Wetted Extent">
                         <Children>
-                          <Node xpathlabel="Name" xpath="Realizations/Topography/TIN/Stages/Vector[@id='wetted_centerline']" type="vector" symbology="wetCL" />
-                          <Node xpathlabel="Name" xpath="Realizations/Topography/TIN/Stages/Vector[@id='wetted_crosssections']" type="vector" symbology="wetXS" />
-                          <Node xpathlabel="Name" xpath="Realizations/Topography/TIN/Stages/Vector[@id='wetted_islands']" type="vector" symbology="wetIslands" />
-                          <Node xpathlabel="Name" xpath="Realizations/Topography/TIN/Stages/Vector[@id='wetted_extent']" type="vector" symbology="wetExtent" />
+                          <Node label="Wetted Centerline" xpath="Realizations/Topography/TIN/Stages/Vector[@id='wetted_centerline']" type="vector" symbology="wetCL" />
+                          <Node label="Wetted Islands" xpath="Realizations/Topography/TIN/Stages/Vector[@id='wetted_islands']" type="vector" symbology="wetIslands" />
+                          <Node label="Wetted Polygon" xpath="Realizations/Topography/TIN/Stages/Vector[@id='wetted_extent']" type="vector" symbology="wetExtent" />
+                          <Node label="X-Sections" xpath="Realizations/Topography/TIN/Stages/Vector[@id='wetted_crosssections']" type="vector" symbology="XS_type" />
+                          <Node label="XS QA-QC" xpath="Realizations/Topography/TIN/Stages/Vector[@id='wetted_crosssections']" type="vector" symbology="XS_qaqc" />
                         </Children>
                       </Node>
                       <Node label="Bankfull Extent">
                         <Children>
-                          <Node xpathlabel="Name" xpath="Realizations/Topography/TIN/Stages/Vector[@id='bankfull_centerline']" type="vector" symbology="bfCL" />
-                          <Node xpathlabel="Name" xpath="Realizations/Topography/TIN/Stages/Vector[@id='bankfull_crosssections']" type="vector" symbology="bfXS" />
-                          <Node xpathlabel="Name" xpath="Realizations/Topography/TIN/Stages/Vector[@id='bankfull_islands']" type="vector" symbology="bfIslands" />
-                          <Node xpathlabel="Name" xpath="Realizations/Topography/TIN/Stages/Vector[@id='bankfull_extent']" type="vector" symbology="bfExtent" />
+                          <Node label="Bankfull Centerline" xpath="Realizations/Topography/TIN/Stages/Vector[@id='bankfull_centerline']" type="vector" symbology="bfCL" />
+                          <Node label="Bankfull Islands" xpath="Realizations/Topography/TIN/Stages/Vector[@id='bankfull_islands']" type="vector" symbology="bfIslands" />
+                          <Node label="Bankfull Extent Polygon" xpath="Realizations/Topography/TIN/Stages/Vector[@id='bankfull_extent']" type="vector" symbology="bfExtent" />
+                          <Node label="BF X-Sections" xpath="Realizations/Topography/TIN/Stages/Vector[@id='bankfull_crosssections']" type="vector" symbology="XS_type" />
+                          <Node label="BF XS QA-QC" xpath="Realizations/Topography/TIN/Stages/Vector[@id='bankfull_crosssections']" type="vector" symbology="XS_qaqc" />
                         </Children>
                       </Node>
                     </Children>
                   </Node>
+
                 </Children>
               </Node>
             </Children>
           </Node>
+
           <Node label="Topography">
-            <Children collapsed="true">
+            <Children collapsed="false">
               <Node label="TINs">
                 <Children>
                   <Node xpathlabel="Name" xpath="Realizations/Topography/TIN" type="file" symbology="" />
@@ -124,6 +118,23 @@
 
                 </Children>
               </Node>
+            </Children>
+          </Node>
+        </Children>
+      </Node>
+      <Node label="Inputs">
+        <Children collapsed="true">
+          <Node label="Raw Survey Data">
+            <Children>
+              <Node label="Breaklines CAD DXF file" xpath="Inputs/Vector[@id='BreaklineDXF']" type="file" />
+              <Node label="Survey Instrument File (*.mjf)" xpath="Inputs/InstrumentFile" type="file" />
+              <Node label="Auxilary RAW Instrument File" xpath="Inputs/AuxInstrumentFile" type="file" />
+            </Children>
+          </Node>
+          <Node label="Survey Quality QA/QC">
+            <Children>
+              <Node label="Survey Quality SQLite Database" xpath="Inputs/SurveyQualityDB" type="file" />
+
             </Children>
           </Node>
         </Children>
