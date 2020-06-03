@@ -106,7 +106,7 @@
             <Children collapsed="false">
               <Node label="TINs">
                 <Children>
-                  <Node xpathlabel="Name" xpath="Realizations/Topography/TIN" type="file" symbology="" />
+                  <Node xpathlabel="Name" xpath="Realizations/Topography/TIN" type="tin" symbology="" />
                   <Node xpathlabel="Name" xpath="Realizations/Topography/TIN/WaterSurfaceTIN" type="tin" symbology="" />
                 </Children>
               </Node>
