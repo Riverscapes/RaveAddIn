@@ -493,105 +493,144 @@
     <Content Include="Symbology\hydro\wsDEM.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <None Include="Symbology\Topo\asPD.lyr">
+    <Content Include="Symbology\RSContext\drainagewings.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Symbology\Topo\asPQ.lyr">
+    </Content>
+    <Content Include="Symbology\RSContext\nhdarea.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Symbology\Topo\asRough.lyr">
+    </Content>
+    <Content Include="Symbology\RSContext\nhdephemeral.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Symbology\Topo\asSD.lyr">
+    </Content>
+    <Content Include="Symbology\RSContext\nhdintermittent.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Symbology\Topo\bfCL.lyr">
+    </Content>
+    <Content Include="Symbology\RSContext\nhdperrenial.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Symbology\Topo\bfExtent.lyr">
+    </Content>
+    <Content Include="Symbology\RSContext\ownership.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Symbology\Topo\bfIslands.lyr">
+    </Content>
+    <Content Include="Symbology\RSContext\wbdhu10.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Symbology\Topo\bfXS.lyr">
+    </Content>
+    <Content Include="Symbology\RSContext\wbdhu12.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Symbology\Topo\breaklines.lyr">
+    </Content>
+    <Content Include="Symbology\RSContext\wbdhu2.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Symbology\Topo\Channel_Units_Field.lyr">
+    </Content>
+    <Content Include="Symbology\RSContext\wbdhu4.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Symbology\Topo\cu_D16.lyr">
+    </Content>
+    <Content Include="Symbology\RSContext\wbdhu6.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Symbology\Topo\cu_D50.lyr">
+    </Content>
+    <Content Include="Symbology\RSContext\wbdhu8.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Symbology\Topo\cu_D84.lyr">
+    </Content>
+    <Content Include="Symbology\BRAT\veg_suitability.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Symbology\Topo\cu_D90.lyr">
+    </Content>
+    <Content Include="Symbology\Topo\asPD.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Symbology\Topo\cu_T1.lyr">
+    </Content>
+    <Content Include="Symbology\Topo\asPQ.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Symbology\Topo\cu_T2.lyr">
+    </Content>
+    <Content Include="Symbology\Topo\asRough.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Symbology\Topo\cu_UnitNum.lyr">
+    </Content>
+    <Content Include="Symbology\Topo\asSD.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Symbology\Topo\DEM.lyr">
+    </Content>
+    <Content Include="Symbology\Topo\bfCL.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Symbology\Topo\detrendDEM.lyr">
+    </Content>
+    <Content Include="Symbology\Topo\bfExtent.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Symbology\Topo\ErrorDEM.lyr">
+    </Content>
+    <Content Include="Symbology\Topo\bfIslands.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Symbology\Topo\pts_control.lyr">
+    </Content>
+    <Content Include="Symbology\Topo\breaklines.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Symbology\Topo\pts_eow.lyr">
+    </Content>
+    <Content Include="Symbology\Topo\Channel_Units_Field.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Symbology\Topo\pts_error.lyr">
+    </Content>
+    <Content Include="Symbology\Topo\cu_D16.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Symbology\Topo\pts_streamFeatures.lyr">
+    </Content>
+    <Content Include="Symbology\Topo\cu_D50.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Symbology\Topo\pts_topo.lyr">
+    </Content>
+    <Content Include="Symbology\Topo\cu_D84.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Symbology\Topo\SurveyExtent.lyr">
+    </Content>
+    <Content Include="Symbology\Topo\cu_D90.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Symbology\Topo\thalweg.lyr">
+    </Content>
+    <Content Include="Symbology\Topo\cu_T1.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Symbology\Topo\wDepth.lyr">
+    </Content>
+    <Content Include="Symbology\Topo\cu_T2.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Symbology\Topo\wetCL.lyr">
+    </Content>
+    <Content Include="Symbology\Topo\cu_UnitNum.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Symbology\Topo\wetExtent.lyr">
+    </Content>
+    <Content Include="Symbology\Topo\DEM.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Symbology\Topo\wetIslands.lyr">
+    </Content>
+    <Content Include="Symbology\Topo\detrendDEM.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Symbology\Topo\wetXS.lyr">
+    </Content>
+    <Content Include="Symbology\Topo\ErrorDEM.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Symbology\Topo\wsDEM.lyr">
+    </Content>
+    <Content Include="Symbology\Topo\pts_control.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    </Content>
+    <Content Include="Symbology\Topo\pts_eow.lyr">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Symbology\Topo\pts_error.lyr">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Symbology\Topo\pts_streamFeatures.lyr">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Symbology\Topo\pts_topo.lyr">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Symbology\Topo\SurveyExtent.lyr">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Symbology\Topo\thalweg.lyr">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Symbology\Topo\wDepth.lyr">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Symbology\Topo\wetCL.lyr">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Symbology\Topo\wetExtent.lyr">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Symbology\Topo\wetIslands.lyr">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Symbology\Topo\wsDEM.lyr">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Symbology\Topo\XS_qaqc.lyr">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Symbology\Topo\XS_type.lyr">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <AddInContent Include="Images\Help.png" />
