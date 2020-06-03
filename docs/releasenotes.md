@@ -3,6 +3,13 @@ title: Release Notes
 weight: 99
 ---
 
+### 1.1.0 - 2 Jun 2020
+
+* Updated business logic and symbology for nearly every project type.
+* New GIS layer type for TINs.
+* Map layers can now have transparency specified in Node tag in business logic.
+* Help button for basemaps on Options form.
+
 ### 1.0.11 - 8 May 2020
 
 * Updated Inundation business logic and layer files
