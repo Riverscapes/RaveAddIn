@@ -9,7 +9,7 @@
         <Children collapsed="true">
           <Node label="Outputs">
             <Children collapsed="false">
-              <Node label="WaterDepth" xpath="Realizations/Hydro/Analyses/Analysis/Outputs/Raster[@id='Depth']" type="raster" symbology="wDepth" />
+              <Node label="Water Depth" xpath="Realizations/Hydro/Analyses/Analysis/Outputs/Raster[@id='Depth']" type="raster" symbology="wDepth" />
               <Node label="Velocity Magnitude" xpath="Realizations/Hydro/Analyses/Analysis/Outputs/Raster[@id='Velocity_Magnitude']" type="raster" symbology="velocityMag" />
               <Node label="Velocity Vectors" xpath="Realizations/Hydro/Analyses/Analysis/Outputs/Vector[@id='OUTPUTS_SHP']" type="vector" symbology="" />
               <Node label="Water Surface Elevation" xpath="Realizations/Hydro/Analyses/Analysis/Outputs/Raster[@id='WSE']" type="raster" symbology="wsDEM" />
