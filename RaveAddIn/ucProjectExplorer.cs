@@ -211,6 +211,7 @@ namespace RaveAddIn
                 GISDataset layer = (GISDataset)e.Tag;
                 IGroupLayer parentGrpLyr = BuildArcMapGroupLayers(e);
                 ArcMapUtilities.AddToMap(layer.Path, layer.Name, parentGrpLyr);
+                Cursor.Current = Cursors.Default;
             }
         }
 
@@ -229,6 +230,10 @@ namespace RaveAddIn
             catch (Exception ex)
             {
                 MessageBox.Show(string.Format("{0}\n\n{1}", ex.Message, layer.Path.FullName), "Error Adding Dataset To Map", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            finally
+            {
+                Cursor.Current = Cursors.Default;
             }
         }
 
