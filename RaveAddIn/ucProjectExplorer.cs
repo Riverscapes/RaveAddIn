@@ -210,7 +210,8 @@ namespace RaveAddIn
             {
                 GISDataset layer = (GISDataset)e.Tag;
                 IGroupLayer parentGrpLyr = BuildArcMapGroupLayers(e);
-                ArcMapUtilities.AddToMap(layer.Path, layer.Name, parentGrpLyr);
+                FileInfo symbology = GetSymbology(layer);
+                ArcMapUtilities.AddToMap(layer.Path, layer.Name, parentGrpLyr, symbology, transparency: layer.Transparency);
                 Cursor.Current = Cursors.Default;
             }
         }
