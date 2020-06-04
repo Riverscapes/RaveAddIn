@@ -5,7 +5,7 @@
   <Node xpathlabel="Name">
     <Children collapsed="false">
 
-     
+​     
 
       <Node label="Topos">
         <Children>
@@ -32,7 +32,7 @@
               </Node>
             </Children>
           </Node>
-
+    
           <Node label="Topographic Survey Data">
             <Children collapsed="true">
               <Node xpathlabel="Name" xpath="Realizations/SurveyData/SurveyExtents/Vector[@id='survey_extent']" type="vector" symbology="SurveyExtent" />
@@ -44,34 +44,34 @@
               <Node xpathlabel="Name" xpath="Realizations/SurveyData/Vector[@id='error_points']" type="vector" symbology="pts_error" />
             </Children>
           </Node>
-
+    
           <Node label="Topographic Derivatives">
             <Children collapsed="true">
               <Node label="DEM Error Model">
                 <Children>
                   <Node label="Associated Surfaces">
                     <Children>
-                      <Node label="Point Density" xpath="Realizations/Topography/TIN/AssocSurfaces/PointDensity" type="raster" symbology="asPD" />
-                      <Node label="Slope Analyis" xpath="Realizations/Topography/TIN/AssocSurfaces/Slope" type="raster" symbology="asSD" />
-                      <Node label="Interpolation Error" xpath="Realizations/Topography/TIN/AssocSurfaces/InterpolationError" type="raster" symbology="ErrorDEM" />
-                      <Node label="Roughness Height" xpath="Realizations/Topography/TIN/AssocSurfaces/Roughness" type="raster" symbology="" />
+                      <Node label="Point Density" xpath="Realizations/Topography/TIN/AssocSurfaces/PointDensity" type="raster" symbology="asPD" transparency="40" />
+                      <Node label="Slope Analyis" xpath="Realizations/Topography/TIN/AssocSurfaces/Slope" type="raster" symbology="asSD" transparency="40" />
+                      <Node label="Interpolation Error" xpath="Realizations/Topography/TIN/AssocSurfaces/InterpolationError" type="raster" symbology="ErrorDEM" transparency="40" />
+                      <Node label="Roughness Height" xpath="Realizations/Topography/TIN/AssocSurfaces/Roughness" type="raster" symbology="" transparency="40" />
                     </Children>
                   </Node>
                   <Node label="Error Model(s)">
                     <Children>
-                      <Node label="FIS Error Model" xpath="Realizations/Topography/TIN/AssocSurfaces/ErrSurface" type="raster" symbology="ErrorDEM" />
+                      <Node label="FIS Error Model" xpath="Realizations/Topography/TIN/AssocSurfaces/ErrSurface" type="raster" symbology="ErrorDEM" transparency="40" />
                     </Children>
                   </Node>
                 </Children>
               </Node>
               <Node label="Hydraulics">
                 <Children>
-                  <Node xpathlabel="Name" xpath="Realizations/Topography/TIN/WaterDepth" type="raster" symbology="wDepth" />
-                  <Node xpathlabel="Name" xpath="Realizations/Topography/TIN/WaterSurfaceDEM" type="raster" symbology="wsDEM" />
+                  <Node xpathlabel="Name" xpath="Realizations/Topography/TIN/WaterDepth" type="raster" symbology="wDepth" transparency="40" />
+                  <Node xpathlabel="Name" xpath="Realizations/Topography/TIN/WaterSurfaceDEM" type="raster" symbology="wsDEM" transparency="40" />
                   <Node xpathlabel="Name" xpath="Realizations/Topography/TIN/Thalweg" type="vector" symbology="thalweg" />
                 </Children>
               </Node>
-
+    
               <Node label="Mapping">
                 <Children collapsed="true">
                   <Node label="Cross Sections, Profiles and Extents">
@@ -96,12 +96,12 @@
                       </Node>
                     </Children>
                   </Node>
-
+    
                 </Children>
               </Node>
             </Children>
           </Node>
-
+    
           <Node label="Topography">
             <Children collapsed="false">
               <Node label="TINs">
@@ -112,10 +112,10 @@
               </Node>
               <Node label="Digital Elevation Models">
                 <Children>
-                  <Node xpathlabel="Name" xpath="Realizations/Topography/TIN/Detrended" type="raster" symbology="detrendDEM" />
+                  <Node xpathlabel="Name" xpath="Realizations/Topography/TIN/Detrended" type="raster" symbology="detrendDEM" transparency="40" />
                   <Node xpathlabel="Name" xpath="Realizations/Topography/TIN/DEM" type="raster" symbology="DEM" transparency="40"  />
                   <Node xpathlabel="Name" xpath="Realizations/Topography/TIN/DEMHillshade" type="raster" symbology="" />
-
+    
                 </Children>
               </Node>
             </Children>
@@ -134,7 +134,7 @@
           <Node label="Survey Quality QA/QC">
             <Children>
               <Node label="Survey Quality SQLite Database" xpath="Inputs/SurveyQualityDB" type="file" />
-
+    
             </Children>
           </Node>
         </Children>
