@@ -256,13 +256,17 @@ namespace RaveAddIn
                     tnParent.Nodes.Add(newNode);
                     tnParent = newNode;
 
-                    XmlAttribute attCollapsed = xmlBusiness.Attributes["collapsed"];
-                    if (attCollapsed is XmlAttribute)
+                    XmlNode xmlChildren = xmlBusiness.SelectSingleNode("Children");
+                    if (xmlChildren is XmlNode)
                     {
-                        bool collapsed = false;
-                        if (bool.TryParse(attCollapsed.InnerText, out collapsed))
-                            if (collapsed)
-                                newNode.Tag = "Collapse";
+                        XmlAttribute attCollapsed = xmlChildren.Attributes["collapsed"];
+                        if (attCollapsed is XmlAttribute)
+                        {
+                            bool collapsed = false;
+                            if (bool.TryParse(attCollapsed.InnerText, out collapsed))
+                                if (collapsed)
+                                    newNode.Tag = "Collapse";
+                        }
                     }
                 }
             }
