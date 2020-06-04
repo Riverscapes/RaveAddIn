@@ -3,6 +3,12 @@ title: Release Notes
 weight: 99
 ---
 
+### 1.1.1 - 3 Jun 2020
+
+* Updated BRAT and Hydro symbology and business logic.
+* `collapsed` business logic attribute fixed.
+* Load all layers now applying symbology. 
+
 ### 1.1.0 - 2 Jun 2020
 
 * Updated business logic and symbology for nearly every project type.
