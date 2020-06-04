@@ -8,6 +8,8 @@
         <Children>
           <Node label="Drainage Network">
             <Children>
+
+<Node xpathlabel="Name" xpath="Realizations/VBET/Intermediates/Vector[@id='VBET_NETWORK']" type="vector" symbology="" />
               <Node xpathlabel="Name" xpath="Realizations/VBET/Inputs/Vector[@id='FLOWLINES']" type="vector" symbology="flow_lines" />
               <Node xpathlabel="Name" xpath="Realizations/VBET/Inputs/Vector[@id='FLOW_AREA']" type="vector" symbology="flow_lines" />
             </Children>
@@ -34,7 +36,6 @@
           <Node xpathlabel="Name" xpath="Realizations/VBET/Intermediates/Vector[@id='THRESH_80']" type="vector" symbology="" />
           <Node xpathlabel="Name" xpath="Realizations/VBET/Intermediates/Vector[@id='THRESH_90']" type="vector" symbology="" />
           <Node xpathlabel="Name" xpath="Realizations/VBET/Intermediates/Vector[@id='THRESH_100']" type="vector" symbology="" />
-          <Node xpathlabel="Name" xpath="Realizations/VBET/Intermediates/Vector[@id='VBET_NETWORK']" type="vector" symbology="" />
           <Node xpathlabel="Name" xpath="Realizations/VBET/Intermediates/Raster[@id='EVIDENCE']" type="raster" symbology="" />
         </Children>
       </Node>
