@@ -14,7 +14,7 @@
           </Node>
           <Node label="Lines of Evidence">
             <Children>
-              <Node xpathlabel="Name" xpath="Realizations/VBET/Inputs/Raster[@id='SLOPE_RASTER']" type="raster" symbology="slopeDeg" />
+              <Node label="Slope Analysis" xpath="Realizations/VBET/Inputs/Raster[@id='SLOPE_RASTER']" type="raster" symbology="slope" />
               <Node xpathlabel="Name" xpath="Realizations/VBET/Inputs/Raster[@id='HAND_RASTER']" type="raster" symbology="hand" />
               <Node label="Active Channel" xpath="Realizations/VBET/Intermediates/Raster[@id='CHANNEL_RASTER']" type="raster" symbology="active_channel" />
             </Children>
