@@ -15,17 +15,17 @@
           </Node>
           <Node label="Outputs">
             <Children collapsed="false">
-              <Node label="Water Depth" xpath="Realizations/Hydro/Analyses/Analysis/Outputs/Raster[@id='Depth']" type="raster" symbology="wDepth" />
-              <Node label="Velocity Magnitude" xpath="Realizations/Hydro/Analyses/Analysis/Outputs/Raster[@id='Velocity_Magnitude']" type="raster" symbology="velocityMag" />
+              <Node label="Water Depth" xpath="Realizations/Hydro/Analyses/Analysis/Outputs/Raster[@id='Depth']" type="raster" symbology="wDepth" transparency="40"/>
+              <Node label="Velocity Magnitude" xpath="Realizations/Hydro/Analyses/Analysis/Outputs/Raster[@id='Velocity_Magnitude']" type="raster" symbology="velocityMag" transparency="40"/>
               <Node label="Velocity Vectors" xpath="Realizations/Hydro/Analyses/Analysis/Outputs/Vector[@id='OUTPUTS_SHP']" type="vector" symbology="velocityVec" />
-              <Node label="Water Surface Elevation" xpath="Realizations/Hydro/Analyses/Analysis/Outputs/Raster[@id='WSE']" type="raster" symbology="wsDEM" />
-              <Node label="Flow Direction" xpath="Realizations/Hydro/Analyses/Analysis/Outputs/Raster[@id='Direction']" type="raster" symbology="flowdir" />
-              <Node label="Bed Elevation" xpath="Realizations/Hydro/Analyses/Analysis/Outputs/Raster[@id='BedLevel']" type="raster" symbology="DEM" />
+              <Node label="Water Surface Elevation" xpath="Realizations/Hydro/Analyses/Analysis/Outputs/Raster[@id='WSE']" type="raster" symbology="wsDEM" transparency="40"/>
+              <Node label="Flow Direction" xpath="Realizations/Hydro/Analyses/Analysis/Outputs/Raster[@id='Direction']" type="raster" symbology="flowdir" transparency="40"/>
+              <Node label="Bed Elevation" xpath="Realizations/Hydro/Analyses/Analysis/Outputs/Raster[@id='BedLevel']" type="raster" symbology="DEM" transparency="40"/>
             </Children>
           </Node>
           <Node label="Validation Comparison">
             <Children>
-              <Node label="Water Depth (model vs surveyed)" xpath="Realizations/Hydro/Analyses/Analysis/Outputs/Raster[@id='WSE']" type="raster" symbology="depthError" />
+              <Node label="Water Depth (model vs surveyed)" xpath="Realizations/Hydro/Analyses/Analysis/Outputs/Raster[@id='WSE']" type="raster" symbology="depthError" transparency="40"/>
             </Children>
           </Node>
 
