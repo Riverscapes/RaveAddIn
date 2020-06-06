@@ -13,7 +13,7 @@
               <Node label="Existing Dam Capacity" xpath="Vector" type="vector" symbology="oCC_EX" />
               <Node label="Existing Dam Size" xpath="Vector" type="vector" symbology="mCC_EX_CT" />
               <Node label="Historic Dam Capacity" xpath="Vector" type="vector" symbology="oCC_HPE" />
-              <Node label="Existing Dam Size" xpath="Vector" type="vector" symbology="mCC_HPE_CT" />
+              <Node label="Historic Dam Size" xpath="Vector" type="vector" symbology="mCC_HPE_CT" />
             </Children>
           </Node>
           <Node label="Management">
