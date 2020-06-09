@@ -14,9 +14,9 @@
           </Node>
           <Node label="Lines of Evidence">
             <Children>
-              <Node xpathlabel="Name" xpath="Realizations/VBET/Inputs/Raster[@id='SLOPE_RASTER']" type="raster" symbology="slopeDeg" transparency="40"/>
-              <Node xpathlabel="Name" xpath="Realizations/VBET/Inputs/Raster[@id='HAND_RASTER']" type="raster" symbology="hand" transparency="40"/>
-              <Node label="Active Channel" xpath="Realizations/VBET/Intermediates/Raster[@id='CHANNEL_RASTER']" type="raster" symbology="active_channel" transparency="40"/>
+              <Node xpathlabel="Name" xpath="Realizations/VBET/Inputs/Raster[@id='SLOPE_RASTER']" type="raster" symbology="slopeDeg" />
+              <Node xpathlabel="Name" xpath="Realizations/VBET/Inputs/Raster[@id='HAND_RASTER']" type="raster" symbology="hand" />
+              <Node label="Active Channel" xpath="Realizations/VBET/Intermediates/Raster[@id='CHANNEL_RASTER']" type="raster" symbology="active_channel" />
             </Children>
           </Node>
           <Node label="Topography">
@@ -35,7 +35,7 @@
           <Node xpathlabel="Name" xpath="Realizations/VBET/Intermediates/Vector[@id='THRESH_90']" type="vector" symbology="" />
           <Node xpathlabel="Name" xpath="Realizations/VBET/Intermediates/Vector[@id='THRESH_100']" type="vector" symbology="" />
           <Node xpathlabel="Name" xpath="Realizations/VBET/Intermediates/Vector[@id='VBET_NETWORK']" type="vector" symbology="" />
-          <Node xpathlabel="Name" xpath="Realizations/VBET/Intermediates/Raster[@id='EVIDENCE']" type="raster" symbology="" transparency="40"/>
+          <Node xpathlabel="Name" xpath="Realizations/VBET/Intermediates/Raster[@id='EVIDENCE']" type="raster" symbology="" />
         </Children>
       </Node>
       <Node label="Analyses">
