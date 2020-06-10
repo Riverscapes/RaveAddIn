@@ -87,7 +87,7 @@
 									<Node label="Veg Type - EVT Type" xpath="Raster[@id='EXVEG']" type="raster" symbology="Existing_Veg_EVT_Type" transparency="40"/>
 									<Node label="Veg Type - EVT Name" xpath="Raster[@id='EXVEG']" type="raster" symbology="Existing_Veg_EVT_Name" transparency="40"/>
 									<Node label="Veg Type - EVT Class" xpath="Raster[@id='EXVEG']" type="raster" symbology="Existing_Veg_EVT_Class" transparency="40"/>
-									<Node label="Existing Riparian" xpath="Raster[@id='EXVEG']" type="raster" symbology="ExistVeg" transparency="40"/>
+									<Node label="Existing Riparian" xpath="Raster[@id='EXVEG']" type="raster" symbology="Existing_Veg_Riparian" transparency="40"/>
 								</Children>
 							</Node>
 							<Node label = "Historic Vegetation Dam Capacity">
