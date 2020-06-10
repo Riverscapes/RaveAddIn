@@ -92,7 +92,7 @@
 							</Node>
 							<Node label = "Historic Vegetation Dam Capacity">
 								<Children>
-									<Node label="Veg Type - BPS Type" xpath="Raster[@id='HISTVEG']" type="raster" symbology="ExistVeg" transparency="40"/>
+									<Node label="Veg Type - BPS Type" xpath="Raster[@id='HISTVEG']" type="raster" symbology="Historic_Veg_BPS_Type" transparency="40"/>
 									<Node label="Veg Type - BPS Name" xpath="Raster[@id='HISTVEG']" type="raster" symbology="ExistVeg" transparency="40"/>
 									<Node label="Historic Riparian" xpath="Raster[@id='HISTVEG']" type="raster" symbology="ExistVeg" transparency="40"/>
 								</Children>
