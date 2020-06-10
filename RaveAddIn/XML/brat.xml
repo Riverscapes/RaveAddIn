@@ -82,8 +82,23 @@
           </Node>
           <Node label="Vegetation">
             <Children>
-              <Node label="Existing Vegetation Type" xpath="Raster[@id='EXVEG']" type="raster" symbology="ExistVeg" transparency="40"/>
-              <Node label="Historic Vegetation Type" xpath="Raster[@id='HISTVEG']" type="raster" symbology="HistVeg" transparency="40"/>
+							<Node label = "Existing Vegetation Dam Capacity">
+								<Children>
+									<Node label="Veg Type - EVT Type" xpath="Raster[@id='EXVEG']" type="raster" symbology="ExistVeg" transparency="40"/>
+									<Node label="Veg Type - EVT Name" xpath="Raster[@id='EXVEG']" type="raster" symbology="ExistVeg" transparency="40"/>
+									<Node label="Veg Type - EVT Class" xpath="Raster[@id='EXVEG']" type="raster" symbology="ExistVeg" transparency="40"/>
+									<Node label="Existing Vegetation Suitability for Beaver Dam Building" xpath="Raster[@id='EXVEG']" type="raster" symbology="ExistVeg" transparency="40"/>
+									<Node label="Existing Riparian" xpath="Raster[@id='EXVEG']" type="raster" symbology="ExistVeg" transparency="40"/>
+								</Children>
+							</Node>
+							<Node label = "Historic Vegetation Dam Capacity">
+								<Children>
+									<Node label="Veg Type - BPS Type" xpath="Raster[@id='EXVEG']" type="raster" symbology="ExistVeg" transparency="40"/>
+									<Node label="VVeg Type - BPS Name" xpath="Raster[@id='EXVEG']" type="raster" symbology="ExistVeg" transparency="40"/>
+									<Node label="Historic Vegetation Suitability for Beaver Dam Building" xpath="Raster[@id='EXVEG']" type="raster" symbology="ExistVeg" transparency="40"/>
+									<Node label="Historic Riparian" xpath="Raster[@id='EXVEG']" type="raster" symbology="ExistVeg" transparency="40"/>
+								</Children>
+							</Node>
             </Children>
           </Node>
           <Node label="Topography">
