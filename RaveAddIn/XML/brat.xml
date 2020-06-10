@@ -48,8 +48,8 @@
           </Node>
           <Node label="Vegetation Suitability">
             <Children>
-              <Node label="Existing Vegetation Suitability" xpath="../Intermediates/Raster[@id='EXVEG_SUIT']" type="vector" symbology="veg_suitability" transparency="40"/>
-              <Node label="Historic Vegetation Suitability" xpath="../Intermediates/Raster[@id='HISTVEG_SUIT']" type="vector" symbology="veg_suitability" transparency="40"/>
+              <Node label="Existing Vegetation Suitability" xpath="../Intermediates/Raster[@id='EXVEG_SUIT']" type="raster" symbology="veg_suitability" transparency="40"/>
+              <Node label="Historic Vegetation Suitability" xpath="../Intermediates/Raster[@id='HISTVEG_SUIT']" type="raster" symbology="veg_suitability" transparency="40"/>
             </Children>
           </Node>
 
