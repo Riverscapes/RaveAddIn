@@ -30,6 +30,7 @@
 					<Node label="Network">
             <Children>
 							<Node label="Perennial" xpath="Vector" type="vector" symbology="IsPeren" />
+							<Node label="Zero or Null Drainage Area" xpath="Vector" type="vector" symbology="null_da" />
             </Children>
           </Node>
           <Node label="Topographic Index">
