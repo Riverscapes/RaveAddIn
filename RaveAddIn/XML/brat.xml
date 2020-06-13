@@ -74,7 +74,7 @@
         <Children>
           <Node label="Network">
             <Children>
-              <Node label="Network" xpath="Vector[@id='FLOWLINES']" type="vector" symbology="Network" />
+              <Node label="Network" xpath="Vector[@id='FLOWLINES']" type="vector" symbology="flow_lines" />
               <Node label="Flow Direction" xpath="Vector[@id='FLOWLINES']" type="vector" symbology="FlowDirection" />
               <Node label="Flow Area" xpath="Vector[@id='FLOW_AREA']" type="vector" symbology="FlowArea" />
               <Node label="Waterbodies" xpath="Vector[@id='WATERBODIES']" type="vector" symbology="Waterbodies" />
