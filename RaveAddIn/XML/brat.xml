@@ -27,7 +27,11 @@
       </Node>
       <Node label="Intermediates" xpath="Realizations/BRAT/Outputs">
         <Children>
-          <Node label="Perennial" xpath="Vector" type="vector" symbology="IsPeren" />
+					<Node label="Network">
+            <Children>
+							<Node label="Perennial" xpath="Vector" type="vector" symbology="IsPeren" />
+            </Children>
+          </Node>
           <Node label="Topographic Index">
             <Children>
               <Node label="Slope" xpath="Vector" type="vector" symbology="iGeo_Slope" />
