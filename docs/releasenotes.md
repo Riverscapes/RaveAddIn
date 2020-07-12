@@ -3,9 +3,17 @@ title: Release Notes
 weight: 99
 ---
 
+### 1.1.3 - 10 Jun 2020
+
+* Existing and historic vegetation symbology using raster attribute tables 
+
+### 1.1.2 - 9 Jun 2020
+
+* Business logic and symbology for Riverscapes Context, BRAT and VBET.
+
 ### 1.1.1 - 3 Jun 2020
 
-* Updated BRAT and Hydro symbology and business logic.
+* Updated BRAT and Hydro nsymbology and business logic.
 * `collapsed` business logic attribute fixed.
 * Load all layers now applying symbology. 
 

@@ -56,11 +56,11 @@
       </Node>
       <Node label="Topography and Derivatives">
         <Children collapsed="true">
-          <Node label="DEM (10 m NED)" xpath="Realizations/RSContext/DEM" type="raster" symbology="dem" />
-          <Node label="Slope Analysis" xpath="Realizations/RSContext/Raster[@id='SLOPE']" type="raster" symbology="slope" />
-          <Node xpathlabel="Name" xpath="Realizations/RSContext/Raster[@id='FA']" type="raster" symbology="flow_accumulation" />
-          <Node label="Drainage Area" xpath="Realizations/RSContext/Raster[@id='DA']" type="raster" symbology="drainage_area" />
-          <Node label="Height Above Nearest Drainage" xpath="Realizations/RSContext/Raster[@id='HAND']" type="raster" symbology="hand" />
+          <Node label="DEM (10 m NED)" xpath="Realizations/RSContext/DEM" type="raster" symbology="dem" transparency="40" />
+          <Node label="Slope Analysis" xpath="Realizations/RSContext/Raster[@id='SLOPE']" type="raster" symbology="slope" transparency="40" />
+          <Node xpathlabel="Name" xpath="Realizations/RSContext/Raster[@id='FA']" type="raster" symbology="flow_accumulation" transparency="40" />
+          <Node label="Drainage Area" xpath="Realizations/RSContext/Raster[@id='DA']" type="raster" symbology="drainage_area" transparency="40" />
+          <Node label="Detrended DEM (HAND - Height Above Nearest Drainge)" xpath="Realizations/RSContext/Raster[@id='HAND']" type="raster" symbology="hand" transparency="40" />
         </Children>
       </Node>
     
