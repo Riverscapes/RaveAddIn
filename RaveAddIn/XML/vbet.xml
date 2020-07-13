@@ -8,18 +8,14 @@
         <Children>
           <Node label="Hydrography (NHD HR+)">
             <Children>
-
-<Node xpathlabel="Name" xpath="Realizations/VBET/Intermediates/Vector[@id='VBET_NETWORK']" type="vector" symbology="" />
+              <Node xpathlabel="Name" xpath="Realizations/VBET/Intermediates/Vector[@id='VBET_NETWORK']" type="vector" symbology="" />
               <Node label="Full NHD HR+ Drainage Network" xpath="Realizations/VBET/Inputs/Vector[@id='FLOWLINES']" type="vector" symbology="flow_lines" />
-
-<Node label="Perrenial Drainage Network" xpath="Realizations/VBET/Inputs/Vector[@id='FLOWLINES']" type="vector" symbology="nhdperrenial" />
-
-<Node label="Intermittent Drainage Network" xpath="Realizations/VBET/Inputs/Vector[@id='FLOWLINES']" type="vector" symbology="nhdintermittent" />
-
-<Node label="Ephemeral Drainage Network" xpath="Realizations/VBET/Inputs/Vector[@id='FLOWLINES']" type="vector" symbology="nhdephemeral" />
-
-<Node label="Network - Upstream Drainage Network" xpath="Realizations/VBET/Inputs/Vector[@id='FLOWLINES']" type="vector" symbology="upstreamdrainagearea" />
-              <Node label="River Polygons (NHD Area)" xpath="Realizations/VBET/Inputs/Vector[@id='FLOW_AREA']" type="vector" symbology="nhdarea" />																						             			</Children>
+              <Node label="Perrenial Drainage Network" xpath="Realizations/VBET/Inputs/Vector[@id='FLOWLINES']" type="vector" symbology="nhdperrenial" />
+              <Node label="Intermittent Drainage Network" xpath="Realizations/VBET/Inputs/Vector[@id='FLOWLINES']" type="vector" symbology="nhdintermittent" />
+              <Node label="Ephemeral Drainage Network" xpath="Realizations/VBET/Inputs/Vector[@id='FLOWLINES']" type="vector" symbology="nhdephemeral" />
+              <Node label="Network - Upstream Drainage Network" xpath="Realizations/VBET/Inputs/Vector[@id='FLOWLINES']" type="vector" symbology="upstreamdrainagearea" />
+              <Node label="River Polygons (NHD Area)" xpath="Realizations/VBET/Inputs/Vector[@id='FLOW_AREA']" type="vector" symbology="nhdarea" />
+            </Children>
           </Node>
           <Node label="Lines of Evidence">
             <Children>
