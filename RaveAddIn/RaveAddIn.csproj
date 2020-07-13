@@ -419,9 +419,6 @@
     <Content Include="Symbology\BRAT\IsPeren.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Symbology\BRAT\Network.lyr">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="Symbology\BRAT\totDA_SqKm.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
