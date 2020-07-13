@@ -14,7 +14,7 @@
       <Node label="Hydrology">
         <Children collapsed="false">
           <Node label="Hydrography (NHD HR+)">
-            <Children collapsed="false">
+            <Children collapsed="true">
               <Node label="Full NHD HR+ Drainage Network" xpath="Realizations/RSContext/Vector[@id='NHDFlowline']" type="vector" symbology="flow_lines" />
               <Node label="Perrenial Drainage Network" xpath="Realizations/RSContext/Vector[@id='NHDFlowline']" type="vector" symbology="nhdperrenial" />
               <Node label="Intermittent Drainage Network" xpath="Realizations/RSContext/Vector[@id='NHDFlowline']" type="vector" symbology="nhdintermittent" />
