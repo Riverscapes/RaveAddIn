@@ -15,11 +15,11 @@
         <Children collapsed="false">
           <Node label="Hydrography (NHD HR+)">
             <Children collapsed="true">
-              <Node label="Full NHD HR+ Drainage Network" xpath="Realizations/RSContext/Vector[@id='NHDFlowline']" type="vector" symbology="flow_lines" />
               <Node label="Perrenial Drainage Network" xpath="Realizations/RSContext/Vector[@id='NHDFlowline']" type="vector" symbology="nhdperrenial" />
               <Node label="Intermittent Drainage Network" xpath="Realizations/RSContext/Vector[@id='NHDFlowline']" type="vector" symbology="nhdintermittent" />
               <Node label="Ephemeral Drainage Network" xpath="Realizations/RSContext/Vector[@id='NHDFlowline']" type="vector" symbology="nhdephemeral" />
               <Node label="Network - Upstream Drainage Area" xpath="Realizations/RSContext/Vector[@id='NHDFlowline']" type="vector" symbology="upstreamdrainagearea" />
+              <Node label="Full NHD HR+ Drainage Network" xpath="Realizations/RSContext/Vector[@id='NHDFlowline']" type="vector" symbology="flow_lines" />
               <Node label="Drainage Wings" xpath="Realizations/RSContext/Vector[@id='NHDPlusCatchment']" type="vector" symbology="drainagewings" />
               <Node label="River Polygons (NHD Area)" xpath="Realizations/RSContext/Vector[@id='NHDArea']" type="vector" symbology="nhdarea" />
               <Node label="Lakes, Ponds, Reservoirs and Water Bodies" xpath="Realizations/RSContext/Vector[@id='NHDWaterbody']" type="vector" symbology="waterbody" />
