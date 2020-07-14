@@ -14,6 +14,7 @@
         <Children collapsed="false">
           <Node label="Hydrography (NHD HR+)">
             <Children collapsed="true">
+              <Node label="Pipes and Ditches" xpath="Realizations/RSContext/Vector[@id='NHDFlowline']" type="vector" symbology="pipes" />
               <Node label="Perrenial Drainage Network" xpath="Realizations/RSContext/Vector[@id='NHDFlowline']" type="vector" symbology="nhdperrenial" />
               <Node label="Intermittent Drainage Network" xpath="Realizations/RSContext/Vector[@id='NHDFlowline']" type="vector" symbology="nhdintermittent" />
               <Node label="Ephemeral Drainage Network" xpath="Realizations/RSContext/Vector[@id='NHDFlowline']" type="vector" symbology="nhdephemeral" />
