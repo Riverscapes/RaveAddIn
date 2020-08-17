@@ -3,6 +3,12 @@ title: Release Notes
 weight: 99
 ---
 
+### 1.1.4 17 Aug 2020
+
+* Fixed risk and conservation symbology.
+* Several minor business logic improvements requested by Joe Wheaton via YouTube video.
+* VBET business logic and symbology improvements.
+
 ### 1.1.3 - 10 Jun 2020
 
 * Existing and historic vegetation symbology using raster attribute tables 
