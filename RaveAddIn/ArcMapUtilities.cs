@@ -106,6 +106,7 @@ namespace RaveAddIn
             {
                 if (ex.Message.ToLower().Contains("symbology"))
                 {
+                    System.Diagnostics.Debug.Print(ex.Message);
                     // DO Nothing
                 }
                 else
