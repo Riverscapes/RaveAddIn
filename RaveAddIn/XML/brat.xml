@@ -5,7 +5,7 @@
   <Node xpathlabel="Name">
     <Children collapsed="false">
       <Node label="Outputs" xpath="Realizations/BRAT/Outputs">
-        <Children>
+        <Children collapsed="true">
           <Node xpathlabel="Name" xpath="SQLiteDB" type="file" />
           <Node xpathlabel="Name" xpath="HTMLFile" type="file" />
           <Node label="Capacity">
@@ -17,7 +17,7 @@
             </Children>
           </Node>
           <Node label="Management">
-            <Children>
+            <Children collapsed="true">
               <Node label="Unsuitable or Limited Opportunities" xpath="Vector" type="vector" symbology="oPBRC_UD" />
               <Node label="Risk of Undesirable Dams" xpath="Vector" type="vector" symbology="oPBRC_UI" />
               <Node label="Restoration or Conservation Opportunities" xpath="Vector" type="vector" symbology="oPBRC_CR" />
@@ -26,7 +26,7 @@
         </Children>
       </Node>
       <Node label="Intermediates" xpath="Realizations/BRAT/Outputs">
-        <Children>
+        <Children collapsed="true">
 					<Node label="Network">
             <Children>
 							<Node label="Perennial" xpath="Vector" type="vector" symbology="IsPeren" />
@@ -57,13 +57,12 @@
               <Node label="Historic Vegetation Suitability" xpath="../Intermediates/Raster[@id='HISTVEG_SUIT']" type="raster" symbology="veg_suitability" transparency="40"/>
             </Children>
           </Node>
-
           <Node label="Anthropogenic Intermediates">
             <Children>
               <Node label="Priority Beaver Translocation Areas" xpath="Vector" type="vector" symbology="iPC_Privat" />
               <Node label="Land Ownership per Reach" xpath="Vector" type="vector" symbology="ADMIN_AGEN" />
               <Node label="Land Use Intensity" xpath="Vector" type="vector" symbology="iPC_LU" />
-              <Node label="Distance to Closest Architecture" xpath="Vector" type="vector" symbology="oPC_Dist" />
+              <Node label="Distance to Nearest Infrastructure" xpath="Vector" type="vector" symbology="oPC_Dist" />
               <Node label="Distance to Railroad" xpath="Vector" type="vector" symbology="iPC_Rail" />
               <Node label="Distance to Railroad in Valley Bottom" xpath="Vector" type="vector" symbology="iPC_RailVB" />
               <Node label="Distance to Road" xpath="Vector" type="vector" symbology="iPC_Road" />
@@ -76,13 +75,13 @@
         </Children>
       </Node>
       <Node label="Inputs" xpath="Realizations/BRAT/Inputs">
-        <Children>
+        <Children collapsed="true">
           <Node label="Network">
             <Children>
               <Node label="Network" xpath="Vector[@id='FLOWLINES']" type="vector" symbology="flow_lines" />
               <Node label="Flow Direction" xpath="Vector[@id='FLOWLINES']" type="vector" symbology="FlowDirection" />
-              <Node label="Flow Area" xpath="Vector[@id='FLOW_AREA']" type="vector" symbology="FlowArea" />
-              <Node label="Waterbodies" xpath="Vector[@id='WATERBODIES']" type="vector" symbology="Waterbodies" />
+              <Node label="River Polygons (NHD Area)" xpath="Vector[@id='FLOW_AREA']" type="vector" symbology="FlowArea" />
+              <Node label="Lakes, Ponds, Reservoirs and Water Bodies" xpath="Vector[@id='WATERBODIES']" type="vector" symbology="Waterbodies" />
             </Children>
           </Node>
           <Node label="Vegetation">
