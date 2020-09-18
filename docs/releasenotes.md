@@ -3,18 +3,22 @@ title: Release Notes
 weight: 99
 ---
 
-### 1.1.7 18 Aug 2020
+### 1.1.8 - 18 Aug 2020
+
+* Ecoregion business logic and symbology
+
+### 1.1.7 - 18 Aug 2020
 
 * Pipes and ditches business logic and symbology ([#77](https://github.com/Riverscapes/RaveAddIn/issues/77))
-### 1.1.6 17 Aug 2020
+### 1.1.6 - 17 Aug 2020
 
 * PRISM rasters in riverscapes context business logic
 
-### 1.1.5 15 Aug 2020
+### 1.1.5 - 15 Aug 2020
 
 * Updated Riverscapes Context land ownership symbology ([#81](https://github.com/Riverscapes/RaveAddIn/pull/81)).
 
-### 1.1.4 17 Aug 2020
+### 1.1.4 - 17 Aug 2020
 
 * Fixed risk and conservation symbology.
 * Several minor business logic improvements requested by Joe Wheaton via YouTube video.
