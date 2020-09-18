@@ -3,6 +3,10 @@ title: Release Notes
 weight: 99
 ---
 
+### 1.1.9 - 18 Aug 2020
+
+* Fixing bug when Topo projects load whereby Children node in business logic has no attributes.
+
 ### 1.1.8 - 18 Aug 2020
 
 * Ecoregion business logic and symbology
