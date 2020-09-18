@@ -49,14 +49,13 @@
           <Node label="Maximum Vapor Pressure Deficit" xpath="Realizations/RSContext/Raster[@id='MaxVap']" type="raster" />
         </Children>
       </Node>
-    
-			<Node label="Ecoregions">
+      <Node label="Ecoregions">
         <Children collapsed="true">
           <Node label="Level 1 Ecoregions" xpath="Realizations/RSContext/Vector[@id='Ecoregions']" type="vector" symbology="ecoregions_1" />
           <Node label="Level 2 Ecoregions" xpath="Realizations/RSContext/Vector[@id='Ecoregions']" type="vector" symbology="ecoregions_2" />
-					<Node label="Level 3 Ecoregions" xpath="Realizations/RSContext/Vector[@id='Ecoregions']" type="vector" symbology="ecoregions_3" />
+          <Node label="Level 3 Ecoregions" xpath="Realizations/RSContext/Vector[@id='Ecoregions']" type="vector" symbology="ecoregions_3" />
         </Children>
-			</Node>
+      </Node>
       <Node label="Land Management">
         <Children collapsed="true">
           <Node label="Land Ownership" xpath="Realizations/RSContext/Vector[@id='Ownership']" type="vector" symbology="ownership" transparency="40" />
@@ -77,7 +76,6 @@
           <Node label="Detrended DEM (HAND - Height Above Nearest Drainge)" xpath="Realizations/RSContext/Raster[@id='HAND']" type="raster" symbology="hand" transparency="40" />
         </Children>
       </Node>
-
       <Node label="Hillshade">
         <Children collapsed="false">
           <Node xpathlabel="Name" xpath="Realizations/RSContext/Raster[@id='HILLSHADE']" type="raster" symbology="" />
