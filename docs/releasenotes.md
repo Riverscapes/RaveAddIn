@@ -3,6 +3,9 @@ title: Release Notes
 weight: 99
 ---
 
+### 1.1.7 18 Aug 2020
+
+* Pipes and ditches business logic and symbology ([#77](https://github.com/Riverscapes/RaveAddIn/issues/77))
 ### 1.1.6 17 Aug 2020
 
 * PRISM rasters in riverscapes context business logic
