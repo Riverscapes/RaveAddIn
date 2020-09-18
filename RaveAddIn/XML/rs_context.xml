@@ -14,7 +14,6 @@
         <Children collapsed="false">
           <Node label="Hydrography (NHD HR+)">
             <Children collapsed="true">
-              <Node label="Pipes and Ditches" xpath="Realizations/RSContext/Vector[@id='NHDFlowline']" type="vector" symbology="pipes" />
               <Node label="Perrenial Drainage Network" xpath="Realizations/RSContext/Vector[@id='NHDFlowline']" type="vector" symbology="nhdperrenial" />
               <Node label="Intermittent Drainage Network" xpath="Realizations/RSContext/Vector[@id='NHDFlowline']" type="vector" symbology="nhdintermittent" />
               <Node label="Ephemeral Drainage Network" xpath="Realizations/RSContext/Vector[@id='NHDFlowline']" type="vector" symbology="nhdephemeral" />
@@ -24,6 +23,7 @@
               <Node label="River Polygons (NHD Area)" xpath="Realizations/RSContext/Vector[@id='NHDArea']" type="vector" symbology="nhdarea" />
               <Node label="Lakes, Ponds, Reservoirs and Water Bodies" xpath="Realizations/RSContext/Vector[@id='NHDWaterbody']" type="vector" symbology="waterbody" />
               <Node label="Canals and Ditches" xpath="Realizations/RSContext/Vector[@id='Canals']" type="vector" symbology="canals_ditches" />
+              <Node label="Pipes and Ditches" xpath="Realizations/RSContext/Vector[@id='NHDFlowline']" type="vector" symbology="pipes" />
             </Children>
           </Node>
           <Node label="Watershed Boundaries (HUCs)">
