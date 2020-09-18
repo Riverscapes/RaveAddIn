@@ -37,6 +37,17 @@
           </Node>
         </Children>
       </Node>
+      <Node label="Climate (PRISM)">
+        <Children collapsed="true">
+          <Node label="Mean Annual Precipitation" xpath="Realizations/RSContext/Raster[@id='Precip']" type="raster" />
+          <Node label="Mean Temperature" xpath="Realizations/RSContext/Raster[@id='MeanTemp']" type="raster" />
+          <Node label="Minimum Temperature" xpath="Realizations/RSContext/Raster[@id='MinTemp']" type="raster" />
+          <Node label="Maximum Temperature" xpath="Realizations/RSContext/Raster[@id='MaxTemp']" type="raster" />
+          <Node label="Mean Dewpoint Temperature" xpath="Realizations/RSContext/Raster[@id='MeanDew']" type="raster" />
+          <Node label="Minimum Vapor Pressure Deficit" xpath="Realizations/RSContext/Raster[@id='MinVap']" type="raster" />
+          <Node label="Maximum Vapor Pressure Deficit" xpath="Realizations/RSContext/Raster[@id='MaxVap']" type="raster" />
+        </Children>
+      </Node>
       <Node label="Land Management">
         <Children collapsed="true">
           <Node label="Land Ownership" xpath="Realizations/RSContext/Vector[@id='Ownership']" type="vector" symbology="ownership" transparency="40" />
