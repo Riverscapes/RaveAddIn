@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using ESRI.ArcGIS.Carto;
 using ESRI.ArcGIS.Catalog;
 using ESRI.ArcGIS.Geodatabase;
@@ -166,6 +166,22 @@ namespace RaveAddIn
                     IGeoFeatureLayer pGFLayer = (IGeoFeatureLayer)pGXLayer.Layer;
                     ((IGeoFeatureLayer)layer).Renderer = pGFLayer.Renderer;
 
+                    // Copy labels
+                    if (pGFLayer.DisplayAnnotation)
+                    {
+                        try
+                        {
+                            ((IGeoFeatureLayer)layer).DisplayAnnotation = true;
+                            ((IGeoFeatureLayer)layer).AnnotationProperties = pGFLayer.AnnotationProperties;
+                        }
+                        catch(Exception ex)
+                        {
+                            System.Diagnostics.Debug.Print(ex.Message);
+                            System.Diagnostics.Debug.Assert(false, "Error applying labels from layer file.");
+                        }
+                    }
+
+                    // Make sure the correct layer properties dialog appears
                     IRendererPropertyPage pRendererPropPage = GetVectorPropertyPage(pGFLayer.Renderer);
                     if (pRendererPropPage != null)
                     {
