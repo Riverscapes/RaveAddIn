@@ -45,8 +45,8 @@
           <Node label="Minimum Temperature (°C)" xpath="Realizations/RSContext/Raster[@id='MinTemp']" type="raster" symbology="temp" />
           <Node label="Maximum Temperature (°C)" xpath="Realizations/RSContext/Raster[@id='MaxTemp']" type="raster" symbology="temp" />
           <Node label="Mean Dewpoint Temperature (°C)" xpath="Realizations/RSContext/Raster[@id='MeanDew']" type="raster" symbology="temp" />
-          <Node label="Minimum Vapor Pressure Deficit" xpath="Realizations/RSContext/Raster[@id='MinVap']" type="raster" />
-          <Node label="Maximum Vapor Pressure Deficit" xpath="Realizations/RSContext/Raster[@id='MaxVap']" type="raster" />
+          <Node label="Minimum Vapor Pressure Deficit (hPa)" xpath="Realizations/RSContext/Raster[@id='MinVap']" type="raster" symbology="vapor_pressure" />
+          <Node label="Maximum Vapor Pressure Deficit (hPa)" xpath="Realizations/RSContext/Raster[@id='MaxVap']" type="raster" symbology="vapor_pressure" />
         </Children>
       </Node>
       <Node label="Ecoregions">
