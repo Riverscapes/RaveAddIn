@@ -42,9 +42,9 @@
         <Children collapsed="true">
           <Node label="Mean Annual Precipitation (mm)" xpath="Realizations/RSContext/Raster[@id='Precip']" type="raster" symbology="mean_annual_precip" />
           <Node label="Mean Temperature (°C)" xpath="Realizations/RSContext/Raster[@id='MeanTemp']" type="raster" symbology="temp"/>
-          <Node label="Minimum Temperature" xpath="Realizations/RSContext/Raster[@id='MinTemp']" type="raster" />
-          <Node label="Maximum Temperature" xpath="Realizations/RSContext/Raster[@id='MaxTemp']" type="raster" />
-          <Node label="Mean Dewpoint Temperature" xpath="Realizations/RSContext/Raster[@id='MeanDew']" type="raster" />
+          <Node label="Minimum Temperature (°C)" xpath="Realizations/RSContext/Raster[@id='MinTemp']" type="raster" symbology="temp" />
+          <Node label="Maximum Temperature (°C)" xpath="Realizations/RSContext/Raster[@id='MaxTemp']" type="raster" symbology="temp" />
+          <Node label="Mean Dewpoint Temperature (°C)" xpath="Realizations/RSContext/Raster[@id='MeanDew']" type="raster" symbology="temp" />
           <Node label="Minimum Vapor Pressure Deficit" xpath="Realizations/RSContext/Raster[@id='MinVap']" type="raster" />
           <Node label="Maximum Vapor Pressure Deficit" xpath="Realizations/RSContext/Raster[@id='MaxVap']" type="raster" />
         </Children>
