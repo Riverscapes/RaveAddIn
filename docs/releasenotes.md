@@ -3,26 +3,30 @@ title: Release Notes
 weight: 99
 ---
 
-### 1.1.10 - 21 Aug 2020
+### 1.1.11 - 30 Sep 2020
+
+* Riverscapes PRISM Symbology.
+
+### 1.1.10 - 21 Sep 2020
 
 * Applying labels to feature layers when loading layer file symbology ([#36](https://github.com/Riverscapes/RaveAddIn/issues/36))
 
-### 1.1.9 - 18 Aug 2020
+### 1.1.9 - 18 Sep 2020
 
 * Fixing bug when Topo projects load whereby Children node in business logic has no attributes.
 
-### 1.1.8 - 18 Aug 2020
+### 1.1.8 - 18 Sep 2020
 
 * Ecoregion business logic and symbology
 
-### 1.1.7 - 18 Aug 2020
+### 1.1.7 - 18 Sep 2020
 
 * Pipes and ditches business logic and symbology ([#77](https://github.com/Riverscapes/RaveAddIn/issues/77))
-### 1.1.6 - 17 Aug 2020
+### 1.1.6 - 17 Sep 2020
 
 * PRISM rasters in riverscapes context business logic
 
-### 1.1.5 - 15 Aug 2020
+### 1.1.5 - 15 Sep 2020
 
 * Updated Riverscapes Context land ownership symbology ([#81](https://github.com/Riverscapes/RaveAddIn/pull/81)).
 
