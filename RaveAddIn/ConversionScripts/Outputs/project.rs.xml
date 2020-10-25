@@ -1,0 +1,42 @@
+<?xml version="1.0" ?>
+<Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://xml.riverscapes.xyz/Projects/XSD/V1/pyBRAT.xsd">
+	<Name>pyBRAT</Name>
+	<ProjectType>pyBRAT</ProjectType>
+	<MetaData>
+		<Meta name="ModelVersion">4.0.5</Meta>
+		<Meta name="dateCreated">2020-10-22T22:18:18.353990</Meta>
+	</MetaData>
+	<Realizations>
+		<InundationContext id="INN_CTX01" dateCreated="2020-10-22T22:18:18.366934" guid="6589602b-14de-11eb-aa3b-484d7ed4fa8d" productVersion="4.0.5">
+			<Name>pyBRAT</Name>
+			<MetaData>
+				<Meta name="mapper">Karen Bartelt</Meta>
+				<Meta name="date_mapped">02042020</Meta>
+				<Meta name="year1">estimated pre beaver</Meta>
+				<Meta name="year2">2019</Meta>
+				<Meta name="RS_used">RS_01</Meta>
+				<Meta name="EditedVal">Some Realization Value here</Meta>
+			</MetaData>
+			<Inputs>
+				<Raster guid="658abebb-14de-11eb-b2d3-484d7ed4fa8d" id="AP_01">
+					<Name>2019 August</Name>
+					<Path>01_Inputs\01_Imagery\AP_01\orthomosaic.tif</Path>
+					<MetaData>
+						<Meta name="EditedVal Raster">Some Raster Value here</Meta>
+					</MetaData>
+				</Raster>
+			</Inputs>
+			<Outputs/>
+		</InundationContext>
+		<InundationDCE id="DCE_01" dateCreated="2020-10-22T22:18:18.390870" guid="658c1d5c-14de-11eb-8f78-484d7ed4fa8d" productVersion="4.0.5">
+			<Name>August 2019</Name>
+			<Inputs/>
+			<Outputs/>
+		</InundationDCE>
+		<InundationCD id="" dateCreated="2020-10-22T22:18:18.390870" guid="658c4452-14de-11eb-86ba-484d7ed4fa8d" productVersion="4.0.5">
+			<Name>2019 vs estimated pre beaver</Name>
+			<Inputs/>
+			<Outputs/>
+		</InundationCD>
+	</Realizations>
+</Project>
