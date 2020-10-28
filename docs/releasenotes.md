@@ -3,6 +3,11 @@ title: Release Notes
 weight: 99
 ---
 
+### 1.1.12 - 28 Oct 2020
+
+* Confinement business logic and symbology
+* First version that can display layers in GeoPackages
+
 ### 1.1.11 - 30 Sep 2020
 
 * Riverscapes PRISM Symbology.
