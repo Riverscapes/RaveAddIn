@@ -49,7 +49,7 @@ namespace RaveAddIn
             switch (dataset.WorkspaceType)
             {
                 case FileSystemDataset.GISDataStorageTypes.RasterFile:
-                    IRasterDataset pRDS = ((IRasterWorkspace)pWorkspace).OpenRasterDataset(dataset.Name);
+                    IRasterDataset pRDS = ((IRasterWorkspace)pWorkspace).OpenRasterDataset(Path.GetFileName(dataset.Path.FullName));
                     IRasterLayer pRLResult = new RasterLayer();
                     pRLResult.CreateFromDataset(pRDS);
                     pResultLayer = pRLResult;
