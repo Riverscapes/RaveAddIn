@@ -7,20 +7,13 @@ using ESRI.ArcGIS.DataSourcesRaster;
 using ESRI.ArcGIS.CartoUI;
 using ESRI.ArcGIS.GISClient;
 using System.IO;
+using RaveAddIn.ProjectTree;
 
 namespace RaveAddIn
 {
     public struct ArcMapUtilities
     {
-        public enum GISDataStorageTypes
-        {
-            RasterFile,
-            ShapeFile,
-            FileGeodatase,
-            CAD,
-            PersonalGeodatabase,
-            TIN
-        };
+
 
         public enum eEsriLayerTypes
         {
@@ -33,13 +26,13 @@ namespace RaveAddIn
             Esri_AnyLayer
         }
 
-        public static ILayer AddToMap(FileSystemInfo fiFullPath, string sLayerName, IGroupLayer pGroupLayer, FileInfo fiSymbologyLayerFile = null, bool bAddToMapIfPresent = false, short transparency = 0)
+        public static ILayer AddToMap(FileSystemDataset dataset, string sLayerName, IGroupLayer pGroupLayer, FileInfo fiSymbologyLayerFile = null, bool bAddToMapIfPresent = false, short transparency = 0)
         {
-            if (!fiFullPath.Exists)
+            if (!dataset.Exists)
                 return null;
 
             // Only add if it doesn't exist already
-            ILayer pResultLayer = GetLayerBySource(fiFullPath);
+            ILayer pResultLayer = GetLayerBySource(dataset.Path);
             if ((pResultLayer is ILayer && string.Compare(pResultLayer.Name, sLayerName, true) == 0) && !bAddToMapIfPresent)
                 return pResultLayer;
 
@@ -47,49 +40,54 @@ namespace RaveAddIn
             if (fiSymbologyLayerFile != null && !fiSymbologyLayerFile.Exists)
             {
                 Exception ex = new Exception("A symbology layer file was provided, but the file does not exist");
-                ex.Data["Data Source"] = fiFullPath.FullName;
+                ex.Data["Data Source"] = dataset.Path.FullName;
                 ex.Data["Layer file"] = fiSymbologyLayerFile.FullName;
                 throw ex;
             }
 
-            GISDataStorageTypes eStorageType = GetWorkspaceType(fiFullPath.FullName);
-            IWorkspace pWorkspace = GetWorkspace(fiFullPath);
-
-            switch (eStorageType)
+            IWorkspace pWorkspace = GetWorkspace(dataset);
+            switch (dataset.WorkspaceType)
             {
-                case GISDataStorageTypes.RasterFile:
-                    IRasterDataset pRDS = ((IRasterWorkspace)pWorkspace).OpenRasterDataset(fiFullPath.Name);
+                case FileSystemDataset.GISDataStorageTypes.RasterFile:
+                    IRasterDataset pRDS = ((IRasterWorkspace)pWorkspace).OpenRasterDataset(dataset.Name);
                     IRasterLayer pRLResult = new RasterLayer();
                     pRLResult.CreateFromDataset(pRDS);
                     pResultLayer = pRLResult;
                     break;
 
-                case GISDataStorageTypes.CAD:
-                    string sFile = Path.GetFileName(Path.GetDirectoryName(fiFullPath.FullName));
-                    string sFC = sFile + ":" + Path.GetFileName(fiFullPath.FullName);
+                case FileSystemDataset.GISDataStorageTypes.CAD:
+                    string sFile = Path.GetFileName(Path.GetDirectoryName(dataset.Path.FullName));
+                    string sFC = sFile + ":" + Path.GetFileName(dataset.Path.FullName);
                     IFeatureClass pFC = ((IFeatureWorkspace)pWorkspace).OpenFeatureClass(sFC);
                     pResultLayer = new FeatureLayer();
                     ((IFeatureLayer)pResultLayer).FeatureClass = pFC;
                     break;
 
-                case GISDataStorageTypes.ShapeFile:
-                    IFeatureWorkspace pWS = (IFeatureWorkspace)ArcMapUtilities.GetWorkspace(fiFullPath);
-                    IFeatureClass pShapeFile = pWS.OpenFeatureClass(Path.GetFileNameWithoutExtension(fiFullPath.FullName));
+                case FileSystemDataset.GISDataStorageTypes.ShapeFile:
+                    IFeatureWorkspace pWS = (IFeatureWorkspace)ArcMapUtilities.GetWorkspace(dataset);
+                    IFeatureClass pShapeFile = pWS.OpenFeatureClass(Path.GetFileNameWithoutExtension(dataset.Path.FullName));
                     pResultLayer = new FeatureLayer();
                     ((IFeatureLayer)pResultLayer).FeatureClass = pShapeFile;
                     break;
 
-                case GISDataStorageTypes.TIN:
-                    ITin pTIN = ((ITinWorkspace)pWorkspace).OpenTin(System.IO.Path.GetFileName(fiFullPath.FullName));
+                case FileSystemDataset.GISDataStorageTypes.TIN:
+                    ITin pTIN = ((ITinWorkspace)pWorkspace).OpenTin(System.IO.Path.GetFileName(dataset.Path.FullName));
                     pResultLayer = new TinLayer();
                     ((ITinLayer)pResultLayer).Dataset = pTIN;
-                    pResultLayer.Name = fiFullPath.Name;
+                    pResultLayer.Name = dataset.Name;
+                    break;
+
+                case FileSystemDataset.GISDataStorageTypes.GeoPackage:
+                    IFeatureWorkspace pGPKGWS = (IFeatureWorkspace)ArcMapUtilities.GetWorkspace(dataset);
+                    IFeatureClass pGPKGFC = pGPKGWS.OpenFeatureClass(System.IO.Path.GetFileName(dataset.Path.FullName));
+                    pResultLayer = new FeatureLayer();
+                    ((IFeatureLayer)pResultLayer).FeatureClass = pGPKGFC;
                     break;
 
                 default:
                     Exception ex = new Exception("Unhandled GIS dataset type");
-                    ex.Data["FullPath Path"] = fiFullPath.FullName;
-                    ex.Data["Storage Type"] = eStorageType.ToString();
+                    ex.Data["FullPath Path"] = dataset.Path.FullName;
+                    ex.Data["Storage Type"] = dataset.WorkspaceType.ToString();
                     throw ex;
             }
 
@@ -174,7 +172,7 @@ namespace RaveAddIn
                             ((IGeoFeatureLayer)layer).DisplayAnnotation = true;
                             ((IGeoFeatureLayer)layer).AnnotationProperties = pGFLayer.AnnotationProperties;
                         }
-                        catch(Exception ex)
+                        catch (Exception ex)
                         {
                             System.Diagnostics.Debug.Print(ex.Message);
                             System.Diagnostics.Debug.Assert(false, "Error applying labels from layer file.");
@@ -432,7 +430,7 @@ namespace RaveAddIn
         /// <remarks>This is the only correct method for creating a workspace factory. Do not call "New" to create this singleton classes.
         /// http://forums.esri.com/Thread.asp?c=93&f=993&t=178686
         /// </remarks>
-        private static IWorkspaceFactory GetWorkspaceFactory(GISDataStorageTypes eGISStorageType)
+        private static IWorkspaceFactory GetWorkspaceFactory(FileSystemDataset.GISDataStorageTypes eGISStorageType)
         {
             Type aType = null;
             IWorkspaceFactory pWSFact = null;
@@ -441,23 +439,26 @@ namespace RaveAddIn
             {
                 switch (eGISStorageType)
                 {
-                    case GISDataStorageTypes.RasterFile:
+                    case FileSystemDataset.GISDataStorageTypes.RasterFile:
                         aType = Type.GetTypeFromProgID("esriDataSourcesRaster.RasterWorkspaceFactory");
                         break;
-                    case GISDataStorageTypes.ShapeFile:
+                    case FileSystemDataset.GISDataStorageTypes.ShapeFile:
                         aType = Type.GetTypeFromProgID("esriDataSourcesFile.ShapefileWorkspaceFactory");
                         break;
-                    case GISDataStorageTypes.FileGeodatase:
+                    case FileSystemDataset.GISDataStorageTypes.FileGeodatase:
                         aType = Type.GetTypeFromProgID("esriDataSourcesGDB.FileGDBWorkspaceFactory");
                         break;
-                    case GISDataStorageTypes.CAD:
+                    case FileSystemDataset.GISDataStorageTypes.CAD:
                         aType = Type.GetTypeFromProgID("esriDataSourcesFile.CadWorkspaceFactory");
                         break;
-                    case GISDataStorageTypes.PersonalGeodatabase:
+                    case FileSystemDataset.GISDataStorageTypes.PersonalGeodatabase:
                         aType = Type.GetTypeFromProgID("esriDataSourcesGDB.AccessWorkspaceFactory");
                         break;
-                    case GISDataStorageTypes.TIN:
+                    case FileSystemDataset.GISDataStorageTypes.TIN:
                         aType = Type.GetTypeFromProgID("esriDataSourcesFile.TinWorkspaceFactory");
+                        break;
+                    case FileSystemDataset.GISDataStorageTypes.GeoPackage:
+                        aType = Type.GetTypeFromProgID("esriDataSourcesGDB.SqlWorkspaceFactory");
                         break;
                     default:
                         throw new Exception("Unhandled GIS storage type");
@@ -481,12 +482,10 @@ namespace RaveAddIn
         /// </summary>
         /// <param name="fiFullPath">Workspace directory or file path</param>
         /// <returns>CALLER IS RESPONSIBLE FOR RELEASING RETURNED COM OBJECT</returns>
-        public static IWorkspace GetWorkspace(FileSystemInfo fiFullPath)
+        public static IWorkspace GetWorkspace(FileSystemDataset data)
         {
-            GISDataStorageTypes eType = GetWorkspaceType(fiFullPath.FullName);
-            IWorkspaceFactory pWSFact = GetWorkspaceFactory(eType);
-            DirectoryInfo fiWorkspace = GetWorkspacePath(fiFullPath.FullName);
-            IWorkspace pWS = pWSFact.OpenFromFile(fiWorkspace.FullName, ArcMap.Application.hWnd);
+            IWorkspaceFactory pWSFact = GetWorkspaceFactory(data.WorkspaceType);
+            IWorkspace pWS = pWSFact.OpenFromFile(data.WorkspacePath.FullName, ArcMap.Application.hWnd);
 
             // Must release the workspace factory object
             int refsLeft = 0;
@@ -498,78 +497,6 @@ namespace RaveAddIn
 
             // CALLER IS RESPONSIBLE FOR RELEASING RETURNED COM OBJECT
             return pWS;
-        }
-
-        /// <summary>
-        /// Derives the file system path of a workspace given any path
-        /// </summary>
-        /// <param name="sPath">Any path. Can be a folder (e.g. file geodatabase) or absolute path to a file.</param>
-        /// <returns>The workspace path (ending with .gdb for file geodatabases) or the folder for file based data.</returns>
-        /// <remarks>PGB 9 Sep 2011.</remarks>
-        public static DirectoryInfo GetWorkspacePath(string sFullPath)
-        {
-            if (string.IsNullOrEmpty(sFullPath))
-                return null;
-
-            string sWorkspacePath = string.Empty;
-
-            switch (GetWorkspaceType(sFullPath))
-            {
-                case GISDataStorageTypes.FileGeodatase:
-                    int index = sFullPath.ToLower().LastIndexOf(".gdb");
-                    sWorkspacePath = sFullPath.Substring(0, index + 4);
-                    break;
-                case GISDataStorageTypes.CAD:
-                    index = sFullPath.ToLower().LastIndexOf(".dxf");
-                    sWorkspacePath = Path.GetDirectoryName(sFullPath.Substring(0, index));
-                    break;
-                default:
-                    sWorkspacePath = Path.GetDirectoryName(sFullPath);
-                    break;
-            }
-            return new System.IO.DirectoryInfo(sWorkspacePath);
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sPath"></param>
-        /// <returns></returns>
-        /// <remarks>Note that the path that comes in may or may not have a dataset name on the end. So it
-        /// may be the path to a directory, or end with .gdb if a file geodatabase or may have a slash and
-        /// then the dataset name on the end.</remarks>
-        public static GISDataStorageTypes GetWorkspaceType(string sFullPath)
-        {
-            if (sFullPath.ToLower().Contains(".gdb"))
-            {
-                return GISDataStorageTypes.FileGeodatase;
-            }
-            else
-            {
-                if (System.IO.Directory.Exists(sFullPath))
-                {
-                    return GISDataStorageTypes.TIN; // ESRI GRID (folder)
-                }
-                else
-                {
-                    if (sFullPath.ToLower().Contains(".dxf"))
-                    {
-                        return GISDataStorageTypes.CAD;
-                    }
-                    else if (sFullPath.ToLower().Contains(".tif"))
-                    {
-                        return GISDataStorageTypes.RasterFile;
-                    }
-                    else if (sFullPath.ToLower().Contains(".img"))
-                    {
-                        return GISDataStorageTypes.RasterFile;
-                    }
-                    else
-                    {
-                        return GISDataStorageTypes.ShapeFile;
-                    }
-                }
-            }
         }
 
         public static void RemoveLayer(FileSystemInfo layerPath)
@@ -620,7 +547,6 @@ namespace RaveAddIn
                 pLayer = GetLayerBySource(layerPath);
             }
         }
-
 
         private static IGroupLayer GetParentGroupLayer(ILayer pLayer)
         {
