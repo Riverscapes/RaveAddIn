@@ -3,6 +3,10 @@ title: Release Notes
 weight: 99
 ---
 
+### 1.1.13 - 29 Oct 2020
+
+* Fixing confinement layers and business logic.
+
 ### 1.1.12 - 28 Oct 2020
 
 * Confinement business logic and symbology
