@@ -14,7 +14,7 @@
       </Node>
       <Node label="Inputs">
         <Children>
-          <Node xpathlabel="Name" xpath="Realizations/Confinement/Inputs/Vector[@id='FLOWLINES']" type="vector" symbology="" />
+          <Node xpathlabel="Name" xpath="Realizations/Confinement/Inputs/Vector[@id='FLOWLINES']" type="vector" symbology="flow_lines" />
           <Node xpathlabel="Name" xpath="Realizations/Confinement/Inputs/Vector[@id='CONFINING_POLYGON']" type="vector" symbology="" />
         </Children>
       </Node>
