@@ -51,9 +51,9 @@
       </Node>
       <Node label="Ecoregions">
         <Children collapsed="true">
-          <Node label="Level 1 Ecoregions" xpath="Realizations/RSContext/Vector[@id='Ecoregions']" type="vector" symbology="ecoregions_1" />
-          <Node label="Level 2 Ecoregions" xpath="Realizations/RSContext/Vector[@id='Ecoregions']" type="vector" symbology="ecoregions_2" />
-          <Node label="Level 3 Ecoregions" xpath="Realizations/RSContext/Vector[@id='Ecoregions']" type="vector" symbology="ecoregions_3" />
+          <Node label="Level 1 Ecoregions" xpath="Realizations/RSContext/Vector[@id='Ecoregions']" type="vector" symbology="ecoregions_1" transparency="40" />
+          <Node label="Level 2 Ecoregions" xpath="Realizations/RSContext/Vector[@id='Ecoregions']" type="vector" symbology="ecoregions_2" transparency="40" />
+          <Node label="Level 3 Ecoregions" xpath="Realizations/RSContext/Vector[@id='Ecoregions']" type="vector" symbology="ecoregions_3" transparency="40"/>
         </Children>
       </Node>
       <Node label="Land Management">
