@@ -40,7 +40,7 @@
       </Node>
       <Node label="Climate (PRISM)">
         <Children collapsed="true">
-          <Node label="Mean Annual Precipitation (mm)" xpath="Realizations/RSContext/Raster[@id='Precip']" type="raster" symbology="mean_annual_precip" transparency="40"/>
+          <Node label="Mean Annual Precipitation" xpath="Realizations/RSContext/Raster[@id='Precip']" type="raster" symbology="mean_annual_precip" transparency="40"/>
           <Node label="Mean Temperature (°C)" xpath="Realizations/RSContext/Raster[@id='MeanTemp']" type="raster" symbology="temp" transparency="40"/>
           <Node label="Minimum Temperature (°C)" xpath="Realizations/RSContext/Raster[@id='MinTemp']" type="raster" symbology="temp" transparency="40" />
           <Node label="Maximum Temperature (°C)" xpath="Realizations/RSContext/Raster[@id='MaxTemp']" type="raster" symbology="temp" transparency="40" />
