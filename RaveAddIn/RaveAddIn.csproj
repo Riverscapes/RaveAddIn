@@ -641,22 +641,7 @@
     <Content Include="Symbology\VBET\threshold_90.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Symbology\BRAT\Existing_Veg_EVT_Class.lyr">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Symbology\BRAT\Existing_Veg_EVT_Name.lyr">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Symbology\BRAT\Existing_Veg_EVT_Type.lyr">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="Symbology\BRAT\Existing_Veg_Riparian.lyr">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Symbology\BRAT\Historic_Veg_BPS_Name.lyr">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Symbology\BRAT\Historic_Veg_BPS_Type.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Symbology\BRAT\Historic_Veg_Riparian.lyr">
@@ -711,6 +696,21 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Symbology\Confinement\confining_margins.lyr">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Symbology\Shared\Existing_Veg_EVT_Class.lyr">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Symbology\Shared\Existing_Veg_EVT_Name.lyr">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Symbology\Shared\Existing_Veg_EVT_Type.lyr">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Symbology\Shared\Historic_Veg_BPS_Name.lyr">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Symbology\Shared\Historic_Veg_BPS_Type.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
