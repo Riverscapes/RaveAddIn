@@ -3,6 +3,11 @@ title: Release Notes
 weight: 99
 ---
 
+### 1.1.14 - 1 Nov 2020
+
+* LandFire vegetation symbology.
+* Miscellaneous business logic and symbology improvements following USU review.
+
 ### 1.1.13 - 29 Oct 2020
 
 * Fixing confinement layers and business logic.
