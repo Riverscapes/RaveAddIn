@@ -62,7 +62,7 @@
         </Children>
       </Node>
 			<Node label="Vegetation">
-				<Childrencollapsed="true">
+				<Children">
 						<Node label = "Existing Vegetation">
 							<Children collapsed="true">
 								<Node label="Veg Type - EVT Type" xpath="Realizations/RSContext/Raster[@id='EXVEG']" type="raster" symbology="Existing_Veg_EVT_Type" transparency="40"/>
