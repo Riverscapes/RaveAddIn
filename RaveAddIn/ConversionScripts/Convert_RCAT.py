@@ -112,6 +112,7 @@ def get_RCA_variables(RCA_folder):
     in_dict['Large River Polygon'] = search_for_key(all_files, ["LRP", "LargeRiverPolygon"])
     in_dict['NED 10m DEM'] = search_for_key(all_files, ["DEM", "10m", "dem"])
     in_dict['Precipitation'] = search_for_key(all_files, ["Precip", "precip", "prec", "Prec"])
+    in_dict['Flow Accumulation'] = search_for_key(all_files, ["DrainArea_sqkm", "DrainArea", "accum", "Accum"])
 
     int_dict['Thiessen Midpoints'] = search_for_key(all_files, ["midpoints", "mid", "thiessen"])
     int_dict['Clipped Thiessen Polygons'] = search_for_key(all_files, ["Thiessen_Valley_Clip", "thiessen", "Thiessen"])
