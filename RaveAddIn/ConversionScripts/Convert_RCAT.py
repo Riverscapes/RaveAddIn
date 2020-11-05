@@ -108,7 +108,7 @@ def get_RCA_variables(RCA_folder):
     in_dict['NHD Flowlines'] = search_for_key(all_files, ["NHD", "Reaches", "Stream", "Seg", "Segment"])
     in_dict['Existing Vegetation'] = search_for_key(all_files, ["lf_evt", "EVT", "Existing"], ['Cover', 'Vegetated', 'Native', 'Riparian'])
     in_dict['Historic Vegetation'] = search_for_key(all_files, ["lf_his", "BPS", "Historic"], ['Cover', 'Vegetated', 'Native', 'Riparian'])
-    in_dict['Fragmented Valley Bottom'] = search_for_key(all_files, ["Frag", "Valley", "VB", "vb"])
+    in_dict['Fragmented Valley Bottom'] = search_for_key(all_files, ["VB_01_Both", "VB_Frag_02", "Frag", "Valley", "VB", "vb"])
     in_dict['Large River Polygon'] = search_for_key(all_files, ["LRP", "LargeRiverPolygon"])
     in_dict['NED 10m DEM'] = search_for_key(all_files, ["DEM", "10m", "dem"])
     in_dict['Precipitation'] = search_for_key(all_files, ["Precip", "precip", "prec", "Prec"])
