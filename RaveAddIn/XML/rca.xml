@@ -25,7 +25,7 @@
 						</Node>
 						<Node label="Network">
 							<Children>
-								<Node label="Network" xpath="Realizations/RCA/Inputs/Vector[@id='NHD_FLOWLINES']" type="vector" symbology="flow_lines"/>
+								<Node label="Network" xpath="Realizations/RCA/Inputs/Vector[@id='NHD_FLOWLINES']" type="vector" symbology="OldNetwork"/>
 								<Node label="Flow Direction" xpath="Realizations/RCA/Inputs/Vector[@id='NHD_FLOWLINES']" type="vector" symbology="FlowDirection"/>
 							</Children>
 						</Node>
