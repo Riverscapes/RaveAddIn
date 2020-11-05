@@ -49,66 +49,66 @@
 					<Children collapsed="true">
 						<Node label="Bankfull Channel Intermediates">
 							<Children>
-								<Node label="Precipitation By Reach" xpath="Realizations/RCA/Inputs/Vector[@id='??????']" type="vector" symbology="Existing_Veg_EVT_Name"/>
-								<Node label="Upstream Drainage Area" xpath="Realizations/RCA/Inputs/Vector[@id='??????']" type="vector" symbology="Existing_Veg_EVT_Name"/>
+								<Node label="Precipitation By Reach" xpath="Realizations/RCA/Intermediates/Vector[@id='??????']" type="vector" symbology="Existing_Veg_EVT_Name"/>
+								<Node label="Upstream Drainage Area" xpath="Realizations/RCA/Intermediates/Vector[@id='??????']" type="vector" symbology="Existing_Veg_EVT_Name"/>
 							</Children>
 						</Node>
 						<Node label="Confinement Intermediates">
 							<Children>
-								<Node label="Valley Bottom Width Polygons" xpath="Realizations/RCA/Inputs/Vector[@id='??????']" type="vector" symbology="Existing_Veg_EVT_Name"/>
-								<Node label="Bankfull Channel Width Polygons" xpath="Realizations/RCA/Inputs/Vector[@id='??????']" type="vector" symbology="Existing_Veg_EVT_Name"/>
+								<Node label="Valley Bottom Width Polygons" xpath="Realizations/RCA/Intermediates/Vector[@id='??????']" type="vector" symbology="Existing_Veg_EVT_Name"/>
+								<Node label="Bankfull Channel Width Polygons" xpath="Realizations/RCA/Intermediates/Vector[@id='??????']" type="vector" symbology="Existing_Veg_EVT_Name"/>
 							</Children>
 						</Node>
 						<Node label="Thiesessen Polygons">
 							<Children>
-								<Node label="Clipped Thiessen Polygons" xpath="Realizations/RCA/Inputs/Vector[@id='??????']" type="vector" symbology="Existing_Veg_EVT_Name"/>
+								<Node label="Clipped Thiessen Polygons" xpath="Realizations/RCA/Intermediates/Vector[@id='??????']" type="vector" symbology="Existing_Veg_EVT_Name"/>
 							</Children>
 						</Node>
 						<Node label="RCA Intermediates">
 							<Children>
 								<Node label="Vegetated">
 									<Children>
-										<Node label="Vegetation Remaining" xpath="Realizations/RCA/Inputs/Vector[@id='??????']" type="vector" symbology="Existing_Veg_EVT_Name"/>	
-										<Node label="Proportion Currently Vegetated" xpath="Realizations/RCA/Inputs/Vector[@id='??????']" type="vector" symbology="Existing_Veg_EVT_Name"/>	
-										<Node label="Proportion Historically Vegetated" xpath="Realizations/RCA/Inputs/Vector[@id='??????']" type="vector" symbology="Existing_Veg_EVT_Name"/>											
+										<Node label="Vegetation Remaining" xpath="Realizations/RCA/Intermediates/Vector[@id='??????']" type="vector" symbology="Existing_Veg_EVT_Name"/>	
+										<Node label="Proportion Currently Vegetated" xpath="Realizations/RCA/Intermediates/Vector[@id='??????']" type="vector" symbology="Existing_Veg_EVT_Name"/>	
+										<Node label="Proportion Historically Vegetated" xpath="Realizations/RCA/Intermediates/Vector[@id='??????']" type="vector" symbology="Existing_Veg_EVT_Name"/>											
 									</Children>
 								</Node>
 								<Node label="Connectivity">
 									<Children>
-										<Node label="Floodplain Connectivity" xpath="Realizations/RCA/Inputs/Vector[@id='??????']" type="vector" symbology="Existing_Veg_EVT_Name"/>	
-										<Node label="Floodplain Connectivity Raster" xpath="Realizations/RCA/Inputs/Raster[@id='??????']" type="raster" symbology="Existing_Veg_EVT_Name" transparency="40"/>	
+										<Node label="Floodplain Connectivity" xpath="Realizations/RCA/Intermediates/Vector[@id='??????']" type="vector" symbology="Existing_Veg_EVT_Name"/>	
+										<Node label="Floodplain Connectivity Raster" xpath="Realizations/RCA/Intermediates/Raster[@id='??????']" type="raster" symbology="Existing_Veg_EVT_Name" transparency="40"/>	
 									</Children>
 								</Node>
-								<Node label="Land Use Intensity" xpath="Realizations/RCA/Inputs/Vector[@id='??????']" type="vector" symbology="Existing_Veg_EVT_Name"/>								
+								<Node label="Land Use Intensity" xpath="Realizations/RCA/Intermediates/Vector[@id='??????']" type="vector" symbology="Existing_Veg_EVT_Name"/>								
 							</Children>
 						</Node>
 						<Node label="RVD Intermediates">
 							<Children>
-								<Node label="Riparian Corridor" xpath="Realizations/RCA/Inputs/Raster[@id='??????']" type="raster" symbology="Existing_Veg_EVT_Name" transparency="40"/>
-								<Node label="Riparian Condition Raster" xpath="Realizations/RCA/Inputs/Raster[@id='??????']" type="raster" symbology="Existing_Veg_EVT_Name" transparency="40"/>
+								<Node label="Riparian Corridor" xpath="Realizations/RCA/Intermediates/Raster[@id='??????']" type="raster" symbology="Existing_Veg_EVT_Name" transparency="40"/>
+								<Node label="Riparian Condition Raster" xpath="Realizations/RCA/Intermediates/Raster[@id='??????']" type="raster" symbology="Existing_Veg_EVT_Name" transparency="40"/>
 							</Children>
 						</Node>
 					</Children>
 				</Node>
 				<Node label="Outputs">
 					<Children collapsed="true">
-						<Node label="Riparian Condition Assesment" xpath="Realizations/RCA/Inputs/Vector[@id='??????']" type="vector" symbology="Existing_Veg_EVT_Name"/>
+						<Node label="Riparian Condition Assesment" xpath="Realizations/RCA/Outputs/Vector[@id='??????']" type="vector" symbology="Existing_Veg_EVT_Name"/>
 						<Node label="Riparian Vegetation Departure">
 							<Children>
-								<Node label="Riparian Vegetation Departure" xpath="Realizations/RCA/Inputs/Vector[@id='??????']" type="vector" symbology="Existing_Veg_EVT_Name"/>
-								<Node label="Riparian Conversion Type" xpath="Realizations/RCA/Inputs/Vector[@id='??????']" type="vector" symbology="Existing_Veg_EVT_Name"/>
-								<Node label="Native Riparian Departure" xpath="Realizations/RCA/Inputs/Vector[@id='??????']" type="vector" symbology="Existing_Veg_EVT_Name"/>
+								<Node label="Riparian Vegetation Departure" xpath="Realizations/RCA/Outputs/Vector[@id='??????']" type="vector" symbology="Existing_Veg_EVT_Name"/>
+								<Node label="Riparian Conversion Type" xpath="Realizations/RCA/Outputs/Vector[@id='??????']" type="vector" symbology="Existing_Veg_EVT_Name"/>
+								<Node label="Native Riparian Departure" xpath="Realizations/RCA/Outputs/Vector[@id='??????']" type="vector" symbology="Existing_Veg_EVT_Name"/>
 							</Children>
 						</Node>
 						<Node label="Confinement">
 							<Children>
-								<Node label="Confinement Ratio" xpath="Realizations/RCA/Inputs/Vector[@id='??????']" type="vector" symbology="Existing_Veg_EVT_Name"/>
+								<Node label="Confinement Ratio" xpath="Realizations/RCA/Outputs/Vector[@id='??????']" type="vector" symbology="Existing_Veg_EVT_Name"/>
 							</Children>
 						</Node>
 						<Node label="Bankfull Channel">
 							<Children>
-								<Node label="Bankfull Channel Network" xpath="Realizations/RCA/Inputs/Vector[@id='??????']" type="vector" symbology="Existing_Veg_EVT_Name"/>
-								<Node label="Bankfull Channel Polygon" xpath="Realizations/RCA/Inputs/Vector[@id='??????']" type="vector" symbology="Existing_Veg_EVT_Name"/>
+								<Node label="Bankfull Channel Network" xpath="Realizations/RCA/Outputs/Vector[@id='??????']" type="vector" symbology="Existing_Veg_EVT_Name"/>
+								<Node label="Bankfull Channel Polygon" xpath="Realizations/RCA/Outputs/Vector[@id='??????']" type="vector" symbology="Existing_Veg_EVT_Name"/>
 							</Children>
 						</Node>
 					</Children>
