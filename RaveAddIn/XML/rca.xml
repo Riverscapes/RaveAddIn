@@ -25,14 +25,14 @@
 						</Node>
 						<Node label="Network">
 							<Children>
-								<Node label="Network" xpath="Realizations/RSContext/Raster[@id='EXVEG']" type="raster" symbology="Existing_Veg_EVT_Name" transparency="40"/>
-								<Node label="Flow Direction" xpath="Realizations/RSContext/Raster[@id='EXVEG']" type="raster" symbology="Existing_Veg_EVT_Class" transparency="40"/>
+								<Node label="Network" xpath="Realizations/RSContext/Raster[@id='EXVEG']" type="vector" symbology="Existing_Veg_EVT_Name"/>
+								<Node label="Flow Direction" xpath="Realizations/RSContext/Raster[@id='EXVEG']" type="vector" symbology="Existing_Veg_EVT_Class"/>
 							</Children>
 						</Node>
 						<Node label="Fragmented Valley Bottom">
 							<Children>
-								<Node label="Valley Bottom Outline" xpath="Realizations/RSContext/Raster[@id='EXVEG']" type="raster" symbology="Existing_Veg_EVT_Name" transparency="40"/>
-								<Node label="Fragemented Valley Bottom" xpath="Realizations/RSContext/Raster[@id='EXVEG']" type="raster" symbology="Existing_Veg_EVT_Class" transparency="40"/>
+								<Node label="Valley Bottom Outline" xpath="Realizations/RSContext/Raster[@id='EXVEG']" type="vector" symbology="Existing_Veg_EVT_Name"/>
+								<Node label="Fragemented Valley Bottom" xpath="Realizations/RSContext/Raster[@id='EXVEG']" type="vector" symbology="Existing_Veg_EVT_Class"/>
 							</Children>
 						</Node>
 						<Node label="Topography">
@@ -41,7 +41,7 @@
 								<Node label="DEM (10 m NED)" xpath="Realizations/RSContext/Raster[@id='EXVEG']" type="raster" symbology="Existing_Veg_EVT_Class" transparency="40"/>
 							</Children>
 						</Node>
-						<Node label="Large River Polygon" xpath="Realizations/RSContext/Raster[@id='EXVEG']" type="raster" symbology="Existing_Veg_EVT_Name" transparency="40"/>
+						<Node label="Large River Polygon" xpath="Realizations/RSContext/Raster[@id='EXVEG']" type="vector" symbology="Existing_Veg_EVT_Name"/>
 						<Node label="Precipitation" xpath="Realizations/RSContext/Raster[@id='EXVEG']" type="raster" symbology="Existing_Veg_EVT_Name" transparency="40"/>
 					</Children>
 				</Node>
@@ -49,38 +49,37 @@
 					<Children collapsed="true">
 						<Node label="Bankfull Channel Intermediates">
 							<Children>
-								<Node label="Precipitation By Reach" xpath="Realizations/RSContext/Raster[@id='EXVEG']" type="raster" symbology="Existing_Veg_EVT_Name" transparency="40"/>
-								<Node label="Upstream Drainage Area" xpath="Realizations/RSContext/Raster[@id='EXVEG']" type="raster" symbology="Existing_Veg_EVT_Name" transparency="40"/>
+								<Node label="Precipitation By Reach" xpath="Realizations/RSContext/Raster[@id='EXVEG']" type="vector" symbology="Existing_Veg_EVT_Name"/>
+								<Node label="Upstream Drainage Area" xpath="Realizations/RSContext/Raster[@id='EXVEG']" type="vector" symbology="Existing_Veg_EVT_Name"/>
 							</Children>
 						</Node>
 						<Node label="Confinement Intermediates">
 							<Children>
-								<Node label="Valley Bottom Width Polygons" xpath="Realizations/RSContext/Raster[@id='EXVEG']" type="raster" symbology="Existing_Veg_EVT_Name" transparency="40"/>
-								<Node label="Bankfull Channel Width Polygons" xpath="Realizations/RSContext/Raster[@id='EXVEG']" type="raster" symbology="Existing_Veg_EVT_Name" transparency="40"/>
+								<Node label="Valley Bottom Width Polygons" xpath="Realizations/RSContext/Raster[@id='EXVEG']" type="vector" symbology="Existing_Veg_EVT_Name"/>
+								<Node label="Bankfull Channel Width Polygons" xpath="Realizations/RSContext/Raster[@id='EXVEG']" type="vector" symbology="Existing_Veg_EVT_Name"/>
 							</Children>
 						</Node>
 						<Node label="Thiesessen Polygons">
 							<Children>
-								<Node label="Clipped Thiessen Polygons" xpath="Realizations/RSContext/Raster[@id='EXVEG']" type="raster" symbology="Existing_Veg_EVT_Name" transparency="40"/>
+								<Node label="Clipped Thiessen Polygons" xpath="Realizations/RSContext/Raster[@id='EXVEG']" type="vector" symbology="Existing_Veg_EVT_Name"/>
 							</Children>
-						</Node>						
-					</Children>
+						</Node>
 						<Node label="RCA Intermediates">
 							<Children>
 								<Node label="Vegetated">
 									<Children>
-										<Node label="Vegetation Remaining" xpath="Realizations/RSContext/Raster[@id='EXVEG']" type="raster" symbology="Existing_Veg_EVT_Name" transparency="40"/>	
-										<Node label="Proportion Currently Vegetated" xpath="Realizations/RSContext/Raster[@id='EXVEG']" type="raster" symbology="Existing_Veg_EVT_Name" transparency="40"/>	
-										<Node label="Proportion Historically Vegetated" xpath="Realizations/RSContext/Raster[@id='EXVEG']" type="raster" symbology="Existing_Veg_EVT_Name" transparency="40"/>											
+										<Node label="Vegetation Remaining" xpath="Realizations/RSContext/Raster[@id='EXVEG']" type="vector" symbology="Existing_Veg_EVT_Name"/>	
+										<Node label="Proportion Currently Vegetated" xpath="Realizations/RSContext/Raster[@id='EXVEG']" type="vector" symbology="Existing_Veg_EVT_Name"/>	
+										<Node label="Proportion Historically Vegetated" xpath="Realizations/RSContext/Raster[@id='EXVEG']" type="vector" symbology="Existing_Veg_EVT_Name"/>											
 									</Children>
 								</Node>
 								<Node label="Connectivity">
 									<Children>
-										<Node label="Floodplain Connectivity" xpath="Realizations/RSContext/Raster[@id='EXVEG']" type="raster" symbology="Existing_Veg_EVT_Name" transparency="40"/>	
+										<Node label="Floodplain Connectivity" xpath="Realizations/RSContext/Raster[@id='EXVEG']" type="vector" symbology="Existing_Veg_EVT_Name"/>	
 										<Node label="Floodplain Connectivity Raster" xpath="Realizations/RSContext/Raster[@id='EXVEG']" type="raster" symbology="Existing_Veg_EVT_Name" transparency="40"/>	
 									</Children>
 								</Node>
-								<Node label="Land Use Intensity" xpath="Realizations/RSContext/Raster[@id='EXVEG']" type="raster" symbology="Existing_Veg_EVT_Name" transparency="40"/>								
+								<Node label="Land Use Intensity" xpath="Realizations/RSContext/Raster[@id='EXVEG']" type="vector" symbology="Existing_Veg_EVT_Name"/>								
 							</Children>
 						</Node>
 						<Node label="RVD Intermediates">
@@ -89,26 +88,27 @@
 								<Node label="Riparian Condition Raster" xpath="Realizations/RSContext/Raster[@id='EXVEG']" type="raster" symbology="Existing_Veg_EVT_Name" transparency="40"/>
 							</Children>
 						</Node>
+					</Children>
 				</Node>
 				<Node label="Outputs">
 					<Children collapsed="true">
-						<Node label="Riparian Condition Assesment" xpath="Realizations/RSContext/Raster[@id='EXVEG']" type="raster" symbology="Existing_Veg_EVT_Name" transparency="40"/>
+						<Node label="Riparian Condition Assesment" xpath="Realizations/RSContext/Raster[@id='EXVEG']" type="vector" symbology="Existing_Veg_EVT_Name"/>
 						<Node label="Riparian Vegetation Departure">
 							<Children>
-								<Node label="Riparian Vegetation Departure" xpath="Realizations/RSContext/Raster[@id='EXVEG']" type="raster" symbology="Existing_Veg_EVT_Name" transparency="40"/>
-								<Node label="Riparian Conversion Type" xpath="Realizations/RSContext/Raster[@id='EXVEG']" type="raster" symbology="Existing_Veg_EVT_Name" transparency="40"/>
-								<Node label="Native Riparian Departure" xpath="Realizations/RSContext/Raster[@id='EXVEG']" type="raster" symbology="Existing_Veg_EVT_Name" transparency="40"/>
+								<Node label="Riparian Vegetation Departure" xpath="Realizations/RSContext/Raster[@id='EXVEG']" type="vector" symbology="Existing_Veg_EVT_Name"/>
+								<Node label="Riparian Conversion Type" xpath="Realizations/RSContext/Raster[@id='EXVEG']" type="vector" symbology="Existing_Veg_EVT_Name"/>
+								<Node label="Native Riparian Departure" xpath="Realizations/RSContext/Raster[@id='EXVEG']" type="vector" symbology="Existing_Veg_EVT_Name"/>
 							</Children>
 						</Node>
 						<Node label="Confinement">
 							<Children>
-								<Node label="Confinement Ratio" xpath="Realizations/RSContext/Raster[@id='EXVEG']" type="raster" symbology="Existing_Veg_EVT_Name" transparency="40"/>
+								<Node label="Confinement Ratio" xpath="Realizations/RSContext/Raster[@id='EXVEG']" type="vector" symbology="Existing_Veg_EVT_Name"/>
 							</Children>
 						</Node>
 						<Node label="Bankfull Channel">
 							<Children>
-								<Node label="Bankfull Channel Network" xpath="Realizations/RSContext/Raster[@id='EXVEG']" type="raster" symbology="Existing_Veg_EVT_Name" transparency="40"/>
-								<Node label="Bankfull Channel Polygon" xpath="Realizations/RSContext/Raster[@id='EXVEG']" type="raster" symbology="Existing_Veg_EVT_Name" transparency="40"/>
+								<Node label="Bankfull Channel Network" xpath="Realizations/RSContext/Raster[@id='EXVEG']" type="vector" symbology="Existing_Veg_EVT_Name"/>
+								<Node label="Bankfull Channel Polygon" xpath="Realizations/RSContext/Raster[@id='EXVEG']" type="vector" symbology="Existing_Veg_EVT_Name"/>
 							</Children>
 						</Node>
 					</Children>
