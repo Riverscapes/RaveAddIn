@@ -3,6 +3,10 @@ title: Release Notes
 weight: 99
 ---
 
+### 1.1.15 - 5 Nov 2020
+
+* RCAT business logic and symbology.
+
 ### 1.1.14 - 1 Nov 2020
 
 * LandFire vegetation symbology.
