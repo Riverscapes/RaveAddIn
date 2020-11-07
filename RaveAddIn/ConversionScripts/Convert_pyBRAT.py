@@ -139,9 +139,11 @@ def generate_layers_dict(in_dict, out_dict):
     out_layers = {}
 
     for key in in_dict.keys():
-        in_layers[key] = RSLayer(key, sanitize_name(key), None, in_dict[key])
+        if not in_dict[key] == 'COULD NOT FIND':
+            in_layers[key] = RSLayer(key, sanitize_name(key), None, in_dict[key])
     for key in out_dict.keys():
-        out_layers[key] = RSLayer(key, sanitize_name(key), None, out_dict[key])
+        if not out_dict[key] == 'COULD NOT FIND':
+            out_layers[key] = RSLayer(key, sanitize_name(key), None, out_dict[key])
 
     return in_layers, out_layers
 
@@ -180,7 +182,7 @@ def search_for_key(all_files, keys, excludes=[]):
         if len(to_return) > 0:
             return all_files[stripped_files.index(to_return[0])]
 
-    return "COULD NOT FIND {}".format(keys)
+    return "COULD NOT FIND"
 
 
 def is_layer_raster(layer):
