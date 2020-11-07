@@ -211,7 +211,7 @@ namespace RaveAddIn
                 GISDataset layer = (GISDataset)e.Tag;
                 IGroupLayer parentGrpLyr = BuildArcMapGroupLayers(e);
                 FileInfo symbology = GetSymbology(layer);
-                ArcMapUtilities.AddToMap(layer.Path, layer.Name, parentGrpLyr, symbology, transparency: layer.Transparency);
+                ArcMapUtilities.AddToMap(layer, layer.Name, parentGrpLyr, symbology, transparency: layer.Transparency);
                 Cursor.Current = Cursors.Default;
             }
         }
@@ -226,7 +226,7 @@ namespace RaveAddIn
 
             try
             {
-                ArcMapUtilities.AddToMap(layer.Path, layer.Name, parentGrpLyr, symbology, transparency: layer.Transparency);
+                ArcMapUtilities.AddToMap(layer, layer.Name, parentGrpLyr, symbology, transparency: layer.Transparency);
             }
             catch (Exception ex)
             {

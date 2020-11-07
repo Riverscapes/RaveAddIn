@@ -302,16 +302,29 @@ namespace RaveAddIn
                 label = nodGISNode.SelectSingleNode("Name").InnerText;
 
             string path = nodGISNode.SelectSingleNode("Path").InnerText;
+
+            if (string.Compare(nodGISNode.ParentNode.Name, "layers", true)==0)
+            {
+                XmlNode nodGeoPackage = nodGISNode.SelectSingleNode("../../Path");
+                if (nodGISNode is XmlNode)
+                {
+                    path = nodGeoPackage.InnerText + "/" + path;
+                }
+                else
+                {
+                    System.Diagnostics.Debug.Assert(false, "Unable to find GeoPackage file path");
+                }
+            }
+
             string absPath = Path.Combine(ProjectFile.DirectoryName, path);
 
-       
 
             ProjectTree.FileSystemDataset dataset = null;
             switch (type.ToLower())
             {
                 case "file":
                     {
-                        dataset = new ProjectTree.FileSystemDataset(this, label, new FileInfo(absPath), 0);
+                        dataset = new ProjectTree.FileSystemDataset(this, label, new FileInfo(absPath), 0, 0);
                         break;
                     }
 
@@ -368,19 +381,22 @@ namespace RaveAddIn
         {
             try
             {
-                // See if the business logic has a label attribute.
-                XmlAttribute attLabel = businessLogicNode.Attributes["label"];
-                if (attLabel is XmlAttribute && !string.IsNullOrEmpty(attLabel.InnerText))
+                if (businessLogicNode.Attributes != null)
                 {
-                    return attLabel.InnerText;
-                }
+                    // See if the business logic has a label attribute.
+                    XmlAttribute attLabel = businessLogicNode.Attributes["label"];
+                    if (attLabel is XmlAttribute && !string.IsNullOrEmpty(attLabel.InnerText))
+                    {
+                        return attLabel.InnerText;
+                    }
 
-                // See if the project node has a child Name node with valid inner text.
-                if (projectNode is XmlNode)
-                {
-                    XmlNode nodName = projectNode.SelectSingleNode("Name");
-                    if (nodName is XmlNode && !string.IsNullOrEmpty(nodName.InnerText))
-                        return nodName.InnerText;
+                    // See if the project node has a child Name node with valid inner text.
+                    if (projectNode is XmlNode)
+                    {
+                        XmlNode nodName = projectNode.SelectSingleNode("Name");
+                        if (nodName is XmlNode && !string.IsNullOrEmpty(nodName.InnerText))
+                            return nodName.InnerText;
+                    }
                 }
             }
             catch (Exception ex)

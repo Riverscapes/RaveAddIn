@@ -3,9 +3,68 @@ title: Release Notes
 weight: 99
 ---
 
+### 1.1.15 - 5 Nov 2020
+
+* RCAT business logic and symbology.
+
+### 1.1.14 - 1 Nov 2020
+
+* LandFire vegetation symbology.
+* Miscellaneous business logic and symbology improvements following USU review.
+
+### 1.1.13 - 29 Oct 2020
+
+* Fixing confinement layers and business logic.
+
+### 1.1.12 - 28 Oct 2020
+
+* Confinement business logic and symbology
+* First version that can display layers in GeoPackages
+
+### 1.1.11 - 30 Sep 2020
+
+* Riverscapes PRISM Symbology.
+
+### 1.1.10 - 21 Sep 2020
+
+* Applying labels to feature layers when loading layer file symbology ([#36](https://github.com/Riverscapes/RaveAddIn/issues/36))
+
+### 1.1.9 - 18 Sep 2020
+
+* Fixing bug when Topo projects load whereby Children node in business logic has no attributes.
+
+### 1.1.8 - 18 Sep 2020
+
+* Ecoregion business logic and symbology
+
+### 1.1.7 - 18 Sep 2020
+
+* Pipes and ditches business logic and symbology ([#77](https://github.com/Riverscapes/RaveAddIn/issues/77))
+### 1.1.6 - 17 Sep 2020
+
+* PRISM rasters in riverscapes context business logic
+
+### 1.1.5 - 15 Sep 2020
+
+* Updated Riverscapes Context land ownership symbology ([#81](https://github.com/Riverscapes/RaveAddIn/pull/81)).
+
+### 1.1.4 - 17 Aug 2020
+
+* Fixed risk and conservation symbology.
+* Several minor business logic improvements requested by Joe Wheaton via YouTube video.
+* VBET business logic and symbology improvements.
+
+### 1.1.3 - 10 Jun 2020
+
+* Existing and historic vegetation symbology using raster attribute tables 
+
+### 1.1.2 - 9 Jun 2020
+
+* Business logic and symbology for Riverscapes Context, BRAT and VBET.
+
 ### 1.1.1 - 3 Jun 2020
 
-* Updated BRAT and Hydro symbology and business logic.
+* Updated BRAT and Hydro nsymbology and business logic.
 * `collapsed` business logic attribute fixed.
 * Load all layers now applying symbology. 
 
