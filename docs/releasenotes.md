@@ -3,6 +3,10 @@ title: Release Notes
 weight: 99
 ---
 
+### 1.1.16 - 8 Nov 2020
+
+* pyBRAT3 business logic and symbology.
+
 ### 1.1.15 - 5 Nov 2020
 
 * RCAT business logic and symbology.
