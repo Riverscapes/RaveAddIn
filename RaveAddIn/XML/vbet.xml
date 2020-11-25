@@ -39,6 +39,14 @@
           <Node label="80% Threshold Raw VBET" xpath="Realizations/VBET/Intermediates/Vector[@id='THRESH_80']" type="vector" symbology="threshold_80" />
           <Node label="90% Threshold Raw VBET" xpath="Realizations/VBET/Intermediates/Vector[@id='THRESH_90']" type="vector" symbology="threshold_90" />
           <Node label="100% Threshold Raw VBET" xpath="Realizations/VBET/Intermediates/Vector[@id='THRESH_100']" type="vector" symbology="threshold_100" />
+
+          <Node label="50% Threshold Raw VBET" xpath="Realizations/VBET/Intermediates/Geopackage/Layers/Vector[@id='THRESH_50']" type="vector" symbology="threshold_50" />
+          <Node label="60% Threshold Raw VBET" xpath="Realizations/VBET/Intermediates/Geopackage/Layers/Vector[@id='THRESH_60']" type="vector" symbology="threshold_60" />
+          <Node label="70% Threshold Raw VBET" xpath="Realizations/VBET/Intermediates/Geopackage/Layers/Vector[@id='THRESH_70']" type="vector" symbology="threshold_70" />
+          <Node label="80% Threshold Raw VBET" xpath="Realizations/VBET/Intermediates/Geopackage/Layers/Vector[@id='THRESH_80']" type="vector" symbology="threshold_80" />
+          <Node label="90% Threshold Raw VBET" xpath="Realizations/VBET/Intermediates/Geopackage/Layers/Vector[@id='THRESH_90']" type="vector" symbology="threshold_90" />
+          <Node label="100% Threshold Raw VBET" xpath="Realizations/VBET/Intermediates/Geopackage/Layers/Vector[@id='THRESH_100']" type="vector" symbology="threshold_100" />
+
           <Node xpathlabel="Name" xpath="Realizations/VBET/Intermediates/Raster[@id='EVIDENCE']" type="raster" symbology="" />
         </Children>
       </Node>
@@ -52,6 +60,13 @@
               <Node xpathlabel="Name" xpath="Realizations/VBET/Outputs/Vector[@id='VBET_80']" type="vector" symbology="vbet" />
               <Node xpathlabel="Name" xpath="Realizations/VBET/Outputs/Vector[@id='VBET_90']" type="vector" symbology="vbet" />
               <Node xpathlabel="Name" xpath="Realizations/VBET/Outputs/Vector[@id='VBET_100']" type="vector" symbology="vbet" />
+
+              <Node xpathlabel="Name" xpath="Realizations/VBET/Outputs/Geopackage/Layers/Vector[@id='VBET_50']" type="vector" symbology="vbet" />
+              <Node xpathlabel="Name" xpath="Realizations/VBET/Outputs/Geopackage/Layers/Vector[@id='VBET_60']" type="vector" symbology="vbet" />
+              <Node xpathlabel="Name" xpath="Realizations/VBET/Outputs/Geopackage/Layers/Vector[@id='VBET_70']" type="vector" symbology="vbet" />
+              <Node xpathlabel="Name" xpath="Realizations/VBET/Outputs/Geopackage/Layers/Vector[@id='VBET_80']" type="vector" symbology="vbet" />
+              <Node xpathlabel="Name" xpath="Realizations/VBET/Outputs/Geopackage/Layers/Vector[@id='VBET_90']" type="vector" symbology="vbet" />
+              <Node xpathlabel="Name" xpath="Realizations/VBET/Outputs/Geopackage/Layers/Vector[@id='VBET_100']" type="vector" symbology="vbet" />
             </Children>
           </Node>
         </Children>
