@@ -59,6 +59,7 @@
       <Node label="Land Management">
         <Children collapsed="true">
           <Node label="Land Ownership" xpath="Realizations/RSContext/Vector[@id='Ownership']" type="vector" symbology="ownership" transparency="40" />
+          <Node label="Fair Market Value" xpath="Realizations/RSContext/Raster[@id='FAIRMARKETVALUE']" type="raster" transparency="40" />
         </Children>
       </Node>
 			<Node label="Vegetation">
