@@ -41,10 +41,10 @@
       <Node label="Climate (PRISM)">
         <Children collapsed="true">
           <Node label="Mean Annual Precipitation (mm)" xpath="Realizations/RSContext/Raster[@id='Precip']" type="raster" symbology="mean_annual_precip" transparency="50"/>
-          <Node label="Mean Temperature (°C)" xpath="Realizations/RSContext/Raster[@id='MeanTemp']" type="raster" symbology="temp" transparency="50"/>
-          <Node label="Minimum Temperature (°C)" xpath="Realizations/RSContext/Raster[@id='MinTemp']" type="raster" symbology="temp" transparency="50"/>
-          <Node label="Maximum Temperature (°C)" xpath="Realizations/RSContext/Raster[@id='MaxTemp']" type="raster" symbology="temp" transparency="50"/>
-          <Node label="Mean Dewpoint Temperature (°C)" xpath="Realizations/RSContext/Raster[@id='MeanDew']" type="raster" symbology="temp" transparency="50" />
+          <Node label="Mean Temperature (°C)" xpath="Realizations/RSContext/Raster[@id='MeanTemp']" type="raster" symbology="temperature" transparency="50"/>
+          <Node label="Minimum Temperature (°C)" xpath="Realizations/RSContext/Raster[@id='MinTemp']" type="raster" symbology="temperature" transparency="50"/>
+          <Node label="Maximum Temperature (°C)" xpath="Realizations/RSContext/Raster[@id='MaxTemp']" type="raster" symbology="temperature" transparency="50"/>
+          <Node label="Mean Dewpoint Temperature (°C)" xpath="Realizations/RSContext/Raster[@id='MeanDew']" type="raster" symbology="temperature" transparency="50" />
           <Node label="Minimum Vapor Pressure Deficit (hPa)" xpath="Realizations/RSContext/Raster[@id='MinVap']" type="raster" symbology="vapor_pressure" transparency="50" />
           <Node label="Maximum Vapor Pressure Deficit (hPa)" xpath="Realizations/RSContext/Raster[@id='MaxVap']" type="raster" symbology="vapor_pressure" transparency="50" />
         </Children>
