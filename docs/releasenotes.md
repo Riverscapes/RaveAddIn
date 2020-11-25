@@ -3,6 +3,12 @@ title: Release Notes
 weight: 99
 ---
 
+### 1.1.17 - 25 Nov 2020
+
+* VBET business logic can now load both ShapeFiles and GeoPackages
+* Fair Market Value in riverscapes context business logic.
+* PRISM symbology improvements.
+
 ### 1.1.16 - 8 Nov 2020
 
 * pyBRAT3 business logic and symbology.
