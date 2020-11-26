@@ -166,7 +166,7 @@ Each `Layer` is a reference to a `Node` in the project nodes within the project.
 ### Video Demonstration
 
 <div class="responsive-embed">
-<iframe width="560" height="315" src="https://www.youtube.com/embed/JvPb4ZoO4qU" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/mYm6a0ccjoQ" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 </div>
 ------
 
