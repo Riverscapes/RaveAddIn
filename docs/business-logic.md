@@ -132,7 +132,7 @@ Nodes can have different data types which affect how (if) the node loads into th
 
 ## Project Views
 
-The business logic file can define groups of layers that can be loaded into the map as a "view". These are useful if there are common or default ways of viewing the contents of a project. Each business logic file can define multiple views, but only one can be designated the "default view". The default viewis loaded automatically into the current ArcMap document when the project is loaded (if that option is selected in the RAVE options).
+The business logic file can define groups of layers that can be loaded into the map as a "view". These are useful if there are common or default ways of viewing the contents of a project. Each business logic file can define multiple views, but only one can be designated the "default view". The default viewis loaded automatically into the current ArcMap document when the project is loaded (if that option is selected in the RAVE options). Currently, project views cannot refer to basemap layers (because these are not defined in the business logic XML).
 
 The following business logic example for BRAT renders as the user interface tree in RAVE shown below.
 
