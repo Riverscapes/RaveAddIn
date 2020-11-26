@@ -58,5 +58,17 @@ namespace RaveAddIn.Properties {
                 this["LoadBaseMaps"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool LoadDefaultProjectView {
+            get {
+                return ((bool)(this["LoadDefaultProjectView"]));
+            }
+            set {
+                this["LoadDefaultProjectView"] = value;
+            }
+        }
     }
 }

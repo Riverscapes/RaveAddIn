@@ -130,6 +130,44 @@ Nodes can have different data types which affect how (if) the node loads into th
 * `tile`: A url
 * `file`: catch-all for any other kind of file. Right now this will just open up finder/explorer to this location.
 
+## Project Views
+
+The business logic file can define groups of layers that can be loaded into the map as a "view". These are useful if there are common or default ways of viewing the contents of a project. Each business logic file can define multiple views, but only one can be designated the "default view". The default viewis loaded automatically into the current ArcMap document when the project is loaded (if that option is selected in the RAVE options).
+
+The following business logic example for BRAT renders as the user interface tree in RAVE shown below.
+
+```xml
+  <Views default="BRAT Outputs">
+    <View name="BRAT Outputs">
+      <Layer id="hillshade" />
+      <Layer id="capacity"/>
+    </View>
+    <View name="BRAT Vegetation">
+      <Layer id ="hillshade"/>
+      <Layer id="vegetation"/>
+    </View>
+  </Views>
+  ```
+
+![project view]({{ site.baseurl}}/assets/images/project_views/project_view_tree.png)
+
+### `ProjectViews`
+
+The `ProjectViews` node should appear inside the top level `Project` node. It's only attribute is `default` that identifies the name of the project view that is considered the default project view.
+
+### `View`
+
+Each view has a `name` attribute that contains the display name that will be used for the view in the user interface.
+
+### `Layer`
+
+Each `Layer` is a reference to a `Node` in the project nodes within the project. Layers can refer to any node, include group nodes that have children. `Layer` tags have an `id` attribute that corresponds to the `id` tag of the project node to which it refers. The `visible` attribute is not yet functional but should control whether the layer is turned on for display when it is added to the map.
+
+### Video Demonstration
+
+<div class="responsive-embed">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Va3SFKHd4qU" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+</div>
 ------
 
 # Sharing your Business Logic with Someone Else

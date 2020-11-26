@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/Riverscapes/RaveAddIn/master/RaveAddIn/XML/XSD/project_explorer.xsd">
+<Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="D:\Code\riverscapes\RaveAddIn\RaveAddIn\XML\XSD\project_explorer.xsd">
   <Name>BRAT</Name>
   <ProjectType>BRAT</ProjectType>
   <Node xpathlabel="Name">
@@ -8,7 +8,7 @@
         <Children collapsed="true">
           <Node xpathlabel="Name" xpath="SQLiteDB" type="file" />
           <Node xpathlabel="Name" xpath="HTMLFile" type="file" />
-          <Node label="Capacity">
+          <Node label="Capacity" id="capacity">
             <Children>
               <Node label="Existing Dam Capacity" xpath="Vector" type="vector" symbology="oCC_EX" />
               <Node label="Existing Dam Size" xpath="Vector" type="vector" symbology="mCC_EX_CT" />
@@ -86,7 +86,7 @@
           </Node>
           <Node label="Vegetation">
             <Children>
-    						<Node label = "Existing Vegetation">
+    						<Node label = "Existing Vegetation" id="vegetation">
     							<Children>
     								<Node label="Veg Type - EVT Type" xpath="Raster[@id='EXVEG']" type="raster" symbology="Existing_Veg_EVT_Type" transparency="40"/>
     								<Node label="Veg Type - EVT Name" xpath="Raster[@id='EXVEG']" type="raster" symbology="Existing_Veg_EVT_Name" transparency="40"/>
@@ -109,11 +109,21 @@
               <Node label="Drainage Area" xpath="Raster[@id='DA']" type="raster" symbology="drainage_area" transparency="40"/>
               <Node label="Slope" xpath="Raster[@id='SLOPE']" type="raster" symbology="slope" transparency="40"/>
               <Node label="DEM" xpath="DEM" type="raster" symbology="dem" transparency="40"/>
-              <Node label="Hillshade" xpath="Raster[@id='HILLSHADE']" type="raster" symbology="Hillshade" />
+              <Node label="Hillshade" xpath="Raster[@id='HILLSHADE']" type="raster" symbology="Hillshade" id="hillshade" />
             </Children>
           </Node>
         </Children>
       </Node>
     </Children>
   </Node>
+  <Views default="BRAT Outputs">
+    <View name="BRAT Outputs">
+      <Layer id="hillshade" />
+      <Layer id="capacity"/>
+    </View>
+    <View name="BRAT Vegetation">
+      <Layer id ="hillshade"/>
+      <Layer id="vegetation"/>
+    </View>
+  </Views>
 </Project>

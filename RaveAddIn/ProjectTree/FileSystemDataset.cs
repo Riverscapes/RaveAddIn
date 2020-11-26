@@ -18,8 +18,8 @@ namespace RaveAddIn.ProjectTree
         public readonly RaveProject Project;
         public readonly FileSystemInfo Path;
 
-        public FileSystemDataset(RaveProject project, string name, FileSystemInfo fsInfo, int imageIndex_Exists, int imageIndex_Missing)
-            : base(name, imageIndex_Exists, imageIndex_Missing)
+        public FileSystemDataset(RaveProject project, string name, FileSystemInfo fsInfo, int imageIndex_Exists, int imageIndex_Missing, string id)
+            : base(name, imageIndex_Exists, imageIndex_Missing, id)
         {
             Project = project;
             Path = fsInfo;

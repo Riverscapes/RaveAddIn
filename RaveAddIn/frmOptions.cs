@@ -20,6 +20,7 @@ namespace RaveAddIn
         private void frmOptions_Load(object sender, EventArgs e)
         {
             chkLoadBaseMaps.Checked = Properties.Settings.Default.LoadBaseMaps;
+            chkLoadDefaultView.Checked = Properties.Settings.Default.LoadDefaultProjectView;
             UpdateControls(sender, e);
 
             try
@@ -85,6 +86,7 @@ namespace RaveAddIn
         private void cmdOK_Click(object sender, EventArgs e)
         {
             Properties.Settings.Default.LoadBaseMaps = chkLoadBaseMaps.Checked;
+            Properties.Settings.Default.LoadDefaultProjectView = chkLoadDefaultView.Checked;
 
             if (chkLoadBaseMaps.Checked && cboRegion.SelectedIndex >= 0)
                 Properties.Settings.Default.BaseMap = cboRegion.Text;

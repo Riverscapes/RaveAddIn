@@ -3,6 +3,10 @@ title: Release Notes
 weight: 99
 ---
 
+### 1.2 - 26 Nov 2020
+
+* New [Project View]({{site.basseurl}}/business-logic.html#project_views) feature.
+
 ### 1.1.17 - 25 Nov 2020
 
 * VBET business logic can now load both ShapeFiles and GeoPackages

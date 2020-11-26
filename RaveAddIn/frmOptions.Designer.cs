@@ -35,6 +35,7 @@
             this.lblRegion = new System.Windows.Forms.Label();
             this.cboRegion = new System.Windows.Forms.ComboBox();
             this.cmdBasemapHelp = new System.Windows.Forms.Button();
+            this.chkLoadDefaultView = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // cmdCancel
@@ -44,7 +45,7 @@
             this.cmdCancel.Location = new System.Drawing.Point(374, 297);
             this.cmdCancel.Name = "cmdCancel";
             this.cmdCancel.Size = new System.Drawing.Size(75, 23);
-            this.cmdCancel.TabIndex = 0;
+            this.cmdCancel.TabIndex = 6;
             this.cmdCancel.Text = "Cancel";
             this.cmdCancel.UseVisualStyleBackColor = true;
             // 
@@ -55,7 +56,7 @@
             this.cmdOK.Location = new System.Drawing.Point(293, 297);
             this.cmdOK.Name = "cmdOK";
             this.cmdOK.Size = new System.Drawing.Size(75, 23);
-            this.cmdOK.TabIndex = 1;
+            this.cmdOK.TabIndex = 5;
             this.cmdOK.Text = "OK";
             this.cmdOK.UseVisualStyleBackColor = true;
             this.cmdOK.Click += new System.EventHandler(this.cmdOK_Click);
@@ -65,7 +66,7 @@
             this.cmdHelp.Location = new System.Drawing.Point(12, 297);
             this.cmdHelp.Name = "cmdHelp";
             this.cmdHelp.Size = new System.Drawing.Size(75, 23);
-            this.cmdHelp.TabIndex = 2;
+            this.cmdHelp.TabIndex = 7;
             this.cmdHelp.Text = "Help";
             this.cmdHelp.UseVisualStyleBackColor = true;
             this.cmdHelp.Visible = false;
@@ -79,7 +80,7 @@
             this.chkLoadBaseMaps.Location = new System.Drawing.Point(12, 12);
             this.chkLoadBaseMaps.Name = "chkLoadBaseMaps";
             this.chkLoadBaseMaps.Size = new System.Drawing.Size(184, 17);
-            this.chkLoadBaseMaps.TabIndex = 3;
+            this.chkLoadBaseMaps.TabIndex = 0;
             this.chkLoadBaseMaps.Text = "Include basemaps in explorer tree";
             this.chkLoadBaseMaps.UseVisualStyleBackColor = true;
             this.chkLoadBaseMaps.CheckedChanged += new System.EventHandler(this.UpdateControls);
@@ -90,7 +91,7 @@
             this.lblRegion.Location = new System.Drawing.Point(52, 41);
             this.lblRegion.Name = "lblRegion";
             this.lblRegion.Size = new System.Drawing.Size(41, 13);
-            this.lblRegion.TabIndex = 4;
+            this.lblRegion.TabIndex = 1;
             this.lblRegion.Text = "Region";
             // 
             // cboRegion
@@ -100,7 +101,7 @@
             this.cboRegion.Location = new System.Drawing.Point(99, 37);
             this.cboRegion.Name = "cboRegion";
             this.cboRegion.Size = new System.Drawing.Size(320, 21);
-            this.cboRegion.TabIndex = 5;
+            this.cboRegion.TabIndex = 2;
             // 
             // cmdBasemapHelp
             // 
@@ -108,9 +109,21 @@
             this.cmdBasemapHelp.Location = new System.Drawing.Point(426, 36);
             this.cmdBasemapHelp.Name = "cmdBasemapHelp";
             this.cmdBasemapHelp.Size = new System.Drawing.Size(23, 23);
-            this.cmdBasemapHelp.TabIndex = 6;
+            this.cmdBasemapHelp.TabIndex = 3;
             this.cmdBasemapHelp.UseVisualStyleBackColor = true;
             this.cmdBasemapHelp.Click += new System.EventHandler(this.cmdBasemapHelp_Click);
+            // 
+            // chkLoadDefaultView
+            // 
+            this.chkLoadDefaultView.AutoSize = true;
+            this.chkLoadDefaultView.Checked = true;
+            this.chkLoadDefaultView.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkLoadDefaultView.Location = new System.Drawing.Point(12, 73);
+            this.chkLoadDefaultView.Name = "chkLoadDefaultView";
+            this.chkLoadDefaultView.Size = new System.Drawing.Size(260, 17);
+            this.chkLoadDefaultView.TabIndex = 4;
+            this.chkLoadDefaultView.Text = "Load default project views when opening projects";
+            this.chkLoadDefaultView.UseVisualStyleBackColor = true;
             // 
             // frmOptions
             // 
@@ -119,6 +132,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.cmdCancel;
             this.ClientSize = new System.Drawing.Size(461, 332);
+            this.Controls.Add(this.chkLoadDefaultView);
             this.Controls.Add(this.cmdBasemapHelp);
             this.Controls.Add(this.cboRegion);
             this.Controls.Add(this.lblRegion);
@@ -146,5 +160,6 @@
         private System.Windows.Forms.Label lblRegion;
         private System.Windows.Forms.ComboBox cboRegion;
         private System.Windows.Forms.Button cmdBasemapHelp;
+        private System.Windows.Forms.CheckBox chkLoadDefaultView;
     }
 }

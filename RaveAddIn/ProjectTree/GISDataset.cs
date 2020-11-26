@@ -9,8 +9,8 @@ namespace RaveAddIn.ProjectTree
 
         public string GISPath { get { return Path.FullName; } }
 
-        public GISDataset(RaveProject project, string name, FileSystemInfo fsInfo, string symbologyKey, short transparency, int imageIndex_Exists, int imageIndex_Missing)
-            : base(project, name, fsInfo, imageIndex_Exists, imageIndex_Missing)
+        public GISDataset(RaveProject project, string name, FileSystemInfo fsInfo, string symbologyKey, short transparency, int imageIndex_Exists, int imageIndex_Missing, string id)
+            : base(project, name, fsInfo, imageIndex_Exists, imageIndex_Missing, id)
         {
             SymbologyKey = symbologyKey;
             Transparency = transparency;

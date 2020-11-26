@@ -7,8 +7,9 @@
       <xs:sequence>
         <xs:element type="xs:string" name="Name"/>
         <xs:element type="xs:string" name="Description" minOccurs="0"/>
-        <xs:element type="xs:string" name="ProjectType"/>
+        <xs:element type="xs:string" name="ProjectType" minOccurs="1" maxOccurs="1"/>
         <xs:element type="NodeType" name="Node"/>
+        <xs:element type="ViewsType" name="Views" minOccurs="0" maxOccurs="1"/>
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -36,6 +37,7 @@
     <xs:attribute type="datatype" name="type" use="optional"/>
     <xs:attribute type="xs:string" name="symbology" use="optional"/>
     <xs:attribute type="xs:integer" name="transparency" use="optional" />
+    <xs:attribute type="xs:string" name="id" use="optional"/>
   </xs:complexType>
 
   <!-- Repeaters: loop over xml node "arrays" -->
@@ -60,4 +62,25 @@
     <xs:attribute type="xs:boolean" name="collapsed" use="optional"/>
   </xs:complexType>
 
+  <!-- There can be one Views node that contains many views-->
+  <xs:complexType name="ViewsType">
+    <xs:sequence>
+      <xs:element type="ViewType" name="View" minOccurs="0" maxOccurs="unbounded" />
+    </xs:sequence>
+    <xs:attribute type="xs:string" name="default" use="optional"/>
+  </xs:complexType>
+
+  <!-- Each view is a sequence of layers-->
+  <xs:complexType name="ViewType">
+    <xs:sequence>
+      <xs:element type="LayerType" name="Layer" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attribute type="xs:string" name="name" use="required" />
+  </xs:complexType>
+
+  <!-- Each layer refers to a node by id and determins if the layer should be turned "on" and visible in the map-->
+  <xs:complexType name="LayerType">
+    <xs:attribute type="xs:string" name="id" use="required"/>
+    <xs:attribute type="xs:boolean" name="visible" use="optional"/>
+  </xs:complexType>
 </xs:schema>

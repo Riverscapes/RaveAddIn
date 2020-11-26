@@ -29,6 +29,7 @@ namespace RaveAddIn
         private readonly ContextMenuStrip cmsGIS;
         private readonly ContextMenuStrip cmsWMS;
         private readonly ContextMenuStrip cmsFile;
+        private readonly ContextMenuStrip cmsView;
 
         public ucProjectExplorer(object hook)
         {
@@ -61,6 +62,9 @@ namespace RaveAddIn
             cmsFile = new ContextMenuStrip(components);
             cmsFile.Items.Add("Open", Properties.Resources.RaveAddIn, OnOpenFile);
             cmsFile.Items.Add("Browse Folder", Properties.Resources.BrowseFolder, OnExplore);
+
+            cmsView = new ContextMenuStrip(components);
+            cmsView.Items.Add("Add All Layers To The Map", Properties.Resources.AddToMap, OnAddChildrenToMap);
         }
 
         #region ERSI generated code 
@@ -134,6 +138,29 @@ namespace RaveAddIn
             RaveProject newProject = new RaveProject(projectFile);
             TreeNode tnProject = newProject.LoadNewProject(treProject);
 
+            // Load default project view
+            if (Properties.Settings.Default.LoadDefaultProjectView)
+            {
+                try
+                {
+                    // Find the default project view among all the tree nodes
+                    List<TreeNode> allNodes = new List<TreeNode>();
+                    foreach (TreeNode node in tnProject.Nodes)
+                        RaveProject.GetAllNodes(allNodes, node);
+
+                    TreeNode nodDefault = allNodes.FirstOrDefault(x => x.Tag is ProjectTree.ProjectView && ((ProjectTree.ProjectView)x.Tag).IsDefaultView);
+                    if (nodDefault is TreeNode)
+                    {
+                        AddChildrenToMap(nodDefault);
+                    }
+                }
+                catch(Exception ex)
+                {
+                    // Loading the default project view is optional. Do nothing in production
+                    System.Diagnostics.Debug.Assert(false, ex.Message);                   
+                }
+            }
+
             AssignContextMenus(tnProject);
         }
 
@@ -153,6 +180,10 @@ namespace RaveAddIn
             else if (node.Tag is RaveProject)
             {
                 node.ContextMenuStrip = cmsProject;
+            }
+            else if (node.Tag is ProjectView)
+            {
+                node.ContextMenuStrip = cmsView;
             }
             else
             {
@@ -206,7 +237,18 @@ namespace RaveAddIn
         {
             e.Nodes.OfType<TreeNode>().ToList().ForEach(x => AddChildrenToMap(x));
 
+            GISDataset ds = null;
+
             if (e.Tag is GISDataset)
+            {
+                ds = e.Tag as GISDataset;
+            }
+            else if (e.Tag is ProjectView)
+            {
+                ((ProjectView)e.Tag).Layers.ForEach(x => AddChildrenToMap(x.LayerNode));
+            }
+
+            if (ds is GISDataset)
             {
                 GISDataset layer = (GISDataset)e.Tag;
                 IGroupLayer parentGrpLyr = BuildArcMapGroupLayers(e);
@@ -399,7 +441,7 @@ namespace RaveAddIn
                     else if (string.Compare(node.Name, "Layer", true) == 0)
                     {
                         TreeNode newNode = nodParent.Nodes.Add(node.Attributes["name"].InnerText);
-                        newNode.Tag = new ProjectTree.WMSLayer(newNode.Text, node.Attributes["url"].InnerText, 0);
+                        newNode.Tag = new ProjectTree.WMSLayer(newNode.Text, node.Attributes["url"].InnerText, 0, string.Empty);
                         newNode.ContextMenuStrip = cmsWMS;
                     }
                 }

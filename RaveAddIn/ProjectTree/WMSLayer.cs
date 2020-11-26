@@ -15,8 +15,8 @@ namespace RaveAddIn.ProjectTree
             get { return true; }
         }
 
-        public WMSLayer(string name, string url, int imageIndex)
-            : base(name, imageIndex, imageIndex)
+        public WMSLayer(string name, string url, int imageIndex, string id)
+            : base(name, imageIndex, imageIndex, id)
         {
             URL = url;
         }

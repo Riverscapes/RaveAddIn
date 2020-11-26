@@ -58,6 +58,7 @@
             this.imgList.Images.SetKeyName(5, "raster_missing.png");
             this.imgList.Images.SetKeyName(6, "tin.png");
             this.imgList.Images.SetKeyName(7, "no_tin.png");
+            this.imgList.Images.SetKeyName(8, "project_view.png");
             // 
             // ucProjectExplorer
             // 

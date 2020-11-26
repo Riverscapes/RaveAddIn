@@ -401,7 +401,7 @@ namespace RaveAddIn
                 }
             }
 
-            IGroupLayer pResultLayer = new GroupLayer();
+            IGroupLayer pResultLayer = new ESRI.ArcGIS.Carto.GroupLayer();
             pResultLayer.Name = sName;
 
             if (pParentGroupLayer != null)

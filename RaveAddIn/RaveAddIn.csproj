@@ -160,7 +160,10 @@
     <Compile Include="ProjectTree\BaseDataset.cs" />
     <Compile Include="ProjectTree\FileSystemDataset.cs" />
     <Compile Include="ProjectTree\GISDataset.cs" />
+    <Compile Include="ProjectTree\GroupLayer.cs" />
     <Compile Include="ProjectTree\IGISLayer.cs" />
+    <Compile Include="ProjectTree\ProjectView.cs" />
+    <Compile Include="ProjectTree\ProjectViewLayer.cs" />
     <Compile Include="ProjectTree\Raster.cs" />
     <Compile Include="ProjectTree\TIN.cs" />
     <Compile Include="ProjectTree\Vector.cs" />

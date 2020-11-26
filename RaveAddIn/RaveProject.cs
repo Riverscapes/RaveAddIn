@@ -180,6 +180,8 @@ namespace RaveAddIn
             // Loop over all child nodes of the business logic XML and load them to the tree
             nodBLRoot.ChildNodes.OfType<XmlNode>().ToList().ForEach(x => LoadTreeNode(tnProject, x, projectXMLRoot, string.Empty));
 
+            LoadProjectViews(tnProject, xmlBusiness);
+
             // Expand the project tree node now that all the items have been added
             tnProject.ExpandAll();
 
@@ -188,9 +190,108 @@ namespace RaveAddIn
             List<TreeNode> allNodes = new List<TreeNode>();
             foreach (TreeNode node in tnProject.Nodes)
                 GetAllNodes(allNodes, node);
-            allNodes.Where(x => x.Tag is string && string.Compare(x.Tag.ToString(), "Collapse", true) == 0).ToList().ForEach(x => x.Collapse());
+            allNodes.Where(x => x.Tag is ProjectTree.GroupLayer && ((ProjectTree.GroupLayer)x.Tag).Collapse).ToList().ForEach(x => x.Collapse());
 
             return tnProject;
+        }
+
+        private TreeNode LoadProjectViews(TreeNode tnProject, XmlNode xmlBusiness)
+        {
+            XmlNode nodViews = xmlBusiness.SelectSingleNode("Project/Views");
+            if (nodViews == null)
+                return null;
+
+            XmlAttribute attDefault = nodViews.Attributes["default"];
+            TreeNode defaultView = null;
+            string defaultViewName = string.Empty;
+            if (attDefault is XmlAttribute)
+            {
+                defaultViewName = attDefault.InnerText;
+            }
+
+            TreeNode tnViews = null;
+
+            foreach (XmlNode nodView in nodViews.SelectNodes("View"))
+            {
+                XmlAttribute attName = nodView.Attributes["name"];
+                if (attName == null || string.IsNullOrEmpty(attName.InnerText))
+                    continue;
+
+                string viewName = nodView.Attributes["name"].InnerText;
+                ProjectTree.ProjectView view = new ProjectTree.ProjectView(viewName, string.Compare(viewName, defaultViewName, true) == 0);
+
+                foreach (XmlNode nodLayer in nodView.SelectNodes("Layer"))
+                {
+                    XmlAttribute attId = nodLayer.Attributes["id"];
+                    if (attId == null || string.IsNullOrEmpty(attId.InnerText))
+                        continue;
+
+                    bool isVisible = true;
+                    XmlAttribute attVisible = nodLayer.Attributes["visible"];
+                    if (attVisible is XmlAttribute && !string.IsNullOrEmpty(attVisible.InnerText))
+                    {
+                        bool.TryParse(attVisible.InnerText, out isVisible);
+                    }
+
+                    TreeNode tnLayer = FindTreeNodeById(tnProject, attId.InnerText);
+                    if (tnLayer is TreeNode)
+                    {
+                        view.Layers.Add(new ProjectTree.ProjectViewLayer(tnLayer, isVisible));
+                    }
+                }
+
+                if (view.Layers.Count > 0)
+                {
+                    // Create the project tree branch that will contain the views
+                    if (tnViews == null)
+                    {
+                        tnViews = new TreeNode("Project Views", 1, 1);
+                        tnViews.Tag = new ProjectTree.GroupLayer("Project Views", true, string.Empty);
+                        tnProject.Nodes.Add(tnViews);
+                    }
+
+                    TreeNode tnView = new TreeNode(viewName, 8, 8);
+                    tnView.Tag = view;
+                    tnViews.Nodes.Add(tnView);
+
+                    // Check if this is the default view
+                    if (string.Compare(viewName, defaultViewName, true) == 0)
+                        defaultView = tnView;
+                }
+            }
+
+            return defaultView;
+        }
+
+        private TreeNode FindTreeNodeById(TreeNode parent, string id)
+        {
+            string nodeId = string.Empty;
+            if (parent.Tag is ProjectTree.BaseDataset)
+            {
+                ProjectTree.BaseDataset ds = parent.Tag as ProjectTree.BaseDataset;
+                nodeId = ds.Id;
+            }
+            else if (parent.Tag is ProjectTree.GroupLayer)
+            {
+                ProjectTree.GroupLayer ds = parent.Tag as ProjectTree.GroupLayer;
+                nodeId = ds.Id;
+            }
+
+            if (!string.IsNullOrEmpty(nodeId))
+            {
+                if (string.Compare(nodeId, id, true) == 0)
+                    return parent;
+            }
+
+            TreeNode result = null;
+            foreach (TreeNode child in parent.Nodes)
+            {
+                result = FindTreeNodeById(child, id);
+                if (result is TreeNode)
+                    return result;
+            }
+
+            return null;
         }
 
         private void LoadTreeNode(TreeNode tnParent, XmlNode xmlBusiness, XmlNode xmlProject, string xPath)
@@ -220,6 +321,12 @@ namespace RaveAddIn
                 xPath = GetXPath(xmlBusiness, xPath);
                 System.Diagnostics.Debug.Print(xPath);
 
+                // Get the ID used for associated nodes with project views
+                string id = string.Empty;
+                XmlAttribute attId = xmlBusiness.Attributes["id"];
+                if (attId is XmlAttribute && !string.IsNullOrEmpty(attId.InnerText))
+                    id = attId.InnerText;
+
                 XmlAttribute attType = xmlBusiness.Attributes["type"];
                 if (attType is XmlAttribute)
                 {
@@ -247,7 +354,7 @@ namespace RaveAddIn
                     }
 
                     // This some kind of file (vector, raster, tile, image etc)
-                    AddGISNode(tnParent, attType.InnerText, gisNode, symbology, label, transparency);
+                    AddGISNode(tnParent, attType.InnerText, gisNode, symbology, label, transparency, id);
                 }
                 else
                 {
@@ -256,18 +363,18 @@ namespace RaveAddIn
                     tnParent.Nodes.Add(newNode);
                     tnParent = newNode;
 
+                    bool collapsed = false;
                     XmlNode xmlChildren = xmlBusiness.SelectSingleNode("Children");
                     if (xmlChildren is XmlNode)
                     {
                         XmlAttribute attCollapsed = xmlChildren.Attributes["collapsed"];
                         if (attCollapsed is XmlAttribute)
                         {
-                            bool collapsed = false;
-                            if (bool.TryParse(attCollapsed.InnerText, out collapsed))
-                                if (collapsed)
-                                    newNode.Tag = "Collapse";
+                            bool.TryParse(attCollapsed.InnerText, out collapsed);
                         }
                     }
+
+                    newNode.Tag = new ProjectTree.GroupLayer(label, collapsed, id);
                 }
             }
 
@@ -278,7 +385,7 @@ namespace RaveAddIn
             }
         }
 
-        private void GetAllNodes(List<TreeNode> nodes, TreeNode node)
+        public static void GetAllNodes(List<TreeNode> nodes, TreeNode node)
         {
             // Add the current node to the list
             nodes.Add(node);
@@ -286,7 +393,7 @@ namespace RaveAddIn
                 GetAllNodes(nodes, child);
         }
 
-        private void AddGISNode(TreeNode tnParent, string type, XmlNode nodGISNode, string symbology, string label, short transparency)
+        private void AddGISNode(TreeNode tnParent, string type, XmlNode nodGISNode, string symbology, string label, short transparency, string id)
         {
             if (nodGISNode == null)
                 return;
@@ -303,7 +410,7 @@ namespace RaveAddIn
 
             string path = nodGISNode.SelectSingleNode("Path").InnerText;
 
-            if (string.Compare(nodGISNode.ParentNode.Name, "layers", true)==0)
+            if (string.Compare(nodGISNode.ParentNode.Name, "layers", true) == 0)
             {
                 XmlNode nodGeoPackage = nodGISNode.SelectSingleNode("../../Path");
                 if (nodGISNode is XmlNode)
@@ -324,25 +431,25 @@ namespace RaveAddIn
             {
                 case "file":
                     {
-                        dataset = new ProjectTree.FileSystemDataset(this, label, new FileInfo(absPath), 0, 0);
+                        dataset = new ProjectTree.FileSystemDataset(this, label, new FileInfo(absPath), 0, 0, id);
                         break;
                     }
 
                 case "raster":
                     {
-                        dataset = new ProjectTree.Raster(this, label, absPath, symbology, transparency);
+                        dataset = new ProjectTree.Raster(this, label, absPath, symbology, transparency, id);
                         break;
                     }
 
                 case "vector":
                     {
-                        dataset = new ProjectTree.Vector(this, label, absPath, symbology, transparency);
+                        dataset = new ProjectTree.Vector(this, label, absPath, symbology, transparency, id);
                         break;
                     }
 
                 case "tin":
                     {
-                        dataset = new ProjectTree.TIN(this, label, absPath, transparency);
+                        dataset = new ProjectTree.TIN(this, label, absPath, transparency, id);
                         break;
                     }
 
