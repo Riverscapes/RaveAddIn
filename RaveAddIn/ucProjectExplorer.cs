@@ -136,7 +136,7 @@ namespace RaveAddIn
             }
 
             RaveProject newProject = new RaveProject(projectFile);
-            TreeNode tnProject = newProject.LoadNewProject(treProject);
+            TreeNode tnProject = newProject.LoadNewProject(treProject, cmsView);
 
             // Load default project view
             if (Properties.Settings.Default.LoadDefaultProjectView)

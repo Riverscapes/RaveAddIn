@@ -125,11 +125,15 @@ namespace RaveAddIn
         /// </summary>
         /// <param name="treProject"></param>
         /// <returns></returns>
-        public TreeNode LoadNewProject(TreeView treProject)
+        public TreeNode LoadNewProject(TreeView treProject, ContextMenuStrip cmsProjectView)
         {
             TreeNode tnProject = new TreeNode("TITLE_NOT_FOUND", 1, 1);
             tnProject.Tag = this;
             treProject.Nodes.Insert(0, tnProject);
+
+            // Assign the project CMS here so that it is available if anything else crashes or goes wrong.
+            // Allows the user to unload the partially loaded project.
+            treProject.ContextMenuStrip = cmsProjectView;
 
             TreeNode tnResult = LoadProjectIntoNode(tnProject);
 
