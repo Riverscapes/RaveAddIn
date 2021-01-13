@@ -1,23 +1,24 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/Riverscapes/RaveAddIn/master/RaveAddIn/XML/XSD/project_explorer.xsd">
   <Name>Confinement</Name>
   <ProjectType>CONFINEMENT</ProjectType>
   <Node xpathlabel="Name">
     <Children collapsed="false">
       <Node xpathlabel="Name" xpath="Realizations/Confinement/Outputs/HTMLFile" type="file" />
-      <Node label="Outputs">
+      <Node label="Inputs" xpath="Realizations/Confinement/Inputs">
         <Children>
-          <Node xpathlabel="Name" xpath="Realizations/Confinement/Outputs/Geopackage/Layers/Vector[@id='CONFINEMENT_RAW']" type="vector" symbology="confinement_raw" />
-          <Node xpathlabel="Name" xpath="Realizations/Confinement/Outputs/Geopackage/Layers/Vector[@id='CONFINEMENT_MARGINS']" type="vector" symbology="confinement_margins" />
-          <Node xpathlabel="Name" xpath="Realizations/Confinement/Outputs/Geopackage/Layers/Vector[@id='CONFINEMENT_RATIO']" type="vector" symbology="confinement_ratio" />
+          <Node xpathlabel="Name" xpath="Geopackage/Layers/Vector[@id='FLOWLINES']" type="vector" symbology="flow_lines" />
+          <Node xpathlabel="Name" xpath="Geopackage/Layers/Vector[@id='CONFINING_POLYGON']" type="vector" symbology="" />
         </Children>
       </Node>
-      <Node label="Inputs">
+      <Node label="Outputs" xpath="Realizations/Confinement/Outputs">
         <Children>
-          <Node xpathlabel="Name" xpath="Realizations/Confinement/Inputs/Vector[@id='FLOWLINES']" type="vector" symbology="flow_lines" />
-          <Node xpathlabel="Name" xpath="Realizations/Confinement/Inputs/Vector[@id='CONFINING_POLYGON']" type="vector" symbology="" />
+          <Node xpathlabel="Name" xpath="Geopackage/Layers/Vector[@id='CONFINEMENT_RAW']" type="vector" symbology="confinement_raw" />
+          <Node xpathlabel="Name" xpath="Geopackage/Layers/Vector[@id='CONFINEMENT_MARGINS']" type="vector" symbology="confinement_margins" />
+          <Node xpathlabel="Name" xpath="Geopackage/Layers/Vector[@id='CONFINEMENT_RATIO']" type="vector" symbology="confinement_ratio" />
         </Children>
       </Node>
+
     </Children>
   </Node>
 </Project>
