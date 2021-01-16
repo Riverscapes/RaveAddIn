@@ -6,7 +6,7 @@
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="BaseMap" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">United States</Value>
     </Setting>
     <Setting Name="LoadBaseMaps" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
