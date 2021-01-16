@@ -5,7 +5,7 @@ weight: 2
 
 # Minimum Requirements
 
-RAVE requires ArcGIS 10.4 or newer. RAVE does **not** work with ArcPro.
+RAVE requires ArcGIS 10.6.1 or newer. RAVE does **not** work with ArcPro.
 
 ## ArcGIS Add-In
 

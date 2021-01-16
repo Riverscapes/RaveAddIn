@@ -3,6 +3,13 @@ title: Release Notes
 weight: 99
 ---
 
+### 2.0 - 15 Jan 2021
+
+* Upgrade to minimum required version of ArcGIS is now 10.6.1
+* GUT business logic
+* BRAT business logic can handle either ShapeFile or GeoPackage
+* RVD business logic
+
 ### 1.2 - 26 Nov 2020
 
 * New [Project View]({{site.basseurl}}/business-logic.html#project_views) feature.
