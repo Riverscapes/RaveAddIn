@@ -4,7 +4,7 @@
   <ProjectType>BRAT</ProjectType>
   <Node xpathlabel="Name">
     <Children collapsed="false">
-      <Node label="Outputs Local" xpath="Realizations/BRAT/Outputs">
+      <Node label="Outputs" xpath="Realizations/BRAT/Outputs">
         <Children collapsed="true">
           <Node xpathlabel="Name" xpath="SQLiteDB" type="file" />
           <Node xpathlabel="Name" xpath="HTMLFile" type="file" />
