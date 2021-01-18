@@ -8,7 +8,7 @@
   <Company>North Arrow Research Ltd.</Company>
   <Date>01/15/2021</Date>
   <Targets>
-    <Target name="Desktop" version="10.6.1" />
+    <Target name="Desktop" version="10.6" />
   </Targets>
   <AddIn language="CLR" library="RaveAddIn.dll" namespace="RaveAddIn">
     <ArcMap>
