@@ -9,18 +9,21 @@
           <Children collapsed="true">
             <Node label="Inputs" xpath="Inputs">
               <Children collapsed="true">
-                <Node xpathlabel="Name" xpath="Centerline[@id='BFCL']" type="vector" symbology="" />
-                <Node xpathlabel="Name" xpath="CrossSections[@id='BFXS']" type="vector" symbology="" />
-                <Node xpathlabel="Name" xpath="Extent[@id='BFEX']" type="vector" symbology="" />
-                <Node xpathlabel="Name" xpath="Islands[@id='BFI']" type="vector" symbology="" />
-                <Node xpathlabel="Name" xpath="ChannelUnits[@id='CU']" type="vector" symbology="" />
-                <Node xpathlabel="Name" xpath="ChannelUnits[@id='CU_1']" type="vector" symbology="" />
-                <Node xpathlabel="Name" xpath="DEM" type="raster" symbology="" />
-                <Node xpathlabel="Name" xpath="Thalweg" type="vector" symbology="" />
-                <Node xpathlabel="Name" xpath="Centerline[@id='WCL']" type="vector" symbology="" />
-                <Node xpathlabel="Name" xpath="CrossSections[@id='WXS']" type="vector" symbology="" />
-                <Node xpathlabel="Name" xpath="Extent[@id='WEEX']" type="vector" symbology="" />
-                <Node xpathlabel="Name" xpath="Islands[@id='WI']" type="vector" symbology="" />
+                <Node xpathlabel="Name" xpath="Centerline[@id='BFCL']" type="vector" symbology="in_BankfullCenterline" />
+                <Node label="Bankfull Cross Sections QA/QC " xpath="CrossSections[@id='BFXS']" type="vector" symbology="XS_qaqc" />
+				<Node label="Bankfull Cross Sections Type" xpath="CrossSections[@id='BFXS']" type="vector" symbology="XS_type" />
+                <Node xpathlabel="Name" xpath="Extent[@id='BFEX']" type="vector" symbology="in_BankfullExtent" />
+                <Node xpathlabel="Name" xpath="Islands[@id='BFI']" type="vector" symbology="bfIlsands" />
+                <Node xpathlabel="Name" xpath="ChannelUnits[@id='CU']" type="vector" symbology="cu_UnitNum" />
+                <Node xpathlabel="Name" xpath="ChannelUnits[@id='CU_1']" type="vector" symbology="Channel_Units_Field" transparency="40"/>
+                <Node xpathlabel="Name" xpath="DEM" type="raster" symbology="dem" transparency="40" />
+                <Node label="Thalweg Type" xpath="Thalweg" type="vector" symbology="in_Thalwegs_Type" />
+				<Node label="Thalweg Channel" xpath="Thalweg" type="vector" symbology="in_Thalwegs_Channel"/>
+                <Node xpathlabel="Name" xpath="Centerline[@id='WCL']" type="vector" symbology="in_WaterCenterline" />
+                <Node label="Wetted Cross Sections QA/QC" xpath="CrossSections[@id='WXS']" type="vector" symbology="XS_qaqc" />
+				<Node label="Wetted Cross Sections Type" xpath="CrossSections[@id='WXS']" type="vector" symbology="XS_type" />
+                <Node xpathlabel="Name" xpath="Extent[@id='WEEX']" type="vector" symbology="in_WaterExtent" transparency="40" />
+                <Node xpathlabel="Name" xpath="Islands[@id='WI']" type="vector" symbology="wetIslands" />
               </Children>
             </Node>
             <Node label="Evidence" xpath="EvidenceLayers">
