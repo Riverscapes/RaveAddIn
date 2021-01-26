@@ -3,6 +3,11 @@ title: Release Notes
 weight: 99
 ---
 
+### 2.0.2 - 25 Jan 2021
+
+* Imprroved RIM business logic.
+* Fair Market Value symbology and business logic in riverscapes context.
+
 ### 2.0 - 15 Jan 2021
 
 * Upgrade to minimum required version of ArcGIS is now 10.6.1
