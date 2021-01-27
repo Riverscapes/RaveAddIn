@@ -1,55 +1,9 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/Riverscapes/RaveAddIn/master/RaveAddIn/XML/XSD/project_explorer.xsd">
   <Name>VBET</Name>
   <ProjectType>VBET</ProjectType>
   <Node xpathlabel="Name">
     <Children collapsed="false">
-      <Node label="Inputs">
-        <Children>
-          <Node label="Hydrography (NHD HR+)">
-            <Children>
-              <Node xpathlabel="Name" xpath="Realizations/VBET/Intermediates/Vector[@id='VBET_NETWORK']" type="vector" symbology="" />
-              <Node label="Full NHD HR+ Drainage Network" xpath="Realizations/VBET/Inputs/Vector[@id='FLOWLINES']" type="vector" symbology="flow_lines" />
-              <Node label="Perrenial Drainage Network" xpath="Realizations/VBET/Inputs/Vector[@id='FLOWLINES']" type="vector" symbology="nhdperrenial" />
-              <Node label="Intermittent Drainage Network" xpath="Realizations/VBET/Inputs/Vector[@id='FLOWLINES']" type="vector" symbology="nhdintermittent" />
-              <Node label="Ephemeral Drainage Network" xpath="Realizations/VBET/Inputs/Vector[@id='FLOWLINES']" type="vector" symbology="nhdephemeral" />
-              <Node label="Network - Upstream Drainage Network" xpath="Realizations/VBET/Inputs/Vector[@id='FLOWLINES']" type="vector" symbology="upstreamdrainagearea" />
-              <Node label="River Polygons (NHD Area)" xpath="Realizations/VBET/Inputs/Vector[@id='FLOW_AREA']" type="vector" symbology="nhdarea" />
-            </Children>
-          </Node>
-          <Node label="Lines of Evidence">
-            <Children>
-              <Node label="Slope Analysis" xpath="Realizations/VBET/Inputs/Raster[@id='SLOPE_RASTER']" type="raster" symbology="slope" transparency="40"/>
-              <Node label="Height Above Nearest Drainage" xpath="Realizations/VBET/Inputs/Raster[@id='HAND_RASTER']" type="raster" symbology="hand" transparency="40"/>
-              <Node label="Active Channel" xpath="Realizations/VBET/Intermediates/Raster[@id='CHANNEL_RASTER']" type="raster" symbology="active_channel" transparency="40"/>
-            </Children>
-          </Node>
-          <Node label="Topography">
-            <Children>
-              <Node xpathlabel="Name" xpath="Realizations/VBET/Inputs/Raster[@id='HILLSHADE']" type="raster" symbology="" />
-            </Children>
-          </Node>
-        </Children>
-      </Node>
-      <Node label="Intermediates">
-        <Children collapsed="true">
-          <Node label="50% Threshold Raw VBET" xpath="Realizations/VBET/Intermediates/Vector[@id='THRESH_50']" type="vector" symbology="threshold_50" />
-          <Node label="60% Threshold Raw VBET" xpath="Realizations/VBET/Intermediates/Vector[@id='THRESH_60']" type="vector" symbology="threshold_60" />
-          <Node label="70% Threshold Raw VBET" xpath="Realizations/VBET/Intermediates/Vector[@id='THRESH_70']" type="vector" symbology="threshold_70" />
-          <Node label="80% Threshold Raw VBET" xpath="Realizations/VBET/Intermediates/Vector[@id='THRESH_80']" type="vector" symbology="threshold_80" />
-          <Node label="90% Threshold Raw VBET" xpath="Realizations/VBET/Intermediates/Vector[@id='THRESH_90']" type="vector" symbology="threshold_90" />
-          <Node label="100% Threshold Raw VBET" xpath="Realizations/VBET/Intermediates/Vector[@id='THRESH_100']" type="vector" symbology="threshold_100" />
-
-          <Node label="50% Threshold Raw VBET" xpath="Realizations/VBET/Intermediates/Geopackage/Layers/Vector[@id='THRESH_50']" type="vector" symbology="threshold_50" />
-          <Node label="60% Threshold Raw VBET" xpath="Realizations/VBET/Intermediates/Geopackage/Layers/Vector[@id='THRESH_60']" type="vector" symbology="threshold_60" />
-          <Node label="70% Threshold Raw VBET" xpath="Realizations/VBET/Intermediates/Geopackage/Layers/Vector[@id='THRESH_70']" type="vector" symbology="threshold_70" />
-          <Node label="80% Threshold Raw VBET" xpath="Realizations/VBET/Intermediates/Geopackage/Layers/Vector[@id='THRESH_80']" type="vector" symbology="threshold_80" />
-          <Node label="90% Threshold Raw VBET" xpath="Realizations/VBET/Intermediates/Geopackage/Layers/Vector[@id='THRESH_90']" type="vector" symbology="threshold_90" />
-          <Node label="100% Threshold Raw VBET" xpath="Realizations/VBET/Intermediates/Geopackage/Layers/Vector[@id='THRESH_100']" type="vector" symbology="threshold_100" />
-
-          <Node xpathlabel="Name" xpath="Realizations/VBET/Intermediates/Raster[@id='EVIDENCE']" type="raster" symbology="" />
-        </Children>
-      </Node>
       <Node label="Analyses">
         <Children>
           <Node label="Outputs">
@@ -61,7 +15,7 @@
               <Node xpathlabel="Name" xpath="Realizations/VBET/Outputs/Vector[@id='VBET_90']" type="vector" symbology="vbet" />
               <Node xpathlabel="Name" xpath="Realizations/VBET/Outputs/Vector[@id='VBET_100']" type="vector" symbology="vbet" />
 
-              <Node xpathlabel="Name" xpath="Realizations/VBET/Outputs/Geopackage/Layers/Vector[@id='VBET_50']" type="vector" symbology="vbet" />
+              <Node xpathlabel="Name" xpath="Realizations/VBET/Outputs/Geopackage/Layers/Vector[@id='VBET_50']" type="vector" id="vbet50" symbology="vbet" />
               <Node xpathlabel="Name" xpath="Realizations/VBET/Outputs/Geopackage/Layers/Vector[@id='VBET_60']" type="vector" symbology="vbet" />
               <Node xpathlabel="Name" xpath="Realizations/VBET/Outputs/Geopackage/Layers/Vector[@id='VBET_70']" type="vector" symbology="vbet" />
               <Node xpathlabel="Name" xpath="Realizations/VBET/Outputs/Geopackage/Layers/Vector[@id='VBET_80']" type="vector" symbology="vbet" />
@@ -71,6 +25,69 @@
           </Node>
         </Children>
       </Node>
+      <Node label="Inputs">
+        <Children>
+          <Node label="Hydrography">
+            <Children>
+              <Node xpathlabel="Name" xpath="Realizations/VBET/Intermediates/Vector[@id='VBET_NETWORK']" type="vector" symbology="" />
+              <Node label="Full NHD HR+ Drainage Network" xpath="Realizations/VBET/Inputs/Vector[@id='FLOWLINES']" type="vector" symbology="flow_lines" />
+              <Node label="Perrenial Drainage Network" xpath="Realizations/VBET/Inputs/Vector[@id='FLOWLINES']" type="vector" symbology="nhdperrenial" />
+              <Node label="Intermittent Drainage Network" xpath="Realizations/VBET/Inputs/Vector[@id='FLOWLINES']" type="vector" symbology="nhdintermittent" />
+              <Node label="Ephemeral Drainage Network" xpath="Realizations/VBET/Inputs/Vector[@id='FLOWLINES']" type="vector" symbology="nhdephemeral" />
+              <Node label="Network - Upstream Drainage Network" xpath="Realizations/VBET/Inputs/Vector[@id='FLOWLINES']" type="vector" symbology="upstreamdrainagearea" />
+              <Node label="River Polygons (NHD Area)" xpath="Realizations/VBET/Inputs/Vector[@id='FLOW_AREA']" type="vector" symbology="nhdarea" />
+
+              <Node label="VBET Network" xpath="Realizations/VBET/Inputs/Geopackage/Layers/Vector[@id='FLOWLINES']" type="vector" symbology="flow_lines" />
+              <Node label="River Polygons (NHD Area)" xpath="Realizations/VBET/Inputs/Geopackage/Layers/Vector[@id='FLOW_AREA']" type="vector" symbology="nhdarea" />
+              <Node label="Active Channel" xpath="Realizations/VBET/Intermediates/Raster[@id='CHANNEL_RASTER']" type="raster" symbology="active_channel" transparency="40" />
+            </Children>
+          </Node>
+          <Node label="Topography">
+            <Children>
+              <Node label="Slope Analysis" xpath="Realizations/VBET/Inputs/Raster[@id='SLOPE_RASTER']" type="raster" symbology="slope" transparency="40" />
+              <Node label="Height Above Nearest Drainage" xpath="Realizations/VBET/Inputs/Raster[@id='HAND_RASTER']" type="raster" symbology="hand" transparency="40" />
+              <Node xpathlabel="Name" xpath="Realizations/VBET/Inputs/Raster[@id='HILLSHADE']" type="raster" symbology="" id="hillshade" />
+            </Children>
+          </Node>
+        </Children>
+      </Node>
+      <Node label="Intermediates">
+        <Children collapsed="true">
+          <Node label="Evidence Rasters">
+            <Children>
+              <Node label="Channel Evidence" xpath="Realizations/VBET/Intermediates/Raster[@id='CHANNEL_EVIDENCE']" type="raster" symbology="" transparency="40" />
+              <Node label="Topographic Evidence" xpath="Realizations/VBET/Intermediates/Raster[@id='TOPO_EVIDENCE']" type="raster" symbology="" transparency="40" />
+              <Node label="Combined Evidence" xpath="Realizations/VBET/Intermediates/Raster[@id='EVIDENCE']" type="raster" symbology="" transparency="40" />
+            </Children>
+          </Node>
+          <Node label="Raw VBET Threshold Polygons">
+            <Children>
+              <Node label="50% Threshold Raw VBET" xpath="Realizations/VBET/Intermediates/Vector[@id='THRESH_50']" type="vector" symbology="threshold_50" />
+              <Node label="60% Threshold Raw VBET" xpath="Realizations/VBET/Intermediates/Vector[@id='THRESH_60']" type="vector" symbology="threshold_60" />
+              <Node label="70% Threshold Raw VBET" xpath="Realizations/VBET/Intermediates/Vector[@id='THRESH_70']" type="vector" symbology="threshold_70" />
+              <Node label="80% Threshold Raw VBET" xpath="Realizations/VBET/Intermediates/Vector[@id='THRESH_80']" type="vector" symbology="threshold_80" />
+              <Node label="90% Threshold Raw VBET" xpath="Realizations/VBET/Intermediates/Vector[@id='THRESH_90']" type="vector" symbology="threshold_90" />
+              <Node label="100% Threshold Raw VBET" xpath="Realizations/VBET/Intermediates/Vector[@id='THRESH_100']" type="vector" symbology="threshold_100" />
+
+              <Node label="50% Threshold Raw VBET" xpath="Realizations/VBET/Intermediates/Geopackage/Layers/Vector[@id='THRESH_50']" type="vector" symbology="threshold_50" />
+              <Node label="60% Threshold Raw VBET" xpath="Realizations/VBET/Intermediates/Geopackage/Layers/Vector[@id='THRESH_60']" type="vector" symbology="threshold_60" />
+              <Node label="70% Threshold Raw VBET" xpath="Realizations/VBET/Intermediates/Geopackage/Layers/Vector[@id='THRESH_70']" type="vector" symbology="threshold_70" />
+              <Node label="80% Threshold Raw VBET" xpath="Realizations/VBET/Intermediates/Geopackage/Layers/Vector[@id='THRESH_80']" type="vector" symbology="threshold_80" />
+              <Node label="90% Threshold Raw VBET" xpath="Realizations/VBET/Intermediates/Geopackage/Layers/Vector[@id='THRESH_90']" type="vector" symbology="threshold_90" />
+              <Node label="100% Threshold Raw VBET" xpath="Realizations/VBET/Intermediates/Geopackage/Layers/Vector[@id='THRESH_100']" type="vector" symbology="threshold_100" />
+
+              <Node xpathlabel="Name" xpath="Realizations/VBET/Intermediates/Raster[@id='EVIDENCE']" type="raster" symbology="" />
+            </Children>
+          </Node>
+        </Children>
+      </Node>
     </Children>
   </Node>
+  <Views default="VBET Default View">
+    <View name="VBET Default View">
+      <Layer id="hillshade" />
+      <Layer id="vbet50" />
+
+    </View>
+  </Views>
 </Project>
