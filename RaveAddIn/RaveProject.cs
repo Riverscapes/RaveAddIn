@@ -338,7 +338,11 @@ namespace RaveAddIn
                     if (!string.IsNullOrEmpty(xPath))
                     {
                         gisNode = xmlProject.SelectSingleNode(xPath);
-                        System.Diagnostics.Debug.Assert(gisNode is XmlNode);
+                        if (!(gisNode is XmlNode))
+                        {
+                            System.Diagnostics.Debug.Print(string.Format("Missing GIS NODE at {0}", xPath));
+                            //System.Diagnostics.Debug.Assert(gisNode is XmlNode);
+                        }
                     }
 
                     label = GetLabel(xmlBusiness, gisNode);
