@@ -46,7 +46,7 @@
                 <Node xpathlabel="Name" xpath="Vector[@id='ID_3']" type="vector" symbology="ev_contourNodes"/>
                 <Node xpathlabel="Name" xpath="Vector[@id='ID_4']" type="vector" symbology="ev_contourPolygons" transparency="40"/>
                 <Node xpathlabel="Name" xpath="Vector[@id='ID_5']" type="vector" symbology="ev_Contours"/>
-                <Node xpathlabel="Name" xpath="DEM[@id='DEMSMOOTH']" type="raster" symbology="dem" transparency="40">
+                <Node xpathlabel="Name" xpath="DEM[@id='DEMSMOOTH']" type="raster" symbology="dem" transparency="40"/>
                 <Node xpathlabel="Name" xpath="Raster[@id='ID_5']" type="raster" symbology="dem" transparency="40"/>
                 <Node xpathlabel="Name" xpath="Raster[@id='ID_6']" type="raster" symbology="ev_mBendIndex"/>
                 <Node xpathlabel="Name" xpath="Raster[@id='ID_7']" type="raster" symbology=""/>
@@ -103,5 +103,5 @@
         </Node>
       </Repeater>
     </Children>
-  </Node>
+   </Node>
 </Project>
