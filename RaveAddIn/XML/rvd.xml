@@ -54,7 +54,8 @@
       </Node>
       <Node label="Outputs" xpath="Realizations/RVD/Outputs">
         <Children>
-          <Node xpathlabel="Name" xpath="Geopackage/Layers/Vector[@id='SEGMENTED']" type="vector" id="rvd_output" symbology="" />
+          <Node label="Riparian Departure" xpath="Geopackage/Layers/Vector[@id='SEGMENTED']" type="vector" id="rvd_output" symbology="RiparianVegetationDeparture" />
+          <Node label="Conversion Type" xpath="Geopackage/Layers/Vector[@id='SEGMENTED']" type="vector" id="conversion_type" symbology="RiparianConversionType" />
         </Children>
       </Node>
     </Children>
@@ -62,6 +63,7 @@
   <Views default="RVD Output">
     <View name="RVD Output">
       <Layer id="rvd_output" />
+      <Layer id="conversion_type" />
     </View>
   </Views>
 </Project>

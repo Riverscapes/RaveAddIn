@@ -717,109 +717,109 @@
     <Content Include="Symbology\Shared\Historic_Veg_BPS_Type.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Symbology\RCA\BankfullChannelNetwork.lyr">
+    <Content Include="Symbology\RVD\BankfullChannelNetwork.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Symbology\RCA\BankfullChannelPolygon.lyr">
+    <Content Include="Symbology\RVD\BankfullChannelPolygon.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Symbology\RCA\BankfullChannelWidthPolygons.lyr">
+    <Content Include="Symbology\RVD\BankfullChannelWidthPolygons.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Symbology\RCA\ClippedThiessenPolygons.lyr">
+    <Content Include="Symbology\RVD\ClippedThiessenPolygons.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Symbology\RCA\ConfinementRatio.lyr">
+    <Content Include="Symbology\RVD\ConfinementRatio.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Symbology\RCA\ConversionRaster.lyr">
+    <Content Include="Symbology\RVD\ConversionRaster.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Symbology\RCA\DredgeTailings.lyr">
+    <Content Include="Symbology\RVD\DredgeTailings.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Symbology\RCA\EmptyGroupLayer.lyr">
+    <Content Include="Symbology\RVD\EmptyGroupLayer.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Symbology\RCA\ExistingVegetated.lyr">
+    <Content Include="Symbology\RVD\ExistingVegetated.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Symbology\RCA\ExistingVegNativeRiparian.lyr">
+    <Content Include="Symbology\RVD\ExistingVegNativeRiparian.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Symbology\RCA\ExistingVegRiparian.lyr">
+    <Content Include="Symbology\RVD\ExistingVegRiparian.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Symbology\RCA\FloodplainConnectivity.lyr">
+    <Content Include="Symbology\RVD\FloodplainConnectivity.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Symbology\RCA\FloodplainConnectivityRaster.lyr">
+    <Content Include="Symbology\RVD\FloodplainConnectivityRaster.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Symbology\RCA\FragmentedValleyBottom.lyr">
+    <Content Include="Symbology\RVD\FragmentedValleyBottom.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Symbology\RCA\Hillshade.lyr">
+    <Content Include="Symbology\RVD\Hillshade.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Symbology\RCA\HistoricVegetated.lyr">
+    <Content Include="Symbology\RVD\HistoricVegetated.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Symbology\RCA\HistoricVegNativeRiparian.lyr">
+    <Content Include="Symbology\RVD\HistoricVegNativeRiparian.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Symbology\RCA\HistoricVegRiparian.lyr">
+    <Content Include="Symbology\RVD\HistoricVegRiparian.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Symbology\RCA\LandUseIntensity.lyr">
+    <Content Include="Symbology\RVD\LandUseIntensity.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Symbology\RCA\LandUseRaster.lyr">
+    <Content Include="Symbology\RVD\LandUseRaster.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Symbology\RCA\LargeRiverPolygon.lyr">
+    <Content Include="Symbology\RVD\LargeRiverPolygon.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Symbology\RCA\NativeRiparianVegetationDeparture.lyr">
+    <Content Include="Symbology\RVD\NativeRiparianVegetationDeparture.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Symbology\RCA\OldNetwork.lyr">
+    <Content Include="Symbology\RVD\OldNetwork.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Symbology\RCA\PrecipitationByReach.lyr">
+    <Content Include="Symbology\RVD\PrecipitationByReach.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Symbology\RCA\ProportionCurrentlyVegetated.lyr">
+    <Content Include="Symbology\RVD\ProportionCurrentlyVegetated.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Symbology\RCA\ProportionHistoricallyVegetated.lyr">
+    <Content Include="Symbology\RVD\ProportionHistoricallyVegetated.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Symbology\RCA\RCA.lyr">
+    <Content Include="Symbology\RVD\RCA.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Symbology\RCA\RiparianCondition.lyr">
+    <Content Include="Symbology\RVD\RiparianCondition.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Symbology\RCA\RiparianConversionType.lyr">
+    <Content Include="Symbology\RVD\RiparianConversionType.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Symbology\RCA\RiparianCorridor.lyr">
+    <Content Include="Symbology\RVD\RiparianCorridor.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Symbology\RCA\RiparianVegetationDeparture.lyr">
+    <Content Include="Symbology\RVD\RiparianVegetationDeparture.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Symbology\RCA\Slope.lyr">
+    <Content Include="Symbology\RVD\Slope.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Symbology\RCA\ValleyBottomOutline.lyr">
+    <Content Include="Symbology\RVD\ValleyBottomOutline.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Symbology\RCA\ValleyBottomWidthPolygons.lyr">
+    <Content Include="Symbology\RVD\ValleyBottomWidthPolygons.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Symbology\RCA\VegetationRemaining.lyr">
+    <Content Include="Symbology\RVD\VegetationRemaining.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="Symbology\pyBRAT\oCC_EX.lyr">
