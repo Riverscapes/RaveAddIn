@@ -3,9 +3,16 @@ title: Release Notes
 weight: 99
 ---
 
+### 2.0.3 - 28 Jan 2021
+
+* GUT Symbology
+* Confinement business logic
+* VBET business logic
+* RVD business logic
+
 ### 2.0.2 - 25 Jan 2021
 
-* Imprroved RIM business logic.
+* Improved RIM business logic.
 * Fair Market Value symbology and business logic in riverscapes context.
 
 ### 2.0 - 15 Jan 2021
