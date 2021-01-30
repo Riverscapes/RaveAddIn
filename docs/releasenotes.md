@@ -3,6 +3,11 @@ title: Release Notes
 weight: 99
 ---
 
+### 2.0.4 - 29 Jan 2021
+
+* VBET business logic
+* More GUT symbology
+
 ### 2.0.3 - 28 Jan 2021
 
 * GUT Symbology
