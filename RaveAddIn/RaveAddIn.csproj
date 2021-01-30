@@ -888,6 +888,30 @@
     <Content Include="Symbology\GUT\out_Tier3_Position.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Symbology\GUT\ev_bfSlopeCat.lyr">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Symbology\GUT\ev_bfSlopePer.lyr">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Symbology\GUT\ev_bsSD.lyr">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Symbology\GUT\ev_bsSDCat.lyr">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Symbology\GUT\ev_normFill.lyr">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Symbology\GUT\ev_tmp.lyr">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Symbology\GUT\out_Tier3_SubGU.lyr">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Symbology\GUT\raster_slope.lyr">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="Symbology\pyBRAT\oCC_EX.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
