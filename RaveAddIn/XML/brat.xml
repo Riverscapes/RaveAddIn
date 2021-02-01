@@ -27,9 +27,9 @@
               <Node label="Risk of Undesirable Dams" xpath="Vector" type="vector" symbology="oPBRC_UI" />
               <Node label="Restoration or Conservation Opportunities" xpath="Vector" type="vector" symbology="oPBRC_CR" />
 
-              <Node label="Unsuitable or Limited Opportunities" xpath="Geopackage/Layers/Vector[@id='BRAT_RESULTS']" type="vector" symbology="oPBRC_UD" />
-              <Node label="Risk of Undesirable Dams" xpath="Geopackage/Layers/Vector[@id='BRAT_RESULTS']" type="vector" symbology="oPBRC_UI" />
-              <Node label="Restoration or Conservation Opportunities" xpath="Geopackage/Layers/Vector[@id='BRAT_RESULTS']" type="vector" symbology="oPBRC_CR" />
+              <Node label="Unsuitable or Limited Opportunities" xpath="Geopackage/Layers/Vector[@id='BRAT_RESULTS']" type="vector" symbology="limitation" />
+              <Node label="Risk of Undesirable Dams" xpath="Geopackage/Layers/Vector[@id='BRAT_RESULTS']" type="vector" symbology="risk" />
+              <Node label="Restoration or Conservation Opportunities" xpath="Geopackage/Layers/Vector[@id='BRAT_RESULTS']" type="vector" symbology="opportunity" />
             </Children>
           </Node>
         </Children>
