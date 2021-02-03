@@ -912,6 +912,15 @@
     <Content Include="Symbology\GUT\raster_slope.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Symbology\BRAT\limitation.lyr">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Symbology\BRAT\opportunity.lyr">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Symbology\BRAT\risk.lyr">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="Symbology\pyBRAT\oCC_EX.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
