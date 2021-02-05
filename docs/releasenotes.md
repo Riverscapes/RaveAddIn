@@ -3,6 +3,11 @@ title: Release Notes
 weight: 99
 ---
 
+### 2.0.5 - 4 Feb 2021
+
+* RVD symbology improvements
+* BRAT management layer symbology
+
 ### 2.0.4 - 29 Jan 2021
 
 * VBET business logic
