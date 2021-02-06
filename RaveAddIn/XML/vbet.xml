@@ -56,8 +56,8 @@
         <Children collapsed="true">
           <Node label="Evidence Rasters">
             <Children collapsed='true'>
-              <Node label="Slope" xpath="Realizations/VBET/Intermediates/Raster[@id='TEMP_SLOPE']" type="raster" symbology="" />
-              <Node label="HAND" xpath="Realizations/VBET/Intermediates/Raster[@id='TEMP_HAND']" type="raster" symbology="" />
+              <Node xpathlabel="Name" xpath="Realizations/VBET/Inputs/Raster[@id='SLOPE_RASTER']" type="raster" symbology="slope" transparency="40" />
+              <Node label="HAND Raster" xpath="Realizations/VBET/Intermediates/Raster[@id='HAND_RASTER']" type="raster" symbology="" />
               <Node xpathlabel="Name" xpath="Realizations/VBET/Intermediates/Raster[@id='CHANNEL_DISTANCE']" type="raster" symbology="" />
               <Node xpathlabel="Name" xpath="Realizations/VBET/Intermediates/Raster[@id='FLOW_AREA_DISTANCE']" type="raster" symbology="" />
             </Children>
@@ -99,7 +99,6 @@
     <View name="VBET Default View">
       <Layer id="hillshade" />
       <Layer id="vbet50" />
-
     </View>
   </Views>
 </Project>
