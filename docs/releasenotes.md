@@ -3,6 +3,10 @@ title: Release Notes
 weight: 99
 ---
 
+### 2.0.6 - 8 Feb 2021
+
+* Business logic and symbology for VBET HAND 
+
 ### 2.0.5 - 4 Feb 2021
 
 * RVD symbology improvements
