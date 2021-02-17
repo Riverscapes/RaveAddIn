@@ -25,6 +25,13 @@
               <Node label="Lakes, Ponds, Reservoirs and Water Bodies" xpath="Realizations/RSContext/Vector[@id='NHDWaterbody']" type="vector" symbology="waterbody" />
               <Node label="Canals and Ditches" xpath="Realizations/RSContext/Vector[@id='Canals']" type="vector" symbology="canals_ditches" />
               <Node label="Pipes and Ditches" xpath="Realizations/RSContext/Vector[@id='NHDFlowline']" type="vector" symbology="pipes" />
+              <Node label="Estimated Bankfull">
+                <Children>
+                  <Node xpathlabel="Name" xpath="Realizations/RSContext/Geopackage/Layers/Vector[@id='NETWORK']" type="vector" symbology="bankfull_flowlines"/>
+                  <Node xpathlabel="Name" xpath="Realizations/RSContext/Geopackage/Layers/Vector[@id='BANKFULL_CHANNEL']" type="vector" symbology="bankfull_channel"/>
+                  <!-- <Node xpathlabel="Name" xpath="Realizations/RSContext/Geopackage/Layers/Vector[@id='COMPOSITE_CHANNEL_AREA']" type="vector" symbology="bankfull_nhd"/> -->
+                </Children>
+              </Node>
               <Node label="Segmented Hydrography">
                 <Children>
                   <Node xpathlabel="Name" xpath="Realizations/RSContext/Geopackage/Layers/Vector[@id='NETWORK300M']" type="vector" symbology="" />
