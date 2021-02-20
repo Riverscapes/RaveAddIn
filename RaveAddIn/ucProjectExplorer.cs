@@ -54,7 +54,12 @@ namespace RaveAddIn
 
             cmsGIS = new ContextMenuStrip(components);
             cmsGIS.Items.Add("Add To Map", Properties.Resources.AddToMap, OnAddGISToMap);
+            ToolStripItem ts = cmsGIS.Items.Add("View Layer MetaData", Properties.Resources.metadata, OnGISMetadata);
+            ts.Name = "tsiViewLayerMetadata";
+
+            cmsGIS.Items.Add("View Layer Source Project", Properties.Resources.RAVE, OnGISSource);
             cmsGIS.Items.Add("Browse Folder", Properties.Resources.BrowseFolder, OnExplore);
+            //cmsGIS.Opening += onGISMenuOpening;
 
             cmsWMS = new ContextMenuStrip(components);
             cmsWMS.Items.Add("Add To Map", Properties.Resources.AddToMap, OnAddWMSToMap);
@@ -65,7 +70,23 @@ namespace RaveAddIn
 
             cmsView = new ContextMenuStrip(components);
             cmsView.Items.Add("Add All Layers To The Map", Properties.Resources.AddToMap, OnAddChildrenToMap);
+
+            this.treProject.AfterSelect += AfterTreeNodeSelect;
         }
+
+        public void AfterTreeNodeSelect(object sender, TreeViewEventArgs e)
+        {
+            if (e.Node.Tag is GISDataset)
+            {
+                ToolStripItem[] matches = e.Node.ContextMenuStrip.Items.Find("tsiViewLayerMetadata", false);
+                if (matches.Length == 1)
+                {
+                    matches[0].Enabled = ((GISDataset)e.Node.Tag).Metadata != null;
+                }
+            }
+        }
+
+
 
         #region ERSI generated code 
 
@@ -154,10 +175,10 @@ namespace RaveAddIn
                         AddChildrenToMap(nodDefault);
                     }
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     // Loading the default project view is optional. Do nothing in production
-                    System.Diagnostics.Debug.Assert(false, ex.Message);                   
+                    System.Diagnostics.Debug.Assert(false, ex.Message);
                 }
             }
 
@@ -277,6 +298,50 @@ namespace RaveAddIn
             finally
             {
                 Cursor.Current = Cursors.Default;
+            }
+        }
+
+        public void OnGISMetadata(object sender, EventArgs e)
+        {
+            try
+            {
+                TreeNode selNode = treProject.SelectedNode;
+                IGroupLayer parentGrpLyr = BuildArcMapGroupLayers(selNode);
+                GISDataset layer = (GISDataset)selNode.Tag;
+
+                if (layer.Metadata != null && layer.Metadata.Count > 0)
+                {
+                    MetaData.frmMetaData frm = new MetaData.frmMetaData(string.Format("{0} Layer", layer.Name), layer.Metadata);
+                    frm.ShowDialog();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error Viewing Layer Metadata", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
+
+        public void OnGISSource(object sender, EventArgs e)
+        {
+            try
+            {
+                TreeNode selNode = treProject.SelectedNode;
+                IGroupLayer parentGrpLyr = BuildArcMapGroupLayers(selNode);
+                GISDataset layer = (GISDataset)selNode.Tag;
+
+                if (layer.Metadata != null && layer.Metadata.Count > 0)
+                {
+                    if (layer.Metadata.ContainsKey("_rs_wh_program") && layer.Metadata.ContainsKey("_rs_wh_id"))
+                    {
+                        Uri baseUri = new Uri(Properties.Resources.DataWarehouseURL);
+                        Uri projectUri = new Uri(baseUri, string.Format("#/{0}/{1}", layer.Metadata["_rs_wh_program"], layer.Metadata["_rs_wh_id"]));
+                        System.Diagnostics.Process.Start(projectUri.ToString());
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error Determining Source Project", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 

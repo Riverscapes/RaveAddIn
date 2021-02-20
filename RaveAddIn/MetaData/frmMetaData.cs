@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System.Collections.Generic;
+using System.ComponentModel;
 using System.Windows.Forms;
 using System.Xml;
 
@@ -6,9 +7,9 @@ namespace RaveAddIn.MetaData
 {
     public partial class frmMetaData : Form
     {
-        public readonly BindingList<MetaDataItem> MetaDataItems;
+        public BindingList<MetaDataItem> MetaDataItems { get; private set; }
 
-        public frmMetaData(string noun, XmlNode nodMetaData)
+        private void Init(string noun)
         {
             InitializeComponent();
 
@@ -18,6 +19,12 @@ namespace RaveAddIn.MetaData
             Text = string.Format("{0} Meta Data", noun);
 
             MetaDataItems = new BindingList<MetaDataItem>();
+            grdData.DataSource = MetaDataItems;
+        }
+
+        public frmMetaData(string noun, XmlNode nodMetaData)
+        {
+            Init(noun);
 
             foreach (XmlNode nodItem in nodMetaData.SelectNodes("Meta"))
             {
@@ -28,7 +35,16 @@ namespace RaveAddIn.MetaData
                 }
             }
 
-            grdData.DataSource = MetaDataItems;
+        }
+
+        public frmMetaData(string noun, Dictionary<string, string> metadata)
+        {
+            Init(noun);
+
+            foreach (KeyValuePair<string, string> items in metadata)
+            {
+                MetaDataItems.Add(new MetaDataItem(items.Key, items.Value));
+            }
         }
 
         private void frmMetaData_KeyDown(object sender, KeyEventArgs e)

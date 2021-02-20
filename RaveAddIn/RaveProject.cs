@@ -433,6 +433,24 @@ namespace RaveAddIn
 
             string absPath = Path.Combine(ProjectFile.DirectoryName, path);
 
+            // Load the layer metadata
+            Dictionary<string, string> metadata = null;
+            XmlNode nodMetadata = nodGISNode.SelectSingleNode("MetaData");
+            if (nodMetadata is XmlNode && nodMetadata.HasChildNodes)
+            {
+                metadata = new Dictionary<string, string>();
+                foreach (XmlNode nodMeta in nodMetadata.SelectNodes("Meta"))
+                {
+                    XmlAttribute attName = nodMeta.Attributes["name"];
+                    if (attName is XmlAttribute && !string.IsNullOrEmpty(attName.InnerText))
+                    {
+                        if (!string.IsNullOrEmpty(nodMeta.InnerText))
+                        {
+                            metadata.Add(attName.InnerText, nodMeta.InnerText);
+                        }
+                    }
+                }
+            }
 
             ProjectTree.FileSystemDataset dataset = null;
             switch (type.ToLower())
@@ -445,19 +463,19 @@ namespace RaveAddIn
 
                 case "raster":
                     {
-                        dataset = new ProjectTree.Raster(this, label, absPath, symbology, transparency, id);
+                        dataset = new ProjectTree.Raster(this, label, absPath, symbology, transparency, id, metadata);
                         break;
                     }
 
                 case "vector":
                     {
-                        dataset = new ProjectTree.Vector(this, label, absPath, symbology, transparency, id);
+                        dataset = new ProjectTree.Vector(this, label, absPath, symbology, transparency, id, metadata);
                         break;
                     }
 
                 case "tin":
                     {
-                        dataset = new ProjectTree.TIN(this, label, absPath, transparency, id);
+                        dataset = new ProjectTree.TIN(this, label, absPath, transparency, id, metadata);
                         break;
                     }
 
