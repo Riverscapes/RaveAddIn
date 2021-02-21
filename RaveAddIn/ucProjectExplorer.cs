@@ -57,7 +57,9 @@ namespace RaveAddIn
             ToolStripItem ts = cmsGIS.Items.Add("View Layer MetaData", Properties.Resources.metadata, OnGISMetadata);
             ts.Name = "tsiViewLayerMetadata";
 
-            cmsGIS.Items.Add("View Layer Source Project", Properties.Resources.RAVE, OnGISSource);
+            ToolStripItem tss = cmsGIS.Items.Add("View Source Riverscapes Project", Properties.Resources.RAVE, OnGISSource);
+            tss.Name = "tsiViewLayerSourceProject";
+
             cmsGIS.Items.Add("Browse Folder", Properties.Resources.BrowseFolder, OnExplore);
             //cmsGIS.Opening += onGISMenuOpening;
 
@@ -82,6 +84,12 @@ namespace RaveAddIn
                 if (matches.Length == 1)
                 {
                     matches[0].Enabled = ((GISDataset)e.Node.Tag).Metadata != null;
+                }
+
+                ToolStripItem[] matches2 = e.Node.ContextMenuStrip.Items.Find("tsiViewLayerSourceProject", false);
+                if (matches2.Length == 1)
+                {
+                    matches2[0].Enabled = ((GISDataset)e.Node.Tag).HasWarehouseRefernce;
                 }
             }
         }
@@ -329,15 +337,8 @@ namespace RaveAddIn
                 IGroupLayer parentGrpLyr = BuildArcMapGroupLayers(selNode);
                 GISDataset layer = (GISDataset)selNode.Tag;
 
-                if (layer.Metadata != null && layer.Metadata.Count > 0)
-                {
-                    if (layer.Metadata.ContainsKey("_rs_wh_program") && layer.Metadata.ContainsKey("_rs_wh_id"))
-                    {
-                        Uri baseUri = new Uri(Properties.Resources.DataWarehouseURL);
-                        Uri projectUri = new Uri(baseUri, string.Format("#/{0}/{1}", layer.Metadata["_rs_wh_program"], layer.Metadata["_rs_wh_id"]));
-                        System.Diagnostics.Process.Start(projectUri.ToString());
-                    }
-                }
+                if (layer.HasWarehouseRefernce)
+                    System.Diagnostics.Process.Start(layer.WarehouseReference.ToString());
             }
             catch (Exception ex)
             {
