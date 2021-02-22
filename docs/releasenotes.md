@@ -3,6 +3,12 @@ title: Release Notes
 weight: 99
 ---
 
+### 2.1.0 - 21 Feb 2021
+
+* Viewing Layer Metadata
+* Opening source project references when metadata exists
+* Bankfull business logic and symbology in both riverscapes context and VBET.
+
 ### 2.0.6 - 8 Feb 2021
 
 * Business logic and symbology for VBET HAND 
