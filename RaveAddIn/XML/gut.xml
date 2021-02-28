@@ -105,13 +105,25 @@
                   </Node>
                   <Node label="Tier 3">
                     <Children>
-                      <Node xpathlabel="Name" xpath="Outputs/Tier3[@id='Tier3']" type="vector" symbology="out_Tier3_GeomorphicUnit" transparency="40" />
-                      <Node label="Tier 3 In Channel GU Orientation" xpath="Outputs/Tier3[@id='Tier3']" type="vector" symbology="out_Tier3_Orientation" transparency="40" />
-                      <Node label="Tier 3 In Channel GU Position" xpath="Outputs/Tier3[@id='Tier3']" type="vector" symbology="out_Tier3_Position" transparency="40" />
-                      <Node xpathlabel="Name" xpath="Outputs/Tier3[@id='Tier3_2']" type="vector" symbology="out_Tier3_SubGU" transparency="40" />
-                      <Node label="Tier 3 In Channel Sub GU Orientation" xpath="Outputs/Tier3[@id='Tier3_2']" type="vector" symbology="out_Tier3_Orientation" transparency="40" />
-                      <Node label="Tier 3 In Channel Sub GU Position" xpath="Outputs/Tier3[@id='Tier3_2']" type="vector" symbology="out_Tier3_Position" transparency="40" />
-                      <Node label="raw">
+					 <Node label="working">
+					  <Children>
+						<Node label = "Geomorphic Units">
+							<Children>
+								<Node xpathlabel="Name" xpath="Outputs/Tier3[@id='Tier3']" type="vector" symbology="out_Tier3_GeomorphicUnit" transparency="40" />
+								<Node label="Tier 3 In Channel GU Orientation" xpath="Outputs/Tier3[@id='Tier3']" type="vector" symbology="out_Tier3_Orientation" transparency="40" />
+								<Node label="Tier 3 In Channel GU Position" xpath="Outputs/Tier3[@id='Tier3']" type="vector" symbology="out_Tier3_Position" transparency="40" />
+							</Children>
+						</Node>
+						<Node label = "Sub Geomorphic Units">
+							<Children>
+								<Node xpathlabel="Name" xpath="Outputs/Tier3[@id='Tier3_2']" type="vector" symbology="out_Tier3_SubGU" transparency="40" />
+								<Node label="Tier 3 In Channel Sub GU Orientation" xpath="Outputs/Tier3[@id='Tier3_2']" type="vector" symbology="out_Tier3_Orientation" transparency="40" />
+								<Node label="Tier 3 In Channel Sub GU Position" xpath="Outputs/Tier3[@id='Tier3_2']" type="vector" symbology="out_Tier3_Position" transparency="40" />
+							</Children>
+						</Node>
+					 </Children>
+					 </Node>
+                     <Node label="raw (original)">
                         <Children>
                           <Node xpathlabel="Name" xpath="Outputs/Tier3[@id='Tier3_3']" type="vector" symbology="out_Tier3_SubGU" transparency="40" />
                           <Node label="Tier 3 In Channel Sub GU Orientation (Raw)" xpath="Outputs/Tier3[@id='Tier3_3']" type="vector" symbology="out_Tier3_Orientation" transparency="40" />
