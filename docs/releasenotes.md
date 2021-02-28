@@ -3,6 +3,10 @@ title: Release Notes
 weight: 99
 ---
 
+### 2.1.1 - 28 Feb 2021
+
+* GUT business logic and symbology.
+
 ### 2.1.0 - 21 Feb 2021
 
 * Viewing Layer Metadata
