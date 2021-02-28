@@ -80,10 +80,8 @@
 				</Node>
 				<Node label="tmp">
 					<Children>		
-						<Node xpathlabel="Name" xpath="Vector[@id='ID_7']" type="vector" symbology="ev_tmp" transparency="40"/>
-						<Node xpathlabel="Name" xpath="Vector[@id='ID_8']" type="vector" symbology="ev_tmp" transparency="40" />
-						<Node xpathlabel="Name" xpath="Vector[@id='ID_9']" type="vector" symbology="ev_tmp" transparency="40" />
-						<Node xpathlabel="Name" xpath="Vector[@id='ID_10']" type="vector" symbology="ev_tmp" transparency="40" />
+						<Node label="Bowl Transitions" xpath="Vector[@id='ID_7']" type="vector" symbology="ev_tmp" transparency="40"/>
+						<Node label="Bowl Transitions - Post GU" xpath="Vector[@id='ID_8']" type="vector" symbology="ev_tmp" transparency="40" />
 					</Children>
 				</Node>
               </Children>
@@ -102,7 +100,7 @@
                       <Node label="Tier 2 Unit Form" xpath="Outputs/Tier2[@id='Tier2']" type="vector" symbology="out_Tier2_UnitForm" transparency="40" />
                       <Node label="Tier 2 Unit Form Shape" xpath="Outputs/Tier2[@id='Tier2']" type="vector" symbology="out_Tier2_UnitShape" transparency="40" />
                       <Node label="Tier 2 Discrete" xpath="Outputs/Tier2[@id='Tier2_1']" type="vector" symbology="out_Tier2_UnitForm_Discrete" transparency="40" />
-                      <Node label="Tier 2 Discrete Shape" xpath="Outputs/Tier2[@id='Tier2_1']" type="vector" symbology="out_Tier2_UnitShape" />
+                      <Node label="Tier 2 Discrete Shape" xpath="Outputs/Tier2[@id='Tier2_1']" type="vector" symbology="out_Tier2_UnitShape" transparency="40"/>
                     </Children>
                   </Node>
                   <Node label="Tier 3">
