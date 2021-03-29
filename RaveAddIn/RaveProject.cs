@@ -416,18 +416,20 @@ namespace RaveAddIn
             if (string.IsNullOrEmpty(label))
                 label = nodGISNode.SelectSingleNode("Name").InnerText;
 
+      
+
             string path = nodGISNode.SelectSingleNode("Path").InnerText;
 
             if (string.Compare(nodGISNode.ParentNode.Name, "layers", true) == 0)
             {
                 XmlNode nodGeoPackage = nodGISNode.SelectSingleNode("../../Path");
-                if (nodGISNode is XmlNode)
+                if (nodGeoPackage is XmlNode)
                 {
                     path = nodGeoPackage.InnerText + "/" + path;
                 }
                 else
                 {
-                    System.Diagnostics.Debug.Assert(false, "Unable to find GeoPackage file path");
+                    throw new MissingMemberException("Unable to find GeoPackage file path");
                 }
             }
 
