@@ -5,7 +5,6 @@
   <Node xpathlabel="Name">
     <Children collapsed="false">
       <Node xpathlabel="Name" xpath="Realizations/FMLTPBR/Outputs/Geopackage/Layers/Vector [@id='REACHES']" type="vector" symbology="Reaches.lyr" id="Reaches" />
-
       <!-- PLANNING -->
       <Node label="Planning">
         <Children>
@@ -15,7 +14,6 @@
           <Node xpathlabel="Name" xpath="Realizations/FMLTPBR/Outputs/Geopackage/Layers/Vector [@id='VALLEY_BOTTOMS']" type="vector" id="Valley_Bottoms" symbology="symbology/Valley_Bottoms.lyr" />
         </Children>
       </Node>
-
       <!-- DESIGN-->
       <Node label="Design">
         <Children>
@@ -24,24 +22,13 @@
           <Node xpathlabel="Name" xpath="Realizations/FMLTPBR/Outputs/Geopackage/Layers/Vector [@id='STRUCTURES_PHASE']" type="vector" id="Structures_Phase" symbology="symbology/Structures_Phase.lyr" />
         </Children>
       </Node>
-
-
     </Children>
   </Node>
-
   <Views default="Default">
     <View name="Default">
       <Layer id="Valley_Bottoms" />
       <Layer id="Active_Channels" />
       <Layer id="Structures" />
     </View>
-    <!-- <View name="Complexes">
-      <Layer id="Valley_Bottoms" />
-      <Layer id="Structures" />
-    </View>
-    <View name="Channels">
-      <Layer id="Valley_Bottoms" />
-      <Layer id="Structures" />
-    </View> -->
   </Views>
 </Project>
