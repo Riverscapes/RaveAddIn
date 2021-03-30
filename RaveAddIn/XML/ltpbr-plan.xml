@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/Riverscapes/RaveAddIn/master/RaveAddIn/XML/XSD/project_explorer.xsd">
+  <Name>LTPBR Plannin</Name>
+  <ProjectType>LTPBR-Plan</ProjectType>
+  <Node xpathlabel="Name">
+    <Children collapsed="false">
+      <Node xpathlabel="Name" xpath="Realizations/FMLTPBR/Outputs/Geopackage/Layers/Vector [@id='REACHES']" type="vector" symbology="Reaches.lyr" id="Reaches" />
+
+      <!-- PLANNING -->
+      <Node label="Planning">
+        <Children>
+          <Node xpathlabel="Name" xpath="Realizations/FMLTPBR/Outputs/Geopackage/Layers/Vector [@id='ACTIVE_CHANNELS']" type="vector" id="Active_Channels" symbology="symbology/Active_Channels.lyr" />
+          <Node xpathlabel="Name" xpath="Realizations/FMLTPBR/Outputs/Geopackage/Layers/Vector [@id='ACTIVE_FLOODPLAINS']" type="vector" id="Active_Floodplains" symbology="symbology/Active_Floodplains.lyr" />
+          <Node xpathlabel="Name" xpath="Realizations/FMLTPBR/Outputs/Geopackage/Layers/Vector [@id='RECOVERY_POTENTIALS']" type="vector" id="Recovery_Potentials" symbology="symbology/Recovery_Potentials.lyr" />
+          <Node xpathlabel="Name" xpath="Realizations/FMLTPBR/Outputs/Geopackage/Layers/Vector [@id='VALLEY_BOTTOMS']" type="vector" id="Valley_Bottoms" symbology="symbology/Valley_Bottoms.lyr" />
+        </Children>
+      </Node>
+
+      <!-- DESIGN-->
+      <Node label="Design">
+        <Children>
+          <Node xpathlabel="Name" xpath="Realizations/FMLTPBR/Outputs/Geopackage/Layers/Vector [@id='COMPLEXES']" type="vector" id="Complexes" symbology="symbology/Complexes.lyr" />
+          <Node xpathlabel="Name" xpath="Realizations/FMLTPBR/Outputs/Geopackage/Layers/Vector [@id='STRUCTURES_TYPE']" type="vector" id="Structures" symbology="symbology/Structures.lyr" />
+          <Node xpathlabel="Name" xpath="Realizations/FMLTPBR/Outputs/Geopackage/Layers/Vector [@id='STRUCTURES_PHASE']" type="vector" id="Structures_Phase" symbology="symbology/Structures_Phase.lyr" />
+        </Children>
+      </Node>
+
+
+    </Children>
+  </Node>
+
+  <Views default="Default">
+    <View name="Default">
+      <Layer id="Valley_Bottoms" />
+      <Layer id="Active_Channels" />
+      <Layer id="Structures" />
+    </View>
+    <!-- <View name="Complexes">
+      <Layer id="Valley_Bottoms" />
+      <Layer id="Structures" />
+    </View>
+    <View name="Channels">
+      <Layer id="Valley_Bottoms" />
+      <Layer id="Structures" />
+    </View> -->
+  </Views>
+</Project>
