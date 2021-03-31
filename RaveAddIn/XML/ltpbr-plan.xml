@@ -8,18 +8,18 @@
       <!-- PLANNING -->
       <Node label="Planning">
         <Children>
-          <Node xpathlabel="Name" xpath="Realizations/FMLTPBR/Outputs/Geopackage/Layers/Vector [@id='ACTIVE_CHANNELS']" type="vector" id="Active_Channels" symbology="symbology/Active_Channels.lyr" />
-          <Node xpathlabel="Name" xpath="Realizations/FMLTPBR/Outputs/Geopackage/Layers/Vector [@id='ACTIVE_FLOODPLAINS']" type="vector" id="Active_Floodplains" symbology="symbology/Active_Floodplains.lyr" />
-          <Node xpathlabel="Name" xpath="Realizations/FMLTPBR/Outputs/Geopackage/Layers/Vector [@id='RECOVERY_POTENTIALS']" type="vector" id="Recovery_Potentials" symbology="symbology/Recovery_Potentials.lyr" />
-          <Node xpathlabel="Name" xpath="Realizations/FMLTPBR/Outputs/Geopackage/Layers/Vector [@id='VALLEY_BOTTOMS']" type="vector" id="Valley_Bottoms" symbology="symbology/Valley_Bottoms.lyr" />
+          <Node xpathlabel="Name" xpath="Realizations/FMLTPBR/Outputs/Geopackage/Layers/Vector [@id='ACTIVE_CHANNELS']" type="vector" id="Active_Channels" symbology="Active_Channels" />
+          <Node xpathlabel="Name" xpath="Realizations/FMLTPBR/Outputs/Geopackage/Layers/Vector [@id='ACTIVE_FLOODPLAINS']" type="vector" id="Active_Floodplains" symbology="Active_Floodplains" />
+          <Node xpathlabel="Name" xpath="Realizations/FMLTPBR/Outputs/Geopackage/Layers/Vector [@id='RECOVERY_POTENTIALS']" type="vector" id="Recovery_Potentials" symbology="Recovery_Potentialsr" />
+          <Node xpathlabel="Name" xpath="Realizations/FMLTPBR/Outputs/Geopackage/Layers/Vector [@id='VALLEY_BOTTOMS']" type="vector" id="Valley_Bottoms" symbology="Valley_Bottomsr" />
         </Children>
       </Node>
       <!-- DESIGN-->
       <Node label="Design">
         <Children>
-          <Node xpathlabel="Name" xpath="Realizations/FMLTPBR/Outputs/Geopackage/Layers/Vector [@id='COMPLEXES']" type="vector" id="Complexes" symbology="symbology/Complexes.lyr" />
-          <Node xpathlabel="Name" xpath="Realizations/FMLTPBR/Outputs/Geopackage/Layers/Vector [@id='STRUCTURES_TYPE']" type="vector" id="Structures" symbology="symbology/Structures.lyr" />
-          <Node xpathlabel="Name" xpath="Realizations/FMLTPBR/Outputs/Geopackage/Layers/Vector [@id='STRUCTURES_PHASE']" type="vector" id="Structures_Phase" symbology="symbology/Structures_Phase.lyr" />
+          <Node xpathlabel="Name" xpath="Realizations/FMLTPBR/Outputs/Geopackage/Layers/Vector [@id='COMPLEXES']" type="vector" id="Complexes" symbology="Complexes" />
+          <Node xpathlabel="Name" xpath="Realizations/FMLTPBR/Outputs/Geopackage/Layers/Vector [@id='STRUCTURES_TYPE']" type="vector" id="Structures" symbology="Structures" />
+          <Node xpathlabel="Name" xpath="Realizations/FMLTPBR/Outputs/Geopackage/Layers/Vector [@id='STRUCTURES_PHASE']" type="vector" id="Structures_Phase" symbology="Structures_Phase" />
         </Children>
       </Node>
     </Children>
