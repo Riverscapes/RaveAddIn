@@ -3,6 +3,10 @@ title: Release Notes
 weight: 99
 ---
 
+### 2.1.3 - 31 Mar 2021
+
+* Fixing LTPBR symbology
+
 ### 2.1.2 - 30 Mar 2021
 
 * LTPBR - Planning business logic and symbology
