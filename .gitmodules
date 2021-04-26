@@ -1,0 +1,3 @@
+[submodule "RiverscapesXML"]
+	path = RiverscapesXML
+	url = git@github.com:Riverscapes/RiverscapesXML.git

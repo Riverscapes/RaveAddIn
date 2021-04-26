@@ -201,6 +201,7 @@ namespace RaveAddIn
 
         private TreeNode LoadProjectViews(TreeNode tnProject, XmlNode xmlBusiness)
         {
+            // TODO: LOAD VIEW BY IDS NOW
             XmlNode nodViews = xmlBusiness.SelectSingleNode("Project/Views");
             if (nodViews == null)
                 return null;
@@ -469,6 +470,7 @@ namespace RaveAddIn
                         break;
                     }
 
+                // TODO: Vector is not "point" "line" and "polygon"
                 case "vector":
                     {
                         dataset = new ProjectTree.Vector(this, label, absPath, symbology, transparency, id, metadata);
