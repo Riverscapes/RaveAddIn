@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Windows.Forms;
 using RaveAddIn.ProjectTree;
 using System.IO;
@@ -165,7 +165,7 @@ namespace RaveAddIn
             }
 
             RaveProject newProject = new RaveProject(projectFile);
-            TreeNode tnProject = newProject.LoadNewProject(treProject, cmsView);
+            TreeNode tnProject = newProject.LoadNewProject(treProject, cmsProject, cmsView);
 
             // Load default project view
             if (Properties.Settings.Default.LoadDefaultProjectView)

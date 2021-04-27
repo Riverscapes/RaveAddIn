@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
@@ -125,7 +125,7 @@ namespace RaveAddIn
         /// </summary>
         /// <param name="treProject"></param>
         /// <returns></returns>
-        public TreeNode LoadNewProject(TreeView treProject, ContextMenuStrip cmsProjectView)
+        public TreeNode LoadNewProject(TreeView treProject, ContextMenuStrip cmsProject, ContextMenuStrip cmsProjectView)
         {
             TreeNode tnProject = new TreeNode("TITLE_NOT_FOUND", 1, 1);
             tnProject.Tag = this;
@@ -255,7 +255,7 @@ namespace RaveAddIn
                         tnProject.Nodes.Add(tnViews);
                     }
 
-                    TreeNode tnView = new TreeNode(viewName, 8, 8);
+                    TreeNode tnView = new TreeNode(viewName, 3, 3);
                     tnView.Tag = view;
                     tnViews.Nodes.Add(tnView);
 
