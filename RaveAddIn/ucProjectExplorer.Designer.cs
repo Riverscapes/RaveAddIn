@@ -52,13 +52,13 @@
             this.imgList.TransparentColor = System.Drawing.Color.Transparent;
             this.imgList.Images.SetKeyName(0, "RaveAddIn_16px.png");
             this.imgList.Images.SetKeyName(1, "BrowseFolder.ico");
-            this.imgList.Images.SetKeyName(2, "raster.png");
-            this.imgList.Images.SetKeyName(3, "vector.png");
-            this.imgList.Images.SetKeyName(4, "vector_missing.png");
-            this.imgList.Images.SetKeyName(5, "raster_missing.png");
-            this.imgList.Images.SetKeyName(6, "tin.png");
-            this.imgList.Images.SetKeyName(7, "no_tin.png");
-            this.imgList.Images.SetKeyName(8, "project_view.png");
+            this.imgList.Images.SetKeyName(2, "tin.png");
+            this.imgList.Images.SetKeyName(3, "project_view.png");
+            this.imgList.Images.SetKeyName(4, "Dot16.png");
+            this.imgList.Images.SetKeyName(5, "Multidot16.png");
+            this.imgList.Images.SetKeyName(6, "Polygon16.png");
+            this.imgList.Images.SetKeyName(7, "Polyline16.png");
+            this.imgList.Images.SetKeyName(8, "Raster16.png");
             // 
             // ucProjectExplorer
             // 

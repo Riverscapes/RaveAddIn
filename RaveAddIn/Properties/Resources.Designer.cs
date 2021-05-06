@@ -80,7 +80,7 @@ namespace RaveAddIn.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Symbology.
+        ///   Looks up a localized string similar to Symbology\esri.
         /// </summary>
         internal static string AppDataSymbologyFolder {
             get {
@@ -126,7 +126,7 @@ namespace RaveAddIn.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to XML.
+        ///   Looks up a localized string similar to RiverscapesXML\RaveBusinessLogic.
         /// </summary>
         internal static string BusinessLogicXMLFolder {
             get {

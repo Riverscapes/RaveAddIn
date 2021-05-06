@@ -12,7 +12,8 @@
     <AssemblyName>RaveAddIn</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <FileUpgradeFlags></FileUpgradeFlags>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
     <OldToolsVersion>3.5</OldToolsVersion>
     <UpgradeBackupLocation />
     <PublishUrl>publish\</PublishUrl>
@@ -249,794 +250,788 @@
     <AddInContent Include="Images\Options.png" />
     <AddInContent Include="Images\RaveAddIn_16px.png" />
     <AddInContent Include="Images\BrowseFolder.png" />
-
     <AddInContent Include="Images\layers\Dot16.png" />
     <AddInContent Include="Images\layers\Polyline16.png" />
     <AddInContent Include="Images\layers\Polygon16.png" />
     <AddInContent Include="Images\layers\Raster16.png" />
-
     <None Include="Resources\BrowseFolder.ico" />
     <None Include="Resources\BrowseFolder.png" />
     <None Include="Resources\metadata.png" />
-
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <Content Include="..\RiverscapesXML\BaseMaps.xml">
+    <Content Include="RiverscapesXML\BaseMaps.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="Resources\Help.png" />
-    <Content Include="..\RiverscapesXML\RaveBusinessLogic\BRAT.xml">
+    <Content Include="RiverscapesXML\RaveBusinessLogic\BRAT.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="..\RiverscapesXML\RaveBusinessLogic\CHaMPMetrics.xml">
+    <Content Include="RiverscapesXML\RaveBusinessLogic\CHaMPMetrics.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\RaveBusinessLogic\GUT.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <SubType>Designer</SubType>
-    </Content>
-    <Content Include="..\RiverscapesXML\RaveBusinessLogic\Hydro.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\RiverscapesXML\RaveBusinessLogic\Inundation.xml">
+    <Content Include="RiverscapesXML\RaveBusinessLogic\GUT.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="..\RiverscapesXML\RaveBusinessLogic\ltpbr-plan.xml">
+    <Content Include="RiverscapesXML\RaveBusinessLogic\Hydro.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\RaveBusinessLogic\pyBRAT.xml">
+    <Content Include="RiverscapesXML\RaveBusinessLogic\Inundation.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="RiverscapesXML\RaveBusinessLogic\pyBRAT.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\RaveBusinessLogic\RSContext.xml">
+    <Content Include="RiverscapesXML\RaveBusinessLogic\RSContext.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\RaveBusinessLogic\Topo.xml">
+    <Content Include="RiverscapesXML\RaveBusinessLogic\StreamTemperature.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\RaveBusinessLogic\Confinement.xml">
+    <Content Include="RiverscapesXML\RaveBusinessLogic\Topo.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\RaveBusinessLogic\XSD\project_explorer.xsd">
+    <Content Include="RiverscapesXML\RaveBusinessLogic\Confinement.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="RiverscapesXML\RaveBusinessLogic\XSD\project_explorer.xsd">
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\Shared\canals_ditches.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\Shared\canals_ditches.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\Shared\railroads.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\Shared\railroads.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\Shared\flow_lines.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\Shared\flow_lines.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\VBET\vbet.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\VBET\vbet.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\BRAT\ADMIN_AGEN.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\BRAT\ADMIN_AGEN.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\BRAT\conflict_dist_anthropogenic.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\BRAT\conflict_dist_anthropogenic.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\BRAT\iGeo_DA.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\BRAT\iGeo_DA.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\BRAT\iGeo_Slope.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\BRAT\iGeo_Slope.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\BRAT\iHyd_SP2.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\BRAT\iHyd_SP2.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\BRAT\iHyd_SPLow.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\BRAT\iHyd_SPLow.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\BRAT\iPC_Canal.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\BRAT\iPC_Canal.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\BRAT\iPC_DivPts.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\BRAT\iPC_DivPts.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\BRAT\iPC_LU.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\BRAT\iPC_LU.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\BRAT\iPC_Rail.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\BRAT\iPC_Rail.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\BRAT\iPC_RailVB.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\BRAT\iPC_RailVB.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\BRAT\iPC_Road.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\BRAT\iPC_Road.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\BRAT\iPC_RoadVB.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\BRAT\iPC_RoadVB.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\BRAT\iPC_RoadX.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\BRAT\iPC_RoadX.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\BRAT\mCC_EX_CT.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\BRAT\mCC_EX_CT.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\BRAT\mCC_HPE_CT.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\BRAT\mCC_HPE_CT.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\BRAT\oCC_EX.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\BRAT\oCC_EX.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\BRAT\oCC_HPE.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\BRAT\oCC_HPE.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\BRAT\oPBRC_CR.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\BRAT\oPBRC_CR.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\BRAT\oPBRC_UD.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\BRAT\oPBRC_UD.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\BRAT\oPBRC_UI.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\BRAT\oPBRC_UI.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\BRAT\oPC_Dist.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\BRAT\oPC_Dist.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\BRAT\oVC_EX.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\BRAT\oVC_EX.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\BRAT\oVC_HPE.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\BRAT\oVC_HPE.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\BRAT\perennial.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\BRAT\perennial.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\Shared\hand.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\Shared\hand.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\VBET\active_channel.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\VBET\active_channel.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\Inundation\BRAT.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\Inundation\BRAT.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\Inundation\Changes in inundation type.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\Inundation\Changes in inundation type.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\Inundation\crests_type.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\Inundation\crests_type.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\Inundation\dam_state.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\Inundation\dam_state.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\Inundation\DEM.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\Inundation\DEM.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\Inundation\hillshade.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\Inundation\hillshade.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\Inundation\inundation_types.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\Inundation\inundation_types.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\Inundation\ortho.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\Inundation\ortho.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\Inundation\thalwegs.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\Inundation\thalwegs.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\Inundation\valley_bottom.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\Inundation\valley_bottom.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\Inundation\VBET.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\Inundation\VBET.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\Inundation\wetted_extent.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\Inundation\wetted_extent.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\BRAT\FlowArea.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\BRAT\FlowArea.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\BRAT\Hillshade.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\BRAT\Hillshade.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\BRAT\iPC_Privat.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\BRAT\iPC_Privat.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\BRAT\IsPeren.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\BRAT\IsPeren.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\BRAT\totDA_SqKm.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\BRAT\totDA_SqKm.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\BRAT\Waterbodies.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\BRAT\Waterbodies.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\RSContext\drainage_area.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\RSContext\drainage_area.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\RSContext\existing_veg.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\RSContext\existing_veg.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\RSContext\flow_accumulation.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\RSContext\flow_accumulation.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\RSContext\historic_veg.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\RSContext\historic_veg.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\RSContext\upstreamdrainagearea.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\RSContext\upstreamdrainagearea.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\RSContext\waterbody.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\RSContext\waterbody.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\Shared\dem.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\Shared\dem.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\Shared\roads.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\Shared\roads.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\Shared\slope.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\Shared\slope.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\hydro\DEM.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\hydro\DEM.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\hydro\depthError.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\hydro\depthError.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\hydro\flowdir.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\hydro\flowdir.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\hydro\pts_topo.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\hydro\pts_topo.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\hydro\velocityMag.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\hydro\velocityMag.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\hydro\velocityVec.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\hydro\velocityVec.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\hydro\wDepth.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\hydro\wDepth.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\hydro\wsDEM.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\hydro\wsDEM.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\RSContext\drainagewings.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\RSContext\drainagewings.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\RSContext\nhdarea.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\RSContext\nhdarea.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\RSContext\nhdephemeral.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\RSContext\nhdephemeral.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\RSContext\nhdintermittent.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\RSContext\nhdintermittent.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\RSContext\nhdperrenial.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\RSContext\nhdperrenial.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\RSContext\ownership.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\RSContext\ownership.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\RSContext\wbdhu10.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\RSContext\wbdhu10.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\RSContext\wbdhu12.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\RSContext\wbdhu12.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\RSContext\wbdhu2.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\RSContext\wbdhu2.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\RSContext\wbdhu4.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\RSContext\wbdhu4.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\RSContext\wbdhu6.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\RSContext\wbdhu6.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\RSContext\wbdhu8.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\RSContext\wbdhu8.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\BRAT\veg_suitability.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\BRAT\veg_suitability.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\Topo\asPD.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\Topo\asPD.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\Topo\asPQ.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\Topo\asPQ.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\Topo\asRough.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\Topo\asRough.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\Topo\asSD.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\Topo\asSD.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\Topo\bfExtent.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\Topo\bfExtent.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\Topo\breaklines.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\Topo\breaklines.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\Topo\cu_D16.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\Topo\cu_D16.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\Topo\cu_D50.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\Topo\cu_D50.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\Topo\cu_D84.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\Topo\cu_D84.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\Topo\cu_D90.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\Topo\cu_D90.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\Topo\cu_T1.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\Topo\cu_T1.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\Topo\cu_T2.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\Topo\cu_T2.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\Topo\DEM.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\Topo\DEM.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\Topo\ErrorDEM.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\Topo\ErrorDEM.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\Topo\pts_control.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\Topo\pts_control.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\Topo\pts_eow.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\Topo\pts_eow.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\Topo\pts_error.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\Topo\pts_error.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\Topo\pts_streamFeatures.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\Topo\pts_streamFeatures.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\Topo\pts_topo.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\Topo\pts_topo.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\Topo\SurveyExtent.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\Topo\SurveyExtent.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\Topo\thalweg.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\Topo\thalweg.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\Topo\wDepth.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\Topo\wDepth.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\Topo\wetCL.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\Topo\wetCL.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\Topo\wetExtent.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\Topo\wetExtent.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\Topo\wsDEM.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\Topo\wsDEM.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\Shared\drainage_area.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\Shared\drainage_area.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\Shared\flow_accumulation.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\Shared\flow_accumulation.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\VBET\threshold_100.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\VBET\threshold_100.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\VBET\threshold_50.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\VBET\threshold_50.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\VBET\threshold_60.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\VBET\threshold_60.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\VBET\threshold_70.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\VBET\threshold_70.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\VBET\threshold_80.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\VBET\threshold_80.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\VBET\threshold_90.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\VBET\threshold_90.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\BRAT\Existing_Veg_Riparian.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\BRAT\Existing_Veg_Riparian.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\BRAT\Historic_Veg_Riparian.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\BRAT\Historic_Veg_Riparian.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\BRAT\null_da.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\BRAT\null_da.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\Shared\drainagewings.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\Shared\drainagewings.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\Shared\nhdarea.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\Shared\nhdarea.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\Shared\nhdephemeral.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\Shared\nhdephemeral.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\Shared\nhdintermittent.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\Shared\nhdintermittent.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\Shared\nhdperrenial.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\Shared\nhdperrenial.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\Shared\upstreamdrainagearea.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\Shared\upstreamdrainagearea.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\Shared\pipes.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\Shared\pipes.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\RSContext\ecoregions_1.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\RSContext\ecoregions_1.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\RSContext\ecoregions_2.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\RSContext\ecoregions_2.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\RSContext\ecoregions_3.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\RSContext\ecoregions_3.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\RSContext\temperature.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\RSContext\temperature.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\RSContext\vapor_pressure.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\RSContext\vapor_pressure.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\Confinement\confinement_ratio.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\Confinement\confinement_ratio.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\Confinement\confinement_raw.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\Confinement\confinement_raw.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\Confinement\confining_margins.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\Confinement\confining_margins.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\Shared\Existing_Veg_EVT_Class.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\Shared\Existing_Veg_EVT_Class.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\Shared\Existing_Veg_EVT_Name.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\Shared\Existing_Veg_EVT_Name.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\Shared\Existing_Veg_EVT_Type.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\Shared\Existing_Veg_EVT_Type.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\Shared\Historic_Veg_BPS_Name.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\Shared\Historic_Veg_BPS_Name.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\Shared\Historic_Veg_BPS_Type.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\Shared\Historic_Veg_BPS_Type.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\RVD\BankfullChannelNetwork.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\RVD\BankfullChannelNetwork.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\RVD\BankfullChannelPolygon.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\RVD\BankfullChannelPolygon.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\RVD\BankfullChannelWidthPolygons.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\RVD\BankfullChannelWidthPolygons.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\RVD\ClippedThiessenPolygons.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\RVD\ClippedThiessenPolygons.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\RVD\ConfinementRatio.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\RVD\ConfinementRatio.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\RVD\ConversionRaster.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\RVD\ConversionRaster.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\RVD\DredgeTailings.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\RVD\DredgeTailings.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\RVD\EmptyGroupLayer.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\RVD\EmptyGroupLayer.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\RVD\ExistingVegetated.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\RVD\ExistingVegetated.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\RVD\ExistingVegNativeRiparian.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\RVD\ExistingVegNativeRiparian.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\RVD\ExistingVegRiparian.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\RVD\ExistingVegRiparian.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\RVD\FloodplainConnectivity.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\RVD\FloodplainConnectivity.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\RVD\FloodplainConnectivityRaster.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\RVD\FloodplainConnectivityRaster.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\RVD\FragmentedValleyBottom.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\RVD\FragmentedValleyBottom.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\RVD\Hillshade.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\RVD\Hillshade.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\RVD\HistoricVegetated.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\RVD\HistoricVegetated.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\RVD\HistoricVegNativeRiparian.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\RVD\HistoricVegNativeRiparian.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\RVD\HistoricVegRiparian.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\RVD\HistoricVegRiparian.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\RVD\LandUseIntensity.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\RVD\LandUseIntensity.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\RVD\LandUseRaster.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\RVD\LandUseRaster.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\RVD\LargeRiverPolygon.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\RVD\LargeRiverPolygon.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\RVD\NativeRiparianVegetationDeparture.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\RVD\NativeRiparianVegetationDeparture.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\RVD\OldNetwork.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\RVD\OldNetwork.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\RVD\PrecipitationByReach.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\RVD\PrecipitationByReach.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\RVD\ProportionCurrentlyVegetated.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\RVD\ProportionCurrentlyVegetated.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\RVD\ProportionHistoricallyVegetated.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\RVD\ProportionHistoricallyVegetated.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\RVD\RCA.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\RVD\RCA.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\RVD\RiparianCondition.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\RVD\RiparianCondition.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\RVD\RiparianConversionType.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\RVD\RiparianConversionType.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\RVD\RiparianCorridor.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\RVD\RiparianCorridor.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\RVD\RiparianVegetationDeparture.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\RVD\RiparianVegetationDeparture.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\RVD\Slope.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\RVD\Slope.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\RVD\ValleyBottomOutline.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\RVD\ValleyBottomOutline.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\RVD\ValleyBottomWidthPolygons.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\RVD\ValleyBottomWidthPolygons.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\RVD\VegetationRemaining.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\RVD\VegetationRemaining.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\GUT\ev_bfCh.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\GUT\ev_bfCh.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\GUT\ev_bfeSlope.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\GUT\ev_bfeSlope.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\GUT\ev_bfeSlope_meanBFW.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\GUT\ev_bfeSlope_meanBFW.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\GUT\ev_channelEdge.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\GUT\ev_channelEdge.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\GUT\ev_channelNodes.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\GUT\ev_channelNodes.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\GUT\ev_chMargin.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\GUT\ev_chMargin.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\GUT\ev_contourNodes.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\GUT\ev_contourNodes.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\GUT\ev_contourPolygons.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\GUT\ev_contourPolygons.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\GUT\ev_Contours.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\GUT\ev_Contours.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\GUT\ev_mBendIndex.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\GUT\ev_mBendIndex.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\GUT\ev_meanSlope.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\GUT\ev_meanSlope.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\GUT\ev_potentialRiffCrests.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\GUT\ev_potentialRiffCrests.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\GUT\ev_resDepth.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\GUT\ev_resDepth.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\GUT\ev_resTopo.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\GUT\ev_resTopo.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\GUT\ev_smDEMSlope.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\GUT\ev_smDEMSlope.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\GUT\in_BankfullCenterline.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\GUT\in_BankfullCenterline.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\GUT\in_BankfullExtent.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\GUT\in_BankfullExtent.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\GUT\in_Thalwegs_Channel.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\GUT\in_Thalwegs_Channel.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\GUT\in_Thalwegs_Type.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\GUT\in_Thalwegs_Type.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\GUT\in_WaterCenterline.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\GUT\in_WaterCenterline.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\GUT\in_WaterExtent.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\GUT\in_WaterExtent.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\GUT\out_Tier1_FlowUnit.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\GUT\out_Tier1_FlowUnit.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\GUT\out_Tier1_ValleyUnit.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\GUT\out_Tier1_ValleyUnit.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\GUT\out_Tier2_UnitForm.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\GUT\out_Tier2_UnitForm.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\GUT\out_Tier2_UnitForm_Discrete.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\GUT\out_Tier2_UnitForm_Discrete.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\GUT\out_Tier2_UnitShape.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\GUT\out_Tier2_UnitShape.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\GUT\out_Tier3_GeomorphicUnit.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\GUT\out_Tier3_GeomorphicUnit.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\GUT\out_Tier3_GU.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\GUT\out_Tier3_GU.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\GUT\out_Tier3_Orientation.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\GUT\out_Tier3_Orientation.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\GUT\out_Tier3_Position.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\GUT\out_Tier3_Position.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\GUT\ev_bfSlopeCat.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\GUT\ev_bfSlopeCat.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\GUT\ev_bfSlopePer.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\GUT\ev_bfSlopePer.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\GUT\ev_bsSD.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\GUT\ev_bsSD.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\GUT\ev_bsSDCat.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\GUT\ev_bsSDCat.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\GUT\ev_normFill.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\GUT\ev_normFill.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\GUT\ev_tmp.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\GUT\ev_tmp.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\GUT\out_Tier3_SubGU.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\GUT\out_Tier3_SubGU.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\GUT\raster_slope.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\GUT\raster_slope.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\BRAT\limitation.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\BRAT\limitation.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\BRAT\opportunity.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\BRAT\opportunity.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\BRAT\risk.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\BRAT\risk.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\ltpbr-plan\Active_Channels.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\ltpbr-plan\Active_Channels.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\ltpbr-plan\Active_Floodplains.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\ltpbr-plan\Active_Floodplains.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\ltpbr-plan\Complexes.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\ltpbr-plan\Complexes.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\ltpbr-plan\Reaches.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\ltpbr-plan\Reaches.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\ltpbr-plan\Recovery_Potentials.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\ltpbr-plan\Recovery_Potentials.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\ltpbr-plan\Structures.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\ltpbr-plan\Structures.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\ltpbr-plan\Structures_Phase.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\ltpbr-plan\Structures_Phase.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\ltpbr-plan\Valley_Bottoms.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\ltpbr-plan\Valley_Bottoms.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <None Include="..\RiverscapesXML\Symbology\esri\pyBRAT\oCC_EX.lyr">
+    <None Include="RiverscapesXML\Symbology\esri\pyBRAT\oCC_EX.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="..\RiverscapesXML\Symbology\esri\pyBRAT\oCC_HPE.lyr">
+    <None Include="RiverscapesXML\Symbology\esri\pyBRAT\oCC_HPE.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="..\RiverscapesXML\Symbology\esri\pyBRAT\OldRoads.lyr">
+    <None Include="RiverscapesXML\Symbology\esri\pyBRAT\OldRoads.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="..\RiverscapesXML\Symbology\esri\pyBRAT\oPBRC_CR.lyr">
+    <None Include="RiverscapesXML\Symbology\esri\pyBRAT\oPBRC_CR.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <Content Include="..\RiverscapesXML\Symbology\esri\RSContext\mean_annual_precip.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\RSContext\mean_annual_precip.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\RSContext\fair_market.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\RSContext\fair_market.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\Shared\bfCL.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\Shared\bfCL.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\Shared\bfIslands.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\Shared\bfIslands.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\Shared\Channel_Units_Field.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\Shared\Channel_Units_Field.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\Shared\cu_UnitNum.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\Shared\cu_UnitNum.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\Shared\detrendDEM.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\Shared\detrendDEM.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\Shared\FlowDirection.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\Shared\FlowDirection.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\Shared\mean_annual_precip.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\Shared\mean_annual_precip.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\Shared\wetIslands.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\Shared\wetIslands.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\Shared\XS_qaqc.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\Shared\XS_qaqc.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\Shared\XS_type.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\Shared\XS_type.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\Symbology\esri\Shared\bankfull_flowlines.lyr">
+    <Content Include="RiverscapesXML\Symbology\esri\Shared\bankfull_flowlines.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="..\RiverscapesXML\RaveBusinessLogic\default.xml">
+    <Content Include="RiverscapesXML\RaveBusinessLogic\default.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\RaveBusinessLogic\ec.xml">
+    <Content Include="RiverscapesXML\RaveBusinessLogic\ec.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\RaveBusinessLogic\gpp.xml">
+    <Content Include="RiverscapesXML\RaveBusinessLogic\gpp.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\RaveBusinessLogic\rca.xml">
+    <Content Include="RiverscapesXML\RaveBusinessLogic\rca.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="..\RiverscapesXML\RaveBusinessLogic\rvd.xml">
+    <Content Include="RiverscapesXML\RaveBusinessLogic\rvd.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\RaveBusinessLogic\solar.xml">
+    <Content Include="RiverscapesXML\RaveBusinessLogic\solar.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\RiverscapesXML\RaveBusinessLogic\streamtemp.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\RiverscapesXML\RaveBusinessLogic\vbet.xml">
+    <Content Include="RiverscapesXML\RaveBusinessLogic\vbet.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <SubType>Designer</SubType>
     </Content>

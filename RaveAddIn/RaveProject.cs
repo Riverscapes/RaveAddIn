@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
@@ -133,7 +133,7 @@ namespace RaveAddIn
 
             // Assign the project CMS here so that it is available if anything else crashes or goes wrong.
             // Allows the user to unload the partially loaded project.
-            treProject.ContextMenuStrip = cmsProjectView;
+            treProject.ContextMenuStrip = cmsProject;
 
             TreeNode tnResult = LoadProjectIntoNode(tnProject);
 
@@ -305,6 +305,7 @@ namespace RaveAddIn
                 return;
 
             string label = GetLabel(xmlBusiness, xmlProject);
+            System.Diagnostics.Debug.Print(string.Format("Load Tree Node Argument XPath for label '{0}': {1}", label, xPath));
 
             if (xmlBusiness.Name == "Repeater")
             {
@@ -324,7 +325,7 @@ namespace RaveAddIn
             else if (xmlBusiness.Name == "Node")
             {
                 xPath = GetXPath(xmlBusiness, xPath);
-                System.Diagnostics.Debug.Print(xPath);
+                System.Diagnostics.Debug.Print(string.Format("Processed xPath: for label '{0}': {1}", label, xPath));
 
                 // Get the ID used for associated nodes with project views
                 string id = string.Empty;
@@ -417,7 +418,7 @@ namespace RaveAddIn
             if (string.IsNullOrEmpty(label))
                 label = nodGISNode.SelectSingleNode("Name").InnerText;
 
-      
+
 
             string path = nodGISNode.SelectSingleNode("Path").InnerText;
 
@@ -470,10 +471,24 @@ namespace RaveAddIn
                         break;
                     }
 
-                // TODO: Vector is not "point" "line" and "polygon"
-                case "vector":
+                case "point":
                     {
-                        dataset = new ProjectTree.Vector(this, label, absPath, symbology, transparency, id, metadata);
+                        dataset = new ProjectTree.Vector(this, label, absPath, symbology, transparency, 4,id,  metadata);
+                        break;
+                    }
+                case "line":
+                    {
+                        dataset = new ProjectTree.Vector(this, label, absPath, symbology, transparency, 7,id,  metadata);
+                        break;
+                    }
+                case "polygon":
+                    {
+                        dataset = new ProjectTree.Vector(this, label, absPath, symbology, transparency, 6,id, metadata);
+                        break;
+                    }
+                case "multipoint":
+                    {
+                        dataset = new ProjectTree.Vector(this, label, absPath, symbology, transparency, 5, id, metadata);
                         break;
                     }
 

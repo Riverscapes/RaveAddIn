@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AppDataSymbologyFolder" xml:space="preserve">
-    <value>Symbology</value>
+    <value>Symbology\esri</value>
   </data>
   <data name="HelpBaseURL" xml:space="preserve">
     <value>http://rave.riverscapes.xyz/Help</value>
@@ -134,7 +134,7 @@
     <value>River Analysis and Viewer Explorer</value>
   </data>
   <data name="BusinessLogicXMLFolder" xml:space="preserve">
-    <value>XML</value>
+    <value>RiverscapesXML\RaveBusinessLogic</value>
   </data>
   <data name="NewIssueURL" xml:space="preserve">
     <value>https://github.com/Riverscapes/RaveAddIn/issues</value>
