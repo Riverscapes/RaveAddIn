@@ -1,6 +1,28 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <BaseMaps>
   <Region name="United States">
+	<GroupLayer name="National Wetland Inventory">
+      <Layer name="Wetlands Data" url="https://www.fws.gov/wetlands/arcgis/services/Wetlands/MapServer/WMSServer?">
+        <Metadata>
+          <Meta name="Description">Wetlands Data</Meta>
+        </Metadata>
+      </Layer>
+      <Layer name="Wetlands Raster" url="https://www.fws.gov/wetlands/arcgis/services/Wetlands_Raster/ImageServer/WMSServer?">
+        <Metadata>
+          <Meta name="Description">Wetlands Raster</Meta>
+        </Metadata>
+      </Layer>
+	  <Layer name="Wetlands Status" url="https://www.fws.gov/wetlands/arcgis/services/Wetlands_Status/MapServer/WMSServer?">
+        <Metadata>
+          <Meta name="Description">Wetlands Status</Meta>
+        </Metadata>
+      </Layer>
+      <Layer name="Riparian Data" url="https://www.fws.gov/wetlands/arcgis/services/Riparian/MapServer/WMSServer?">
+        <Metadata>
+          <Meta name="Description">Riparian Data</Meta>
+        </Metadata>
+      </Layer>
+    </GroupLayer>
     <GroupLayer name="USGS Hydrography">
       <Layer name="Watershed Boundary Dataset" url="https://hydro.nationalmap.gov:443/arcgis/services/wbd/MapServer/WmsServer?">
         <Metadata>
