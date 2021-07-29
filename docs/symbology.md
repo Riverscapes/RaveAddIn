@@ -52,6 +52,7 @@ Remember to put your symbology information under a folder called `RAVE\Symbology
 
 #### QRAVE How-to Create a Q Layer File (`*.qml`)
 
+#### QRAVE How-to Convert from a `*.lyr` to  a `*.qml`
 
 -----------
 ### ArcRAVE
