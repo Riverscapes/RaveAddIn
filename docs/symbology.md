@@ -13,11 +13,11 @@ You can override this behavior and apply specific symbology to different types o
 
 
 
-## Symbology Keys
+## Business Logic & Symbology Keys
 
-Each layer within a GCD project tree has a symbology key  associated with it. These keys define the generic type of layer in question and they are used to pick which symbology to apply when adding the layer to the map. Examples might be "DEM", "Soil" or "Vegetation".
+The same [business logic]({{ site.baseurl }}/business-logic.html ) is used in all three flavors of RAVE. Each layer within a riverscapes project tree has a symbology key  associated with it. We use the same keys to point to different layer files in each. These keys define the generic type of layer in question and they are used to pick which symbology to apply when adding the layer to the map. Examples might be "DEM", "Soil" or "Vegetation".
 
-The symbology keys are defined in the business logic XML that is used to load the Riverscapes project into the RAVE project explorer. In the illustration below the VBET.xml business logic file (1) defines a node in the tree for the DEM input (2) that when RAVE attempts to add the layer to the ArcMap table of contents (3) it uses the symbology key of `raster_dem` (4). 
+The symbology keys are defined in the [business logic XML](https://github.com/Riverscapes/RiverscapesXML/tree/master/RaveBusinessLogic) that is used to load the Riverscapes project into the RAVE project explorer. In the illustration below the VBET.xml business logic file (1) defines a node in the tree for the DEM input (2) that when RAVE attempts to add the layer to the ArcMap table of contents (3) it uses the symbology key of `raster_dem` (4). 
 
 ![symbology keys]({{site.baseurl}}/assets/images/symbology_keys.png)
 
