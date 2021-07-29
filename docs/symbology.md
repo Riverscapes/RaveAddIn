@@ -3,11 +3,15 @@ title: Symbology
 weight: 5
 ---
 
-By default RAVE adds layers to the current ArcMap document using the default symbology. Rasters are added with a greyscale and vectors with a single symbol using a random color.
+One of the most important features in RAVE is adding a curated layer to the map symoblized as it was intended by the model or project type owner. This is a feature of all flavors of RAVE (ArcRAVE, QRAVE and WebRAVE). Unfortunately, each has different standards for how symbology is saved. This page is for power-users or Project-Type Curators to customize and implement consistent symbology across all three platforms.
+
+By default RAVE adds layers to the map document using the default symbology. Rasters are added with a greyscale and vectors with a single symbol using a random color.
 
 ![Add To Map]({{site.baseurl}}/assets/images/add_to_map.png)
 
-You can override this behavior and apply specific symbology to different types of layers. For example you can use one raster symbolology for DEMs and another for vegetation. RAVE does this using ESRI layer files. Layer files contain two bits of information. First they possess a path to a specific GIS dataset on your computer and second they store the definition of how the dataset should be symbolized. RAVE only uses the latter and ignores the path to the dataset itself. In this way RAVE can apply the symbology stored in a single layer file to many layers of the same type. See the [video demonstration](#video-demonstration) at the bottom of this page to see for how all of this works.
+You can override this behavior and apply specific symbology to different types of layers. For example you can use one raster symbolology for DEMs and another for vegetation. RAVE does this using  layer files. 
+
+
 
 ## Symbology Keys
 
@@ -41,7 +45,19 @@ Notice above how RAVE first looks next to the project for layer files that only 
 
 Remember to put your symbology information under a folder called `RAVE\Symbology`. This folder **will not** be present automatically. You have to create it!
 
-## How To Create a Layer File
+-------
+## Symbology Files
+
+### QRAVE
+
+#### QRAVE How-to Create a Q Layer File (`*.qml`)
+
+
+-----------
+### ArcRAVE
+ESRI Layer files contain two bits of information. First they possess a path to a specific GIS dataset on your computer and second they store the definition of how the dataset should be symbolized. RAVE only uses the latter and ignores the path to the dataset itself. In this way RAVE can apply the symbology stored in a single layer file to many layers of the same type. See the [video demonstration](#video-demonstration) below to see for how all of this works.
+
+#### ArcRAVE - How To Create a Layer (`*.lyr`) File
 
 1. Add the layer in question to the current ArcMap document. You can do this using RAVE or using the typical ArcMap features to Add Data.
 2. Use ArcMap to symbolize the layer how you want it to appear for RAVE layers. Remember that depending on where you place this layer file (see below) this symbology might be applied more than just the layer in question. Configure the symbology accordingly. For example, if you are configuring a percent slope layer but the current layer only contains slopes up to 20%, be sure to extend the symbology classification all the way up to 90% in case this symbology is used for layers with a different range.
@@ -49,8 +65,17 @@ Remember to put your symbology information under a folder called `RAVE\Symbology
 
 ![layer file]({{site.baseurl}}/assets/images/layer_file.png)
 
-## Video Demonstration
+#### Video Demonstration
 
 <div class="responsive-embed">
 <iframe width="560" height="315" src="https://www.youtube.com/embed/msaGPVzmnxk" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 </div>
+
+---------
+
+### WebRAVE
+
+#### WebRave How-to Create a Q Layer File (`*.qml`)
+
+
+-----------
