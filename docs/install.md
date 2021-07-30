@@ -5,6 +5,12 @@ weight: 2
 
 ## QGIS Plug-In
 
+To install the RAVE Plug-In for the first time to QGIS ____ or later, download the latest release from the [Riverscapes Github repository](https://github.com/Riverscapes/QRAVEPlugin/releases).
+
+### Minimum Requirements
+
+RAVE requires QGIS _______ or newer.
+
 -------------
 ## ArcGIS Add-In
 
