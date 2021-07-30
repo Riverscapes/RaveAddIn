@@ -3,9 +3,8 @@ title: Installation & Updates
 weight: 2
 ---
 
-## QGIS Plug-In
+### QGIS Plug-In
 
-<<<<<<< HEAD
 To install the RAVE Plug-In for the first time to QGIS  or later, simply [download](https://github.com/Riverscapes/QRAVEPlugin/releases) the latest release from the Riverscapes Github repository. Once downloaded, unzip the `qrave_toolbar*.zip` file. Open QGIS. From the QGIS main toolbar, choose `Plugins  → Manage and Install Plugins`, and navigate to `Riverscapes Plugin (QRAVE)`. 
 
 
