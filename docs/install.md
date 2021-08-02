@@ -5,9 +5,9 @@ weight: 2
 
 ### QGIS Plug-In
 
-To install the RAVE Plug-In for the first time to QGIS  or later, simply [download](https://github.com/Riverscapes/QRAVEPlugin/releases) the latest release from the Riverscapes Github repository. Once downloaded, unzip the `qrave_toolbar*.zip` file. Open QGIS. From the QGIS main toolbar, choose `Plugins  → Manage and Install Plugins`, and navigate to `Riverscapes Plugin (QRAVE)`. To update the RAVE Plug-In after it has already been installed, simply choose `Upgrade Plug-In` from the `Riverscapes Plugin (QRAVE)` window. View the video below for a walkthrough of the installation process.
+To install the RAVE Plug-In for the first time to QGIS  or later, simply [download](https://github.com/Riverscapes/QRAVEPlugin/releases) the latest release from the Riverscapes Github repository. Once downloaded, unzip the `qrave_toolbar*.zip` file. Open QGIS. From the QGIS main toolbar, choose `Plugins  → Manage and Install Plugins`, and navigate to `Riverscapes Plugin (QRAVE)`. To update the RAVE Plug-In after it has already been installed, simply choose `Upgrade Plug-In` from the `Riverscapes Plugin (QRAVE)` window. View the video below for a walkthrough of the installation and update process. 
 
-[insert video here]
+<iframe width="560" height="315" src="https://youtu.be/8YYBf2j5uyw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ### Minimum Requirements
 
