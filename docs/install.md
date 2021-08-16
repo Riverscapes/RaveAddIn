@@ -8,7 +8,7 @@ weight: 2
 To install the RAVE Plug-In for the first time to QGIS 3.16 or later, choose `Plugins  → Manage and Install Plugins` from the main menu and navigate to `Riverscapes Plugin (QRAVE)`. To update the RAVE Plug-In after it has already been installed, simply choose `Upgrade Plug-In` from the `Riverscapes Plugin (QRAVE)` window. View the video below for a walkthrough of the installation and update process. 
 
 <div class="responsive-embed">
-<iframe width="560" height="315" src="https://www.youtube.com/watch?v=O5xwIqhtlag" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/O5xwIqhtlag" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 
 ### Minimum Requirements
