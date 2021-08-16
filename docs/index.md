@@ -13,7 +13,7 @@ Welcome to the Riverscapes Analysis Visualization Explorer (RAVE) software websi
         &nbsp;&nbsp;Download ArcRAVE AddIn for ArcGIS 10.X</a>
 <a class="button large" href="https://data.riverscapes.xyz">
         <img src="{{site.baseurl}}/assets/images/RiverscapesLogo_x16.png">
-        &nbsp;&nbsp;Explore WebRAVE in Warehouse/a>
+        &nbsp;&nbsp;Explore WebRAVE in Warehouse</a>
 </div>
 
 ## Background
