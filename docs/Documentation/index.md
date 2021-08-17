@@ -1,5 +1,4 @@
 ---
 title: Documentation
-weight: 3
+index: 3
 ---
-
