@@ -1,5 +1,6 @@
 ---
 title: Base Maps
+weight: 3
 ---
 
 In addition to helping load riverscapes projects into the current ArcMap document, RAVE also supports loading base map layers.

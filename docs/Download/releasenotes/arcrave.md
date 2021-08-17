@@ -2,18 +2,23 @@
 title: ArcRAVE Release Notes
 weight: 99
 ---
+<div align="center">
+<a class="button" href="https://github.com/Riverscapes/RaveAddIn/releases">See all ArcRAVE Releases on GitHub</a>
+   <a class="button" href="https://github.com/Riverscapes/RaveAddIn/releases/latest">Latest ArcRAVE Release</a>
+</div>
 
 
+### [2.1.3](https://github.com/Riverscapes/RaveAddIn/releases/tag/2.1.3) - 31 
 
-### 2.1.3 - 31 Mar 2021
+### Mar 2021
 
 * Fixing LTPBR symbology
 
-### 2.1.2 - 30 Mar 2021
+### [2.1.2](https://github.com/Riverscapes/RaveAddIn/releases/tag/2.1.2) - 30 Mar 2021
 
 * LTPBR - Planning business logic and symbology
 
-### 2.1.1 - 28 Feb 2021
+### [2.1.1](https://github.com/Riverscapes/RaveAddIn/releases/tag/2.1.1) - 28 Feb 2021
 
 * GUT business logic and symbology.
 
