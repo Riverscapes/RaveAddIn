@@ -2,26 +2,13 @@
 title: RAVE
 ---
 
-Welcome to the Riverscapes Analysis Visualization Explorer (RAVE) software website. Here you can find general information about the RAVE software, including information on [opening projects](open-project.html), [symbolizing layers](symbology.html) and controlling how projects are displayed using [business logic XML](business-logic.html).
+<img class="float-right" src="{{ site.baseurl }}/assets/images/QRaveToolbar.png"> 
+Welcome to the Riverscapes Analysis Visualization Explorer (RAVE) tool website. Here you can find out how more [about RAVE]({{ site.baseurl }}/About), how to [Get RAVE]({{ site.baseurl }}/Download), and [Documentation]({{ site.baseurl }}/Documentation).
+
 
 <div style="text-align:center">
-<a class="button large" href="http://rave.riverscapes.xyz/install.html#qgis-plug-in">
+<a class="button large" href="{{ site.baseurl }}/Download">
         <img src="{{site.baseurl}}/assets/images/RiverscapesLogo_x16.png">
-        &nbsp;&nbsp;Installation Instructions for QRAVE PlugIn for QGIS</a>
-<a class="button large" href="https://github.com/Riverscapes/RaveAddIn/releases/latest">
-        <img src="{{site.baseurl}}/assets/images/RiverscapesLogo_x16.png">
-        &nbsp;&nbsp;Download ArcRAVE AddIn for ArcGIS 10.X</a>
-<a class="button large" href="https://data.riverscapes.xyz">
-        <img src="{{site.baseurl}}/assets/images/RiverscapesLogo_x16.png">
-        &nbsp;&nbsp;Explore WebRAVE in Warehouse</a>
+        &nbsp;&nbsp;Get RAVE</a>
 </div>
 
-## Background
-
-RAVE is part of the [Riverscapes Consortium's](http://riverscapes.xyz) much larger family of tools for analyzing riverscapes. RAVE itself does not do any analysis, but allows exploring of any [Riverscapes-compliant project](https://riverscapes.github.io/riverscapes-website/Technical_Reference/Documentation_Standards/Riverscapes_Projects/). RAVE provides an explorer in which you can navigate the "project tree", and add any layer to map symbolized appropriately. 
-
-One of the real advantages of having [riverscapes projects](https://riverscapes.xyz/Tools/Technical_Reference/Documentation_Standards/Riverscapes_Projects/), is the ability to share that data with GIS users for them to explore in GIS. There are multiple ways to use RAVE: the QGIS Plug-In, the ArcGIS Add-in, or through WebRAVE. We take a test-drive of RAVE in this < five minute video:
-
-<div class="responsive-embed">
-<iframe width="560" height="315" src="https://www.youtube.com/embed/9gFvuRWC2AI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</div>
