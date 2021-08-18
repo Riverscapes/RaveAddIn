@@ -6,7 +6,7 @@ layout: dotnetpane
 
 <a href="https://northarrowresearch.com" target=”_blank”>NAR</a>
 
-RAVE is brought to you for free by the [Riverscapes Consortium](http://riverscapes.xyz). It is how you visualize and explore _any_  [Riverscapes Projects](https://riverscapes.xyz/Tools/Technical_Reference/Documentation_Standards/Riverscapes_Projects/) found in the [Riverscapes Warehouse](https://riverscapes.xyz/Data_Warehouses/).
+RAVE is brought to you for free by the [Riverscapes Consortium](http://riverscapes.xyz){:target="_blank"}. It is how you visualize and explore _any_  [Riverscapes Projects](https://riverscapes.xyz/Tools/Technical_Reference/Documentation_Standards/Riverscapes_Projects/) found in the [Riverscapes Warehouse](https://riverscapes.xyz/Data_Warehouses/).
 
 [![RC_Black](https://rave.riverscapes.xyz/assets/images/logos/RC_Black.png)](http://riverscapes.xyz)
 
