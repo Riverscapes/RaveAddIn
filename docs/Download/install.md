@@ -6,7 +6,8 @@ Jump to Instructions for:
 - [QRAVE](#qgis-plug-in)
 - [ArcRAVE](#arcgis-add-in)
 - [WebRAVE](#web-rave)
-- 
+
+
 ## QGIS QRAVE Plug-In
 
 To install the RAVE Plug-In for the first time to [QGIS](https://qgis.org/) 3.16 or later: 
