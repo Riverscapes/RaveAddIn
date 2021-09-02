@@ -27,6 +27,9 @@ At any time after it is installed, you can update the RAVE Plug-In by simply cho
 
 RAVE requires QGIS 3.16 or newer.
 
+### Updating Resources
+<img class="float-right" src="{{ site.baseurl }}/assets/images/updateresources.png"> You will want to update resources just about every time you use RAVE (including on a new install) to make sure you have the latest symbology and business logic. To do this, you simply go to the RAVE toolbar's `Help` menu → `Update Resources`. This then grabs the synchronizes the latest files from the [RiverscapesXML repo](https://github.com/Riverscapes/RiverscapesXML) with your Local Resources folder (e.g. `C:\Users\YOURUSERNAME\AppData\Roaming\QGIS\QGIS3\profiles\default\python\plugins\qrave_toolbar\resources`) that QRAVE uses. You can also browse to that resource folder from the RAVE toolbar's `Help` menu → `Find Resources Folder`.
+
 ### QGIS - Need to get GIS?
 If you do not have [QGIS](https://qgis.org/) already, or even if you have never used GIS, we show you below how quickly you can get up and running in QGIS from scratch (on Windows, Mac or Linux) and get QRAVE installed and start looking at a [Riverscapes Project](https://riverscapes.xyz/Tools/Technical_Reference/Documentation_Standards/Riverscapes_Projects/) from the [Riverscapes Warehouse](https://data.riverscapes.xyz/).
 **Installation time**: < 5 minutes
