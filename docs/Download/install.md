@@ -7,7 +7,7 @@ Jump to Instructions for:
 - [ArcRAVE](#arcgis-add-in)
 - [WebRAVE](#web-rave)
 
-
+-----------------
 ## QGIS QRAVE Plug-In
 
 To install the RAVE Plug-In for the first time to [QGIS](https://qgis.org/) 3.16 or later: 
@@ -57,6 +57,7 @@ RAVE requires ArcGIS 10.6.1 or newer. RAVE does **not** yet work with ArcPro.
 
 Note RAVE 1.X works with ArcGIS 10.4 and later, but is no longer supported.
 
+-------------
 ## Web RAVE
 
-WebRAVE is just a website, so no installation is needed.
+WebRAVE is just part of the [data warehouse website](https://data.riverscapes.xyz), so no installation is needed.
