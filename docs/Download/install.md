@@ -5,10 +5,27 @@ weight: 2
 
 ### QGIS Plug-In
 
-To install the RAVE Plug-In for the first time to QGIS 3.16 or later, choose `Plugins  → Manage and Install Plugins` from the main menu and navigate to `Riverscapes Plugin (QRAVE)`. To update the RAVE Plug-In after it has already been installed, simply choose `Upgrade Plug-In` from the `Riverscapes Plugin (QRAVE)` window. View the video below for a walkthrough of the installation and update process. 
+To install the RAVE Plug-In for the first time to [QGIS](https://qgis.org/) 3.16 or later: 
+1. Choose from top menu `Plugins  → Manage and Install Plugins` from the `Plugins` menu 
+2. Search Plugins for `Riverscapes`
+3. Navigate to `Riverscapes Plugin (QRAVE)`and click install
+
+At any time after it is installed, you can update the RAVE Plug-In by simply choosing `Upgrade Plug-In` from the `Riverscapes Plugin (QRAVE)` window. View the video below for a walkthrough of the installation and update process. 
+
+**Installation time**: < 30 seconds.
 
 <div class="responsive-embed">
 <iframe width="560" height="315" src="https://www.youtube.com/embed/O5xwIqhtlag" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+
+
+
+#### QGIS - Need to get GIS?
+If you do not have [QGIS](https://qgis.org/) already, or even if you have never used GIS, we show you below how quickly you can get up and running in QGIS from scratch (on Windows, Mac or Linux) and get QRAVE installed and start looking at a [Riverscapes Project](https://riverscapes.xyz/Tools/Technical_Reference/Documentation_Standards/Riverscapes_Projects/) from the [Riverscapes Warehouse](https://data.riverscapes.xyz/).
+**Installation time**: < 5 minutes
+
+<div class="responsive-embed">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/iMxcyp2u4jc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 
 ### Minimum Requirements
