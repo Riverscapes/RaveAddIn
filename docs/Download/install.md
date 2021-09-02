@@ -2,8 +2,12 @@
 title: Installation & Updates
 weight: 2
 ---
-
-### QGIS Plug-In
+Jump to Instructions for:
+- [QRAVE](#qgis-plug-in)
+- [ArcRAVE](#arcgis-add-in)
+- [WebRAVE](#web-rave)
+- 
+## QGIS QRAVE Plug-In
 
 To install the RAVE Plug-In for the first time to [QGIS](https://qgis.org/) 3.16 or later: 
 1. Choose from top menu `Plugins  → Manage and Install Plugins` from the `Plugins` menu 
@@ -18,9 +22,11 @@ At any time after it is installed, you can update the RAVE Plug-In by simply cho
 <iframe width="560" height="315" src="https://www.youtube.com/embed/O5xwIqhtlag" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 
+#### Minimum Requirements
 
+RAVE requires QGIS 3.16 or newer.
 
-#### QGIS - Need to get GIS?
+### QGIS - Need to get GIS?
 If you do not have [QGIS](https://qgis.org/) already, or even if you have never used GIS, we show you below how quickly you can get up and running in QGIS from scratch (on Windows, Mac or Linux) and get QRAVE installed and start looking at a [Riverscapes Project](https://riverscapes.xyz/Tools/Technical_Reference/Documentation_Standards/Riverscapes_Projects/) from the [Riverscapes Warehouse](https://data.riverscapes.xyz/).
 **Installation time**: < 5 minutes
 
@@ -28,9 +34,7 @@ If you do not have [QGIS](https://qgis.org/) already, or even if you have never 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/iMxcyp2u4jc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 
-### Minimum Requirements
 
-RAVE requires QGIS 3.16 or newer.
 
 
 
