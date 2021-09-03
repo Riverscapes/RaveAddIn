@@ -64,8 +64,8 @@ However, simply adding a dataset to the current map document in desktop GIS can 
 
 |GIS Challenge|RAVE Solution|
 |---|---|
-|Layers are added with default symbology (grey scale for rasters and a random color for vector layers). Apply appropriate symbolology to each layer is trivial but time consuming.|RAVE ships with a library of carefully curated symbology for each data type. Layers are always added to the map with consistent and appropriate symbology.|
-|Layers are added to the top of the table of contents without contextual layer groups, requiring the user to adjust layers up and down and construct appropriate groups.|RAVE stores a logical tree of how layers should be organized for each type of project. Users can browse this tree and then add layers to the map, confident that RAVE will reconstruct the project tree in the table of contents.|
-Layers are added to the table of contents with the dataset name by default.|RAVE ships with meainingful names for each layer that it uses when adding any layer to the map|
-|Project data can be specific and lack the overall context required for interpretation.|RAVE makes available several free, public web mapping services making it easy to add aerial imagery and topographic base map layers with a single click.|
+|Layers are added with default symbology (grey scale for rasters and a random color for vector layers). Applying appropriate symbolology to each layer is trivial but time consuming.|RAVE ships with a library of carefully curated symbology for each data type. Layers are always added to the map with consistent and appropriate symbology.|
+|Layers are added to the top of the table of contents without contextual layer groups, requiring users to adjust layers up and down and construct appropriate groups.|RAVE stores a logical tree of how layers should be organized for each type of project. Users can browse this tree and then add layers to the map, confident that RAVE will reconstruct the project tree within the table of contents.|
+Layers are added to the table of contents with the dataset name by default. Dataset names are typically convoluted and difficult to comprehend.|RAVE ships with meainingful names for each layer that are applied when adding any layer to the map.|
+|Project data can be very specific and lack the overall context required for interpretation.|RAVE makes available several free, public web mapping services, making it easy to add aerial imagery and topographic base map layers with a single click.|
 
