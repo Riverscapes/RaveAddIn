@@ -1,9 +1,10 @@
 ---
-title: ArcRAVE Symbology Curation
+title: ArcRAVE Symbology
 weight: 3
 ---
 
-### ArcRAVE
+ArcRAVE stores symbology in proprietary ESRI layer files. Each type of RAVE dataset has its own layer file.
+
 ESRI Layer files contain two bits of information. First they possess a path to a specific GIS dataset on your computer and second they store the definition of how the dataset should be symbolized. RAVE only uses the latter and ignores the path to the dataset itself. In this way RAVE can apply the symbology stored in a single layer file to many layers of the same type. See the [video demonstration](#video-demonstration) below to see for how all of this works.
 
 #### ArcRAVE - How To Create a Layer (`*.lyr`) File

@@ -1,11 +1,9 @@
 ---
 title:  Questions, Feature Requests and Bugs
-weight: 3
+weight: 4
 ---
 
-Known bugs as well as enhancement ideas are tracked using [GitHub issues](https://github.com/Riverscapes/RaveAddIn/issues). Please report any bugs or enhancements here being sure to provide a full explanation, preferably with images or better still, videos of the issue.
-
-RAVE is under ongoing development and we are eager to resolve all known issues.  
+Known bugs as well as enhancement ideas are tracked using GitHub issues. Please report any bugs or enhancements here being sure to provide a full explanation, preferably with images or better still, videos of the issue.
 
 # Questions and Discussion Boards
 
