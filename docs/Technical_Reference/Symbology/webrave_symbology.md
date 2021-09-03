@@ -1,6 +1,6 @@
 ---
 title: Web RAVE Vector Symbology
-weight: 4
+weight: 1
 ---
 
 The following instructions are intended for riverscapes tool owners to define Web RAVE symbology. They pertain to **vector** symbology only. Separate instructions are forthcoming for raster symbology.
