@@ -181,8 +181,17 @@ namespace RaveAddIn
             // Retrieve and apply the project name to the parent node
             tnProject.Text = GetLabel(nodBLRoot, projectXMLRoot);
 
+            // The parent node might specify the starting project node (e.g. Riverscapes Context and VBET)
+            XmlAttribute attXPath = nodBLRoot.Attributes["xpath"];
+            if (attXPath is XmlAttribute && !string.IsNullOrEmpty(attXPath.InnerText))
+            {
+                XmlNode xmlProjectChild = projectXMLRoot.SelectSingleNode(attXPath.InnerText);
+                if (xmlProjectChild is XmlNode)
+                    projectXMLRoot = xmlProjectChild;
+            }
+
             // Loop over all child nodes of the business logic XML and load them to the tree
-            nodBLRoot.ChildNodes.OfType<XmlNode>().ToList().ForEach(x => LoadTreeNode(tnProject, x, projectXMLRoot, string.Empty));
+            nodBLRoot.ChildNodes.OfType<XmlNode>().ToList().ForEach(x => LoadTreeNode(tnProject, projectXMLRoot, x));
 
             LoadProjectViews(tnProject, xmlBusiness);
 
@@ -221,10 +230,18 @@ namespace RaveAddIn
                 if (attName == null || string.IsNullOrEmpty(attName.InnerText))
                     continue;
 
-                string viewName = nodView.Attributes["name"].InnerText;
-                ProjectTree.ProjectView view = new ProjectTree.ProjectView(viewName, string.Compare(viewName, defaultViewName, true) == 0);
+                string viewId = string.Empty;
+                XmlAttribute viewAttId = nodView.Attributes["id"];
+                if (viewAttId is XmlAttribute && !string.IsNullOrEmpty(viewAttId.InnerText))
+                    viewId = viewAttId.InnerText;
 
-                foreach (XmlNode nodLayer in nodView.SelectNodes("Layer"))
+                bool IsDefaultView = !string.IsNullOrEmpty(defaultViewName) && string.Compare(defaultViewName, viewId) == 0;
+
+                string viewName = nodView.Attributes["name"].InnerText;
+                ProjectTree.ProjectView view = new ProjectTree.ProjectView(viewId, viewName, IsDefaultView);
+
+
+                foreach (XmlNode nodLayer in nodView.SelectNodes("Layers/Layer"))
                 {
                     XmlAttribute attId = nodLayer.Attributes["id"];
                     if (attId == null || string.IsNullOrEmpty(attId.InnerText))
@@ -259,7 +276,7 @@ namespace RaveAddIn
                     tnViews.Nodes.Add(tnView);
 
                     // Check if this is the default view
-                    if (string.Compare(viewName, defaultViewName, true) == 0)
+                    if (view.IsDefaultView)
                         defaultView = tnView;
                 }
             }
@@ -298,32 +315,71 @@ namespace RaveAddIn
             return null;
         }
 
-        private void LoadTreeNode(TreeNode tnParent, XmlNode xmlBusiness, XmlNode xmlProject, string xPath)
+        private void LoadTreeNode(TreeNode tnParent, XmlNode xmlProject, XmlNode xmlBusiness)
         {
             if (xmlBusiness.NodeType == XmlNodeType.Comment)
                 return;
 
-            string label = GetLabel(xmlBusiness, xmlProject);
-
-            if (xmlBusiness.Name == "Repeater")
+            if (string.Compare(xmlBusiness.Name, "Repeater", true) == 0)
             {
-                TreeNode newNode = new TreeNode(label, 1, 1);
-                tnParent.Nodes.Add(newNode);
-                tnParent = newNode;
-                xPath = GetXPath(xmlBusiness, string.Empty);
-
-                foreach (XmlNode projChild in xmlProject.SelectNodes(xPath))
+                // Add the repeater label
+                XmlAttribute attLabel = xmlBusiness.Attributes["label"];
+                if (attLabel is XmlAttribute && !string.IsNullOrEmpty(attLabel.InnerText))
                 {
-                    foreach (XmlNode busChild in xmlBusiness.ChildNodes)
+                    TreeNode newNode = new TreeNode(attLabel.InnerText, 1, 1);
+                    tnParent.Nodes.Add(newNode);
+
+                    // Repeat the business logic items inside the repeater for all items in the xPath
+                    XmlAttribute attXPath = xmlBusiness.Attributes["xpath"];
+                    if (attXPath is XmlAttribute && !string.IsNullOrEmpty(attXPath.InnerText))
                     {
-                        LoadTreeNode(tnParent, busChild, projChild, string.Empty);
+                        foreach (XmlNode xmlProjectChild in xmlProject.SelectNodes(attXPath.InnerText))
+                        {
+                            foreach (XmlNode xmlBusinessChild in xmlBusiness.ChildNodes)
+                            {
+                                LoadTreeNode(newNode, xmlProjectChild, xmlBusinessChild);
+                            }
+                        }
                     }
                 }
             }
-            else if (xmlBusiness.Name == "Node")
+            else if (string.Compare(xmlBusiness.Name, "Children", true) == 0)
             {
-                xPath = GetXPath(xmlBusiness, xPath);
-                System.Diagnostics.Debug.Print(xPath);
+                foreach (XmlNode xmlBusinessNode in xmlBusiness.ChildNodes)
+                {
+                    LoadTreeNode(tnParent, xmlProject, xmlBusinessNode);
+                }
+            }
+            else if (string.Compare(xmlBusiness.Name, "Node", true) == 0)
+            {
+                // First the new project node referred to by the XPath
+                XmlAttribute attXPath = xmlBusiness.Attributes["xpath"];
+                if (attXPath is XmlAttribute && !string.IsNullOrEmpty(attXPath.InnerText))
+                {
+                    xmlProject = xmlProject.SelectSingleNode(attXPath.InnerText);
+                    if (xmlProject == null)
+                        return;
+                }
+
+                // Now get the label. First Try the XPath, then the label
+                string label = "No Label Provided";
+                XmlAttribute attXPathLabel = xmlBusiness.Attributes["xpathlabel"];
+                if (attXPathLabel is XmlAttribute && !string.IsNullOrEmpty(attXPathLabel.InnerText))
+                {
+                    XmlNode xmlLabel = xmlProject.SelectSingleNode(attXPathLabel.InnerText);
+                    if (xmlLabel is XmlNode && !string.IsNullOrEmpty(xmlLabel.InnerText))
+                    {
+                        label = xmlLabel.InnerText;
+                    }
+                }
+                else
+                {
+                    XmlAttribute attLabel = xmlBusiness.Attributes["label"];
+                    if (attLabel is XmlAttribute && !string.IsNullOrEmpty(attLabel.InnerText))
+                    {
+                        label = attLabel.InnerText;
+                    }
+                }
 
                 // Get the ID used for associated nodes with project views
                 string id = string.Empty;
@@ -334,18 +390,7 @@ namespace RaveAddIn
                 XmlAttribute attType = xmlBusiness.Attributes["type"];
                 if (attType is XmlAttribute)
                 {
-                    XmlNode gisNode = xmlProject;
-                    if (!string.IsNullOrEmpty(xPath))
-                    {
-                        gisNode = xmlProject.SelectSingleNode(xPath);
-                        if (!(gisNode is XmlNode))
-                        {
-                            System.Diagnostics.Debug.Print(string.Format("Missing GIS NODE at {0}", xPath));
-                            //System.Diagnostics.Debug.Assert(gisNode is XmlNode);
-                        }
-                    }
-
-                    label = GetLabel(xmlBusiness, gisNode);
+                    //This is a GIS Node!
 
                     // Retrieve symbology key from business logic
                     string symbology = string.Empty;
@@ -353,6 +398,7 @@ namespace RaveAddIn
                     if (attSym is XmlAttribute && !String.IsNullOrEmpty(attSym.InnerText))
                         symbology = attSym.InnerText;
 
+                    // Retrieve the transparency from the business logic
                     short transparency = 0;
                     XmlAttribute attTransparency = xmlBusiness.Attributes["transparency"];
                     if (attTransparency is XmlAttribute && !string.IsNullOrEmpty(attTransparency.InnerText))
@@ -361,35 +407,32 @@ namespace RaveAddIn
                             System.Diagnostics.Debug.Print(string.Format("Invalid layer transparency for {0}: {1}", label, transparency));
                     }
 
-                    // This some kind of file (vector, raster, tile, image etc)
-                    AddGISNode(tnParent, attType.InnerText, gisNode, symbology, label, transparency, id);
+                    AddGISNode(tnParent, attType.InnerText, xmlProject, symbology, label, transparency, id);
                 }
                 else
                 {
-                    // Group Layer / Folder
-                    TreeNode newNode = new TreeNode(label, 1, 1);
-                    tnParent.Nodes.Add(newNode);
-                    tnParent = newNode;
+                    // Static label node
 
-                    bool collapsed = false;
+                    // First check if there are children to this node and if so where collapsed is specified
+                    bool collapsed = true;
                     XmlNode xmlChildren = xmlBusiness.SelectSingleNode("Children");
                     if (xmlChildren is XmlNode)
                     {
                         XmlAttribute attCollapsed = xmlChildren.Attributes["collapsed"];
-                        if (attCollapsed is XmlAttribute)
+                        if (attCollapsed is XmlAttribute && !string.IsNullOrEmpty(attCollapsed.InnerText))
                         {
                             bool.TryParse(attCollapsed.InnerText, out collapsed);
                         }
                     }
 
+                    TreeNode newNode = new TreeNode(label, 1, 1);
                     newNode.Tag = new ProjectTree.GroupLayer(label, collapsed, id);
+                    tnParent.Nodes.Add(newNode);
+                    tnParent = newNode;
                 }
-            }
 
-            // Loop over all child nodes if not a repeater (repeaters handle their own children above)
-            if (string.Compare(xmlBusiness.Name, "Repeater", true) != 0)
-            {
-                xmlBusiness.ChildNodes.OfType<XmlNode>().ToList().ForEach(x => LoadTreeNode(tnParent, x, xmlProject, xPath));
+                // Finally process all child nodes
+                xmlBusiness.ChildNodes.OfType<XmlNode>().ToList().ForEach(x => LoadTreeNode(tnParent, xmlProject, x));
             }
         }
 
@@ -406,6 +449,7 @@ namespace RaveAddIn
             if (nodGISNode == null)
                 return;
 
+
             // If the project node has a ref attribute then lookup the redirect to the inputs
             XmlAttribute attRef = nodGISNode.Attributes["ref"];
             if (attRef is XmlAttribute)
@@ -416,7 +460,7 @@ namespace RaveAddIn
             if (string.IsNullOrEmpty(label))
                 label = nodGISNode.SelectSingleNode("Name").InnerText;
 
-      
+
 
             string path = nodGISNode.SelectSingleNode("Path").InnerText;
 
@@ -458,6 +502,7 @@ namespace RaveAddIn
             switch (type.ToLower())
             {
                 case "file":
+                case "report":
                     {
                         dataset = new ProjectTree.FileSystemDataset(this, label, new FileInfo(absPath), 0, 0, id);
                         break;
@@ -470,6 +515,9 @@ namespace RaveAddIn
                     }
 
                 case "vector":
+                case "line":
+                case "point":
+                case "polygon":
                     {
                         dataset = new ProjectTree.Vector(this, label, absPath, symbology, transparency, id, metadata);
                         break;
