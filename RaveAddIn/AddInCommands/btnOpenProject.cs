@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Windows.Forms;
 
 namespace RaveAddIn.AddInCommands
@@ -48,6 +49,10 @@ namespace RaveAddIn.AddInCommands
 
                         // This will cause the project tree to reload all open projects
                         btnProjectExplorer.ShowProjectExplorer(true);
+                    }
+                    catch (FileLoadException exFile)
+                    {
+                        MessageBox.Show(exFile.Message, "Invalid Business Logic File", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     catch (Exception ex)
                     {

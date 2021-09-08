@@ -73,35 +73,23 @@ namespace RaveAddIn
 
             foreach (string folder in SearchFolders)
             {
-                if (!Directory.Exists(folder))
-                    continue;
-
-                foreach (string xmlPath in Directory.GetFiles(folder, "*.xml"))
+                string xmlPath = Path.ChangeExtension(Path.Combine(folder, ProjectType), "xml");
+                if (File.Exists(xmlPath))
                 {
-                    // Ignore project files that also end in *.xml
-                    if (xmlPath.ToLower().EndsWith(".rs.xml"))
-                        continue;
-
                     try
                     {
                         XmlDocument xmlDoc = new XmlDocument();
                         xmlDoc.Load(xmlPath);
-
-                        XmlNode nodProjectType = xmlDoc.SelectSingleNode("Project/ProjectType");
-                        XmlNode nodName = xmlDoc.SelectSingleNode("Project/Name");
-
-                        if (nodProjectType is XmlNode && !string.IsNullOrEmpty(nodProjectType.InnerText))
-                        {
-                            if (string.Compare(nodProjectType.InnerText, ProjectType, true) == 0)
-                            {
-                                System.Diagnostics.Debug.Print(string.Format("Using business logic at {0}", xmlPath));
-                                return new FileInfo(xmlPath);
-                            }
-                        }
+                        System.Diagnostics.Debug.Print(string.Format("Using business logic at {0}", xmlPath));
+                        return new FileInfo(xmlPath);
                     }
-                    catch (Exception)
+                    catch (Exception ex)
                     {
-                        // Do nothing, continue onto the next business logic file
+                        Exception ex2 = new FileLoadException(string.Format("Error Loading business logic from the following path." +
+                            " Remove or rename this file to allow RAVE to continue searching for alternative {0} business logic files.\n\n{1}",
+                            ProjectType, xmlPath), ex);
+                        ex2.Data["FilePath"] = xmlPath;
+                        throw ex2;
                     }
                 }
             }
