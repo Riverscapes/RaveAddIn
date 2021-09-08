@@ -1,0 +1,3 @@
+[submodule "RaveAddIn\\RiverscapesXML"]
+	path = RaveAddIn\\RiverscapesXML
+	url = git@github.com:Riverscapes/RiverscapesXML.git
