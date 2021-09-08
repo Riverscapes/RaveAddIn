@@ -59,9 +59,35 @@ namespace RaveAddIn
                 results.business_logic = downloadManifestFiles(ResourceURL, mani, @"RaveBusinessLogic\/.*\.xml", targetDir);
                 results.symbology_lyrs = downloadManifestFiles(ResourceURL, mani, @"Symbology\/esri\/.*\.lyr", targetDir);
                 results.base_maps_xml = downloadManifestFiles(ResourceURL, mani, "BaseMaps.xml", targetDir);
+
+                // Cleanup local files
+                cleanupFiles(mani, targetDir, "RaveBusinessLogic", "*.xml");
+                cleanupFiles(mani, targetDir, @"Symbology\esri", "*.lyr");
             }
 
             return results;
+        }
+
+        private void cleanupFiles(Dictionary<string, string> manifest, string targetDir, string sub_folder, string file_wildcard)
+        {
+
+            // Loop over all files, recursively, that match the wildcard and ensure that they are within the manifest.
+            // Delete those that are no longer within the manifest.
+            foreach (string aFile in Directory.GetFiles(Path.Combine(targetDir, sub_folder), file_wildcard, SearchOption.AllDirectories))
+            {
+                try
+                {
+                    string existing_file = aFile.Replace(targetDir, string.Empty).Replace(Path.DirectorySeparatorChar, '/').TrimStart('/');
+                    if (!manifest.ContainsKey(existing_file))
+                    {
+                        File.Delete(aFile);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(string.Format("Error attempting to delete unused RAVE resource file {0}", aFile));
+                }
+            }
         }
 
         private downloadResults downloadManifestFiles(string resource_url, Dictionary<string, string> manifest, string regex_pattern, string target_dir)
