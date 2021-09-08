@@ -110,6 +110,10 @@
       <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
@@ -125,6 +129,7 @@
     <Compile Include="AddInCommands\btnOptions.cs" />
     <Compile Include="AddInCommands\btnProjectExplorer.cs" />
     <Compile Include="AddInCommands\btnWebSite.cs" />
+    <Compile Include="AddInCommands\btnUpdateResources.cs" />
     <Compile Include="ArcMapUtilities.cs" />
     <Compile Include="Config.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -198,6 +203,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="RaveProject.cs" />
+    <Compile Include="ResourceUpdater.cs" />
     <Compile Include="ucProjectExplorer.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -242,6 +248,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -254,6 +261,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="Resources\Help.png" />
+    <AddInContent Include="Images\Refresh.png" />
     <Content Include="XML\brat.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <SubType>Designer</SubType>

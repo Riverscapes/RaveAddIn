@@ -383,10 +383,10 @@ namespace RaveAddIn
         /// file with the name SYMBOLOGY_KEY.lyr
         /// 
         /// 1. ProjectFolder
-        /// 2. %APPDATA%\RAVE\MODEL
-        /// 3. %APPDATA%\RAVE\Shared
-        /// 4. SOFTWARE_DEPLOYMENT\MODEL
-        /// 5. SOFTWARE_DEPLOYMENT\Shared
+        /// 2. %APPDATA%\RAVE\Symbology\esri\MODEL
+        /// 3. %APPDATA%\RAVE\Symbology\esrsi\Shared
+        /// 4. SOFTWARE_DEPLOYMENT\Symbology\esri\MODEL
+        /// 5. SOFTWARE_DEPLOYMENT\Symbology\esri\Shared
         /// 
         /// </remarks>
         private FileInfo GetSymbology(GISDataset layer)
