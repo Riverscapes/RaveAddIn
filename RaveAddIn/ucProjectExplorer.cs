@@ -149,7 +149,7 @@ namespace RaveAddIn
         /// <summary>
         /// Software deployment folder
         /// </summary>
-        public static DirectoryInfo DeployFolder { get { return new DirectoryInfo(Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location)); } }
+        public static DirectoryInfo DeployFolder { get { return new DirectoryInfo(Path.Combine(Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location), "RiverscapesXML")); } }
 
         public void LoadProject(FileInfo projectFile)
         {
