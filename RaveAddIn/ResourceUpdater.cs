@@ -5,6 +5,8 @@ using System.IO;
 using System.Net;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System.Text.RegularExpressions;
+
 
 namespace RaveAddIn
 {
@@ -25,6 +27,9 @@ namespace RaveAddIn
         {
             public downloadResults business_logic { get; set; }
             public downloadResults symbology_lyrs { get; set; }
+            public downloadResults base_maps_xml { get; set; }
+
+            public int TotalDownloads { get { return business_logic.downloaded + symbology_lyrs.downloaded + base_maps_xml.downloaded; } }
         }
 
         public ResourceUpdater(string resource_url, string business_logic_prefix, string symbology_prefix)
@@ -51,26 +56,25 @@ namespace RaveAddIn
                 JObject o2 = (JObject)JToken.ReadFrom(reader);
                 Dictionary<string, string> mani = JsonConvert.DeserializeObject<Dictionary<string, string>>(o2.ToString());
 
-                results.business_logic = downloadManifestFiles(ResourceURL, mani, BusinessLogicPrefix, ".xml", targetDir);
-                results.symbology_lyrs = downloadManifestFiles(ResourceURL, mani, SymbologyPrefix, ".lyr", targetDir);
+                results.business_logic = downloadManifestFiles(ResourceURL, mani, @"RaveBusinessLogic\/.*\.xml", targetDir);
+                results.symbology_lyrs = downloadManifestFiles(ResourceURL, mani, @"Symbology\/esri\/.*\.lyr", targetDir);
+                results.base_maps_xml = downloadManifestFiles(ResourceURL, mani, "BaseMaps.xml", targetDir);
             }
 
             return results;
         }
 
-        private downloadResults downloadManifestFiles(string resource_url, Dictionary<string, string> manifest, string folder_pattern, string file_suffix, string target_dir)
+        private downloadResults downloadManifestFiles(string resource_url, Dictionary<string, string> manifest, string regex_pattern, string target_dir)
         {
             downloadResults results = new downloadResults();
 
-            folder_pattern = folder_pattern.Replace('\\', '/');
-            folder_pattern = folder_pattern.EndsWith("/") ? folder_pattern : folder_pattern + "/";
-            file_suffix = file_suffix.StartsWith(".") ? file_suffix : "." + file_suffix;
+            Regex re = new Regex(regex_pattern, RegexOptions.Compiled);
 
             foreach (KeyValuePair<string, string> kvp in manifest)
             {
                 try
                 {
-                    if (kvp.Key.StartsWith(folder_pattern) && kvp.Key.EndsWith(file_suffix))
+                    if (re.IsMatch(kvp.Key))
                     {
                         string remote_path = string.Format("{0}{1}", resource_url, kvp.Key);
                         string local_path = Path.Combine(target_dir, kvp.Key.Replace('/', Path.DirectorySeparatorChar));

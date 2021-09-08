@@ -20,7 +20,7 @@ namespace RaveAddIn.AddInCommands
                     ResourceUpdater.UpdateResults results = rru.Update(appDataResources);
 
                     Cursor.Current = Cursors.Default;
-                    MessageBox.Show(string.Format("The RAVE resources were updated successfully.\n{0} resource files were updated.", results.business_logic.downloaded + results.symbology_lyrs.downloaded), "Resources Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(string.Format("The RAVE resources were updated successfully.\n{0} resource files were updated.", results.TotalDownloads), "Resources Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch (Exception ex)
