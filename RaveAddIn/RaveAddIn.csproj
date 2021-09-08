@@ -125,6 +125,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AddInCommands\btnAbout.cs" />
+    <Compile Include="AddInCommands\btnFindResourcesFolder.cs" />
     <Compile Include="AddInCommands\btnOpenProject.cs" />
     <Compile Include="AddInCommands\btnOptions.cs" />
     <Compile Include="AddInCommands\btnProjectExplorer.cs" />
