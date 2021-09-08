@@ -23,9 +23,9 @@ RAVE uses the first business logic file that it finds that contains the same pro
 
 |Search Folder|Example| Priority|
 |---|---|---|
-|In root directory of current riverscapes project file.|`D:\MyProjects\dem.lyr`| Priority 2|
-|`%APPDATA%\RAVE\XML`|`%APPDATA%\RAVE\XML\brat.xml`|Priority 3|
-|`<software_installation_folder>\XML`|*Hidden folder*|Priority 4 **DEFAULT**|
+|In root directory of current riverscapes project file.|`D:\MyProjects\my_downloaded_project\BRAT.xml`| Priority 2|
+|`%APPDATA%\RAVE\RaveBusinessLogic`|`%APPDATA%\RAVE\RaveBusinessLogic\BRAT.xml`|Priority 3|
+|`<software_installation_folder>\RaveBusinessLogic`|*Hidden folder*|Priority 4 **DEFAULT**|
 
 [![refresh]({{site.baseurl}}/assets/images/RAVE-Order_650wl.png)]({{site.baseurl}}/assets/images/RAVE-Order_Full.png)
 
@@ -185,8 +185,8 @@ Most RAVE users will have no idea what business logic is. If you have customized
 ## Option 2:  Update their Local Deafults
 
 For an advanced RAVE user, you can send them the `*.xml` business logic file and corresponding  `*.lyr` layer files the `symbology` keys point to, and then instruct them as follows:
-1. Place the `*.xml` business logic file in the `%APPDATA%\RAVE\XML`folder (note they may need to create this folder if it does not exist).
-2. Place all the `*.lyr` layer file(s) in the `%APPDATA%\RAVE\Symbology\[NAME]`folder where `[NAME]` is the same case and name as the project type (e.g. for `brat.xml` business logic this would be a subfolder of name `brat`. Note, they may need to create this `Sybmology` folder if it does not exist.
+1. Place the `*.xml` business logic file in the `%APPDATA%\RAVE\RaveBusinessLogic`folder (note they may need to create this folder if it does not exist).
+2. Place all the `*.lyr` layer file(s) in the `%APPDATA%\RAVE\Symbology\esri\[NAME]`folder where `[NAME]` is the same case and name as the project type (e.g. for `brat.xml` business logic this would be a subfolder of name `brat`. Note, they may need to create this `Sybmology` folder if it does not exist.
 3. Load a riverscapes project, or if a project is already loaded **Refersh Project Hiearchary** tree. 
 
 This video illustrates how this works:

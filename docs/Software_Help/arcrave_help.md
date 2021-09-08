@@ -5,6 +5,19 @@ weight: 3
 
 # Getting Started
 
+# Getting the latest ArcRAVE Resources
+
+ArcRAVE uses two types of resource files; business logic XML is used to to load the project explorer, and layer files are used to symbolize layers correctly. ArcRAVE ships with copies of these two types of files, but give nthat they are updated frequently, its important to keep these files up to date. You can use the `Update Resources` feature directly within ArcRAVE to get the latest versions of these files:
+
+1. Ensure that you have an active internet connection.
+1. Choose `Update Resources` from the help menu on the ArcRAVE toolbar.
+1. Confirm that you want to download the latest resource files.
+1. Wait for the confirmation of how many files were downloaded. 
+
+If the final message reports that 0 files were updated then you already have the latest business logic XML and symbology files.
+
+Note that any [custom business logic and symbology]({{site.baseurl}}/Technical_Reference/business-logic.html#customizing-business-logic--refreshing-the-project-explorer) files that you have placed directly in riverscapes project folders will take precedence over the resource files download using this feature. You will need to delete (or more conveniently, rename) these custom files before the ArcRAVE will utilize the resources downloaded using this feature.
+
 # Default Project View
 
 # Opening a Project
