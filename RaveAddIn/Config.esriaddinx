@@ -2,11 +2,11 @@
   <Name>RAVE</Name>
   <AddInID>{67c9bba1-7371-430f-b4ca-6b2545de71df}</AddInID>
   <Description>Riverscapes River Analyst And Explorer AddIn</Description>
-  <Version>3.0.2</Version>
+  <Version>3.0.3</Version>
   <Image>Images\RaveAddIn.png</Image>
   <Author>Philip Bailey</Author>
   <Company>North Arrow Research Ltd.</Company>
-  <Date>09/08/2021</Date>
+  <Date>09/09/2021</Date>
   <Targets>
     <Target name="Desktop" version="10.6" />
   </Targets>
