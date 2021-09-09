@@ -501,11 +501,21 @@ namespace RaveAddIn
                     if (string.Compare(node.Name, "GroupLayer", true) == 0)
                     {
                         TreeNode groupNode = new TreeNode(node.Attributes["name"].InnerText, 1, 1);
-                        nodParent.Nodes.Add(groupNode);
                         LoadBaseMapsFromXML(groupNode, node);
+
+                        if (groupNode.Nodes.Count > 0)
+                            nodParent.Nodes.Add(groupNode);
                     }
                     else if (string.Compare(node.Name, "Layer", true) == 0)
                     {
+                        // Skip all but WMS layers
+                        XmlAttribute attType = node.Attributes["type"];
+                        if (attType is XmlAttribute && !string.IsNullOrEmpty(attType.InnerText))
+                        {
+                            if (string.Compare("wms", attType.InnerText, true) != 0)
+                                continue;
+                        }
+
                         TreeNode newNode = nodParent.Nodes.Add(node.Attributes["name"].InnerText);
                         newNode.Tag = new ProjectTree.WMSLayer(newNode.Text, node.Attributes["url"].InnerText, 0, string.Empty);
                         newNode.ContextMenuStrip = cmsWMS;
