@@ -6,7 +6,10 @@ weight: 2
 To install QRAVE for the first time to [QGIS](https://qgis.org/) 3.16 or later: 
 
 1. From the main QGIS menu choose `Plugins → Manage and Install Plugins`.
-2. Search Plugins for `Riverscapes`.
+2. Search Plugins for `Riverscapes` (make sure that .under `Settings` → the `Show also experimental plugins` is checked on:
+
+<img src="{{ site.baseurl }}/assets/images/QRaveExperimental.png">
+
 3. Navigate to `Riverscapes Plugin (QRAVE)`and click install.
 
 At any time after it is installed, you can update QRAVE by simply choosing `Upgrade Plug-In` from the `Riverscapes Plugin (QRAVE)` window. View the video below for a walkthrough of the installation and update process. 
