@@ -108,7 +108,7 @@ namespace RaveAddIn
             }
         }
 
-        public string WarehouseURL
+        public Uri WarehouseReference
         {
             get
             {
@@ -122,15 +122,17 @@ namespace RaveAddIn
 
                     if (nodProgram is XmlNode && nodID is XmlNode && !string.IsNullOrEmpty(nodProgram.InnerText) && !string.IsNullOrEmpty(nodID.InnerText))
                     {
-                        return string.Format("{0}/#/{1}/{2}", Properties.Resources.DataWarehouseURL, nodProgram.InnerText, nodID.InnerText);
+                        Uri baseUri = new Uri(Properties.Resources.DataWarehouseURL);
+                        Uri projectUri = new Uri(baseUri, string.Format("#/{0}/{1}", nodProgram.InnerText, nodID.InnerText));
+                        return projectUri;
                     }
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
-                    System.Console.WriteLine("Error attempting to build warehouse URL for project.");
+                    Console.WriteLine("Error attempting to build warehouse URL for project.");
                 }
 
-                return string.Empty;
+                return null;
             }
         }
 

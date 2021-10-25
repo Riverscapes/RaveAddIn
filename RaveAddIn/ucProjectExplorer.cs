@@ -41,7 +41,7 @@ namespace RaveAddIn
             cmsProject.Items.Add("-");
             cmsProject.Items.Add("Browse Project Folder", Properties.Resources.BrowseFolder, OnExplore);
             cmsProject.Items.Add("View Project MetaData", Properties.Resources.metadata, OnMetaData);
-            cmsProject.Items.Add("View InWarehouse", Properties.Resources.RAVE, OnWarehouse);
+            cmsProject.Items.Add("View In Warehouse", Properties.Resources.RAVE, OnWarehouse);
             cmsProject.Items.Add("Add All Layers To The Map", Properties.Resources.AddToMap, OnAddChildrenToMap);
             cmsProject.Items.Add("-");
             cmsProject.Items.Add("Refresh Project Hierarchy", Properties.Resources.refresh, OnRefreshProject);
@@ -573,10 +573,10 @@ namespace RaveAddIn
         public void OnWarehouse(object sender, EventArgs e)
         {
             RaveProject proj = (RaveProject)treProject.SelectedNode.Tag;
-            string url = proj.WarehouseURL;
-            if (!string.IsNullOrEmpty(url))
+            Uri warehouseURL = proj.WarehouseReference;
+            if (warehouseURL is Uri)
             {
-                System.Diagnostics.Process.Start(url);
+                System.Diagnostics.Process.Start(warehouseURL.ToString());
             }
         }
 
