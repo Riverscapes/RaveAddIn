@@ -673,24 +673,23 @@ namespace RaveAddIn
         //    }
         //}
 
-        //public void RemoveGroupLayer(string sGroupLayerName)
-        //{
-        //    IMap pMap = ArcMap.Document.FocusMap;
-        //    UID pUID = new UID();
-        //    pUID.Value = "{EDAD6644-1810-11D1-86AE-0000F8751720}";
+        public static void RemoveGroupLayer(string sGroupLayerName, Boolean searchRecursive)
+        {
+            IMap pMap = ArcMap.Document.FocusMap;
+            UID pUID = new UID();
+            pUID.Value = "{EDAD6644-1810-11D1-86AE-0000F8751720}";
 
-        //    IEnumLayer pEnum = ArcMap.Document.FocusMap.Layers[pUID, true];
-        //    ILayer pL = pEnum.Next();
-        //    while (pL is ILayer)
-        //    {
-        //        if (string.Compare(sGroupLayerName, pL.Name, true) == 0)
-        //        {
-        //            pMap.DeleteLayer(pL);
-        //        }
+            IEnumLayer pEnum = ArcMap.Document.FocusMap.Layers[pUID, searchRecursive];
+            ILayer pL = pEnum.Next();
+            while (pL is ILayer)
+            {
+                if (string.Compare(sGroupLayerName, pL.Name, true) == 0)
+                {
+                    pMap.DeleteLayer(pL);
+                }
 
-        //        pL = pEnum.Next();
-        //    }
-        //}
-
+                pL = pEnum.Next();
+            }
+        }
     }
 }

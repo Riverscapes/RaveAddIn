@@ -193,6 +193,30 @@ namespace RaveAddIn
             AssignContextMenus(tnProject);
         }
 
+
+        public void CloseAllProjects()
+        {
+
+            // Detect if project is already in tree and simply select the node and return;
+            List<TreeNode> projects = new List<TreeNode>();
+            foreach (TreeNode rootNod in treProject.Nodes)
+            {
+                if (rootNod.Tag is RaveProject)
+                {
+                    projects.Add(rootNod);
+
+                    // Remove the project from the map. SearchRecursive = False
+                    // will ensure it only looks at the top level of the map ToC
+                    ArcMapUtilities.RemoveGroupLayer(rootNod.Text, false);
+                }
+            }
+
+            foreach(TreeNode rootNod in projects)
+            {
+                rootNod.Remove();
+            }
+        }
+
         private void AssignContextMenus(TreeNode node)
         {
             if (node == null)

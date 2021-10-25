@@ -125,6 +125,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AddInCommands\btnAbout.cs" />
+    <Compile Include="AddInCommands\btnCloseAllProjects.cs" />
     <Compile Include="AddInCommands\btnFindResourcesFolder.cs" />
     <Compile Include="AddInCommands\btnOpenProject.cs" />
     <Compile Include="AddInCommands\btnOptions.cs" />
@@ -260,6 +261,7 @@
     <None Include="Resources\expand.png" />
     <None Include="Resources\Help.png" />
     <AddInContent Include="Images\Refresh.png" />
+    <AddInContent Include="Images\collapse.png" />
     <Content Include="RiverscapesXML\BaseMaps.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

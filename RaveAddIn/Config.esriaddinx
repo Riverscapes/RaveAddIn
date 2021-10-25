@@ -15,6 +15,7 @@
       <Commands>
         <Button id="RAVE_AddIn_ToolbarExplorerButton" class="RaveAddIn.AddInCommands.btnProjectExplorer" message="The RAVE Project Explorer is the main interface for managing and displaying data within a Riverscapes project. It is a dockable window within ArcMap that contains an interactive hierarchy of contents of a riveerscapes project." caption="" tip="Open the RAVE Project Explorer Dockable Window" category="RAVE" image="Images\RaveAddIn_16px.png" />
         <Button id="RAVE_AddIn_OpenProjectButton" class="RaveAddIn.AddInCommands.btnOpenProject" message="Browse and select an existing Riverscapes project file (*.rs.xml) in a project folder." caption="Open Riverscapes Project..." tip="Open an existing Riverscapes Project" category="RAVE" image="Images\OpenProject.png" />
+        <Button id="RAVE_AddIn_CloseAllProjectsButton" class="RaveAddIn.AddInCommands.btnCloseAllProjects" message="Close all open Riverscapes Projects" caption="Close All Open Riverscapes Projects" tip="Close All Open Riverscapes Projects" category="RAVE" image="Images\collapse.png" />
 
         <!-- Help Menu-->
         <Button id="RAVE_AddIn_OptionsButton" class="RaveAddIn.AddInCommands.btnOptions" message="configure the RAVE software." caption="RAVE Options" tip="Configure the RAVE AddIn" category="RAVE" image="Images\Options.png" />
@@ -28,6 +29,7 @@
           <Items>
             <Button refID="RAVE_AddIn_ToolbarExplorerButton" />
             <Button refID="RAVE_AddIn_OpenProjectButton" />
+            <Button refID="RAVE_AddIn_CloseAllProjectsButton" />
             <Menu refID="RAVE_AddIn_HelpMenu" />
           </Items>
         </Toolbar>
