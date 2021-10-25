@@ -289,9 +289,6 @@
     <Content Include="RiverscapesXML\RaveBusinessLogic\GUT.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="RiverscapesXML\RaveBusinessLogic\HAND.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="RiverscapesXML\RaveBusinessLogic\Hydro.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -736,21 +733,6 @@
     <Content Include="RiverscapesXML\Symbology\esri\RSContext\wbdhu8.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="RiverscapesXML\Symbology\esri\RVD\BankfullChannelNetwork.lyr">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="RiverscapesXML\Symbology\esri\RVD\BankfullChannelPolygon.lyr">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="RiverscapesXML\Symbology\esri\RVD\BankfullChannelWidthPolygons.lyr">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="RiverscapesXML\Symbology\esri\RVD\ClippedThiessenPolygons.lyr">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="RiverscapesXML\Symbology\esri\RVD\ConfinementRatio.lyr">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="RiverscapesXML\Symbology\esri\RVD\ConversionRaster.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -769,15 +751,6 @@
     <Content Include="RiverscapesXML\Symbology\esri\RVD\ExistingVegRiparian.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="RiverscapesXML\Symbology\esri\RVD\FloodplainConnectivity.lyr">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="RiverscapesXML\Symbology\esri\RVD\FloodplainConnectivityRaster.lyr">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="RiverscapesXML\Symbology\esri\RVD\FragmentedValleyBottom.lyr">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="RiverscapesXML\Symbology\esri\RVD\Hillshade.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -790,55 +763,13 @@
     <Content Include="RiverscapesXML\Symbology\esri\RVD\HistoricVegRiparian.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="RiverscapesXML\Symbology\esri\RVD\LandUseIntensity.lyr">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="RiverscapesXML\Symbology\esri\RVD\LandUseRaster.lyr">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="RiverscapesXML\Symbology\esri\RVD\LargeRiverPolygon.lyr">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="RiverscapesXML\Symbology\esri\RVD\NativeRiparianVegetationDeparture.lyr">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="RiverscapesXML\Symbology\esri\RVD\OldNetwork.lyr">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="RiverscapesXML\Symbology\esri\RVD\PrecipitationByReach.lyr">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="RiverscapesXML\Symbology\esri\RVD\ProportionCurrentlyVegetated.lyr">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="RiverscapesXML\Symbology\esri\RVD\ProportionHistoricallyVegetated.lyr">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="RiverscapesXML\Symbology\esri\RVD\RCA.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="RiverscapesXML\Symbology\esri\RVD\RiparianCondition.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="RiverscapesXML\Symbology\esri\RVD\RiparianConversionType.lyr">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="RiverscapesXML\Symbology\esri\RVD\RiparianCorridor.lyr">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="RiverscapesXML\Symbology\esri\RVD\RiparianVegetationDeparture.lyr">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="RiverscapesXML\Symbology\esri\RVD\Slope.lyr">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="RiverscapesXML\Symbology\esri\RVD\ValleyBottomOutline.lyr">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="RiverscapesXML\Symbology\esri\RVD\ValleyBottomWidthPolygons.lyr">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="RiverscapesXML\Symbology\esri\RVD\VegetationRemaining.lyr">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="RiverscapesXML\Symbology\esri\Shared\bankfull_flowlines.lyr">

@@ -167,6 +167,7 @@ namespace RaveAddIn
 
             RaveProject newProject = new RaveProject(projectFile);
             TreeNode tnProject = newProject.LoadNewProject(treProject, cmsProject);
+            tnProject.Text = GetUniqueProjectName(newProject, tnProject.Text);
 
             // Load default project view
             if (Properties.Settings.Default.LoadDefaultProjectView)
@@ -628,6 +629,31 @@ namespace RaveAddIn
         private void ucProjectExplorer_Load(object sender, EventArgs e)
         {
             RefreshBaseMaps();
+        }
+
+
+        /// <summary>
+        /// Get a unique name for a project suitable for use in project tree
+        /// </summary>
+        /// <param name="originalName">The name of the project from the XML</param>
+        /// <returns>If a project with the same name exists in the project tree
+        /// already then this method will return the original name plus a unique suffix</returns>
+        private string GetUniqueProjectName(RaveProject proj, string originalName)
+        {
+            int occurences = 0;
+            foreach (TreeNode nod in treProject.Nodes)
+            {
+                if (nod.Tag is RaveProject && nod.Tag != proj)
+                {
+                    if (nod.Text.StartsWith(originalName))
+                        occurences++;
+                }
+            }
+
+            if (occurences > 0)
+                return string.Format("{0} Copy {1}", originalName, occurences);
+            else
+                return originalName;
         }
     }
 }
