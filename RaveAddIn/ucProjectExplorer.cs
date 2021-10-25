@@ -41,6 +41,7 @@ namespace RaveAddIn
             cmsProject.Items.Add("-");
             cmsProject.Items.Add("Browse Project Folder", Properties.Resources.BrowseFolder, OnExplore);
             cmsProject.Items.Add("View Project MetaData", Properties.Resources.metadata, OnMetaData);
+            cmsProject.Items.Add("View InWarehouse", Properties.Resources.RAVE, OnWarehouse);
             cmsProject.Items.Add("Add All Layers To The Map", Properties.Resources.AddToMap, OnAddChildrenToMap);
             cmsProject.Items.Add("-");
             cmsProject.Items.Add("Refresh Project Hierarchy", Properties.Resources.refresh, OnRefreshProject);
@@ -211,7 +212,7 @@ namespace RaveAddIn
                 }
             }
 
-            foreach(TreeNode rootNod in projects)
+            foreach (TreeNode rootNod in projects)
             {
                 rootNod.Remove();
             }
@@ -567,6 +568,16 @@ namespace RaveAddIn
             //frm.MetaDataItems.Insert(1, new MetaData.MetaDataItem("Project Type", proj.ProjectType));
             frm.MetaDataItems.Insert(2, new MetaData.MetaDataItem("Project File", proj.ProjectFile.FullName));
             frm.ShowDialog();
+        }
+
+        public void OnWarehouse(object sender, EventArgs e)
+        {
+            RaveProject proj = (RaveProject)treProject.SelectedNode.Tag;
+            string url = proj.WarehouseURL;
+            if (!string.IsNullOrEmpty(url))
+            {
+                System.Diagnostics.Process.Start(url);
+            }
         }
 
         public void OnCustomBusinessLogic(object sender, EventArgs e)

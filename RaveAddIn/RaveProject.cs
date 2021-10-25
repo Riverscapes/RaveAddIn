@@ -108,6 +108,32 @@ namespace RaveAddIn
             }
         }
 
+        public string WarehouseURL
+        {
+            get
+            {
+                try
+                {
+                    XmlDocument xmlDoc = new XmlDocument();
+                    xmlDoc.Load(ProjectFile.FullName);
+
+                    XmlNode nodProgram = xmlDoc.SelectSingleNode("Project/Warehouse/Meta[@name='program']");
+                    XmlNode nodID = xmlDoc.SelectSingleNode("Project/Warehouse/Meta[@name='id']");
+
+                    if (nodProgram is XmlNode && nodID is XmlNode && !string.IsNullOrEmpty(nodProgram.InnerText) && !string.IsNullOrEmpty(nodID.InnerText))
+                    {
+                        return string.Format("{0}/#/{1}/{2}", Properties.Resources.DataWarehouseURL, nodProgram.InnerText, nodID.InnerText);
+                    }
+                }
+                catch(Exception ex)
+                {
+                    System.Console.WriteLine("Error attempting to build warehouse URL for project.");
+                }
+
+                return string.Empty;
+            }
+        }
+
         /// <summary>
         /// Load a project into the tree that doesn't already exist
         /// </summary>
