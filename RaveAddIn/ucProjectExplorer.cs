@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Windows.Forms;
 using RaveAddIn.ProjectTree;
 using System.IO;
@@ -490,6 +490,9 @@ namespace RaveAddIn
             else if (tag is FileSystemDataset)
             {
                 file = ((FileSystemDataset)tag).Path;
+
+                if (file.FullName.ToLower().Contains(".gpkg"))
+                    file = ((System.IO.FileInfo)file).Directory;
             }
 
             if (file is System.IO.FileInfo)
