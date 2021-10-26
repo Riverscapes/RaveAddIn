@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Windows.Forms;
 using RaveAddIn.ProjectTree;
 using System.IO;
@@ -308,7 +308,10 @@ namespace RaveAddIn
                 GISDataset layer = (GISDataset)e.Tag;
                 IGroupLayer parentGrpLyr = BuildArcMapGroupLayers(e);
                 FileInfo symbology = GetSymbology(layer);
-                ArcMapUtilities.AddToMap(layer, layer.Name, parentGrpLyr, symbology, transparency: layer.Transparency);
+
+                string def_query = ds is Vector ? ((Vector)ds).DefinitionQuery : string.Empty;
+
+                ArcMapUtilities.AddToMap(layer, layer.Name, parentGrpLyr, symbology, transparency: layer.Transparency, definition_query: def_query);
                 Cursor.Current = Cursors.Default;
             }
         }
@@ -321,9 +324,12 @@ namespace RaveAddIn
 
             FileInfo symbology = GetSymbology(layer);
 
+            string def_query = layer is Vector ? ((Vector)layer).DefinitionQuery : string.Empty;
+
+
             try
             {
-                ArcMapUtilities.AddToMap(layer, layer.Name, parentGrpLyr, symbology, transparency: layer.Transparency);
+                ArcMapUtilities.AddToMap(layer, layer.Name, parentGrpLyr, symbology, transparency: layer.Transparency, definition_query: def_query);
             }
             catch (Exception ex)
             {

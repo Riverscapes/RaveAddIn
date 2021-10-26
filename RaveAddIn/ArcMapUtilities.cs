@@ -26,7 +26,7 @@ namespace RaveAddIn
             Esri_AnyLayer
         }
 
-        public static ILayer AddToMap(FileSystemDataset dataset, string sLayerName, IGroupLayer pGroupLayer, FileInfo fiSymbologyLayerFile = null, bool bAddToMapIfPresent = false, short transparency = 0)
+        public static ILayer AddToMap(FileSystemDataset dataset, string sLayerName, IGroupLayer pGroupLayer, FileInfo fiSymbologyLayerFile = null, bool bAddToMapIfPresent = false, short transparency = 0, string definition_query = "")
         {
             if (!dataset.Exists)
                 return null;
@@ -99,6 +99,24 @@ namespace RaveAddIn
             try
             {
                 ApplySymbology(pResultLayer, fiSymbologyLayerFile);
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.ToLower().Contains("symbology"))
+                {
+                    System.Diagnostics.Debug.Print(ex.Message);
+                    // DO Nothing
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            try
+            {
+                if (pResultLayer is IFeatureLayer && !string.IsNullOrEmpty(definition_query))
+                    ApplyDefinitionquery((IFeatureLayer)pResultLayer, definition_query);
             }
             catch (Exception ex)
             {
@@ -187,6 +205,12 @@ namespace RaveAddIn
                     }
                 }
             }
+        }
+
+        private static void ApplyDefinitionquery(IFeatureLayer pFL, string definition_query)
+        {
+            IFeatureLayerDefinition2 pDefFL = (IFeatureLayerDefinition2)pFL;
+            pDefFL.DefinitionExpression = definition_query;
         }
 
         public static void AddWMSTopMap(string title, string wmsURL, IGroupLayer parentGrpLayer)

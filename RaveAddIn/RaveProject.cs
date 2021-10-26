@@ -423,7 +423,12 @@ namespace RaveAddIn
                             System.Diagnostics.Debug.Print(string.Format("Invalid layer transparency for {0}: {1}", label, transparency));
                     }
 
-                    AddGISNode(tnParent, attType.InnerText, xmlProject, symbology, label, transparency, id);
+                    string def_query = string.Empty;
+                    XmlAttribute attDefQuery = xmlBusiness.Attributes["filter"];
+                    if (attDefQuery is XmlAttribute && !string.IsNullOrEmpty(attDefQuery.InnerText))
+                        def_query = attDefQuery.InnerText;
+
+                    AddGISNode(tnParent, attType.InnerText, xmlProject, symbology, label, transparency, string.Empty, def_query);
                 }
                 else
                 {
@@ -460,7 +465,7 @@ namespace RaveAddIn
                 GetAllNodes(nodes, child);
         }
 
-        private void AddGISNode(TreeNode tnParent, string type, XmlNode nodGISNode, string symbology, string label, short transparency, string id)
+        private void AddGISNode(TreeNode tnParent, string type, XmlNode nodGISNode, string symbology, string label, short transparency, string id, string query_definition)
         {
             if (nodGISNode == null)
                 return;
@@ -535,7 +540,7 @@ namespace RaveAddIn
                 case "point":
                 case "polygon":
                     {
-                        dataset = new ProjectTree.Vector(this, label, absPath, symbology, transparency, id, metadata);
+                        dataset = new ProjectTree.Vector(this, label, absPath, symbology, transparency, id, metadata, query_definition);
                         break;
                     }
 
