@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Windows.Forms;
 using RaveAddIn.ProjectTree;
 using System.IO;
@@ -556,7 +556,17 @@ namespace RaveAddIn
 
         public void OnClose(object sender, EventArgs e)
         {
-            treProject.SelectedNode.Remove();
+            try
+            {
+                TreeNode nodProject = treProject.SelectedNode;
+                ArcMapUtilities.RemoveGroupLayer(nodProject.Text, false);
+
+                treProject.SelectedNode.Remove();
+            }
+            catch (Exception ex)
+            {
+
+            }
         }
 
         public void OnMetaData(object sender, EventArgs e)
