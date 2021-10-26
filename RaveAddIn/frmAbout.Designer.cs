@@ -34,12 +34,14 @@
             this.lblVersion = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.grpSupport = new System.Windows.Forms.GroupBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.lnkIssues = new System.Windows.Forms.LinkLabel();
             this.lnkWebSite = new System.Windows.Forms.LinkLabel();
             this.Label5 = new System.Windows.Forms.Label();
             this.Label3 = new System.Windows.Forms.Label();
             this.grpAcknowledgements = new System.Windows.Forms.GroupBox();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
+            this.lnkReleases = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.grpSupport.SuspendLayout();
             this.grpAcknowledgements.SuspendLayout();
@@ -59,7 +61,7 @@
             // 
             this.cmdOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.cmdOK.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.cmdOK.Location = new System.Drawing.Point(417, 311);
+            this.cmdOK.Location = new System.Drawing.Point(464, 298);
             this.cmdOK.Name = "cmdOK";
             this.cmdOK.Size = new System.Drawing.Size(75, 23);
             this.cmdOK.TabIndex = 1;
@@ -96,16 +98,27 @@
             // 
             // grpSupport
             // 
+            this.grpSupport.Controls.Add(this.lnkReleases);
+            this.grpSupport.Controls.Add(this.label2);
             this.grpSupport.Controls.Add(this.lnkIssues);
             this.grpSupport.Controls.Add(this.lnkWebSite);
             this.grpSupport.Controls.Add(this.Label5);
             this.grpSupport.Controls.Add(this.Label3);
             this.grpSupport.Location = new System.Drawing.Point(168, 68);
             this.grpSupport.Name = "grpSupport";
-            this.grpSupport.Size = new System.Drawing.Size(337, 66);
+            this.grpSupport.Size = new System.Drawing.Size(368, 92);
             this.grpSupport.TabIndex = 11;
             this.grpSupport.TabStop = false;
             this.grpSupport.Text = "Support";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(41, 65);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(58, 13);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "Changelog";
             // 
             // lnkIssues
             // 
@@ -153,9 +166,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.grpAcknowledgements.Controls.Add(this.webBrowser1);
-            this.grpAcknowledgements.Location = new System.Drawing.Point(12, 140);
+            this.grpAcknowledgements.Location = new System.Drawing.Point(12, 166);
             this.grpAcknowledgements.Name = "grpAcknowledgements";
-            this.grpAcknowledgements.Size = new System.Drawing.Size(480, 165);
+            this.grpAcknowledgements.Size = new System.Drawing.Size(527, 126);
             this.grpAcknowledgements.TabIndex = 12;
             this.grpAcknowledgements.TabStop = false;
             this.grpAcknowledgements.Text = "Acknowledgements";
@@ -166,8 +179,19 @@
             this.webBrowser1.Location = new System.Drawing.Point(3, 16);
             this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.Size = new System.Drawing.Size(474, 146);
+            this.webBrowser1.Size = new System.Drawing.Size(521, 107);
             this.webBrowser1.TabIndex = 0;
+            // 
+            // lnkReleases
+            // 
+            this.lnkReleases.AutoSize = true;
+            this.lnkReleases.Location = new System.Drawing.Point(102, 65);
+            this.lnkReleases.Name = "lnkReleases";
+            this.lnkReleases.Size = new System.Drawing.Size(262, 13);
+            this.lnkReleases.TabIndex = 8;
+            this.lnkReleases.TabStop = true;
+            this.lnkReleases.Text = "https://github.com/Riverscapes/RaveAddIn/releases";
+            this.lnkReleases.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // frmAbout
             // 
@@ -175,7 +199,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.cmdOK;
-            this.ClientSize = new System.Drawing.Size(504, 346);
+            this.ClientSize = new System.Drawing.Size(551, 333);
             this.Controls.Add(this.grpAcknowledgements);
             this.Controls.Add(this.grpSupport);
             this.Controls.Add(this.label1);
@@ -213,5 +237,7 @@
         internal System.Windows.Forms.Label Label3;
         private System.Windows.Forms.GroupBox grpAcknowledgements;
         private System.Windows.Forms.WebBrowser webBrowser1;
+        internal System.Windows.Forms.Label label2;
+        internal System.Windows.Forms.LinkLabel lnkReleases;
     }
 }

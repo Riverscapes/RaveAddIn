@@ -28,5 +28,10 @@ namespace RaveAddIn
         {
             Process.Start(lnkIssues.Text);
         }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Process.Start(lnkReleases.Text);
+        }
     }
 }
