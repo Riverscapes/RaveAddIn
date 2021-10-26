@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Windows.Forms;
 using RaveAddIn.ProjectTree;
 using System.IO;
@@ -698,6 +698,30 @@ namespace RaveAddIn
                 return string.Format("{0} Copy {1}", originalName, occurences);
             else
                 return originalName;
+        }
+
+        private void treProject_DoubleClick(object sender, EventArgs e)
+        {
+            if (treProject.SelectedNode is TreeNode)
+            {
+                TreeNode selNode = treProject.SelectedNode;
+                if (selNode.Tag is GISDataset)
+                {
+                    OnAddGISToMap(sender, e);
+                }
+                else if (selNode.Tag is FileSystemDataset)
+                {
+                    OnOpenFile(sender, e);
+                }
+                else if (selNode.Tag is ProjectView)
+                {
+                    OnAddChildrenToMap(sender, e);
+                }
+                else if (selNode.Tag is RaveAddIn.ProjectTree.WMSLayer)
+                {
+                    OnAddWMSToMap(sender, e);
+                }
+            }
         }
     }
 }

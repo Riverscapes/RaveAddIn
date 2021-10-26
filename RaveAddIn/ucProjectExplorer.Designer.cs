@@ -45,6 +45,7 @@
             this.treProject.Size = new System.Drawing.Size(346, 326);
             this.treProject.TabIndex = 0;
             this.treProject.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treProject_NodeMouseClick);
+            this.treProject.DoubleClick += new System.EventHandler(this.treProject_DoubleClick);
             // 
             // imgList
             // 
