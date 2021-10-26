@@ -428,7 +428,7 @@ namespace RaveAddIn
                     if (attDefQuery is XmlAttribute && !string.IsNullOrEmpty(attDefQuery.InnerText))
                         def_query = attDefQuery.InnerText;
 
-                    AddGISNode(tnParent, attType.InnerText, xmlProject, symbology, label, transparency, string.Empty, def_query);
+                    AddGISNode(tnParent, attType.InnerText, xmlProject, symbology, label, transparency, id, def_query);
                 }
                 else
                 {
