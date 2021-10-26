@@ -280,7 +280,9 @@ namespace RaveAddIn
             if (node.Tag is IGISLayer)
                 return parentGrpLyr;
             else
-                return ArcMapUtilities.GetGroupLayer(node.Text, parentGrpLyr, topLevelMode);
+            {
+                return ArcMapUtilities.GetGroupLayer(node.Text, parentGrpLyr, topLevelMode, true, GetPrecedingLayers(node));
+            }
         }
 
         public void OnAddChildrenToMap(object sender, EventArgs e)
@@ -311,7 +313,7 @@ namespace RaveAddIn
 
                 string def_query = ds is Vector ? ((Vector)ds).DefinitionQuery : string.Empty;
 
-                ArcMapUtilities.AddToMap(layer, layer.Name, parentGrpLyr, symbology, transparency: layer.Transparency, definition_query: def_query);
+                ArcMapUtilities.AddToMap(layer, layer.Name, parentGrpLyr, GetPrecedingLayers(e), symbology, transparency: layer.Transparency, definition_query: def_query);
                 Cursor.Current = Cursors.Default;
             }
         }
@@ -326,10 +328,9 @@ namespace RaveAddIn
 
             string def_query = layer is Vector ? ((Vector)layer).DefinitionQuery : string.Empty;
 
-
             try
             {
-                ArcMapUtilities.AddToMap(layer, layer.Name, parentGrpLyr, symbology, transparency: layer.Transparency, definition_query: def_query);
+                ArcMapUtilities.AddToMap(layer, layer.Name, parentGrpLyr, GetPrecedingLayers(selNode), symbology, transparency: layer.Transparency, definition_query: def_query);
             }
             catch (Exception ex)
             {
@@ -339,6 +340,30 @@ namespace RaveAddIn
             {
                 Cursor.Current = Cursors.Default;
             }
+        }
+
+        /// <summary>
+        /// Get a list of the names of the layers before the argument item
+        /// </summary>
+        /// <param name="nod">A tree node about to be added to the map</param>
+        /// <returns>The goal is to determine all the layers above a particular node
+        /// in the project tree. This list of names is passed to the map so that it
+        /// can figure out the index at which to insert the node in the tree</returns>
+        private List<string> GetPrecedingLayers(TreeNode nod)
+        {
+            List<string> preceding = new List<string>();
+            if (nod.Parent is TreeNode)
+            {
+                foreach (TreeNode sibling in nod.Parent.Nodes)
+                {
+                    if (sibling == nod)
+                        return preceding;
+
+                    preceding.Add(sibling.Text);
+                }
+            }
+
+            return preceding;
         }
 
         public void OnGISMetadata(object sender, EventArgs e)

@@ -8,6 +8,7 @@ using ESRI.ArcGIS.CartoUI;
 using ESRI.ArcGIS.GISClient;
 using System.IO;
 using RaveAddIn.ProjectTree;
+using System.Collections.Generic;
 
 namespace RaveAddIn
 {
@@ -26,7 +27,7 @@ namespace RaveAddIn
             Esri_AnyLayer
         }
 
-        public static ILayer AddToMap(FileSystemDataset dataset, string sLayerName, IGroupLayer pGroupLayer, FileInfo fiSymbologyLayerFile = null, bool bAddToMapIfPresent = false, short transparency = 0, string definition_query = "")
+        public static ILayer AddToMap(FileSystemDataset dataset, string sLayerName, IGroupLayer pGroupLayer, List<string> precedingLayers, FileInfo fiSymbologyLayerFile = null, bool bAddToMapIfPresent = false, short transparency = 0, string definition_query = "")
         {
             if (!dataset.Exists)
                 return null;
@@ -139,11 +140,26 @@ namespace RaveAddIn
 
             if (pGroupLayer == null)
             {
-                ((IMapLayers)ArcMap.Document.FocusMap).InsertLayer(pResultLayer, true, 0);
+                ((IMapLayers)ArcMap.Document.FocusMap).InsertLayer(pResultLayer, false, 0);
             }
             else
             {
-                ((IMapLayers)ArcMap.Document.FocusMap).InsertLayerInGroup(pGroupLayer, pResultLayer, true, 0);
+                int layerIndex = 0;
+                foreach (string name in precedingLayers)
+                {
+                    // Try and find the preceding layer already in the hierarchy
+                    ICompositeLayer pCompositeLayer = (ICompositeLayer)pGroupLayer;
+                    for (int i = 0; i <= pCompositeLayer.Count - 1; i++)
+                    {
+                        if (string.Compare(pCompositeLayer.Layer[i].Name, name, true) == 0)
+                        {
+                            layerIndex++;
+                        }
+                    }
+
+                }
+
+                ((IMapLayers)ArcMap.Document.FocusMap).InsertLayerInGroup(pGroupLayer, pResultLayer, false, layerIndex);
             }
 
             ArcMap.Document.UpdateContents();
@@ -283,8 +299,8 @@ namespace RaveAddIn
 
         public static ILayer GetLayerBySource(FileSystemInfo fiFullPath)
         {
-            if (!fiFullPath.Exists)
-                return null;
+            //if (!fiFullPath.Exists)
+            //    return null;
 
             IMapLayers mapLayers = (IMapLayers)ArcMap.Document.FocusMap;
             UID pID = new UIDClass();
@@ -309,7 +325,10 @@ namespace RaveAddIn
                         sPath = Path.ChangeExtension(sPath, "shp");
                     }
 
-                    if (string.Compare(fiFullPath.FullName, sPath, true) == 0)
+                    string testPath = fiFullPath.FullName.Replace('\\', '/');
+                    sPath = sPath.Replace('\\', '/');
+
+                    if (string.Compare(testPath, sPath, true) == 0)
                     {
                         return pLayer;
                     }
@@ -389,7 +408,7 @@ namespace RaveAddIn
             return null;
         }
 
-        public static IGroupLayer GetGroupLayer(string sName, IGroupLayer pParentGroupLayer, ucProjectExplorer.NodeInsertModes topLevelMode, bool bCreateIfNeeded = true)
+        public static IGroupLayer GetGroupLayer(string sName, IGroupLayer pParentGroupLayer, ucProjectExplorer.NodeInsertModes topLevelMode, bool bCreateIfNeeded = true, List<string> precedingLayers = null)
         {
             if (string.IsNullOrEmpty(sName))
             {
@@ -430,7 +449,21 @@ namespace RaveAddIn
 
             if (pParentGroupLayer != null)
             {
-                ((IMapLayers)ArcMap.Document.FocusMap).InsertLayerInGroup(pParentGroupLayer, pResultLayer, true, 0);
+                int layerIndex = 0;
+                // Try and find the group layer already in the hierarchy
+                foreach (string name in precedingLayers)
+                {
+                    ICompositeLayer pCompositeLayer = (ICompositeLayer)pParentGroupLayer;
+                    for (int i = 0; i <= pCompositeLayer.Count - 1; i++)
+                    {
+                        if (string.Compare(pCompositeLayer.Layer[i].Name, name, true) == 0)
+                        {
+                            layerIndex++;
+                        }
+                    }
+                }
+
+                ((IMapLayers)ArcMap.Document.FocusMap).InsertLayerInGroup(pParentGroupLayer, pResultLayer, false, layerIndex);
             }
             else
             {
@@ -523,54 +556,54 @@ namespace RaveAddIn
             return pWS;
         }
 
-        public static void RemoveLayer(FileSystemInfo layerPath)
-        {
-            ILayer pLayer = GetLayerBySource(layerPath);
+        //public static void RemoveLayer(FileSystemInfo layerPath)
+        //{
+        //    ILayer pLayer = GetLayerBySource(layerPath);
 
-            while (pLayer is ILayer)
-            {
-                IGroupLayer pParent = GetParentGroupLayer(pLayer);
+        //    while (pLayer is ILayer)
+        //    {
+        //        IGroupLayer pParent = GetParentGroupLayer(pLayer);
 
-                if (pLayer is IDataLayer2)
-                {
-                    ((IDataLayer2)pLayer).Disconnect();
-                }
+        //        if (pLayer is IDataLayer2)
+        //        {
+        //            ((IDataLayer2)pLayer).Disconnect();
+        //        }
 
-                ArcMap.Document.FocusMap.DeleteLayer(pLayer);
-                ArcMap.Document.UpdateContents();
+        //        ArcMap.Document.FocusMap.DeleteLayer(pLayer);
+        //        ArcMap.Document.UpdateContents();
 
-                // Remove empty group layers from ToC
-                while (pParent is IGroupLayer)
-                {
-                    ILayer pNextParent = GetParentGroupLayer(pParent);
-                    ICompositeLayer pComp = (ICompositeLayer)pParent;
-                    if (pComp.Count < 1)
-                    {
-                        ArcMap.Document.FocusMap.DeleteLayer(pParent);
-                        ArcMap.Document.UpdateContents();
-                    }
+        //        // Remove empty group layers from ToC
+        //        while (pParent is IGroupLayer)
+        //        {
+        //            ILayer pNextParent = GetParentGroupLayer(pParent);
+        //            ICompositeLayer pComp = (ICompositeLayer)pParent;
+        //            if (pComp.Count < 1)
+        //            {
+        //                ArcMap.Document.FocusMap.DeleteLayer(pParent);
+        //                ArcMap.Document.UpdateContents();
+        //            }
 
-                    if (pNextParent is IGroupLayer)
-                        pParent = (IGroupLayer)pNextParent;
-                    else
-                        pParent = null;
-                }
+        //            if (pNextParent is IGroupLayer)
+        //                pParent = (IGroupLayer)pNextParent;
+        //            else
+        //                pParent = null;
+        //        }
 
-                ArcMap.Document.ActiveView.Refresh();
+        //        ArcMap.Document.ActiveView.Refresh();
 
-                // Release all references to the layer to prevent locks on the underlying data source
-                // http://edndoc.esri.com/arcobjects/9.2/net/fe9f7423-2100-4c70-8bd6-f4f16d5ce8c0.htm
-                int refsLeft = 0;
-                do
-                {
-                    refsLeft = System.Runtime.InteropServices.Marshal.ReleaseComObject(pLayer);
-                }
-                while (refsLeft > 0);
-                pLayer = null;
-                GC.Collect();
-                pLayer = GetLayerBySource(layerPath);
-            }
-        }
+        //        // Release all references to the layer to prevent locks on the underlying data source
+        //        // http://edndoc.esri.com/arcobjects/9.2/net/fe9f7423-2100-4c70-8bd6-f4f16d5ce8c0.htm
+        //        int refsLeft = 0;
+        //        do
+        //        {
+        //            refsLeft = System.Runtime.InteropServices.Marshal.ReleaseComObject(pLayer);
+        //        }
+        //        while (refsLeft > 0);
+        //        pLayer = null;
+        //        GC.Collect();
+        //        pLayer = GetLayerBySource(layerPath);
+        //    }
+        //}
 
         private static IGroupLayer GetParentGroupLayer(ILayer pLayer)
         {
