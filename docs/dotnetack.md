@@ -27,7 +27,7 @@ For a complete list of curators and developers and their contributions, see Gith
 
 ## Funding
 
-RAVE development has been funded primarily by the [Bureau of Land Management](https://www.blm.gov/montana-dakotas) and [Anabranch Solutions](http://anabranchsolutions.com). BLM has supproted the development of ArcRAVE & WebRAVE. This support has been through co-operative agreements between BLM and Utah State University, with subawards to North Arrow Research. 
+RAVE development has been funded primarily by the [Bureau of Land Management](https://www.blm.gov/montana-dakotas) and [Anabranch Solutions](http://anabranchsolutions.com). BLM has supported the development of ArcRAVE & WebRAVE. This support has been through co-operative agreements between BLM and Utah State University, with subawards to North Arrow Research. 
 <!---
 [![RC_Black](https://rave.riverscapes.xyz/assets/images/logos/blm.png)](https://www.blm.gov/montana-dakotas)--->
 
