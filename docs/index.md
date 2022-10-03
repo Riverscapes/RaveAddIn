@@ -4,7 +4,7 @@ title: RAVE
 
 The Riverscapes Analysis Viewer and Explorer (RAVE) helps you make maps of rivers. RAVE speeds up the process of adding data related to rivers into your preferred GIS with meaningful layer order and symbology.
 
-There are three versions of RAVE that all work essentially the same way. You start with a [riverscapes project](https://riverscapes.xyz/Tools/Technical_Reference/Documentation_Standards/Riverscapes_Projects/) that contains a collection of data layers related to rivers. You open the project in the RAVE project explorer that shows all the layers, displayed with meaningful names and icons. Clicking on a layer adds it to the current map in a carefulluy designed order with predefined symbology tailored to the layer in question.
+There are three versions of RAVE that all work essentially the same way. You start with a [riverscapes project](https://riverscapes.net/Tools/Technical_Reference/Documentation_Standards/Riverscapes_Projects/) that contains a collection of data layers related to rivers. You open the project in the RAVE project explorer that shows all the layers, displayed with meaningful names and icons. Clicking on a layer adds it to the current map in a carefulluy designed order with predefined symbology tailored to the layer in question.
 
 There are three separate versions of RAVE depending on which GIS you prefer:
 
