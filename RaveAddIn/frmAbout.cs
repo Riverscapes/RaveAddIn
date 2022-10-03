@@ -15,7 +15,7 @@ namespace RaveAddIn
         {
             Text = string.Format("About {0}", Properties.Resources.ApplicationNameShort);
             lblProductName.Text = Properties.Resources.ApplicationNameLong;
-            webBrowser1.Url = new Uri("http://rave.riverscapes.xyz/dotnetack.html");
+            webBrowser1.Url = new Uri("http://rave.riverscapes.net/dotnetack.html");
             lblVersion.Text = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
         }
 

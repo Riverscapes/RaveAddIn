@@ -135,7 +135,7 @@ namespace RaveAddIn.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to https://data.riverscapes.xyz.
+        ///   Looks up a localized string similar to https://data.riverscapes.net.
         /// </summary>
         internal static string DataWarehouseURL {
             get {
@@ -164,7 +164,7 @@ namespace RaveAddIn.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to http://rave.riverscapes.xyz/Help.
+        ///   Looks up a localized string similar to http://rave.riverscapes.net/Help.
         /// </summary>
         internal static string HelpBaseURL {
             get {
@@ -222,7 +222,7 @@ namespace RaveAddIn.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to http://xml.riverscapes.xyz/.
+        ///   Looks up a localized string similar to http://xml.riverscapes.net/.
         /// </summary>
         internal static string ResourcesURL {
             get {
@@ -241,7 +241,7 @@ namespace RaveAddIn.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to http://rave.riverscapes.xyz.
+        ///   Looks up a localized string similar to http://rave.riverscapes.net.
         /// </summary>
         internal static string WebSiteURL {
             get {

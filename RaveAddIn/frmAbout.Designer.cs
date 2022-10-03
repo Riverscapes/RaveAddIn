@@ -128,7 +128,7 @@
             this.lnkIssues.Size = new System.Drawing.Size(219, 13);
             this.lnkIssues.TabIndex = 6;
             this.lnkIssues.TabStop = true;
-            this.lnkIssues.Text = "http://rave.riverscapes.xyz/known-bugs.html";
+            this.lnkIssues.Text = "http://rave.riverscapes.net/known-bugs.html";
             this.lnkIssues.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkIssues_LinkClicked);
             // 
             // lnkWebSite
@@ -139,7 +139,7 @@
             this.lnkWebSite.Size = new System.Drawing.Size(134, 13);
             this.lnkWebSite.TabIndex = 4;
             this.lnkWebSite.TabStop = true;
-            this.lnkWebSite.Text = "http://rave.riverscapes.xyz";
+            this.lnkWebSite.Text = "http://rave.riverscapes.net";
             this.lnkWebSite.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkWebSite_LinkClicked);
             // 
             // Label5
