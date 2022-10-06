@@ -452,15 +452,12 @@ namespace RaveAddIn
                 return null;
 
             string appDataFolder = Path.Combine(ucProjectExplorer.AppDataFolder.FullName, Properties.Resources.AppDataSymbologyFolder);
-            string deployFolder = Path.Combine(ucProjectExplorer.DeployFolder.FullName, Properties.Resources.AppDataSymbologyFolder);
 
             List<string> SearchFolders = new List<string>()
             {
                 layer.Project.Folder.FullName,
                 Path.Combine(appDataFolder, layer.Project.ProjectType),
-                Path.Combine(appDataFolder, Properties.Resources.AppDataSymbologySharedFolder),
-                Path.Combine(deployFolder, layer.Project.ProjectType),
-                Path.Combine(deployFolder, Properties.Resources.AppDataSymbologySharedFolder),
+                Path.Combine(appDataFolder, Properties.Resources.AppDataSymbologySharedFolder)
             };
 
             foreach (string folder in SearchFolders)

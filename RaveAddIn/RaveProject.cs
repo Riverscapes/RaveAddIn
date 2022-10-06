@@ -102,8 +102,7 @@ namespace RaveAddIn
             List<string> SearchFolders = new List<string>()
             {
                 ProjectFile.DirectoryName,
-                Path.Combine(ucProjectExplorer.AppDataFolder.FullName, Properties.Resources.BusinessLogicXMLFolder, versionFolder),
-                Path.Combine(ucProjectExplorer.DeployFolder.FullName, Properties.Resources.BusinessLogicXMLFolder, versionFolder),
+                Path.Combine(ucProjectExplorer.AppDataFolder.FullName, Properties.Resources.BusinessLogicXMLFolder, versionFolder)
             };
 
             foreach (string folder in SearchFolders)
@@ -192,7 +191,10 @@ namespace RaveAddIn
             if (tnResult == null)
             {
                 tnProject.Remove();
-                MessageBox.Show(string.Format("Failed to load project because there is no valid business logic XML file for projects of type '{0}'.", ProjectType), "Missing Business Logic XML File", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(string.Format("Failed to load project because there is no valid business logic XML file for projects of type '{0}'.", ProjectType)
+                    + "\n\nEnsure that you have updated the RAVE resource files using the tool under the Help menu on the RAVE toolbar."
+                    
+                    , "Missing Business Logic XML File", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
             return tnResult;
