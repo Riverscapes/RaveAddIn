@@ -4,6 +4,7 @@ using System.IO;
 using System.Windows.Forms;
 using System.Xml;
 using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace RaveAddIn
 {
@@ -13,14 +14,22 @@ namespace RaveAddIn
         public DirectoryInfo Folder { get { return ProjectFile.Directory; } }
         public readonly string ProjectType;
 
+        // Determines whether uses V1 or V2 XSD and business logic
+        public readonly int Version;
+
         public RaveProject(FileInfo projectFile)
         {
+
+
             ProjectFile = projectFile;
 
             try
             {
                 XmlDocument xmlDoc = new XmlDocument();
                 xmlDoc.Load(projectFile.FullName);
+
+                // Determine whether the project XSD is version 1 or version 2
+                this.Version = GetVersion(xmlDoc);
 
                 string xPath = "Project/ProjectType";
                 XmlNode nodProjectType = xmlDoc.SelectSingleNode(xPath);
@@ -37,6 +46,30 @@ namespace RaveAddIn
                 ex.Data["Project File"] = projectFile.FullName;
                 throw;
             }
+        }
+
+        private int GetVersion(XmlDocument xmlDoc)
+        {
+            Dictionary<int, String> versions = new Dictionary<int, String>()
+            {
+                { 1, "V1/[a-zA-Z]+.xsd"},
+                { 2, "/V2/RiverscapesProject.xsd"}
+            };
+
+            XmlNode nodProject = xmlDoc.SelectSingleNode("Project");
+            XmlAttribute attNamepsace = nodProject.Attributes["xsi:noNamespaceSchemaLocation"];
+
+            foreach (KeyValuePair<int, string> kvp in versions)
+            {
+                Regex re = new Regex(kvp.Value);
+                if (re.IsMatch(attNamepsace.Value))
+                    return kvp.Key;
+            }
+
+            // If got to here then the Project XSD path didn't match any of the known versions!
+            Exception ex = new Exception("Failed to determine project version");
+            ex.Data["Namespace"] = attNamepsace.Value;
+            throw ex;
         }
 
         public static bool IsSame(RaveProject proj1, FileInfo projectFile)
@@ -64,11 +97,13 @@ namespace RaveAddIn
         /// </remarks>
         private FileInfo LoadBusinessLogicXML()
         {
+            string versionFolder = string.Format("V{0}", Version);
+
             List<string> SearchFolders = new List<string>()
             {
                 ProjectFile.DirectoryName,
-                Path.Combine(ucProjectExplorer.AppDataFolder.FullName, Properties.Resources.BusinessLogicXMLFolder),
-                Path.Combine(ucProjectExplorer.DeployFolder.FullName, Properties.Resources.BusinessLogicXMLFolder),
+                Path.Combine(ucProjectExplorer.AppDataFolder.FullName, Properties.Resources.BusinessLogicXMLFolder, versionFolder),
+                Path.Combine(ucProjectExplorer.DeployFolder.FullName, Properties.Resources.BusinessLogicXMLFolder, versionFolder),
             };
 
             foreach (string folder in SearchFolders)
@@ -333,6 +368,18 @@ namespace RaveAddIn
 
         private void LoadTreeNode(TreeNode tnParent, XmlNode xmlProject, XmlNode xmlBusiness)
         {
+            try
+            {
+                LoadTreeNodeWorker(tnParent, xmlProject, xmlBusiness);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        private void LoadTreeNodeWorker(TreeNode tnParent, XmlNode xmlProject, XmlNode xmlBusiness)
+        {
             if (xmlBusiness.NodeType == XmlNodeType.Comment)
                 return;
 
@@ -481,20 +528,47 @@ namespace RaveAddIn
             if (string.IsNullOrEmpty(label))
                 label = nodGISNode.SelectSingleNode("Name").InnerText;
 
-
-
-            string path = nodGISNode.SelectSingleNode("Path").InnerText;
-
-            if (string.Compare(nodGISNode.ParentNode.Name, "layers", true) == 0)
+            string path = String.Empty;
+            if (Version == 1)
             {
-                XmlNode nodGeoPackage = nodGISNode.SelectSingleNode("../../Path");
-                if (nodGeoPackage is XmlNode)
+                path = nodGISNode.SelectSingleNode("Path").InnerText;
+
+                if (string.Compare(nodGISNode.ParentNode.Name, "layers", true) == 0)
                 {
-                    path = nodGeoPackage.InnerText + "/" + path;
+                    XmlNode nodGeoPackage = nodGISNode.SelectSingleNode("../../Path");
+                    if (nodGeoPackage is XmlNode)
+                    {
+                        path = nodGeoPackage.InnerText + "/" + path;
+                    }
+                    else
+                    {
+                        throw new MissingMemberException("Unable to find GeoPackage file path");
+                    }
+                }
+            }
+            else if (Version == 2)
+            {
+                XmlNode nodPath = nodGISNode.SelectSingleNode("Path");
+                if (nodPath is XmlNode)
+                {
+                    path = nodPath.InnerText;
                 }
                 else
                 {
-                    throw new MissingMemberException("Unable to find GeoPackage file path");
+                    if (string.Compare(nodGISNode.ParentNode.Name, "layers", true) == 0)
+                    {
+                        XmlNode nodGeoPackage = nodGISNode.SelectSingleNode("../../Path");
+                        XmlAttribute attLayerName = nodGISNode.Attributes["lyrName"];
+
+                        if (nodGeoPackage is XmlNode && attLayerName is XmlAttribute)
+                        {
+                            path = nodGeoPackage.InnerText + "/" + attLayerName.InnerText;
+                        }
+                        else
+                        {
+                            throw new MissingMemberException("Unable to find GeoPackage file path");
+                        }
+                    }
                 }
             }
 
