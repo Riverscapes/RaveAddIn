@@ -18,7 +18,7 @@ namespace RaveAddIn.AddInCommands
                     System.Diagnostics.Process.Start(app_data);
             }
             else
-                MessageBox.Show("The system APPData folder does not exist.", "AppData Folder Missing", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("The system APPData folder does not exist. Update the RAVE resources using the button on the RAVE toolbar and try again.", "AppData Folder Missing", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }
