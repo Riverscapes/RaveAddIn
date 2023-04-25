@@ -5,7 +5,7 @@ weight: 1
 
 The following instructions are intended for riverscapes tool owners to define Web RAVE symbology. They pertain to **vector** symbology only. Separate instructions are forthcoming for raster symbology.
 
-A [video demonstration](#video-demonstration) of the entire workflow is available at the bottom of this page.
+A [video demonstration](#video-demonstrations) of the entire workflow is available at the bottom of this page.
 
 # A Quick Overview of the Process
 
@@ -66,40 +66,193 @@ If you're layer is big (> 5Mb) then you might consider only exporting a subset o
 # Export the Symbology
 
 1. When you're happy with your symbology click the **Share** button in the top right of the screen.
-1. In the screen that pops up, click the **Draft** top right.
-1. Click the **Download** link at the bottom of the page to download a zip file.
-1. Extract the zip file and open the `style.json` file in a text editor.
-1. Select all the text from the square brace after `"Layers":` until the corresponding closing square brace.
-1. Paste the text into a new file and save the file into the `web` folder in the Riverscapes XML git repository under the path [symbology\web](https://github.com/Riverscapes/RiverscapesXML/tree/master/Symbology/web) within a folder named after the project type or in the `Shared` subfolder. Use the same name as the [business logic symbology key]({{ site.baseurl }}/symbology.html#symbology-keys). The name is case sensitive and the file suffix must be `.json`.
-1. Commit your changes and create a pull request, just as you would for QRAVE QML or ArcRAVE layer files.
+2. In the screen that pops up, click the **Draft** top right.
+3. Click the **Download** link at the bottom of the page to download a zip file.
+4. Extract the zip file and open the `style.json` file in a text editor.
+
+Here's the kind of thing you're going to be looking at. Most of this file we can discard. The "layers" array is the only thing we care about.
+
+```json
+{
+    "version": 8,
+    "name": "WebRave Export demo",
+    "metadata": {
+        "mapbox:autocomposite": true,
+        "mapbox:type": "template",
+        "mapbox:sdk-support": {
+            "android": "9.3.0",
+            "ios": "5.10.0",
+            "js": "2.0.0"
+        },
+        "mapbox:groups": {},
+        "mapbox:uiParadigm": "layers"
+    },
+    "center": [-115.7276920252901, 46.04100776943545],
+    "zoom": 10.688254550618892,
+    "bearing": 0,
+    "pitch": 0,
+    "sources": {
+        "mapbox://mapbox.satellite": {
+            "url": "mapbox://mapbox.satellite",
+            "type": "raster",
+            "tileSize": 256
+        },
+        "composite": {
+            "url": "mapbox://northarrowresearch.5pojlt0g",
+            "type": "vector"
+        }
+    },
+    "sprite": "mapbox://sprites/northarrowresearch/ckox2hmjq0yn517p5re1fbtbb/ck2u8j60r58fu0sgyxrigm3cu",
+    "glyphs": "mapbox://fonts/northarrowresearch/{fontstack}/{range}.pbf",
+    "layers": [
+        {
+            "id": "confinement-ratio-3oldrq",
+            "type": "line",
+            "source": "composite",
+            "source-layer": "confinement_ratio-3oldrq",
+            "layout": {},
+            "paint": {
+                "line-color": [
+                    "step",
+                    ["get", "Confinement_Ratio"],
+                    "hsl(116, 57%, 39%)", 0.1,
+                    "hsl(108, 87%, 59%)", 0.5,
+                    "hsl(29, 100%, 50%)", 0.85,
+                    "hsl(8, 100%, 50%)", 1.0000000000002822,
+                    "hsl(8, 100%, 50%)"
+                ]
+            }
+        }
+    ],
+    "created": "2021-05-20T15:47:03.419Z",
+    "modified": "2021-05-20T15:54:44.257Z",
+    "id": "ckox2hmjq0yn517p5re1fbtbb",
+    "owner": "northarrowresearch",
+    "visibility": "private",
+    "draft": false
+}
+```
+
+5. Select all the appropriate items from the square brace after `"Layers":` until the corresponding closing square brace.
+6. Paste the text into a new file and save the file into the `web` folder in the Riverscapes XML git repository under the path [symbology\web](https://github.com/Riverscapes/RiverscapesXML/tree/master/Symbology/web) within a folder named after the project type or in the `Shared` subfolder. Use the same name as the [business logic symbology key]({{ site.baseurl }}/symbology.html#symbology-keys). The name is case sensitive and the file suffix must be `.json`.
+7. Commit your changes and create a pull request, just as you would for QRAVE QML or ArcRAVE layer files.
 
 The final symbology file will look something like this:
 
-```json
-[
-	{
-        "id": "bratreachgeometry-bv59z4",
-        "type": "line",
-        "source": "composite",
-        "source-layer": "bratReachGeometry-bv59z4",
-        "layout": {},
-        "paint": {"line-color": "hsl(0, 100%, 44%)", "line-width": 10}
-    },
-    {
-        "id": "bratreachgeometry-bv59z4 copy",
-        "type": "symbol",
-        "source": "composite",
-        "source-layer": "bratReachGeometry-bv59z4",
-        "layout": {"text-field": ["get", "NHDPlusID"]},
-        "paint": {"text-color": "hsl(0, 0%, 100%)"}
-    }
-]
+``` json
+{
+  "$schema": "https://xml.riverscapes.net/Symbology/webRAVEVector.schema.json",
+  "legend": [
+    ["hsl(116, 57%, 39%)", "legend table layer 1"],
+    ["hsl(108, 87%, 59%)", "legend table layer 1"],
+    ["hsl(29, 100%, 50%)", "legend table layer 1"]
+  ],
+  "layerStyles": [
+      {
+          "id": "confinement-ratio-3oldrq",
+          "type": "line",
+          "source": "composite",
+          "source-layer": "confinement_ratio-3oldrq",
+          "layout": {},
+          "paint": {
+              "line-color": [
+                  "step",
+                  ["get", "Confinement_Ratio"],
+                  "hsl(116, 57%, 39%)", 0.1,
+                  "hsl(108, 87%, 59%)", 0.5,
+                  "hsl(29, 100%, 50%)", 0.85,
+                  "hsl(8, 100%, 50%)", 1.0000000000002822,
+                  "hsl(8, 100%, 50%)"
+              ]
+          }
+      }
+  ]
+}
 ```
 
-Note that your symbology will be live as soon as the pull request is approved and implemented.
 
-# Video Demonstration
+## Building the Legend Table Object
+
+``` json
+{
+  "legend": [
+    ["hsl(116, 57%, 39%)", "legend table layer 1"],
+    ["hsl(108, 87%, 59%)", "legend table layer 1"],
+    ["hsl(29, 100%, 50%)", "legend table layer 1"]
+  ]
+```
+
+The structure is pretty simple. It's a double array and the inner array is made up of two string values: A color string and a label string.
+
+The color string is any CSS-valid color value string ([more about what's allowed in css here](https://www.w3schools.com/cssref/css_colors_legal.asp)). You can use:
+
+* Hexadecimal colors: `#FF0000`
+* Hexadecimal colors with transparency: `#FF000055`
+* RGB colors: `rgb(255,0,0)`
+* RGBA colors: `rgba(255,0,0, 100)`
+* HSL colors: `hsl(116, 57%, 39%)`
+* HSLA colors: `hsla(116, 57%, 39%, 0.2)`
+* Predefined/Cross-browser color names: `red`
+
+
+***Note that your symbology will be live as soon as the pull request is approved and implemented.
+***
+
+Let's summarize this overall scructure. There are 3 parts to this file:
+
+``` JSON
+{
+  "$schema": "https://xml.riverscapes.net/Symbology/webRAVEVector.schema.json",
+  "legend": [],
+  "layerStyles": []
+}
+```
+
+* `"$schema"` This points to the schema file. It's optional but if you use it then vscode will be able to tell you if there are problems with the file.
+* `"legend"`: This is the legend table information. You need to build this manually (see Below)
+* `"layerStyles"`: This is copied and pasted directly from mapBox style exports.
+
+
+
+## File naming
+
+The only trick here is putting it in the right place with the right file name
+
+The filename must be `somename.json` and the `somename` part should match what's in the symbology attribute in the business logic XML file (this is the same naming convention as the qml files. 
+
+So if my business logic looks like this:
+
+``` xml
+<Node xpathlabel="Name" xpath="Outputs/Geopackage/Layers/Vector[@id='CONFINEMENT_RATIO']" type="line" id="confinement_ratio" symbology="confinement_ratio" />
+```
+
+then my file name should be `confinement_ratio.json`
+
+## **_CASE MATTERS_**
+
+the `.json` part should always be lowercase and the case of the filename should match EXACTLY what's in the business logic XML
+
+
+## Folder naming
+
+These files should live alongside the `.txt` files for the webRAVE rasters
+
+``` bash
+# so if I want to put in a file shared across all projects then
+RiverscapesXML/Symbology/web/Shared/whatever.json
+# otherwise, for project-specific symbologies
+RiverscapesXML/Symbology/web/ProjectTypeName/whatever.json
+```
+
+
+
+# Video Demonstrations
 
 <div class="responsive-embed">
 <iframe width="560" height="315" src="https://www.youtube.com/embed/vIFQJlEIgpc" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+</div>
+
+
+<div class="responsive-embed">
+<iframe width="560" height="315" src="https://www.youtube.com/watch?v=0CrZr9Bs9hk" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 </div>
