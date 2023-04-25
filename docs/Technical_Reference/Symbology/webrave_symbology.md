@@ -254,5 +254,5 @@ RiverscapesXML/Symbology/web/ProjectTypeName/whatever.json
 
 
 <div class="responsive-embed">
-<iframe width="560" height="315" src="https://www.youtube.com/watch?v=0CrZr9Bs9hk" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/0CrZr9Bs9hk" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 </div>
