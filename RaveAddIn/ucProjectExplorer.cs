@@ -41,7 +41,7 @@ namespace RaveAddIn
             cmsProject.Items.Add("-");
             cmsProject.Items.Add("Browse Project Folder", Properties.Resources.BrowseFolder, OnExplore);
             cmsProject.Items.Add("View Project MetaData", Properties.Resources.metadata, OnMetaData);
-            cmsProject.Items.Add("View In Warehouse", Properties.Resources.RAVE, OnWarehouse);
+            cmsProject.Items.Add("View In Data Exchange", Properties.Resources.RAVE, OnWarehouse);
             cmsProject.Items.Add("Add All Layers To The Map", Properties.Resources.AddToMap, OnAddChildrenToMap);
             cmsProject.Items.Add("-");
             cmsProject.Items.Add("Refresh Project Hierarchy", Properties.Resources.refresh, OnRefreshProject);
