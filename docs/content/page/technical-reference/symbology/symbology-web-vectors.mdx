@@ -1,0 +1,251 @@
+---
+title: Web RAVE Vector Symbology
+banner: true
+description: Instructions for defining Web Vector Viewer vector symbology
+---
+
+The following instructions are intended for riverscapes tool owners to define Web RAVE symbology. They pertain to **vector** symbology only. Separate instructions are forthcoming for raster symbology.
+
+A [video demonstration](#video-demonstrations) of the entire workflow is available at the bottom of this page.
+
+# A Quick Overview of the Process
+
+Web RAVE uses symbology defined as [JSON](https://en.wikipedia.org/wiki/JSON), a text format common across the web. This is unlike QRAVE that uses QML files and ArcRAVE that uses layer files.
+
+The JSON in question is somewhat complicated to write it by hand, so the following workflow  uses an online tool called MapBox to configure it within a user interface and from here export the JSON needed for Web RAVE.
+
+The first few steps involve uploading into MapBox a sample dataset for the layer that you want to symbolize, so that you can develop the symbology on a real set of data. When you are finished the data you use will be discarded. We just need the symbology that you created.
+
+# Before You Start
+
+You should have the following available before you begin:
+
+1. A data layer for which you want to define the Web RAVE symbology.
+1. An idea of how you want the layer in question to be symbolized. This will most likely be informed from symbology that has already been defined for QRAVE or ArcRAVE.
+1. [QGIS](https://qgis.org/en/site/) Desktop GIS software.
+1. A free [MapBox](https://studio.mapbox.com) account.
+1. A powerful text editor, such as [Visual Studio Code](https://code.visualstudio.com/).
+
+# Prepare Your Data
+
+1. Start QGIS and load the layer you want to symboloize into the map. If possible, use QRAVE to help you do this. In other words, download a project that contains the layer in question and add it to the current map document by double clicking it in the RAVE project tree.
+1. Export the layer to a GeoJSON file:
+    1. Right click on the layer in the QGIS table of contents and choose **Export** and then **Save Features As...**
+    1. Make sure that GeoJSON is selected in the top dropdown.
+    1. Specify a file path where the data will get stored.
+    1. Choose WGS84 as the projection.
+    1. Click **Save**
+    1. MapBox struggles with map projections defined in GeoJSON files, so open the file you just exported in a text editor and remove the line near the top starting with `"crs"`. An example of the line to remove is shown below.
+    1. Remember to save the file!
+
+```json
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+```
+
+If you're layer is big (> 5Mb) then you might consider only exporting a subset of your data, or omitting some of the attribute fields. Remember to retain any features and fields that span the gammit of symbology you intend to implement. All you really need is one feature for each symbology class. The easiest way to omit features is to use a "definition query" to filter which features are considered part of the layer in QGIS. Alternatively, if you know JSON you can just delete features from the GeoJSON file in the same step where you edit the file to remove the `crs` projection. This is explained further in the video.
+
+# Upload Your Data to MapBox
+
+1. Login to [MapBox Studio](https://studio.mapbox.com).
+1. Click the **Styles** tab and then **create new style**. (If you don't see a styles tab then click on your account icon top right and choose **Studio** to be taken to the correct screen).
+1. Choose Blank Template and then the **Create Blank Template** button at the bottom.
+1. Click the word "Blank" in the top bar to make the name editable and provide a good name (this name is used by Web RAVE, but is useful because this style is going to persist in your MapBox account and you might need to find it in the future).
+1. Click on the **Layers** tab.
+1. Click the plus icon to add a layer.
+1. Click the **Upload data** button in the source panel and upload the GeoJSON that you exported in the previous step. Large datasets will take some time to both upload and process the data. Also note that the free MapBox accounts has limits on the amount of data you can store in your account.
+
+# Symbolize the Layer
+
+1. Click the **Source** dropdown and select the data source that you just uploaded. You might have to scroll among all the default layers that MapBox provides.
+1. It's helpful to have a basemap for context. Click the **Source** dropdown again, but this time pick one of the built-in MapBox satellite layers.
+1. Now it's time to symbolize your layer. Some guidelines are below:
+    - You need to duplicate the layer and change the type to get things like labels. So, for example, you might have one mapbox layer for symbols (labels), one for line styling and one for polygon fill styling. All layers consume from the same datasource.
+    - You can add copies of your datasource and convert them for things like labels, lines, polygons etc but you're not allowed to use anything else. Everything must derive from the GeoJSON file you uploaded.
+    - You can add support layers like satellite maps underneath to help you see what your map will look like but you need to make sure these don't end up in the final product below. 
+    - Search for online tutorals or videos. MapBox is well supported.
+
+# Export the Symbology
+
+1. When you're happy with your symbology click the **Share** button in the top right of the screen.
+2. In the screen that pops up, click the **Draft** top right.
+3. Click the **Download** link at the bottom of the page to download a zip file.
+4. Extract the zip file and open the `style.json` file in a text editor.
+
+Here's the kind of thing you're going to be looking at. Most of this file we can discard. The "layers" array is the only thing we care about.
+
+```json
+{
+    "version": 8,
+    "name": "WebRave Export demo",
+    "metadata": {
+        "mapbox:autocomposite": true,
+        "mapbox:type": "template",
+        "mapbox:sdk-support": {
+            "android": "9.3.0",
+            "ios": "5.10.0",
+            "js": "2.0.0"
+        },
+        "mapbox:groups": {},
+        "mapbox:uiParadigm": "layers"
+    },
+    "center": [-115.7276920252901, 46.04100776943545],
+    "zoom": 10.688254550618892,
+    "bearing": 0,
+    "pitch": 0,
+    "sources": {
+        "mapbox://mapbox.satellite": {
+            "url": "mapbox://mapbox.satellite",
+            "type": "raster",
+            "tileSize": 256
+        },
+        "composite": {
+            "url": "mapbox://northarrowresearch.5pojlt0g",
+            "type": "vector"
+        }
+    },
+    "sprite": "mapbox://sprites/northarrowresearch/ckox2hmjq0yn517p5re1fbtbb/ck2u8j60r58fu0sgyxrigm3cu",
+    "glyphs": "mapbox://fonts/northarrowresearch/{fontstack}/{range}.pbf",
+    "layers": [
+        {
+            "id": "confinement-ratio-3oldrq",
+            "type": "line",
+            "source": "composite",
+            "source-layer": "confinement_ratio-3oldrq",
+            "layout": {},
+            "paint": {
+                "line-color": [
+                    "step",
+                    ["get", "Confinement_Ratio"],
+                    "hsl(116, 57%, 39%)", 0.1,
+                    "hsl(108, 87%, 59%)", 0.5,
+                    "hsl(29, 100%, 50%)", 0.85,
+                    "hsl(8, 100%, 50%)", 1.0000000000002822,
+                    "hsl(8, 100%, 50%)"
+                ]
+            }
+        }
+    ],
+    "created": "2021-05-20T15:47:03.419Z",
+    "modified": "2021-05-20T15:54:44.257Z",
+    "id": "ckox2hmjq0yn517p5re1fbtbb",
+    "owner": "northarrowresearch",
+    "visibility": "private",
+    "draft": false
+}
+```
+
+5. Select all the appropriate items from the square brace after `"Layers":` until the corresponding closing square brace.
+6. Paste the text into a new file and save the file into the `web` folder in the Riverscapes XML git repository under the path [symbology\web](https://github.com/Riverscapes/RiverscapesXML/tree/master/Symbology/web) within a folder named after the project type or in the `Shared` subfolder. Use the same name as the [business logic symbology key](/technical-reference#symbology-keys). The name is case sensitive and the file suffix must be `.json`.
+7. Commit your changes and create a pull request, just as you would for QRAVE QML or ArcRAVE layer files.
+
+The final symbology file will look something like this:
+
+``` json
+{
+  "$schema": "https://xml.riverscapes.net/Symbology/webRAVEVector.schema.json",
+  "legend": [
+    ["hsl(116, 57%, 39%)", "legend table layer 1"],
+    ["hsl(108, 87%, 59%)", "legend table layer 1"],
+    ["hsl(29, 100%, 50%)", "legend table layer 1"]
+  ],
+  "layerStyles": [
+      {
+          "id": "confinement-ratio-3oldrq",
+          "type": "line",
+          "source": "composite",
+          "source-layer": "confinement_ratio-3oldrq",
+          "layout": {},
+          "paint": {
+              "line-color": [
+                  "step",
+                  ["get", "Confinement_Ratio"],
+                  "hsl(116, 57%, 39%)", 0.1,
+                  "hsl(108, 87%, 59%)", 0.5,
+                  "hsl(29, 100%, 50%)", 0.85,
+                  "hsl(8, 100%, 50%)", 1.0000000000002822,
+                  "hsl(8, 100%, 50%)"
+              ]
+          }
+      }
+  ]
+}
+```
+
+
+## Building the Legend Table Object
+
+``` json
+{
+  "legend": [
+    ["hsl(116, 57%, 39%)", "legend table layer 1"],
+    ["hsl(108, 87%, 59%)", "legend table layer 1"],
+    ["hsl(29, 100%, 50%)", "legend table layer 1"]
+  ]
+}
+```
+
+The structure is pretty simple. It's a double array and the inner array is made up of two string values: A color string and a label string.
+
+The color string is any CSS-valid color value string ([more about what's allowed in css here](https://www.w3schools.com/cssref/css_colors_legal.asp)). You can use:
+
+* Hexadecimal colors: `#FF0000`
+* Hexadecimal colors with transparency: `#FF000055`
+* RGB colors: `rgb(255,0,0)`
+* RGBA colors: `rgba(255,0,0, 100)`
+* HSL colors: `hsl(116, 57%, 39%)`
+* HSLA colors: `hsla(116, 57%, 39%, 0.2)`
+* Predefined/Cross-browser color names: `red`
+
+
+***Note that your symbology will be live as soon as the pull request is approved and implemented.
+***
+
+Let's summarize this overall scructure. There are 3 parts to this file:
+
+``` JSON
+{
+  "$schema": "https://xml.riverscapes.net/Symbology/webRAVEVector.schema.json",
+  "legend": [],
+  "layerStyles": []
+}
+```
+
+* `"$schema"` This points to the schema file. It's optional but if you use it then vscode will be able to tell you if there are problems with the file.
+* `"legend"`: This is the legend table information. You need to build this manually (see Below)
+* `"layerStyles"`: This is copied and pasted directly from mapBox style exports.
+
+## File naming
+
+The only trick here is putting it in the right place with the right file name
+
+The filename must be `somename.json` and the `somename` part should match what's in the symbology attribute in the business logic XML file (this is the same naming convention as the qml files. 
+
+So if my business logic looks like this:
+
+``` xml
+<Node xpathlabel="Name" xpath="Outputs/Geopackage/Layers/Vector[@id='CONFINEMENT_RATIO']" type="line" id="confinement_ratio" symbology="confinement_ratio" />
+```
+
+then my file name should be `confinement_ratio.json`
+
+## **_CASE MATTERS_**
+
+the `.json` part should always be lowercase and the case of the filename should match EXACTLY what's in the business logic XML
+
+
+## Folder naming
+
+These files should live alongside the `.txt` files for the webRAVE rasters
+
+``` bash
+# so if I want to put in a file shared across all projects then
+RiverscapesXML/Symbology/web/Shared/whatever.json
+# otherwise, for project-specific symbologies
+RiverscapesXML/Symbology/web/ProjectTypeName/whatever.json
+```
+
+# Video Demonstrations
+
+<Youtube embedId="vIFQJlEIgpc" />
+
+<Youtube embedId="0CrZr9Bs9hk" />

@@ -1,0 +1,56 @@
+---
+title: QViewer Symbology
+banner: true
+description: How map symbology works in QViewer
+---
+
+Here are step by step instructions for curating symbology in QGIS
+
+### QViewer How-to Create a Q Layer File (`*.qml`)
+
+Note: Be sure you are working within a <a class="button small" href="https://thenewstack.io/dont-mess-with-the-master-working-with-branches-in-git-and-github/">branch</a> of a given repository. Instructions on how to create a branch can be found <a class="button small" href="https://docs.github.com/en/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository">here</a>. 
+
+1. Symbolize the layer to your liking. 
+
+2. Once the layer has been symbolized, right click the layer within the layers panel. 
+
+3. Scroll down to *Export* and select *Save as QGIS Layer Style* (Since QGIS doesn't recognize *.lyr files, we will need to export our symbology as *.qml files). 
+
+4. Save your *.qml within *RiverscapesXML > Symbology > qgis*  with appropriate naming. 
+
+   - Naming should reflect what's being referenced in the Business Logic.
+
+   - If the layer is used for multiple tools (BRAT, RSContext, VBET, etc. ) then be sure to save it within the *Shared* folder.
+   - If the layer is unique to a particular tool, save it in the folder for that specific tool. 
+
+5. Commit your changes to the branch and create a pull request. 
+
+<Youtube embedId="cbAsvdh7_Ws"/>
+
+### QRAVE  How-to  Convert  from  a `*.lyr` to  a `*.qml`
+
+Often times, we may already have symbology that exists as an ESRI *.lyr file that we want to convert into a QGIS *.qml file. Here are a couple of ways in which we can do that. 
+
+#### SLYR TOOL 
+
+The quickest and easiest way to convert *.lyr to *.qml is by using the [SLYR Tool](https://north-road.com/slyr/). 
+
+Note: You will need the ET-AL SLYR account details in order to run the licensed version
+
+1. Downloading and installing the SLYR plugin for QGIS
+
+   Important: Before installing the licensed version of SLYR, you must first uninstall the community version (if installed) and restart QGIS
+
+   1. Download the installer from [https://usuwatershed:JloiY%24%29o%7Bskp@north-road.com/qgis_plugins/2872eb8e-bc44-46ac-9f11-f124c0ce4915/slyr_install.zip](https://usuwatershed:JloiY%24%29o%7Bskp@north-road.com/qgis_plugins/2872eb8e-bc44-46ac-9f11-f124c0ce4915/slyr_install.zip)
+   2. Unzip the downloaded file, and then drag the extracted "install_slyr_qgis.py" over a running QGIS install. The script will add a connection to the private plugins repository, and install the SLYR plugin for you.
+   3. After the plugin is installed, the SLYR options dialog will open. You must enter your unique license key at this screen, exactly as it appears at the end of this email.
+
+2. To use the plugin
+
+   1. Navigate to the tool within the QGIS Processing Toolbox.
+   2. Select the LYR datasets dropdown and open up the Convert LYR to QML tool.
+   3. Simply drag and drop the *.lyr file that you want converted into a *.qml and save it within *RiverscapesXML > Symbology > qgis*  with appropriate naming. 
+   4. Once the *.qml has been created, double check that the symbology was properly converted and commit your changes. 
+      - Although this tool has been shown to work correctly more times than not, it is important that you always check the *.qml output and make sure the symbology was accurately converted. 
+
+<Youtube embedId="lxYP79fkAQY"/>

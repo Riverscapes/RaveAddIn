@@ -1,0 +1,37 @@
+---
+title: Riverscapes Viewer
+description: "A free viewer for Riverscapes projects"
+banner: true
+---
+
+import { Container } from '@mui/material'
+import CardImage from '/static/images/card-image.jpg'
+
+<Container maxWidth="xl">
+
+The Riverscapes Viewer helps you make maps of rivers. It speeds up the process of adding data related to rivers into your preferred GIS with meaningful layer order and symbology.
+
+There are three versions of the Riverscapes Viewer that all work essentially the same way. You start with a [riverscapes project](https://riverscapes.net/Tools/Technical_Reference/Documentation_Standards/Riverscapes_Projects/) that contains a collection of data layers related to rivers. You open the project in the Viewer project explorer that shows all the layers, displayed with meaningful names and icons. Clicking on a layer adds it to the current map in a carefulluy designed order with predefined symbology tailored to the layer in question.
+
+There are three separate versions of the Riverscapes Viewer depending on which GIS you prefer:
+
+<Container maxWidth="xl">
+    <Grid container spacing={4} sx={{mt: 3}} padding={0}>
+      <StoryCard 
+        title="Web Viewer"
+        image={CardImage}
+        description=" No GIS needed! View riverscapes projects online in a browser."
+        to="/download/download/install-web" />
+      <StoryCard 
+        title="QViewer for QGIS"
+        image={CardImage}
+        description="For desktop GIS users with QGIS"
+        to="/download/download/install-qgis"/>
+      <StoryCard 
+        title="ArcViewer for ArcGIS"
+        image={CardImage}
+        description="For desktop GIS users with ArcIGS 10.6.1 or higher."
+        to="/download/download/install-arc" />
+    </Grid>
+</Container>
+</Container>
