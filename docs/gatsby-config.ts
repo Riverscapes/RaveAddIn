@@ -3,7 +3,7 @@ import { GatsbyConfig } from 'gatsby'
 module.exports = {
   // TODO: You need pathPrefix if you're hosting GitHub Pages at a Project Pages or if your
   // site will live at a subdirectory like https://example.com/mypathprefix/.
-  pathPrefix: '',
+  pathPrefix: '/',
   siteMetadata: {
     title: `Riverscapes Viewer`,
     author: {
@@ -124,7 +124,7 @@ module.exports = {
           name: `Riverscapes Gatsby Template Site`,
           short_name: `RiverscapesTemplate`,
           // TODO: You need to change this to your site's URL. This should match the `pathPrefix` above.
-          start_url: `/riverscapes-template`,
+          start_url: `/`,
         },
       },
     },
