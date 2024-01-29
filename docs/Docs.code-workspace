@@ -14,9 +14,10 @@
   ],
   "settings": {
     // TODO: Add your own site name here. Replace "GATSBYDOCS" with your site name or "QRiS Docs -" or whatever you want to see in the window title. 
-    "window.title": "Riverscapes Viewer Docs -${separator}${activeEditorShort}${separator}${rootName}",
+    "window.title": "Riverscapes Viewer Docs${separator}${activeEditorShort}${separator}${rootName}",
     "[mdx]": {
-      "editor.wordWrap": "on"
+      "editor.wordWrap": "bounded",
+      "editor.wordWrapColumn": 80
     },
     "css.lint.validProperties": ["composes"],
     "workbench.colorCustomizations": {
@@ -40,7 +41,8 @@
     },
     "files.exclude": {
       "**/node_modules/**": true
-    }
+    },
+    "terminal.integrated.defaultProfile.linux": "zsh"
   },
   "extensions": {
     "recommendations": [

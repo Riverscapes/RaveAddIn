@@ -3,7 +3,7 @@
   "name": "Gatsby Docs Dev Container",
   "waitFor": "onCreateCommand",
   // On container creation, install dependencies.
-  "postCreateCommand": "cd docs; yarn install --immutable --immutable-cache",
+  "postCreateCommand": "cd docs; yarn install",
   // Build and run the dev site on container start.
   "postAttachCommand": "cd docs; gatsby build; gatsby serve -H 0.0.0.0 -p 8000",
   "customizations": {
@@ -27,7 +27,7 @@
   "portsAttributes": {
     "8000": {
       "label": "Application",
-      "onAutoForward": "openBrowser"
+      "onAutoForward": "openBrowserOnce"
     }
   },
   // Use 'forwardPorts' to make a list of ports inside the container available locally.

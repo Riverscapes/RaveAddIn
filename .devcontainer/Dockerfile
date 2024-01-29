@@ -20,4 +20,3 @@ RUN wget https://raw.githubusercontent.com/Riverscapes/environment/master/.zshrc
 # set memory to 8Gb so that Gatsby has a chance
 ENV NODE_OPTIONS=--max-old-space-size=8192
 ENV GATSBY_CPU_COUNT=2
-ENV GATSBY_TELEMETRY_DISABLED=1
