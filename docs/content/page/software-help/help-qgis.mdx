@@ -4,16 +4,58 @@ banner: true
 description: Help with the QGIS version of the Riverscapes Viewer
 ---
 
+The QGIS Version of the Riverscapes Viewer is a free plugin for QGIS that helps display riverscapes projects with consistent symbology and labeling. This help guide will help you get started with the Riverscapes Viewer.
+
 # Getting Started
 
-# Default Project View
+If you have not already installed the Riverscapes Viewer, you can do so by following the instructions on the [installation page](/download/install-qgis).
 
-# Opening a Project
+The Viewer consists of a toolbar and a project explorer panel. The toolbar contains buttons for opening projects and updating resources. The project explorer panel contains a tree view of the project layers. This is the main way for adding layers to the map.
 
-# Adding Layers to the Map
+![Riverscapes Viewer](/images/qviewer/qris_toolbar_map_project.png)
 
-# Adding Base Layers to the Map
+After you have installed the plugin, locate the toolbar in QGIS. If it is not visible then right click on the grey area to the right of the other QRIS toolbars. Check the box next to the Riverscapes Viewer to make it visible. The four buttons on the toolbar are:
+
+1. Open and close the Riverscapes Viewer project explorer dockable panel.
+1. Open a riverscapes project and load it into the project explorer dockable panel.
+1. Close all currently open projects within the project explorer dockable panel.
+1. Get information and help about the Riverscapes Viewer as well as [update resources](/software-help/help-qgis/#updating-resources) that come with the software.
+
+# Open a Project
+
+Click on the second button on the toolbar to open a riverscapes project. This will open a file dialog where you can select a project file. The project file is a `*.rs.xml` file that defines the project layers.
+
+After the selecting file, the project will be loaded into the Riverscapes Viewer Project Explorer panel. If the project type possesses a [default project view]() it will be loaded into the map.
+
+## Adding Layers to the Map
+
+To add layers to the map, simply double click them in the project explorer panel. They will get added to the map in a structure that reflects the project explorer panel (and is defined in the [business logic](/technical-reference/business-logic) for this project type).
+
+Right click on any layer in the tree and choose View Layer Metadata info to see information stored in the project about the chosen layer.
+
+![layer metadata](/images/qviewer/qris_layer_metadata.png).
+
+## Adding Base Layers to the Map
+
+The Riverscapes Viewer comes with a set of base layers that can be added to the map. Expand the basemap node in the project explorer panel and double click the layer you want to add to the map.
 
 # Project Views
 
-# The Project Explorer Panel
+Project views are predefined, curated views that can be added to the map with a single click. They allow for quickly adding the more popular ways of viewing a specific project type. Project views are defined in the [business logic](/technical-reference/business-logic) for the project type.
+
+# Options
+
+The Riverscapes Viewer has a few options that can be set in the options dialog. To open the options dialog, click on the options button in the toolbar.
+
+![options](/images/qviewer/qris_options.png)
+
+- You can choose to include or exclude basemaps from the project explorer panel.
+- You can choose a region for certain basemaps. This feature is not currently in operation.
+- You can choose to automatically update resources when the Riverscapes Viewer is first loaded.
+- You can choose to enable or disable opening of the default [project view]() when a project is opened.
+
+# Updating resources
+
+You can update the [business logic](/technical-reference/business-logic) and [symbology](/technical-reference/symbology/) for the Riverscapes Viewer by clicking on the update resources button in the toolbar. This will download the latest versions of these resources and place them on your computer in the correct location.
+
+Simply click on the Riverscapes Viewer Help menu and choose "Updates Resources". This operation will report the number of successfully updated files in the QGIS message panel.

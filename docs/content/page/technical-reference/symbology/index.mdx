@@ -4,25 +4,25 @@ banner: true
 description: How map symbology is applied in Riverscapes Viewer
 ---
 
-One of the most important features in RAVE is adding a curated layer to the map symoblized as it was intended by the model or project type owner. This is a feature of all flavors of RAVE (ArcRAVE, QRAVE and WebRAVE). Unfortunately, each has different standards for how symbology is saved. This page is for power-users or Project-Type Curators to customize and implement consistent symbology across all three platforms.
+One of the most important Riverscapes Viewer features is adding a curated layer to the map symoblized as it was intended by the model or project type owner. This is a feature of all flavors of the Viewer ([Arc Viewer](/software-help/help-arc), [QViewer](/software-help/help-qgis) and [Web Viewer](/software-help/help-arc)). Unfortunately, each has different standards for how symbology is saved. This page is for power-users or Project-Type Curators to customize and implement consistent symbology across all three platforms.
 
-By default RAVE adds layers to the map document using the default symbology. Rasters are added with a greyscale and vectors with a single symbol using a random color.
+By default the Viewer adds layers to the map document using the default symbology. Rasters are added with a greyscale and vectors with a single symbol using a random color.
 
 ![Add To Map](/images/add_to_map.png)
 
-You can override this behavior and apply specific symbology to different types of layers. For example you can use one raster symbolology for DEMs and another for vegetation. RAVE does this using  layer files. 
+You can override this behavior and apply specific symbology to different types of layers. For example you can use one raster symbolology for DEMs and another for vegetation. The Viewer does this using layer files in ArcGIS and QML files in QGIS. 
 
 ## Business Logic & Symbology Keys
 
 The same [business logic](../business-logic) is used in all three flavors of RAVE. Each layer within a riverscapes project tree has a symbology key  associated with it. We use the same keys to point to different layer files in each. These keys define the generic type of layer in question and they are used to pick which symbology to apply when adding the layer to the map. Examples might be "DEM", "Soil" or "Vegetation".
 
-The symbology keys are defined in the [business logic XML](https://github.com/Riverscapes/RiverscapesXML/tree/master/RaveBusinessLogic) that is used to load the Riverscapes project into the RAVE project explorer. In the illustration below the VBET.xml business logic file (1) defines a node in the tree for the DEM input (2) that when RAVE attempts to add the layer to the ArcMap table of contents (3) it uses the symbology key of `raster_dem` (4). 
+The symbology keys are defined in the [business logic XML](https://github.com/Riverscapes/RiverscapesXML/tree/master/RaveBusinessLogic) that is used to load the Riverscapes project into the project explorer. In the illustration below the VBET.xml business logic file (1) defines a node in the tree for the DEM input (2) that when RAVE attempts to add the layer to the ArcMap table of contents (3) it uses the symbology key of `raster_dem` (4). 
 
 ![symbology keys](/images/symbology_keys.png)
 
 ## Where RAVE Looks for Layer Files
 
-You can add any GIS layer to the current ArcMap document by right clicking and choosing **Add to Map**. Alternatively you can choose **Add All Layers To The Map** by right clicking on any higher up branch of the project tree. RAVE then looks for a file with the same name as the **symbology key** associated with that layer type. RAVE looks in five places in a very specific order. The first file with the name that matches the symbology key of the layer is used to symbolize the layer as it is added to the current ArcMap document. The file locations are:
+You can add any GIS layer to the current ArcMap document by right clicking and choosing **Add to Map**. Alternatively you can choose **Add All Layers To The Map** by right clicking on any higher up branch of the project tree. RAVE then looks for a file with the same name as the **symbology key** associated with that layer type. The Viewer looks in five places in a very specific order. The first file with the name that matches the symbology key of the layer is used to symbolize the layer as it is added to the current ArcMap document. The file locations are:
 
 |Search Folder|Example|
 |---|---|
@@ -34,7 +34,7 @@ You can add any GIS layer to the current ArcMap document by right clicking and c
 
 The easiest and first way to experiment with symbolizing layers is to generate a layer file and put it adjacent to the Riverscapes project. Once you're comfortable with the symbology then you can move the file into your `%APPDATA%\RAVE` location.
 
-Notice above how RAVE first looks next to the project for layer files that only apply to that project. Next it looks in the AppData folder for layer files that are specific to the project type in question (BRAT in the example above). Next it looks for generic layer files that are shared across all RAVE project types. Finally RAVE will look in the set of layer files that are shipped with the software, of which there are none currently. However we plan to start including generic layer files for common layer types in the near future.
+Notice above how the Viewer first looks next to the project for layer files that only apply to that project. Next it looks in the AppData folder for layer files that are specific to the project type in question (BRAT in the example above). Next it looks for generic layer files that are shared across all project types. Finally the Viewer looks in the set of layer files that are shipped with the software, of which there are none currently. However we plan to start including generic layer files for common layer types in the near future.
 
 ## Where Is my APPDATA folder?
 
@@ -47,11 +47,11 @@ Remember to put your symbology information under a folder called `RAVE\Symbology
 -------
 ## Symbology Files
 
-### QRAVE
+### Riverscapes Viewer for QGIS
 
-#### QRAVE How-to Create a Q Layer File (`*.qml`)
+#### How-to Create a QGIS Layer File (`*.qml`)
 
-#### QRAVE How-to Convert from a `*.lyr` to  a `*.qml`
+#### How-to Convert from a `*.lyr` to  a `*.qml`
 
 -----------
 ### ArcRAVE

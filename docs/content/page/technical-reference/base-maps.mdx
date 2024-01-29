@@ -6,7 +6,7 @@ description: How to define basemaps for desktop Viewer versions
 
 # Base Map Definition Files
 
-The base maps available within RAVE are listed in plain text XML files called `BaseMaps.xml`. RAVE looks in two locations for this file in a specific order:
+The base maps available within the Riverscapes Viewer are listed in plain text XML files called `BaseMaps.xml`. The Viewer looks in two locations for this file in a specific order:
 
 ```
 %APPDATA%\RAVE\BaseMaps.xml
@@ -15,18 +15,18 @@ The base maps available within RAVE are listed in plain text XML files called `B
 
 The first location is not created by default. If you want to customize the base maps available in RAVE then create this file and follow the instructions below.
 
-The second location describes the list of the base maps that is deployed with the RAVE softwware. This list is updated with each release of the RAVE software.
+The second location describes the list of the base maps that is deployed with the Viewer softwware. This list is updated with each release of the Viewer software.
 
-Within either of these files RAVE will load any "regions" and their corresponding Web Mapping Service base maps.
+Within either of these files the Viewer will load any "regions" and their corresponding Web Mapping Service base maps.
 
 # Customizing Your Own Base Maps
 
 These steps describe how to create your own `BaseMaps.xml` file
-so that RAVE can make use of additional Web Mapping Services.
+so that the Viewer can make use of additional Web Mapping Services.
 
 1. Create a text file at the following path. `%APPDATA%\RAVE\BaseMaps.xml`. See the [symbology page](./symbology#where-is-my-appdata-folder) for how to locate your APPDATA folder. The `RAVE` folder might not exist.
 1. List the Web Mapping Services that you want to use by writing the necessary XML. See below.
-1. Open the Options form in the RAVE Help menu and select name of the region that you used in your custom BaseMaps.xml file.
+1. Open the Options form in the Viewer Help menu and select name of the region that you used in your custom BaseMaps.xml file.
 
 # XML Syntax for Base Maps.xml
 
@@ -34,9 +34,9 @@ The sample below shows the fairly simple structure of the BaseMaps.xml file. Wor
 
 The one and only root node must be called `BaseMaps`. It can contain multiple `Region` nodes that represent different geographic regions of the World for which web mapping services are maintained. Regions are intended to be a loose concept for grouping together base map layers for the same parts of the World. They can be repurposed if you have other types of Web Mapping Service collections.
 
-Each `Region` can contain either `GroupLayer` or `Layer` tags. GroupLayer tags are merely to help with organization. They show up in the RAVE project explorer as folders and the ArcMap table of contents as group layers. 
+Each `Region` can contain either `GroupLayer` or `Layer` tags. GroupLayer tags are merely to help with organization. They show up in the Viewer project explorer as folders and the ArcMap table of contents as group layers. 
 
-The `Layer` tag represents a single Web Mapping Service. Each Layer tag must have a name attribute that contains the text that will be displayed in the RAVE project explorer, as well as a URL attribute that contains the end point for the Web Mapping Service. The Metadata child tags are optional and not used by RAVE at this time.
+The `Layer` tag represents a single Web Mapping Service. Each Layer tag must have a name attribute that contains the text that will be displayed in the Viewer project explorer, as well as a URL attribute that contains the end point for the Web Mapping Service. The Metadata child tags are optional and not used at this time.
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
