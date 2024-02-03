@@ -3,3 +3,35 @@ title: Software Help
 banner: true
 layout: default
 ---
+import { Container } from '@mui/material'
+import ArcCardImage from '/static/images/arcviewer/RV_Arc.png'
+import WebCardImage from '/static/images/webviewer/RV_Web.png'
+import QCardImage from '/static/images/qviewer/RV_Q.png'
+
+<Container maxWidth="xl">
+Please use the following links to access the software help pages:
+
+<Container maxWidth="xl">
+    <Grid container spacing={4} sx={{mt: 3}} padding={0}>
+      <StoryCard 
+        title="Web Viewer"
+        image={WebCardImage}
+        description="Help on the Web Viewer inside the Data Exchange "
+        to="/software-help/help-web" />
+      <StoryCard 
+        title="QViewer for QGIS"
+        image={QCardImage}
+        description="Help using QViewer in QGiS"
+        to="/software-help/help-qgis"/>
+      <StoryCard 
+        title="ArcViewer for ArcGIS"
+        image={ArcCardImage}
+        description="Help using ArcViewer in ArcGIS."
+        to="software-help/help-arc/" />
+    </Grid>
+</Container>
+</Container>
+
+Need more help?
+<Button to="https://riverscapes.freshdesk.com/support/solutions/folders/153000068960" iconName={"HelpCenter"} title="Search our Knowledge Base"  subtitle="For additional help ideas and FAQs" /> 
+<Button to="https://riverscapes.freshdesk.com/support/tickets/new" iconName={"SupportAgent"} title="Still Confused"  color="secondary" subtitle="Get help from our Riverscape Application Support Specialists" /> 
