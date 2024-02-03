@@ -1,6 +1,6 @@
 ---
 title: Riverscapes Viewer
-description: "A free GIS viewer for Riverscapes projects"
+description: "Unlock Riverscapes Data: Streamlined Exploration with Web and Desktop GIS"
 banner: true
 ---
 
@@ -13,18 +13,14 @@ import QCardImage from '/static/images/qviewer/RV_Q.png'
 
 
 <Image src="/images/viewer-logo-horiz-black-400px.png"  float="left"  />
-The Riverscapes Viewer helps you easily explore maps of riverscape projects. It speeds up the process of adding data related to riverscapes into your preferred GIS with meaningful layer order and symbology.
-
-There are three versions of the Riverscapes Viewer that all work essentially the same way. You start with a [riverscapes project](https://riverscapes.net/Tools/Technical_Reference/Documentation_Standards/Riverscapes_Projects/) that contains a collection of data layers related to rivers. You open the project in the Viewer project explorer that shows all the layers, displayed with meaningful names and icons. Clicking on a layer adds it to the current map in a carefulluy designed order with predefined symbology tailored to the layer in question.
-
-There are three separate versions of the Riverscapes Viewer depending on which GIS platform that you prefer:
+Our **Riverscapes Viewers** make it easy to explore _riverscape projects_ as maps. Developed by the [Riverscapes Consoritum](https://riverscapes.net), these tools are available as both a [web application](software-help/help-web) and desktop GIS plugins for [QGIS](software-help/help-qgis) and Esri's [ArcGIS](software-help/help-arc). They simplify the process of adding riverscape-related data to your preferred GIS platform, ensuring meaningful layer organization and symbology. We offer three versions of the **Riverscapes Viewer** to meet your specific needs.
 
 <Container maxWidth="xl">
     <Grid container spacing={4} sx={{mt: 3}} padding={0}>
       <StoryCard 
         title="Web Viewer"
         image={WebCardImage}
-        description=" No GIS needed! View riverscapes projects online in a browser."
+        description=" No GIS or Download needed! View riverscapes projects online in a browser. "
         to="/software-help/help-web" />
       <StoryCard 
         title="QViewer for QGIS"
@@ -39,3 +35,15 @@ There are three separate versions of the Riverscapes Viewer depending on which G
     </Grid>
 </Container>
 </Container>
+
+<Button to="https://data.riverscapes.net" imageSrc="/images/data-exchange-icon-64x64-@2x.png" title="Get Riverscapes Projects Now" color="secondary" subtitle="From the Data Exchange" /> 
+
+The **Viewers** are designed to work with [riverscapes projects](https://riverscapes.net/Tools/Technical_Reference/Documentation_Standards/Riverscapes_Projects/), which contain specific collections of data related to riverscapes. You can discover _riverscape projects_ from the [Riverscapes Data Exchange](https://data.riverscapes.net). You open any _riverscapes project_ in the Viewer and a project explorer exposes curated project contents. 
+
+<Image src="/images/project_views/project_view_tree.png" to="/about" caption="A Riverscape Project tree view" />
+
+Most _riverscpae project_ types include primarily GIS data, displayed with meaningful names and icons and the curated symbology. However, the viewer also exposes non-GIS data, like reports, json, tabular data, xml, imagery, PDFs, databases and more. Clicking on a geopspatial layer adds it to the current map in a carefulluy designed order with predefined symbology tailored to the layer in question.
+
+
+
+
