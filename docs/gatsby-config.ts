@@ -36,7 +36,7 @@ module.exports = {
         ],
       },
       {
-        title: 'Download',
+        title: 'Deploy',
         url: '/download/install-qgis',
         items: [
           {
@@ -49,7 +49,7 @@ module.exports = {
           },
           {
             title: 'Using Web Viewer',
-            url: '/download/web-viewer',
+            url: '/download/install-web',
           },
           {
             title: 'Questions, Feature Requests & Bugs',
@@ -97,19 +97,19 @@ module.exports = {
           },
           {
             title: 'ArcViewer Symbology',
-            url: '/technical-reference/symbology-arc',
+            url: '/technical-reference/symbology/symbology-arc',
           },
           {
             title: 'QViewer Symbology',
-            url: '/technical-reference/symbology-qgis',
+            url: '/technical-reference/symbology/symbology-qgis',
           },
           {
             title: 'Web Vector Symbology',
-            url: '/technical-reference/symbology-web-vectors',
+            url: '/technical-reference/symbology/symbology-web-vectors',
           },
           {
             title: 'Web Raster Symbology',
-            url: '/technical-reference/symbology-web-rasters',
+            url: '/technical-reference/symbology/symbology-web-rasters',
           }
         ]
       }
