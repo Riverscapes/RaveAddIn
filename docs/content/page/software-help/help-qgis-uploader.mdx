@@ -6,7 +6,7 @@ description: Uploading Projects to the Riverscapes Data Exchange
 
 # Uploading Riverscapes Projects
 
-With QViewer you can upload riverscapes projects into the [Riverscapes Data Exchange](https://data.riverscapes.net). 
+With QViewer you can upload riverscapes projects into the [Riverscapes Data Exchange](https://data.riverscapes.net). This features is intended for uploading a single Riverscapes project at a time. You should use the [Riverscapes Command Line Interface](https://developer.riverscapes.net/dev-tools/rscli/) (rscli) if you intend to upload more than a handful of projects.
 
 
 # Before You begin
@@ -71,3 +71,4 @@ After the project upload is complete you can click the `View in Data Exchange` b
 
 - Modifying an existing project in the Data Exchange is permanent and cannot be undone. 
 - For projects that originated from the Data Exchange, a comprehensive file hash check is used to determine which files have changed relative to those that already exist online. Only files that have changed are uploaded.
+- Note that the simple act of adding a GeoPackage layer to the map in QGIS will ever so slightly change the underlying GeoPackage file on disk. This means that downloading, viewing and then re-uploading a Riverscapes project will likely detect changes in GeoPackages that have been used, even if you haven't explicitly made any changes to the data. This is a limitation of the GeoPackage format and not a bug in the uploader. Given that most Riverscapes project types have a [default project view](https://viewer.riverscapes.net/technical-reference/business-logic/#project-views) that loads one or more GeoPackage layers into the map, this is a common scenario. The uploader will detect these changes and upload the modified GeoPackages. This is not a problem, but it is something to be aware of.
