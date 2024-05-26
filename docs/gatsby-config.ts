@@ -41,19 +41,19 @@ module.exports = {
         items: [
           {
             title: 'Install for QGIS',
-            url: '/download/install-qgis',
+            url: '/Download/install-qgis',
           },
           {
             title: 'Install for ArcGIS',
-            url: '/download/install-arc',
+            url: '/Download/install-arc',
           },
           {
             title: 'Using Web Viewer',
-            url: '/download/install-web',
+            url: '/Download/install-web',
           },
           {
             title: 'Questions, Feature Requests & Bugs',
-            url: '/download/known-bugs',
+            url: '/Download/known-bugs',
           }
         ],
       },
@@ -125,6 +125,7 @@ module.exports = {
           short_name: `RiverscapesTemplate`,
           // TODO: You need to change this to your site's URL. This should match the `pathPrefix` above.
           start_url: `/`,
+          iconUrl: `./static/viewer_favicon.png`,
         },
       },
     },

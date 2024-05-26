@@ -4,6 +4,10 @@ banner: true
 description: How to define Riverscapes Viewer Project Trees
 ---
 
+<Alert severity="info">
+  Note that Business Logic uses and refer to files on your computer located in a folder called `RAVE`. The name of this folder refers to the previous name for Riverscapes Viewer that used the acronym RAVE (Riverscapes Analyst Viewer and Explorer).
+</Alert>
+
 # Introduction
 
 The purpose of the business logic is to translate riverscpaes projects and determine how they should be displayed in the Viewer project explorer. In other words, the Riverscapes project file defines **what** layers exist within a project, while the business logic file defines **how** these layers should be organized within the project explorer tree and be displayed when added to map.
@@ -19,7 +23,7 @@ When the Viewer attempts to load a Riverscapes project it looks in three locatio
 1. User-loaded from **Customize Project Hierarchy** command (Priority 1)
 2. In the root directory of the current project (Priority 2)
 3. Local user default over-ride for that project type  (Priority 3)
-4. Default that ships with that version of the Viewer (Priority 4) - *Note that you should always make sure you have the [latest verson of RAVE](https://github.com/Riverscapes/RaveAddIn/releases/latest) as default symbology and business logic updates are published in new releases.*
+4. Default that ships with that version of the Viewer (Priority 4) - *Note that you should always make sure you have the [latest verson of the Viewer](https://github.com/Riverscapes/RaveAddIn/releases/latest) as default symbology and business logic updates are published in new releases.*
 
 The Viewer uses the first business logic file that it finds that contains the same project type specified at the top of the business logic file. Note that Priorities 2 & 3 represent user customization and Priority 1 is where the user can manually load business logic with the **Customize Project Hierarchy** command (see below). See the [symbology page](symbology.html#where-is-my-appdata-folder) for how to locate your APPDATA folder.
 
@@ -40,12 +44,12 @@ You can load a custom business logic file stored in a location on your computer 
 
 ## Customizing Business Logic & Refreshing the Project Explorer
 
-You can customize the business logic XML file while ArcMap and QGIS are in use, providing that the business logic file in question is either adjacent to the Riverscapes project file or in the APPDATA folder. **WARNING** - the business logic is written in XML and is fiddly (see these instructions).  Make small changes locally incrementally (either in Priority 2 or 3 locations on disc), and frequently referesh and test within RAVE.
+You can customize the business logic XML file while ArcMap and QGIS are in use, providing that the business logic file in question is either adjacent to the Riverscapes project file or in the APPDATA folder. **WARNING** - the business logic is written in XML and is fiddly (see these instructions).  Make small changes locally incrementally (either in Priority 2 or 3 locations on disc), and frequently referesh and test within the Viewer.
 
 1. Locate the business logic file you wish to use and open it in any text editor (we strongly recommend following [these instructions](https://riverscapes.net/Tools/Technical_Reference/Documentation_Standards/Riverscapes_Projects/xml_validation.html) for editing and authoring riverscapes XML in Visual Studio Code so that it validates your XML).
 1. Make the desired changes to the business logic XML.
 1. Save the business logic XML file (to project for Priority 2, or to `%APPDATA%\RAVE\XML\` for Priority 3).
-1. Right click on the project node in the RAVE project explorer and choose "Refresh".
+1. Right click on the project node in the Viewer project explorer and choose "Refresh".
 
 ![refresh](/images/refresh.png)
 
@@ -191,4 +195,4 @@ This video illustrates how this works:
 
 ## Option 3: Suggesting a New Default Business Logic for Existing or New Riverscape Project Type
 
-If you would like the Riverscapes Consortium development team to consider your business logic updates and symbology updates for the next release of RAVE, propose a pull request to the [RaveAddIn repository](https://github.com/Riverscapes/RaveAddIn) . If you are part of the Riverscapes Consortium development team, you can do this by making a local Branch, making your commits and pushes to that branch (name it something logical like `ProposedSybmologyMyModel`) and then log a pull request and ask for a review. If you are not part of the development team, you can fork the repo, make your changes on your own repo and then submit a pull request.  This request will be reviewed by the development team and they may ask for fixes after testing it. If accepted, this will be merged into the main branch and reflected in the next release. 
+If you would like the Riverscapes Consortium development team to consider your business logic updates and symbology updates for the next release of the Viewer, propose a pull request to the [Riverscapes XML repository](https://github.com/Riverscapes/RiverscapesXML) . If you are part of the Riverscapes Consortium development team, you can do this by making a local branch, making your commits and pushes to that branch (name it something logical like `ProposedSybmologyMyModel`) and then log a pull request and ask for a review. If you are not part of the development team, you can fork the repo, make your changes on your own repo and then submit a pull request.  This request will be reviewed by the development team and they may ask for fixes after testing it. If accepted, this will be merged into the main branch and reflected in the next release. 
