@@ -4,9 +4,13 @@ banner: true
 description: Using QViewer to Upload Projects into the Riverscapes Data Exchange
 ---
 
+<Alert severity="info">
+  This feature is only available in Riverscapes Viewer for QGIS. It is not available in the ArcGIS or ArcGIS Pro versions of the Viewer.
+</Alert>
+
 # Uploading Riverscapes Projects
 
-With QViewer you can upload riverscapes projects into the [Riverscapes Data Exchange](https://data.riverscapes.net). This features is intended for uploading a single Riverscapes project at a time. You should use the [Riverscapes Command Line Interface](https://developer.riverscapes.net/dev-tools/rscli/) (rscli) if you intend to upload more than a handful of projects.
+With QViewer you can upload riverscapes projects into the [Riverscapes Data Exchange](https://data.riverscapes.net). This feature is intended for uploading a single Riverscapes project at a time. You should use the [Riverscapes Command Line Interface](https://developer.riverscapes.net/dev-tools/rscli/) (rscli) if you intend to upload more than a handful of projects.
 
 
 # Before You begin
@@ -14,7 +18,7 @@ With QViewer you can upload riverscapes projects into the [Riverscapes Data Exch
 This feature requires that you have the following:
 
 1. a Riverscapes login. Visit the [Riverscapes Data Exchange](https://data.riverscapes.net) and create one first if you don't have one already.
-1. A valid Riverscapes compliant project. This can be a new project that you have created, either by hand or using a tool such as [Riverscapes Studio](https://qris.riverscapes.net). Or it could be a project that you or someone else has downloaded from the Data Exchange and altered in some way; Perhaps you have edited some data or performed quality control.
+1. A valid Riverscapes compliant project. This can be a new project that you have created, either by hand or using a tool such as [Riverscapes Studio](https://qris.riverscapes.net). Or it could be a project that you or someone else has downloaded from the Data Exchange and altered in some way; perhaps you have edited some data or performed quality control.
 
 # Getting Started
 
@@ -31,7 +35,7 @@ The project name is shown at the top of the form (1), followed by the local path
 
 # New or Update Project
 
-If your riverscapes project originated from the Data Exchange then you will have the option to modify the existing project (i.e. overwrite the version that's in the Data Exchange) (5). If you choose to modify you can choose whether you want to keep all files on the Data Exchange ("no remote delete"). This is useful if you have downloaded a partial copy of a project from the Data Exchange and want to upload just the parts that you downloaded while keeping all the other files that exist online. Unchecking the "No remote delete" box when modifying existing projects will upload your local copy and remove any files on the Data Exchange that do no appear in your local copy.
+If your riverscapes project originated from the Data Exchange then you will have the option to modify the existing project (i.e. overwrite the version that's in the Data Exchange) (5). If you choose to modify it you can choose whether you want to keep all files on the Data Exchange ("no remote delete"). This is useful if you have downloaded a partial copy of a project from the Data Exchange and want to upload just the parts that you downloaded while keeping all the other files that exist online. Unchecking the "No remote delete" box when modifying existing projects will upload your local copy and remove any files on the Data Exchange that do not appear in your local copy.
 
 For projects that originated in the Data Exchange, clicking the `Visit` button will launch a web browser and take you to the project details for the relevant project.
 
@@ -43,7 +47,7 @@ If the project has never been stored in the Data Exchange, you can choose whethe
 
 # Visibility
 
-Pick the appropriate visibility for the project in the Data Exchange. Note that this option is only available when uploading new projects. Modifying an existing project will retain its existing visility.
+Pick the appropriate visibility for the project in the Data Exchange. Note that this option is only available when uploading new projects. Modifying an existing project will retain its existing visibility.
 
 - **PUBLIC** projects are visible, downloadable and searchable by any user in the system (applies to both user owned AND organization owned).
 - **PRIVATE** Can be searched by all users, but only owners of the project (user owned projects) or members of the organization (org-owned projects) can see, download or modify the project and data layers.
@@ -63,7 +67,7 @@ Before you click `Start` to begin the Upload process you should review the propo
 
 Clicking `Start` will commence project upload into the Data Exchange. There's one final prompt to ensure that you do indeed want to upload the project. You can cancel the process part way through and any files that have already been uploaded will be removed from the Data Exchange. The project is not considered part of the Data Exchange until ALL files are successfully uploaded.
 
-Once the upload is complete, the Data Exchange does a final check to validate the project and it's files. The status will appear as "Waiting for Upload Completion" for a few seconds during this step (9).
+Once the upload is complete, the Data Exchange does a final check to validate the project and its files. The status will appear as "Waiting for Upload Completion" for a few seconds during this step (9).
 
 After the project upload is complete you can click the `View in Data Exchange` button (10) to open a browser and navigate to the project details of the newly uploaded project in the Data Exchange.
 

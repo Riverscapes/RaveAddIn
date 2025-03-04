@@ -1,0 +1,66 @@
+---
+title: Riverscapes Viewer for ArcGIS Pro Help
+banner: true
+description: Help with the Riverscapes Viewer for ArcGIS Pro
+---
+
+See the instructions to [install the Riverscapes Viewer for ArcGIS Pro](/download/install-arcpro) if you haven't already done so.
+
+## Opening a Project
+
+Launch ArcGIS Pro and start an empty map. Make sure that the "Riverscapes" toolbar is visible. If it is not then check that the Riverscapes Viewer addin is installed by visiting the `Project` menu and choosing `Add-In Manager`.  right click in the empty toolbar area in the top right of ArcMap and choose "River Analysis Viewer and Explorer". This will open the toolbar which can then be docked anywhere within the ArcMap main window.
+
+![menu_bar.png](/images/menu_bar.png)
+
+Click the `Open Project` button to open a file browse dialog and select the riverscapes project that you want to open. Typically, this will be a project that you have downloaded from the [Riverscapes Data Exchange](https://data.riverscapes.net). Select the project file (`*.rs.xml`) then click "Open" to open the project.
+
+The Riverscapes Viewer will read the project file, determine what type of Riverscapes project it represents, and then find the corresponding [business logic XML](business-logic.xml) file that specifies how to display the project within the Riverscapes Viewer project explorer. Once the project is loaded the project explorer will contain the project tree and you can start adding layers to the current ArcMap document by right clicking on them and choosing "Add To Map".
+
+
+![add to map](/images/main_map.png)
+
+The Riverscapes Viewer will automatically apply curated symbology for each layer that is added to the map.
+
+You can customize the symbology used when layers are added to the map by generating layer files. Read the [Symbology](/technical-reference/symbology) for instructions on how to do this.
+
+## Adding Layers to the Map
+
+Expand the project tree in the Riverscapes Viewer dockable window. Right click and choose "Add to Map" to add any raster or vector layer to the current map document. It will be added to the map table of contents in a structure that mimics the riverscapes project tree.
+
+Non-spatial files within the project tree can be opened by right clicking on them and choosing "Open". This will open the file in the default application for that file type.
+
+## Base Maps
+
+In addition to helping load riverscapes projects into the current map document, the Riverscapes Viewer also supports loading base map layers. Base maps are [Web Mapping Services](https://en.wikipedia.org/wiki/Web_Map_Service) (WMS) that can be consumed over the internet and displayed underneath your local map layers.
+
+### Adding Base Maps to the Current Map Document
+
+Right click on a base map item in the Riverscapes Viewer project explorer tree and choose **Add To Map**. The selected base map should appear at the bottom of the Table of Contents within the current map document.
+
+## Updating Resources
+
+The Riverscapes Viewer uses two types of resource files; business logic XML is used to load the project explorer, and layer files are used to symbolize layers correctly. The Riverscapes Viewer for ArcGIS Pro does not ship with copies of these two types of files. Use the `Update Resources` feature directly within the Viewer to get the latest versions of these files:
+
+1. Ensure that you have an active internet connection.
+1. Choose `Update Resources` from the Riverscapes Viewer menubar.
+1. Wait for the confirmation of how many files were downloaded. This process can take several minutes, especially if you have a slow internet connection or have not updated the resources in a long time.
+
+If the final message reports that 0 files were updated then you already have the latest business logic XML and symbology files.
+
+Note that any [custom business logic and symbology](/technical-reference/business-logic#customizing-business-logic--refreshing-the-project-explorer) files that you have placed directly in riverscapes project folders will take precedence over the resource files downloaded using this feature. You will need to delete (or more conveniently, rename) these custom files before the Riverscapes Viewer will utilize the resources downloaded using this feature.
+
+## Project Views
+
+Project views consist of curated sets of layers that are intended to be added to the map together. They are a way to quickly add a set of layers to the map that are commonly used together. To add a project view to the map, right click on the project view in the project explorer and choose "Add to Map".
+
+## The Project Explorer Panel
+
+The project explorer panel is a dockable window that is used to navigate the contents of a riverscapes project. It is used to add layers to the map, and to view and edit the attributes of layers. 
+
+You can right click on layers to add them to the map or view the location of the underlying dataset on disk. The latter will open Windows Explorer at the specified location.
+
+> Need more help?
+
+<Button to="https://riverscapes.freshdesk.com/support/solutions/folders/153000068960" iconName={"HelpCenter"} title="Search our Knowledge Base"  subtitle="For additional help ideas and FAQs" /> 
+
+<Button to="https://riverscapes.freshdesk.com/support/tickets/new" iconName={"SupportAgent"} title="Still Confused"  color="secondary" subtitle="Get help from our Riverscape Application Support Specialists" /> 
