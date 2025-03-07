@@ -1,23 +1,23 @@
 ---
-title: Riverscapes Viewer for ArcGIS Pro Help
+title: ArcGIS Pro Help
 banner: true
 description: Help with the Riverscapes Viewer for ArcGIS Pro
+menuWeight: 3
 ---
 
-See the instructions to [install the Riverscapes Viewer for ArcGIS Pro](/download/install-arcpro) if you haven't already done so.
+See the instructions to [install the Riverscapes Viewer for ArcGIS Pro](/deploy/install-arcpro) if you haven't already done so.
 
 ## Opening a Project
 
 Launch ArcGIS Pro and start an empty map. Make sure that the "Riverscapes" toolbar is visible. If it is not then check that the Riverscapes Viewer addin is installed by visiting the `Project` menu and choosing `Add-In Manager`.  right click in the empty toolbar area in the top right of ArcMap and choose "River Analysis Viewer and Explorer". This will open the toolbar which can then be docked anywhere within the ArcMap main window.
 
-![menu_bar.png](/images/menu_bar.png)
+![menu_bar.png](/images/arcpro/menu_bar.png)
 
 Click the `Open Project` button to open a file browse dialog and select the riverscapes project that you want to open. Typically, this will be a project that you have downloaded from the [Riverscapes Data Exchange](https://data.riverscapes.net). Select the project file (`*.rs.xml`) then click "Open" to open the project.
 
 The Riverscapes Viewer will read the project file, determine what type of Riverscapes project it represents, and then find the corresponding [business logic XML](business-logic.xml) file that specifies how to display the project within the Riverscapes Viewer project explorer. Once the project is loaded the project explorer will contain the project tree and you can start adding layers to the current ArcMap document by right clicking on them and choosing "Add To Map".
 
-
-![add to map](/images/main_map.png)
+![add to map](/images/arcpro/main_map.png)
 
 The Riverscapes Viewer will automatically apply curated symbology for each layer that is added to the map.
 
@@ -58,9 +58,3 @@ Project views consist of curated sets of layers that are intended to be added to
 The project explorer panel is a dockable window that is used to navigate the contents of a riverscapes project. It is used to add layers to the map, and to view and edit the attributes of layers. 
 
 You can right click on layers to add them to the map or view the location of the underlying dataset on disk. The latter will open Windows Explorer at the specified location.
-
-> Need more help?
-
-<Button to="https://riverscapes.freshdesk.com/support/solutions/folders/153000068960" iconName={"HelpCenter"} title="Search our Knowledge Base"  subtitle="For additional help ideas and FAQs" /> 
-
-<Button to="https://riverscapes.freshdesk.com/support/tickets/new" iconName={"SupportAgent"} title="Still Confused"  color="secondary" subtitle="Get help from our Riverscape Application Support Specialists" /> 

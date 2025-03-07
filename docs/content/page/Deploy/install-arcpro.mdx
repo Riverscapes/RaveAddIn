@@ -1,0 +1,39 @@
+---
+title: ArcGIS Pro
+banner: true
+description: Riverscapes Viewer for ArcGIS Pro
+menuWeight: 3
+---
+
+To install the Riverscapes Viewer for first time in ArcGIS Pro:
+
+1. Close all ESRI products.
+1. [Download](https://github.com/Riverscapes/ArcProViewer/releases) the latest Riverscapes Viewer addinx file.
+1. Once the addinx file is downloaded, double click it to install the AddIn. You will be prompted with a confirmation that the installation is complete.
+1. Restart ArcGIS Pro and the Riverscapes Viewer toolbar will be available as one of the top level Menu items.
+
+![menu_bar.png](/images/arcpro/menu_bar.png)
+
+## Updating Resources 
+
+You will want to update resources just about every time you use the Riverscapes Viewer (including on a new install) to make sure you have the latest [symbology](/technical-reference/symbology) and [business logic](/technical-reference/business-logic). To do this, you simply go to the Riverscapes Viewer toolbar and click the update (circular arrow) button. This then downloads the latest files from the [RiverscapesXML repo](https://github.com/Riverscapes/RiverscapesXML) and places them in a local resource folder. You can browse to that resource folder from the toolbar by choosing `Help → Find Resources Folder`.
+
+## Video Demonstration
+
+<Youtube embedId="x_U5ddaazbE?si=fvURbYOp9MyIHy_l"/>
+
+## Updates
+
+To update the Riverscapes Viewer addin, first remove any existing installations. Within ArcPro, navigate to the `Project` tab and choose `Add-In Manager`. Select the Riverscapes Viewer and click "Uninstall". Close ArcPro and install as per the steps above.
+
+## Minimum Requirements
+
+Riverscapes Viewer requires ArcGIS Pro 3.3 or newer and the Microsoft .NET Framework 8.
+
+## Release Notes
+
+See the [release notes](https://github.com/Riverscapes/ArcProViewer/releases) provided with the source code.
+
+## License
+
+The Riverscapes Viewer is released under the [GNU General Public License v3.0](https://raw.githubusercontent.com/Riverscapes/ArcProViewer/main/LICENSE).

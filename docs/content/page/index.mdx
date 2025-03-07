@@ -1,6 +1,6 @@
 ---
 title: Riverscapes Viewer
-description: "Unlock Riverscapes Data: Streamlined Exploration with Web and Desktop GIS"
+description: "View Riverscapes Data With Curated Symbology and Map Table of Contents"
 banner: true
 ---
 
@@ -9,39 +9,57 @@ import ArcCardImage from '/static/images/arcviewer/RV_Arc.png'
 import WebCardImage from '/static/images/webviewer/RV_Web.png'
 import QCardImage from '/static/images/qviewer/RV_Q.png'
 
-<Container maxWidth="xl">
+Easily explore explore [riverscape projects](https://data.riverscapes.net) as maps, with repeatable, curated symbology and meaningful layer organization.
 
-**Riverscapes Viewers** make it easy to explore _riverscape projects_ as maps. Developed by the [Riverscapes Consortium](https://riverscapes.net), these tools are available as both a [web application](software-help/help-web) and desktop GIS plugins for [QGIS](software-help/help-qgis) and Esri's [ArcGIS](software-help/help-arc). They simplify the process of adding riverscape-related data to your preferred GIS platform, ensuring meaningful layer organization and symbology. We offer three versions of the **Riverscapes Viewer** to meet your specific needs.
+<Grid container spacing={2} sx={{mt: 2}} padding={0}>
+  <StoryCard 
+    title="Consistent Cartography"
+    description="Stop wasting time repeatedly symbolozing layers. Riverscapes Viewers automatically applies carefully curated symbology to data, ensuring the same look and feel every time."/>
+  <StoryCard 
+    title="Logical Table of Contents"
+    description="Data are presenting in a meaningful hierarchy that is relevant to the type of data you are looking at. Layers can be added to your current map and are automatically organized into a matching table of contents."/>
+  <StoryCard 
+    title="Helpful MetaData"
+    description="Riverscapes Viewers make it easy to see where data originated from and navigate to the source. Metadata is available for all layers, providing context and provenance."/>
+</Grid>
 
-<Container maxWidth="xl">
-    <Grid container spacing={4} sx={{mt: 3}} padding={0}>
+## Versions
+
+Riverscapes Viewers are available for QGIS and ArcGIS Pro. A web version is embedded within the [Riverscapes Data Exchange](https://data.riverscapes.net) that allows you to explore riverscape projects in your web browser. A legacy version is also avaiable for [ArcGIS 10.x](/software-help/help-arc).
+
+<Grid container spacing={2} sx={{mt: 2}} padding={0}>
+  <StoryCard 
+    title="Web Viewer"
+    description="Explore riverscape projects in your web browser. No installation required."
+    to="software-help/help-web"/>
+  <StoryCard 
+    title="QGIS"
+    description="A free plugin for QGIS." 
+    to="/software-help/help-qgis"/>
+  <StoryCard 
+    title="ArcGIS Pro"
+    description="A free addin for ArcGIS Pro."
+    to="/software-help/help-arcpro"/>
+</Grid>
+
+## Connect to Riverscapes
+
+    <Grid container spacing={2} sx={{mt: 2}} padding={0}>
       <StoryCard 
-        title="Web Viewer"
-        image={WebCardImage}
-        description=" No GIS or Download needed! View riverscapes projects online in a browser. "
-        to="/software-help/help-web" />
+        title="Get Data"
+        description="Discover, view and download riverscape projects from the Riverscapes Data Exchange." 
+        to="https://data.riverscapes.net"/>
       <StoryCard 
-        title="QViewer for QGIS"
-        image={QCardImage}
-        description="For desktop GIS users with QGIS"
-        to="/software-help/help-qgis"/>
+        title="Community"
+        description="Connect with other Riverscapes users on our Community Platform." 
+        to="https://riverscapes.net"/>
       <StoryCard 
-        title="ArcViewer for ArcGIS"
-        image={ArcCardImage}
-        description="For desktop GIS users with ArcGIS 10.6.1 or higher. Sorry no viewer yet for ArcGISPro."
-        to="software-help/help-arc/" />
+        title="Get Involved"
+        description="Develop your own symbology and project layouts for use within the Riverscapes Viewer."/>
     </Grid>
-</Container>
-</Container>
 
-<Button to="https://data.riverscapes.net" imageSrc="/images/data-exchange-icon-64x64-@2x.png" title="Get Riverscapes Projects Now" color="secondary" subtitle="From the Data Exchange" /> 
-
-The **Viewers** are designed to work with [riverscapes projects](https://riverscapes.net/Tools/Technical_Reference/Documentation_Standards/Riverscapes_Projects/), which contain specific collections of data related to riverscapes. You can discover _riverscape projects_ from the [Riverscapes Data Exchange](https://data.riverscapes.net). You open any _riverscapes project_ in the Viewer and a project explorer exposes curated project contents. 
+The **Viewers** are designed to work with [riverscapes projects](https://riverscapes.net/Tools/Technical_Reference/Documentation_Standards/Riverscapes_Projects/), which contain specific collections of data related to riverscapes. You can discover riverscape projects from the [Riverscapes Data Exchange](https://data.riverscapes.net). You open any riverscapes project in the Viewer and a project explorer exposes curated project contents. 
 
 <Image src="/images/project_views/project_view_tree.png" to="/about" caption="A Riverscape Project tree view" />
 
 Most riverscape project types include primarily GIS data, displayed with meaningful names and icons and the curated symbology. However, the viewer also exposes non-GIS data, like reports, json, tabular data, xml, imagery, PDFs, databases and more. Clicking on a geopspatial layer adds it to the current map in a carefulluy designed order with predefined symbology tailored to the layer in question.
-
-
-
-

@@ -30,31 +30,31 @@ module.exports = {
             url: '/about/acknowledgements',
           },
           {
+            title: 'Questions, Feature Requests & Bugs',
+            url: '/about/known-bugs',
+          },
+          {
             title: 'License & Source Code',
             url: '/about/license',
-          }
+          },
         ],
       },
       {
         title: 'Deploy',
-        url: '/download/install-qgis',
+        url: '/deploy/install-qgis',
         items: [
           {
-            title: 'Install for QGIS',
-            url: '/Download/install-qgis',
+            title: 'Riverscapes Viewer for the Web',
+            url: '/Deploy/install-web',
           },
           {
-            title: 'Install for ArcGIS',
-            url: '/Download/install-arc',
+            title: 'Riverscapes Viewer for QGIS',
+            url: '/Deploy/install-qgis',
           },
           {
-            title: 'Using Web Viewer',
-            url: '/Download/install-web',
+            title: 'Riverscapes Viewer for ArcGIS Pro',
+            url: '/Deploy/install-arcpro',
           },
-          {
-            title: 'Questions, Feature Requests & Bugs',
-            url: '/Download/known-bugs',
-          }
         ],
       },
       {
@@ -62,17 +62,17 @@ module.exports = {
         url: '/software-help',
         items: [
           {
-            title: 'QViewer',
+            title: 'Riverscapes Web Viewer',
+            url: '/software-help/help-web',
+          },
+          {
+            title: 'Riverscapes Viewer for QGIS',
             url: '/software-help/help-qgis',
           },
           {
-            title: 'ArcViewer',
-            url: '/software-help/help-arc',
+            title: 'Riversccapes Viewer for ArcGIS Pro',
+            url: '/software-help/help-arcpro',
           },
-          {
-            title: 'Web Viewer',
-            url: '/software-help/help-web',
-          }
         ],
       },
       {
