@@ -1,6 +1,14 @@
+# Riverscapes Viewers Documentation site 
+
+This repository hosts the documentation for viewer.riverscapes.net
+
+## Using codespace to preview site
+
+This is the easiest way. 
+
 # Riverscapes Analysis and Explorer AddIn
 
-This repository contains the source code for the Riverscapes Analysis Vewier and Explorer (RAVE) AddIn software. The code is written in C# using Visual Studio 2015 and consists of several code projects within a single solution:
+This repository contains the source code for the Riverscapes Viewer Addin for ArcGIS, formerly known as Riverscapes Analysis Viewer and Explorer (RAVE). The code is written in C# using Visual Studio 2015 and consists of several code projects within a single solution:
 
 * RAVE Visual Studio 2015 Solution
     * NARU - [North Arrow Research Utilities](https://github.com/NorthArrowResearch/naru)
