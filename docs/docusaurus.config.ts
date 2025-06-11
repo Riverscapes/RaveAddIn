@@ -6,7 +6,7 @@ import type * as Preset from '@docusaurus/preset-classic'
 
 const config: Config = {
   title: 'Riverscapes Viewer', // Site title displayed in the browser tab
-  tagline: 'Riverscapes Viewer', // Short description shown in meta tags
+  tagline: 'A free way to view riverscape data with curated symbology', // Short description shown in meta tags
   favicon: 'images/viewer_favicon.png', // Path to site favicon
 
   future: {

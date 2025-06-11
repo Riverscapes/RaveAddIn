@@ -16,23 +16,37 @@ QRiS is targeted at anyone interested in understanding and analyzing their river
 practitioners, managers, analysts, researchers and students with some familiarity with GIS. 
 It helps users with analysis, monitoring, assessment of riverscapes as well as preparation of the 
 design and as-builts of low-tech process-based restoration designs.</p>
-      </section>
-      <Section title="">
+
+<br/>
+<h2>Consistent Cartography</h2>
+<p>Stop wasting time repeatedly symbolizing layers. Riverscapes Viewers automatically apply carefully curated symbology to data, ensuring the same look and feel every time.</p>
+
+<br/>
+<h2>Logical Table of Contents</h2>
+<p>Data are presented in a meaningful hierarchy that is relevant to the type data you are looking at. Layers can be added to your current map and are automatically organized into a matching table of contents.</p>
+
+<br/>
+<h2>Helpful MetaData</h2>
+<p>Riverscapes Viewers make it easy to see where data originated from and navigate to the source. MetData is available for all layers, providing context and provenance.</p>
+
+</section>
+
+      <Section title="Versions">
         <CardGrid>
           <ResourceCard
-            title="Download QRiS"
-            description="Learn how to find, install the QRiS plugin for QGIS, as well as check for updates."
-            link="Download/install"
+            title="Web Viewer"
+            description="Explore riverscape projects in your web browser. No installation required."
+            link="software-help/help-web"
           />
           <ResourceCard
-            title="Getting Started"
-            description="Discover the basic workflow of using QRiS. Create a QRiS project, add data, and start digitizing."
-            link="getting-started"
+            title="QGIS"
+            description="A free plugin for QGIS."
+            link="software-help/help-qgis"
           />
           <ResourceCard
-            title="Software Help"
-            description="Comprehensive how-to guides for using every QRiS feature."
-            link="software-help"
+            title="ArcGIS Pro"
+            description="A free addin for ArcGIS Pro."
+            link="software-help/help-arcpro"
           />
         </CardGrid>
       </Section>
@@ -50,14 +64,12 @@ design and as-builts of low-tech process-based restoration designs.</p>
             link="https://data.riverscapes.net/"
           />
           <ResourceCard
-            title="QRiS User Community"
-            description="A public forum where you can ask questions, share experiences, and connect with other QRiS users."
-            link="https://www.riverscapes.net/topics/33160/feed"
+            title="Viewer Knowledge Base"
+            description="A collection of articles related to the Riverscapes Viewers."
+            link="https://riverscapes.freshdesk.com/support/solutions/folders/153000068960"
           />
         </CardGrid>
       </Section>
-
-
     </div>
   )
 }
