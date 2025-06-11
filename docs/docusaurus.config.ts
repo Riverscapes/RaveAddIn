@@ -65,13 +65,13 @@ const config: Config = {
           ]
         },
         {
-          to: '/deploy/install-qgis',
+          to: '/Deploy/install-qgis',
           label: 'Deploy',
           position: 'left',
           items: [
-            { to: '/deploy/install-web', label: 'Riverscapes Viewer for the Web' },
-            { to: '/deploy/install-qgis', label: 'Riverscapes Viewer for QGIS' },
-            { to: '/deploy/install-arcpro', label: 'Riverscapes Viewer for ArcGIS Pro' },
+            { to: '/Deploy/install-web', label: 'Riverscapes Viewer for the Web' },
+            { to: '/Deploy/install-qgis', label: 'Riverscapes Viewer for QGIS' },
+            { to: '/Deploy/install-arcpro', label: 'Riverscapes Viewer for ArcGIS Pro' },
           ]
         },
         {
@@ -135,7 +135,7 @@ const menuLinks = [
       },
       {
         title: 'Deploy',
-        url: '/deploy/install-qgis',
+        url: '/Deploy/install-qgis',
         items: [
           {
             title: 'Riverscapes Viewer for the Web',
