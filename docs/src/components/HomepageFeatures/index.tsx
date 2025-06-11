@@ -7,15 +7,8 @@ export default function HomepageFeatures() {
     <div className={styles.container}>
       <section title="Home" className={styles.intro}>
 
-<p>QGIS Riverscapes Studio, or QRiS, is a plugin that helps you digitize your riverscape data. 
-It provides a flexible, extensible structure for your spatial layers, together with consistent symbology 
-to streamline your data capture, monitoring and analysis.</p>
+<p>Easily explore explore <a href="https://data.riverscapes.net">riverscape projects</a> as maps, with repeatable, curated symbology and meaningful layer organization.</p>
 
-<p>QRiS is a plugin to the free, open-source <a href="https://qgis.org/en/site/">QGIS</a> desktop GIS software. 
-QRiS is targeted at anyone interested in understanding and analyzing their riverscape, including:  
-practitioners, managers, analysts, researchers and students with some familiarity with GIS. 
-It helps users with analysis, monitoring, assessment of riverscapes as well as preparation of the 
-design and as-builts of low-tech process-based restoration designs.</p>
 
 <br/>
 <h2>Consistent Cartography</h2>
@@ -27,7 +20,7 @@ design and as-builts of low-tech process-based restoration designs.</p>
 
 <br/>
 <h2>Helpful MetaData</h2>
-<p>Riverscapes Viewers make it easy to see where data originated from and navigate to the source. MetData is available for all layers, providing context and provenance.</p>
+<p>Riverscapes Viewers make it easy to see where data originated from and navigate to the source. Metadata is available for all layers, providing context and provenance.</p>
 
 </section>
 
