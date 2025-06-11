@@ -19,7 +19,7 @@ design and as-builts of low-tech process-based restoration designs.</p>
 
 <br/>
 <h2>Consistent Cartography</h2>
-<p>Stop wasting time repeatedly symbolizing layers. Riverscapes Viewers automatically apply carefully curated symbology to data, ensuring the same look and feel every time.</p>
+<p>Stop wasting time repeatedly symbolizing layers. Riverscapes Viewers automatically applies carefully curated symbology to data, ensuring the same look and feel every time.</p>
 
 <br/>
 <h2>Logical Table of Contents</h2>
