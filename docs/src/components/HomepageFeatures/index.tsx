@@ -30,16 +30,19 @@ export default function HomepageFeatures() {
             title="Web Viewer"
             description="Explore riverscape projects in your web browser. No installation required."
             link="software-help/help-web"
+            image="webviewer/RV_Web.png"
           />
           <ResourceCard
             title="QGIS"
             description="A free plugin for QGIS."
             link="software-help/help-qgis"
+            image="qviewer/RV_Q.png"
           />
           <ResourceCard
             title="ArcGIS Pro"
             description="A free addin for ArcGIS Pro."
             link="software-help/help-arcpro"
+            image="arcviewer/RV_Arc.png"
           />
         </CardGrid>
       </Section>
@@ -50,16 +53,19 @@ export default function HomepageFeatures() {
             title="Riverscapes Consortium"
             description="The main site for the Riverscapes Consortium."
             link="https://riverscapes.net"
+            image="logos/rc_logo_wide.png"
           />
           <ResourceCard
             title="Riverscapes Data Exchange"
             description="A public platform for discovering, sharing, and downloading Riverscapes compliant data."
             link="https://data.riverscapes.net/"
+            image="logos/data_exchange_wide.png"
           />
           <ResourceCard
             title="Viewer Knowledge Base"
             description="A collection of articles related to the Riverscapes Viewers."
             link="https://riverscapes.freshdesk.com/support/solutions/folders/153000068960"
+            image="card-image.jpg"
           />
         </CardGrid>
       </Section>
@@ -80,10 +86,16 @@ function CardGrid({ children }) {
   return <div className={styles.grid}>{children}</div>
 }
 
-function ResourceCard({ title, description, link }) {
+function ResourceCard({ title, description, link, image, imageFit = "cover" }: { title: string, description: string, link: string, image: string }) {
   return (
     <a href={link} className={styles.card}>
-      {/* <img src={useBaseUrl('/img/card-image.jpg')} alt={title} className={styles.cardImage} /> */}
+      {image && (
+        <img
+          src={`/images/${image}`}
+          alt={title}
+          className={styles.cardImage}
+        />
+      )}
       <div className={styles.cardContent}>
         <h3>{title}</h3>
         <p>{description}</p>
