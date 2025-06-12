@@ -7,7 +7,7 @@ import type * as Preset from '@docusaurus/preset-classic'
 const config: Config = {
   title: 'Riverscapes Viewer', // Site title displayed in the browser tab
   tagline: 'A free way to view riverscape data with curated symbology', // Short description shown in meta tags
-  favicon: 'images/viewer_favicon.png', // Path to site favicon
+  favicon: 'viewer_favicon.png', // Path to site favicon
 
   future: {
     v4: true, // Enables compatibility with upcoming Docusaurus v4 features
@@ -37,7 +37,7 @@ const config: Config = {
         docs: {
           sidebarPath: './sidebars.ts', // Path to sidebar config
           routeBasePath: '/', // Serve docs at site root
-          editUrl: 'https://github.com/Riverscapes/RaveAddIn/tree/docs/', // "Edit this page" link
+          editUrl: 'https://github.com/Riverscapes/RaveAddIn/tree/master/docs/', // "Edit this page" link
         },
       } satisfies Preset.Options,
     ],
