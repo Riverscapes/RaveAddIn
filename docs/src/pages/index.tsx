@@ -25,7 +25,8 @@ function HomepageHeader() {
 export default function Home(): ReactNode {
   const { siteConfig } = useDocusaurusContext()
   return (
-    <Layout title={`Hello from ${siteConfig.title}`} description="Description will go into a meta tag in <head />">
+    <Layout  
+    description="View riverscape data with curated symbology on the web or in your GIS tool of choice.">
       <HomepageHeader />
       <main>
         <HomepageFeatures />
