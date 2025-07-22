@@ -52,7 +52,7 @@ const config: Config = {
       // Public API key: it is safe to commit it
       apiKey: 'd084a7919fe7b5940d7125f14221eaca',
 
-      indexName: 'rave.riverscapes.net',
+      indexName: 'viewer.riverscapes.net',
 
       // Optional: see doc section below
       contextualSearch: true,
