@@ -66,15 +66,15 @@ const config: Config = {
       },
       items: [
         {
-          to: '/about', 
-          label: 'About', 
-          position: 'left', 
+          to: '/about',
+          label: 'About',
+          position: 'left',
           items: [
             { to: '/about', label: 'About Riverscapes Viewer' },
             { to: '/about/acknowledgements', label: 'Acknowledgements' },
             { to: '/about/known-bugs', label: 'Questions, Feature Requests & Bugs' },
             { to: '/about/license', label: 'License & Source Code' },
-          ]
+          ],
         },
         {
           to: '/Deploy/install-qgis',
@@ -84,7 +84,7 @@ const config: Config = {
             { to: '/Deploy/install-web', label: 'Riverscapes Viewer for the Web' },
             { to: '/Deploy/install-qgis', label: 'Riverscapes Viewer for QGIS' },
             { to: '/Deploy/install-arcpro', label: 'Riverscapes Viewer for ArcGIS Pro' },
-          ]
+          ],
         },
         {
           to: '/software-help',
@@ -94,7 +94,7 @@ const config: Config = {
             { to: '/software-help/help-web', label: 'Riverscapes Web Viewer' },
             { to: '/software-help/help-qgis', label: 'Riverscapes Viewer for QGIS' },
             { to: '/software-help/help-arcpro', label: 'Riverscapes Viewer for ArcGIS Pro' },
-          ]
+          ],
         },
         {
           to: '/technical-reference',
@@ -109,15 +109,15 @@ const config: Config = {
             { to: '/technical-reference/symbology/symbology-qgis', label: 'QViewer Symbology' },
             { to: '/technical-reference/symbology/symbology-web-vectors', label: 'Web Vector Symbology' },
             { to: '/technical-reference/symbology/symbology-web-rasters', label: 'Web Raster Symbology' },
-          ]
+          ],
         },
-  {
+        {
           href: 'https://github.com/Riverscapes/riverscapes-tools', // External GitHub link
           label: 'GitHub',
           position: 'right',
         },
       ],
-    },      
+    },
 
     prism: {
       theme: prismThemes.github, // Code block theme for light mode
