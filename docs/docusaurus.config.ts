@@ -112,7 +112,7 @@ const config: Config = {
           ],
         },
         {
-          href: 'https://github.com/Riverscapes/riverscapes-tools', // External GitHub link
+          href: 'https://github.com/Riverscapes/RaveAddIn', // External GitHub link
           label: 'GitHub',
           position: 'right',
         },
