@@ -12,7 +12,7 @@
     },
   ],
   "settings": {
-    "window.title": "Riverscapes Viewer Docs${separator}${activeEditorShort}${separator}${rootName}",
+   "window.title": "Riverscapes Viewer Docs${separator}${activeEditorShort}${separator}${rootName}",
     "[mdx]": {
       "editor.wordWrap": "bounded",
       "editor.wordWrapColumn": 80
