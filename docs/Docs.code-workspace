@@ -2,7 +2,6 @@
   "folders": [
     {
       "name": "Viewer 📜 Docs",
-      // Depending on where this workspace file ends up you may need to adjust this path "." is for when it is in the same folder as `gatsby-config.ts`
       "path": "."
     },
     {
@@ -13,8 +12,7 @@
     },
   ],
   "settings": {
-    // TODO: Add your own site name here. Replace "GATSBYDOCS" with your site name or "QRiS Docs -" or whatever you want to see in the window title. 
-    "window.title": "Riverscapes Viewer Docs${separator}${activeEditorShort}${separator}${rootName}",
+   "window.title": "Riverscapes Viewer Docs${separator}${activeEditorShort}${separator}${rootName}",
     "[mdx]": {
       "editor.wordWrap": "bounded",
       "editor.wordWrapColumn": 80
@@ -36,17 +34,50 @@
     "search.exclude": {
       "**/node_modules/**": true,
       "**/.cache/**": true,
+      "**/.docusaurus/**": true,
       "**/public/**": true,
       "**/dist/**": true,
     },
     "files.exclude": {
       "**/node_modules/**": true
     },
-    "terminal.integrated.defaultProfile.linux": "zsh"
+    "terminal.integrated.defaultProfile.linux": "zsh",
+    // Riverscapes documentation standards
+    // treat mdx as markdown
+    "files.associations": {
+      "*.mdx": "markdown"
+    },
+    // spell check settings
+    "cSpell.customDictionaries": {
+      "riverscapesWords": {
+        "name": "riverscapesWords",
+        "path": "./.vscode/riverscapesWords.txt",
+        "scope": "workspace",
+        "addWords": true
+      }
+    },
+    "cSpell.languageSettings": [
+      {
+        // use with Markdown files
+        "languageId": "markdown",
+        // Exclude code.
+        "ignoreRegExpList": [
+          "/^\\s*```[\\s\\S]*?^\\s*```/gm",
+          "`[^`]*?`"
+        ]
+      }
+    ],
+    "markdownlint.config": {
+      "MD013": false,
+      "MD033": {
+        "allowed_elements":["YouTubeEmbed","GoogleSlides"]
+      }
   },
   "extensions": {
     "recommendations": [
-      "unifiedjs.vscode-mdx"
+      "unifiedjs.vscode-mdx",
+      "streetsidesoftware.code-spell-checker",
+      "DavidAnson.vscode-markdownlint",
     ]
   }
 }
