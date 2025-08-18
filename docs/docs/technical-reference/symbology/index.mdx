@@ -1,22 +1,21 @@
 ---
 title: Symbology
-banner: true
 description: How map symbology is applied in Riverscapes Viewer
 ---
 
 One of the most important Riverscapes Viewer features is adding a curated layer to the map symbolized as it was intended by the model or project type owner. This is a feature of all flavors of the Viewer ([Arc Viewer](/software-help/help-arc), [QViewer](/software-help/help-qgis) and [Web Viewer](/software-help/help-arc)). Unfortunately, each has different standards for how symbology is saved. This page is for power-users or Project-Type Curators to customize and implement consistent symbology across all three platforms.
 
-By default the Viewer adds layers to the map document using the default symbology. Rasters are added with a greyscale and vectors with a single symbol using a random color.
+By default the Viewer adds layers to the map document using the default symbology. Rasters are added with a grayscale and vectors with a single symbol using a random color.
 
 ![Add To Map](/images/add_to_map.png)
 
-You can override this behavior and apply specific symbology to different types of layers. For example you can use one raster symbolology for DEMs and another for vegetation. The Viewer does this using layer files in ArcGIS and QML files in QGIS. 
+You can override this behavior and apply specific symbology to different types of layers. For example you can use one raster symbology for DEMs and another for vegetation. The Viewer does this using layer files in ArcGIS and QML files in QGIS.
 
 ## Business Logic & Symbology Keys
 
 The same [business logic](../business-logic) is used in all three flavors of RAVE. Each layer within a riverscapes project tree has a symbology key  associated with it. We use the same keys to point to different layer files in each. These keys define the generic type of layer in question and they are used to pick which symbology to apply when adding the layer to the map. Examples might be "DEM", "Soil" or "Vegetation".
 
-The symbology keys are defined in the [business logic XML](https://github.com/Riverscapes/RiverscapesXML/tree/master/RaveBusinessLogic) that is used to load the Riverscapes project into the project explorer. In the illustration below the VBET.xml business logic file (1) defines a node in the tree for the DEM input (2) that when RAVE attempts to add the layer to the ArcMap table of contents (3) it uses the symbology key of `raster_dem` (4). 
+The symbology keys are defined in the [business logic XML](https://github.com/Riverscapes/RiverscapesXML/tree/master/RaveBusinessLogic) that is used to load the Riverscapes project into the project explorer. In the illustration below the `VBET.xml` business logic file (1) defines a node in the tree for the DEM input (2) that when RAVE attempts to add the layer to the ArcMap table of contents (3) it uses the symbology key of `raster_dem` (4).
 
 ![symbology keys](/images/symbology_keys.png)
 
@@ -38,13 +37,12 @@ Notice above how the Viewer first looks next to the project for layer files that
 
 ## Where Is my APPDATA folder?
 
-`APPDATA` is a shortcut to a special folder on your computer where applications can store configuration information. Typically it refers to the path `C:\<your_user_name>\AppData\Roaming`. This folder might be hidden and not visible by default but you can always browse to it regardless. You can reach this folder by opening Windows Explorer and entering the text `%APPDATA%` into the address bar. 
+`APPDATA` is a shortcut to a special folder on your computer where applications can store configuration information. Typically it refers to the path `C:\<your_user_name>\AppData\Roaming`. This folder might be hidden and not visible by default but you can always browse to it regardless. You can reach this folder by opening Windows Explorer and entering the text `%APPDATA%` into the address bar.
 
 ![appdata](/images/appdata.png)
 
 Remember to put your symbology information under a folder called `RAVE\Symbology`. This folder **will not** be present automatically. You have to create it!
 
--------
 ## Symbology Files
 
 ### Riverscapes Viewer for QGIS
@@ -53,8 +51,8 @@ Remember to put your symbology information under a folder called `RAVE\Symbology
 
 #### How-to Convert from a `*.lyr` to  a `*.qml`
 
------------
 ### ArcRAVE
+
 ESRI Layer files contain two bits of information. First they possess a path to a specific GIS dataset on your computer and second they store the definition of how the dataset should be symbolized. RAVE only uses the latter and ignores the path to the dataset itself. In this way RAVE can apply the symbology stored in a single layer file to many layers of the same type. See the [video demonstration](#video-demonstration) below to see for how all of this works.
 
 #### ArcRAVE - How To Create a Layer (`*.lyr`) File
@@ -68,8 +66,6 @@ ESRI Layer files contain two bits of information. First they possess a path to a
 #### Video Demonstration
 
 <YouTubeEmbed videoId="msaGPVzmnxk" />
-
----------
 
 ### WebRAVE
 
