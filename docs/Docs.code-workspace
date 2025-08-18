@@ -12,17 +12,19 @@
     },
   ],
   "settings": {
-   "window.title": "Riverscapes Viewer Docs${separator}${activeEditorShort}${separator}${rootName}",
+    "window.title": "Riverscapes Viewer Docs${separator}${activeEditorShort}${separator}${rootName}",
     "[mdx]": {
       "editor.wordWrap": "bounded",
       "editor.wordWrapColumn": 80
     },
-    "css.lint.validProperties": ["composes"],
+    "css.lint.validProperties": [
+      "composes"
+    ],
     "workbench.colorCustomizations": {
-			"titleBar.activeBackground": "#006810",
+      "titleBar.activeBackground": "#006810",
       "sideBar.background": "#242132",
-			"editor.background": "#1e1c2c"
-		},
+      "editor.background": "#1e1c2c"
+    },
     "editor.tabSize": 2,
     "editor.codeActionsOnSave": {
       "source.fixAll.eslint": "explicit"
@@ -70,14 +72,18 @@
     "markdownlint.config": {
       "MD013": false,
       "MD033": {
-        "allowed_elements":["YouTubeEmbed","GoogleSlides"]
+        "allowed_elements": [
+          "YouTubeEmbed",
+          "GoogleSlides"
+        ]
       }
-  },
-  "extensions": {
-    "recommendations": [
-      "unifiedjs.vscode-mdx",
-      "streetsidesoftware.code-spell-checker",
-      "DavidAnson.vscode-markdownlint",
-    ]
+    },
+    "extensions": {
+      "recommendations": [
+        "unifiedjs.vscode-mdx",
+        "streetsidesoftware.code-spell-checker",
+        "DavidAnson.vscode-markdownlint",
+      ]
+    }
   }
 }
