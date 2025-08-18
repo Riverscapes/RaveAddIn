@@ -1,6 +1,5 @@
 ---
-title: Uploading Projects
-banner: true
+title: Uploading Riverscapes Projects from QViewer
 description: Using QGIS to Upload Projects into the Riverscapes Data Exchange
 sidebar_position: 5
 ---
@@ -11,14 +10,14 @@ With the Riverscapes Viewer for QGIS you can upload riverscapes projects into th
   This feature is only available in Riverscapes Viewer for QGIS. It is not available in the ArcGIS or ArcGIS Pro versions of the Viewer.
 :::
 
-# Before You Begin
+## Before You Begin
 
 This feature requires that you have the following:
 
 1. a Riverscapes login. Visit the [Riverscapes Data Exchange](https://data.riverscapes.net) and create one first if you don't have one already.
 1. A valid Riverscapes compliant project. This can be a new project that you have created, either by hand or using a tool such as [Riverscapes Studio](https://qris.riverscapes.net). Or it could be a project that you or someone else has downloaded from the Data Exchange and altered in some way; perhaps you have edited some data or performed quality control.
 
-# Getting Started
+## Getting Started
 
 1. Open the project you want to upload in the Riverscapes Viewer.
 1. Right click on the project node in the project explorer and choose `Upload Project to Data Exchange`.
@@ -31,7 +30,7 @@ A web browser will open and you will be prompted to login to the Riverscapes Dat
 
 The project name is shown at the top of the form (1), followed by the local path (2) where the project is located on your computer. ALWAYS check that both these fields are correct and that you are attempting to upload the correct project!
 
-# New or Update Project
+## New or Update Project
 
 If your riverscapes project originated from the Data Exchange then you will have the option to modify the existing project (i.e. overwrite the version that's in the Data Exchange) (5). If you choose to modify it you can choose whether you want to keep all files on the Data Exchange ("no remote delete"). This is useful if you have downloaded a partial copy of a project from the Data Exchange and want to upload just the parts that you downloaded while keeping all the other files that exist online. Unchecking the "No remote delete" box when modifying existing projects will upload your local copy and remove any files on the Data Exchange that do not appear in your local copy.
 
@@ -39,11 +38,11 @@ For projects that originated in the Data Exchange, clicking the `Visit` button w
 
 If the project has never been stored in the Data Exchange, you will be limited to the "Upload as new project" option.
 
-# Project Ownership
+## Project Ownership
 
 If the project has never been stored in the Data Exchange, you can choose whether to assign the new project to an organization or leave it associated with your Riverscapes user account (shown above in 3). Note that the list of available organizations is limited to only those to which you have `write` privileges. If you don't see the desired organization, then visit the [list of organizations](https://data.riverscapes.net/s?type=Organization) in the Data Exchange and contact the organization administrator to request access.
 
-# Visibility
+## Visibility
 
 Pick the appropriate visibility for the project in the Data Exchange. Note that this option is only available when uploading new projects. Modifying an existing project will retain its existing visibility.
 
@@ -51,17 +50,17 @@ Pick the appropriate visibility for the project in the Data Exchange. Note that 
 - **PRIVATE** Can be searched by all users, but only owners of the project (user owned projects) or members of the organization (org-owned projects) can see, download or modify the project and data layers.
 - **SECRET** projects are identical to PRIVATE projects with one exception: they are not searchable or visible to users who do not explicitly have access.
 
-# Tags
+## Tags
 
-Use the `Add` and `Remove` buttons to add tags (8) to the project in the Data Exchange. Projects that originated from the Data Exchange prepopulate the list with the existing tags. 
+Use the `Add` and `Remove` buttons to add tags (8) to the project in the Data Exchange. Projects that originated from the Data Exchange pre-populate the list with the existing tags.
 
 Tags are strongly recommended because they are an excellent means by which to search the Data Exchange.
 
-# Upload Status
+## Upload Status
 
 Before you click `Start` to begin the Upload process you should review the proposed number of files to be added, updated or deleted. Pause and genuinely contemplate if the numbers make sense!
 
-# Uploading
+## Uploading
 
 Clicking `Start` will commence project upload into the Data Exchange. There's one final prompt to ensure that you do indeed want to upload the project. You can cancel the process part way through and any files that have already been uploaded will be removed from the Data Exchange. The project is not considered part of the Data Exchange until ALL files are successfully uploaded.
 
@@ -69,12 +68,12 @@ Once the upload is complete, the Data Exchange does a final check to validate th
 
 After the project upload is complete you can click the `View in Data Exchange` button (10) to open a browser and navigate to the project details of the newly uploaded project in the Data Exchange.
 
-# Notes
+## Notes
 
-- Modifying an existing project in the Data Exchange is permanent and cannot be undone. 
+- Modifying an existing project in the Data Exchange is permanent and cannot be undone.
 - For projects that originated from the Data Exchange, a comprehensive file hash check is used to determine which files have changed relative to those that already exist online. Only files that have changed are uploaded.
 - Note that the simple act of adding a GeoPackage layer to the map in QGIS will ever so slightly change the underlying GeoPackage file on disk. This means that downloading, viewing and then re-uploading a Riverscapes project will likely detect changes in GeoPackages that have been used, even if you haven't explicitly made any changes to the data. This is a limitation of the GeoPackage format and not a bug in the uploader. Given that most Riverscapes project types have a [default project view](https://viewer.riverscapes.net/technical-reference/business-logic/#project-views) that loads one or more GeoPackage layers into the map, this is a common scenario. The uploader will detect these changes and upload the modified GeoPackages. This is not a problem, but it is something to be aware of.
 
-# Video Demonstration
+## Video Demonstration
 
 <YouTubeEmbed videoId="Rs6RnAHAsNY?si=pj7B50YYxs7swcZC"/>
