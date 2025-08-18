@@ -62,10 +62,11 @@
       {
         // use with Markdown files
         "languageId": "markdown",
-        // Exclude code.
+        // Exclude code blocks (triple backticks and single backticks) and specific attribute strings
         "ignoreRegExpList": [
           "/^\\s*```[\\s\\S]*?^\\s*```/gm",
-          "`[^`]*?`"
+          "`[^`]*?`",
+          "videoId=\"[^\"]*\""
         ]
       }
     ],
