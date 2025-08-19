@@ -1,20 +1,41 @@
 ---
 title: Web Viewer Vector Symbology
-banner: true
 description: Instructions for defining Web Viewer vector symbology
 ---
+
+The Riverscapes Viewer for the web uses symbology defined as [JSON](https://en.wikipedia.org/wiki/JSON), a text format common across the web. This is unlike Viewer for QGIS that uses QML files and ArcGIS that uses layer files.
+
+## Overall structure of the JSON file
+
+The file defining the symbology for a vector layer in the Web Viewer should have the following three-part structure:
+
+``` JSON
+{
+  "$schema": "https://raw.githubusercontent.com/Riverscapes/RiverscapesXML/refs/heads/master/Symbology/web/vector.schema.json",
+  "legend": [],
+  "layerStyles": []
+}
+```
+
+* `"$schema"` This points to the schema definition file. It's optional but if you use it then vscode will be able to tell you if there are problems with the file.
+* `"legend"`: This is the legend table information. You need to build this manually (see below)
+* `"layerStyles"`: This is copied and pasted directly from mapBox style exports.
+
+## Recommended Process to build a Web Viewer symbology file
 
 The following instructions are intended for riverscapes tool owners to define Riverscapes Web Viewer symbology. They pertain to **vector** symbology only. See [separate instructions for raster symbology](symbology-web-rasters).
 
 A [video demonstration](#video-demonstrations) of the entire workflow is available at the bottom of this page.
 
-## A Quick Overview of the Process
+As mentioned, the Riverscapes Viewer for the web uses symbology defined as [JSON](https://en.wikipedia.org/wiki/JSON), a text format common across the web. This is unlike Viewer for QGIS that uses QML files and ArcGIS that uses layer files.
 
-The Riverscapes Viewer for the web uses symbology defined as [JSON](https://en.wikipedia.org/wiki/JSON), a text format common across the web. This is unlike Viewer for QGIS that uses QML files and ArcGIS that uses layer files.
-
-The JSON in question is somewhat complicated to write it by hand, so the following workflow  uses an online tool called MapBox to configure it within a user interface and from here export the JSON needed for Web Viewer.
+The JSON for the layerStyles section is somewhat complicated to write by hand, so the following workflow uses an online tool called MapBox to configure it within a user interface and from there export the JSON needed for Web Viewer.
 
 The first few steps involve uploading into MapBox a sample dataset for the layer that you want to symbolize, so that you can develop the symbology on a real set of data. When you are finished the data you use will be discarded. We just need the symbology that you created.
+
+If you don't want to use MapBox, you can also use the Symbology Tool that is included in the Riverscapes Viewer for the Web, available by right-clicking on any layer in a project, as shown:
+
+![context menu for layer in Riverscapes Map Viewer](/images/webviewer/webviewer-ss-symbology-tool.png)
 
 ## Before You Start
 
@@ -135,7 +156,7 @@ If you're layer is big (> 5Mb) then you might consider only exporting a subset o
     ```
 
 5. Select all the appropriate items from the square brace after `"Layers":` until the corresponding closing square brace.
-6. Paste the text into a new file and save the file into the `web` folder in the Riverscapes XML git repository under the path [symbology\web](https://github.com/Riverscapes/RiverscapesXML/tree/master/Symbology/web) within a folder named after the project type or in the `Shared` subfolder. Use the same name as the [business logic symbology key](/technical-reference#symbology-keys). The name is case sensitive and the file suffix must be `.json`.
+6. Paste the text into a new file and save the file into the `web` folder in the Riverscapes XML git repository under the path [symbology\web](https://github.com/Riverscapes/RiverscapesXML/tree/master/Symbology/web) within a folder named after the project type or in the `Shared` subfolder. Use the same name as the [business logic symbology key](/technical-reference/symbology#business-logic--symbology-keys). The name is case sensitive and the file suffix must be `.json`.
 7. Commit your changes and create a pull request.
 
 The final symbology file will look something like this:
@@ -198,25 +219,11 @@ The color string is any CSS-valid color value string ([more about what's allowed
 ***Note that your symbology will be live as soon as the pull request is approved and implemented.
 ***
 
-Let's summarize this overall structure. There are 3 parts to this file:
-
-``` JSON
-{
-  "$schema": "https://xml.riverscapes.net/Symbology/webRAVEVector.schema.json",
-  "legend": [],
-  "layerStyles": []
-}
-```
-
-* `"$schema"` This points to the schema file. It's optional but if you use it then vscode will be able to tell you if there are problems with the file.
-* `"legend"`: This is the legend table information. You need to build this manually (see Below)
-* `"layerStyles"`: This is copied and pasted directly from mapBox style exports.
-
 ## File naming
 
-The only trick here is putting it in the right place with the right file name
+The only trick here is putting it in the right place with the right file name.
 
-The filename must be `somename.json` and the `somename` part should match what's in the symbology attribute in the business logic XML file (this is the same naming convention as the qml files. 
+The filename must be `somename.json` and the `somename` part should match what's in the symbology attribute in the business logic XML file (this is the same naming convention as the qml files).
 
 So if my business logic looks like this:
 
@@ -226,13 +233,13 @@ So if my business logic looks like this:
 
 then my file name should be `confinement_ratio.json`
 
-## **_CASE MATTERS_**
+## Names are Case Sensitive
 
 The `.json` part should always be lowercase and the case of the filename should match EXACTLY what's in the business logic XML.
 
 ## Folder naming
 
-These files should live alongside the `.txt` files for the webRAVE rasters
+The `.json` files for vector symbols should live in the same folder as the `.txt` files defining [symbology for rasters](symbology-web-rasters).
 
 ``` bash
 # so if I want to put in a file shared across all projects then

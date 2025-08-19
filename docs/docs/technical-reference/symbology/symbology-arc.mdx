@@ -1,14 +1,13 @@
 ---
 title: ArcViewer Symbology
-banner: true
-description: How to implement map symbology in QViewer
+description: How to implement map symbology in ArcViewer
 ---
 
 ArcViewer stores symbology in proprietary ESRI layer files. Each type of RAVE dataset has its own layer file.
 
-ESRI Layer files contain two bits of information. First they possess a path to a specific GIS dataset on your computer and second they store the definition of how the dataset should be symbolized. RAVE only uses the latter and ignores the path to the dataset itself. In this way RAVE can apply the symbology stored in a single layer file to many layers of the same type. See the video demonstration below to see for how all of this works.
+ESRI Layer files contain two bits of information. First they possess a path to a specific GIS dataset on your computer and second they store the definition of how the dataset should be symbolized. RAVE only uses the latter and ignores the path to the dataset itself. In this way RAVE can apply the symbology stored in a single layer file to many layers of the same type. See the [video demonstration below](#video-demonstration) to see for how all of this works.
 
-#### ArcViewer - How To Create a Layer (`*.lyr`) File
+## ArcViewer - How To Create a Layer (`*.lyr`) File
 
 1. Add the layer in question to the current ArcMap document. You can do this using RAVE or using the typical ArcMap features to Add Data.
 2. Use ArcMap to symbolize the layer how you want it to appear for RAVE layers. Remember that depending on where you place this layer file (see below) this symbology might be applied more than just the layer in question. Configure the symbology accordingly. For example, if you are configuring a percent slope layer but the current layer only contains slopes up to 20%, be sure to extend the symbology classification all the way up to 90% in case this symbology is used for layers with a different range.
@@ -16,6 +15,6 @@ ESRI Layer files contain two bits of information. First they possess a path to a
 
 ![layer file](/images/layer_file.png)
 
-#### Video Demonstration
+## Video Demonstration
 
 <YouTubeEmbed videoId="msaGPVzmnxk" />
