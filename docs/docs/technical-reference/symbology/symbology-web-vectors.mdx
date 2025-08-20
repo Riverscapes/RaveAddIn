@@ -11,7 +11,7 @@ The file defining the symbology for a vector layer in the Web Viewer should have
 
 ``` JSON
 {
-  "$schema": "https://raw.githubusercontent.com/Riverscapes/RiverscapesXML/refs/heads/master/Symbology/web/vector.schema.json",
+  "$schema": "https://xml.riverscapes.net/Symbology/web/vector.schema.json",
   "legend": [],
   "layerStyles": []
 }
@@ -163,7 +163,7 @@ The final symbology file will look something like this:
 
 ``` json
 {
-  "$schema": "https://xml.riverscapes.net/Symbology/webRAVEVector.schema.json",
+  "$schema": "https://xml.riverscapes.net/Symbology/web/vector.schema.json",
   "legend": [
     ["hsl(116, 57%, 39%)", "legend table layer 1"],
     ["hsl(108, 87%, 59%)", "legend table layer 1"],
@@ -227,7 +227,7 @@ The filename must be `somename.json` and the `somename` part should match what's
 
 So if my business logic looks like this:
 
-``` xml
+```xml
 <Node xpathlabel="Name" xpath="Outputs/Geopackage/Layers/Vector[@id='CONFINEMENT_RATIO']" type="line" id="confinement_ratio" symbology="confinement_ratio" />
 ```
 
