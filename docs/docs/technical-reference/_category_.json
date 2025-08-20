@@ -2,6 +2,7 @@
   "label": "Technical Reference",
   "link": {
     "type": "generated-index",
+    "slug": "technical-reference",
     "description": "Reference pages for the Riverscapes Viewers"
   }
 }
