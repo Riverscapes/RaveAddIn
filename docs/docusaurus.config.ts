@@ -65,52 +65,52 @@ const config: Config = {
         src: 'images/logo.png',
       },
       items: [
-        {
-          to: '/about',
-          label: 'About',
-          position: 'left',
-          items: [
-            { to: '/about', label: 'About Riverscapes Viewer' },
-            { to: '/about/acknowledgements', label: 'Acknowledgements' },
-            { to: '/about/known-bugs', label: 'Questions, Feature Requests & Bugs' },
-            { to: '/about/license', label: 'License & Source Code' },
-          ],
-        },
-        {
-          to: '/Deploy/install-qgis',
-          label: 'Deploy',
-          position: 'left',
-          items: [
-            { to: '/Deploy/install-web', label: 'Riverscapes Viewer for the Web' },
-            { to: '/Deploy/install-qgis', label: 'Riverscapes Viewer for QGIS' },
-            { to: '/Deploy/install-arcpro', label: 'Riverscapes Viewer for ArcGIS Pro' },
-          ],
-        },
-        {
-          to: '/software-help',
-          label: 'Software Help',
-          position: 'left',
-          items: [
-            { to: '/software-help/help-web', label: 'Riverscapes Web Viewer' },
-            { to: '/software-help/help-qgis', label: 'Riverscapes Viewer for QGIS' },
-            { to: '/software-help/help-arcpro', label: 'Riverscapes Viewer for ArcGIS Pro' },
-          ],
-        },
-        {
-          to: '/technical-reference',
-          label: 'Technical Reference',
-          position: 'left',
-          items: [
-            { to: '/technical-reference/base-maps', label: 'Base Maps' },
-            { to: '/technical-reference/business-logic', label: 'Business Logic' },
-            { to: '/technical-reference/project-views', label: 'Project Views' },
-            { to: '/technical-reference/symbology', label: 'Symbology' },
-            { to: '/technical-reference/symbology/symbology-arc', label: 'ArcViewer Symbology' },
-            { to: '/technical-reference/symbology/symbology-qgis', label: 'QViewer Symbology' },
-            { to: '/technical-reference/symbology/symbology-web-vectors', label: 'Web Vector Symbology' },
-            { to: '/technical-reference/symbology/symbology-web-rasters', label: 'Web Raster Symbology' },
-          ],
-        },
+        // {
+        //   to: '/about',
+        //   label: 'About',
+        //   position: 'left',
+        //   items: [
+        //     { to: '/about', label: 'About Riverscapes Viewer' },
+        //     { to: '/about/acknowledgements', label: 'Acknowledgements' },
+        //     { to: '/about/known-bugs', label: 'Questions, Feature Requests & Bugs' },
+        //     { to: '/about/license', label: 'License & Source Code' },
+        //   ],
+        // },
+        // {
+        //   to: '/Deploy/install-qgis',
+        //   label: 'Deploy',
+        //   position: 'left',
+        //   items: [
+        //     { to: '/Deploy/install-web', label: 'Riverscapes Viewer for the Web' },
+        //     { to: '/Deploy/install-qgis', label: 'Riverscapes Viewer for QGIS' },
+        //     { to: '/Deploy/install-arcpro', label: 'Riverscapes Viewer for ArcGIS Pro' },
+        //   ],
+        // },
+        // {
+        //   to: '/software-help',
+        //   label: 'Software Help',
+        //   position: 'left',
+        //   items: [
+        //     { to: '/software-help/help-web', label: 'Riverscapes Web Viewer' },
+        //     { to: '/software-help/help-qgis', label: 'Riverscapes Viewer for QGIS' },
+        //     { to: '/software-help/help-arcpro', label: 'Riverscapes Viewer for ArcGIS Pro' },
+        //   ],
+        // },
+        // {
+        //   to: '/technical-reference',
+        //   label: 'Technical Reference',
+        //   position: 'left',
+        //   items: [
+        //     { to: '/technical-reference/base-maps', label: 'Base Maps' },
+        //     { to: '/technical-reference/business-logic', label: 'Business Logic' },
+        //     { to: '/technical-reference/project-views', label: 'Project Views' },
+        //     { to: '/technical-reference/symbology', label: 'Symbology' },
+        //     { to: '/technical-reference/symbology/symbology-arc', label: 'ArcViewer Symbology' },
+        //     { to: '/technical-reference/symbology/symbology-qgis', label: 'QViewer Symbology' },
+        //     { to: '/technical-reference/symbology/symbology-web-vectors', label: 'Web Vector Symbology' },
+        //     { to: '/technical-reference/symbology/symbology-web-rasters', label: 'Web Raster Symbology' },
+        //   ],
+        // },
         {
           href: 'https://github.com/Riverscapes/RaveAddIn', // External GitHub link
           label: 'GitHub',
