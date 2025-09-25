@@ -1,0 +1,9 @@
+{
+  "label": "Tutorials",
+  "position": 300,
+  "link": {
+    "type": "generated-index",
+    "slug": "getting-started",
+    "description": "Introductory Tutorials for Riverscapes Viewer",
+  }
+}
