@@ -1,0 +1,29 @@
+---
+title: Uploading Riverscapes Projects to Data Exchange from Q-Viewer
+description: A guide to uploading riverscapes projects to Data Exchanges 
+sidebar_position: 2
+---
+
+As of version [0.9.2](https://github.com/Riverscapes/QRAVEPlugin/releases/tag/untagged-e750a6a0ddd07492d89d) of [Q-Viewer](https://viewer.riverscapes.net/software-help/help-qgis/), you can upload projects to the Data Exchange.  Check out the [Uploading Projects documentation here](https://viewer.riverscapes.net/software-help/help-qgis-uploader/).
+
+In short, you right click on a project once you have it completed from the Viewer and access the Uploader:
+
+![upload viewer](/images/tutorials-how-to/Upload-Viewer.png)
+
+From there, it uses your Riverscapes Consortium credentials to authenticate you as a user and lets you upload your project:
+
+![upload window](/images/tutorials-how-to/Upload-Window.png)
+
+Here is a short video on its use:
+
+<YouTubeEmbed videoId="Rs6RnAHAsNY" />
+
+This [feature](https://viewer.riverscapes.net/software-help/help-qgis-uploader/) provides a simple user interface to augment the command line `rscli` interface that also allows upload (as well as download). 
+
+### Why are layers not showing up in WebViewer - Tiling
+
+As soon as a Riverscapes Project is successfully uploaded to the Data Exchange, we make it available for download. However, it takes time for the exchange to generate web tiles of all the layer views of that project and make them visible in Web Viewer. Depending on how many new projects have been uploaded recently, this can take hours, days or even a week or more.
+
+Don't be alarmed, the project is there and you can download it and view the project in the ArcViewer or QViewer locally on your machine. The web view just takes some time. 
+
+![queued tiling](/images/tutorials-how-to/Queued-Tiling.png)

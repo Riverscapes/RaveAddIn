@@ -1,0 +1,29 @@
+---
+title: Installing QRiS & Riverscapes Viewer for Federal Employees
+description: A guide to installing QRiS and Riverscapes Viewer for Federal Employees 
+sidebar_position: 1
+---
+
+Many of our Federal partners (e.g. BLM, NRCS, USFS) do not have permissions to install QGIS on their government machines, and have to request an IT agent to do it on their behalf. It is crucial that in addition to requesting the installation of QGIS, that they also request to provide "Full Control" to the QGIS installation folder where plugins are installed (i.e. C:\Program Files\QGIS 3.XX.X) . If not, QGIS will not load and crash out after they attempt to install and use plugins like QRiS and Q-Viewer. 
+
+This article has been put together with the input of many federal employees, who have found that the install requirements may vary by state. BLM Employees in MT and WY had no issues installing the plugins while others were unable to install the plugins. If you experienced issues installing the plugins, we recommend starting with step 1, and if you still encounter difficulties, move to step 2. 
+
+## Step 1. Install QGiS and Plugins while connected to VPN GlobalProtect
+
+An Idaho BLM IT Specialist found that installing QGiS and the plugins while connected the VPN, but not while connected to a BLM Office Network, employees may not need to request full permissions on the QGIS program folder. If you have tried installing QGIS and the plugins on the VPN, and QGIS is still crashing when you attempt to download the Plugins, submit an IT ticket to request full access. 
+
+Resource: [How to Install QGIS Riverscapes Plugins](https://riverscapes.freshdesk.com/en/support/solutions/articles/153000083974)
+
+## Step 2. Requesting Full Access to QGIS folder. 
+
+- 1. Submit an IT ticket using the image below for reference. 
+
+![step 1](/images/tutorials-how-to/Step-1-Federal.png)
+
+- 2. Once the ticket is submitted, select details from the top navigation and select 'add attachment' on the bottom right.  Attach the following image showing the permissions needed to install QGIS Plugins.  
+
+![step 2](/images/tutorials-how-to/Step-2-Federal.png)
+
+- 3. To confirm you have full control, navigate to the QGiS program folder (i.e. C:\Program Files\QGIS 3.XX.X), right click and select 'Properties'. Find your user name under 'Group of user names:' and confirm the check next to Full Control. 
+
+Thanks to numerous BLM and FWS employees who contributed to this article. If you are still experiencing issues installing the Riverscapes QGIS Plugins, please let us know by submitting a support ticket.
