@@ -128,13 +128,43 @@ They have one optional attribute: `collapsed="true/false"` which determines if t
 Choose one of:
 
 * `label`: The literal string you want to assign to this node as a label
-* `xpathlabel`: if you don't use `label` and you want to look up your node label from the xml file you can do it this way
+* `xpathlabel`: if you don't use `label` and you want to look up your node label from the `project.rs.xml` file you can do it this way
 
 The following are optional:
 
 * `type`: If you want your node to be added to the map you need to specify what its type is. See the "Node Data Types" section below for allowed values.
 * `symbology`: If this is a map layer you can specify what symbology to use. This must match the `NAME` variable from the python symbology plugin in `RiverscapesToolbar/symbology/plugins/myplygin.py`
-* `xpath`: Not to be confused with `xpathlabel`. This xpath sets the context for this node. Children nodes will inherit it.
+* `xpath`: Not to be confused with `xpathlabel`. This xpath sets the context for this node (see below). Children nodes will inherit it.
+* `filter`: 
+* `transparency`: 
+
+#### Connecting a business logic node to a project layer
+
+In Riverscapes business logic XML files (e.g., `BRAT.xml`), the xpath attribute of a Node element specifies the path to a data layer in the corresponding project XML (i.e., `project.rs.xml`). This path tells the application which layer to display or use in a given view.
+
+For more information about XPath see [XPath Syntax at w3schools.com](https://www.w3schools.com/xml/xpath_syntax.asp). 
+
+**Example**
+
+In `BRAT.xml`:
+
+```xml
+<Node label="Existing Dam Capacity" xpath="Geopackage/Layers/Vector[@id='BRAT_RESULTS']" type="line" symbology="oCC_EX_filtered" id="ex_capacity" />
+```
+
+In project.rs.xml, the referenced layer would look like:
+```xml
+<Geopackage id="OUTPUTS">
+  <Layers>
+    <Vector lyrName="BRAT_RESULTS">
+      <Name>BRAT Results</Name>
+      <!-- ... -->
+    </Vector>
+  </Layers>
+</Geopackage>
+```
+
+Here, the xpath in `BRAT.xml` points to the Vector layer with `lyrName="BRAT_RESULTS"` inside the Geopackage with `id="OUTPUTS"` in `project.rs.xml`. This linkage allows the business logic to reference and display the correct data layer from the project file
 
 ### Node Data Types
 
