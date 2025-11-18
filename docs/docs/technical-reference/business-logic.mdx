@@ -1,5 +1,5 @@
 ---
-title: Business logic
+title: Business Logic
 description: How to define Riverscapes Viewer Project Trees
 ---
 
@@ -30,7 +30,6 @@ The Viewer uses the first business logic file that it finds that contains the sa
 |-------------|-------|---------|
 |In root directory of current riverscapes project file.|`D:\MyProjects\my_downloaded_project\BRAT.xml`| Priority 2|
 |`%APPDATA%\RAVE\RaveBusinessLogic`|`%APPDATA%\RAVE\RaveBusinessLogic\BRAT.xml`|Priority 3|
-|`<software_installation_folder>\RaveBusinessLogic`|*Hidden folder*|Priority 4 **DEFAULT**|
 
 [![refresh](/images/RAVE-Order_650wl.png)](/images/RAVE-Order_Full.png)
 
@@ -51,14 +50,14 @@ You can customize the business logic XML file while ArcMap and QGIS are in use, 
 
 ![refresh](/images/refresh.png)
 
-## Business logic Definition
+## Business Logic Definition
 
 Here is an example of a business logic file for VBET projects:
 
 ``` xml
 <?xml version="1.0" encoding="utf-8"?>
 <Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:noNamespaceSchemaLocation="XSD/project_explorer.xsd">
+         xsi:noNamespaceSchemaLocation="http://xml.riverscapes.net/RaveBusinessLogic/XSD/project_explorer.xsd">
   <Name>VBET</Name>
   <ProjectType>VBET</ProjectType>
   <Node xpathlabel="Name">
@@ -90,9 +89,20 @@ Here is an example of a business logic file for VBET projects:
 </Project>
 ```
 
-By layering the various building blocks together you should be able to accomplish a wide variety of tree structures.
+By layering the various building blocks together you can build a wide variety of tree structures.
 
 ### `<Project>`
+
+The `Project` is the required root element for every Riverscapes business logic XML file. It defines the project and references the schema for validation. Always start your file with:
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="http://xml.riverscapes.net/RaveBusinessLogic/XSD/project_explorer.xsd">
+```
+
+The end of your file should contain the closing `</Project>` tag for the element.
+
+This ensures your XML is recognized and validated against the correct schema. 
 
 ### `<Repeater>`
 
@@ -102,18 +112,18 @@ Repeaters have one attribute: `xpath` that you can use to specify the object tha
 
 ### `<Children>`
 
-Children can contain `<Node>` and `<Repeater>` types. They can only be used inside other `<Node>` tags.
+Children can contain `<Node>` and `<Repeater>` elements. They can only be used inside `<Node>` elements.
 
 They have one optional attribute: `collapsed="true/false"` which determines if this group is collapsed by default upon load.
 
 ### `<Node>`
 
-#### Tags
+#### Node Sub-Elements
 
-* `<TileService>`: (optional) If your node is a tile service (`type="tile"`) then put its url here
 * `<Children>`: This node can have sub-nodes
+* `<TileService>`: (optional) If your node is a tile service (`type="tile"`) then put its url here
 
-#### Attributes
+#### Node Attributes
 
 Choose one of:
 
@@ -140,36 +150,44 @@ Nodes can have different data types which affect how (if) the node loads into th
 
 ## Project Views
 
-The business logic file can define groups of layers that can be loaded into the map as a "view". These are useful if there are common or default ways of viewing the contents of a project. Each business logic file can define multiple views, but only one can be designated the "default view". The default viewis loaded automatically into the current ArcMap document when the project is loaded (if that option is selected in the Viewer options). Currently, project views cannot refer to basemap layers (because these are not defined in the business logic XML).
+The business logic file can define groups of layers that can be loaded into the map as a "view". These are useful if there are common or default ways of viewing the contents of a project. Each business logic file can define multiple views, but only one can be designated the "default view". The default view is loaded automatically into the current ArcMap document when the project is loaded (if that option is selected in the Viewer settings). Currently, project views cannot refer to basemap layers, because these are not defined in the business logic XML.
 
 The following business logic example for BRAT renders as the user interface tree shown below.
 
 ```xml
-  <Views default="BRAT Outputs">
-    <View name="BRAT Outputs">
-      <Layer id="hillshade" />
-      <Layer id="capacity"/>
+<Views default="BRAT_exOutputs">
+    <View name="BRAT Existing Capacity" id="BRAT_exOutputs">
+      <Description>This view is the existing dam capacity</Description>
+      <Layers>
+        <Layer id="hillshade" />
+        <Layer id="ex_capacity" />
+      </Layers>
     </View>
-    <View name="BRAT Vegetation">
-      <Layer id ="hillshade"/>
-      <Layer id="vegetation"/>
+    <View name="BRAT Historic Capacity" id="BRAT_hisOutputs">
+      <Description>This view is the historic dam capacity</Description>
+      <Layers>
+        <Layer id="hillshade" />
+        <Layer id="his_capacity" />
+      </Layers>
     </View>
-  </Views>
+</Views>
 ```
 
-![project view](/images/project_views/project_view_tree.png)
+![project view](/images/project_views/qviewer_project_view_brat_v1.0.5.windows.png)
 
-### `ProjectViews`
+### `Views` element
 
-The `ProjectViews` node should appear inside the top level `Project` node. It's only attribute is `default` that identifies the name of the project view that is considered the default project view.
+The `Views` element should appear inside the top level `Project` element. Its only attribute is `default` that identifies the id of the project view that is considered the default project view.
 
 ### `View`
 
-Each view has a `name` attribute that contains the display name that will be used for the view in the user interface.
+Each view has a `name` attribute that contains the display name that will be used for the view in the user interface, as well as an `id` attribute, which is what is used to select it as default, if desired.
+
+It *may* have a `Description` element and *must* have a `Layers` element. The `Layers` element in turn contains individual `Layer` elements. 
 
 ### `Layer`
 
-Each `Layer` is a reference to a `Node` in the project nodes within the project. Layers can refer to any node, include group nodes that have children. `Layer` tags have an `id` attribute that corresponds to the `id` tag of the project node to which it refers. The `visible` attribute is not yet functional but should control whether the layer is turned on for display when it is added to the map.
+Each `Layer` is a reference to a `Node` element within the project xml. A layer can refer to any node, including group nodes that have children. `Layer` elements have an `id` attribute that corresponds to the `id` attrribute of the project node to which it refers. The optional `visible` attribute is available for future use (not yet implemented) to control whether the layer is turned on for display when it is added to the map.
 
 ### Video Demonstration
 
@@ -177,7 +195,7 @@ Each `Layer` is a reference to a `Node` in the project nodes within the project.
 
 ## Sharing your Business Logic with Someone Else
 
-If you have gone to the extent of customizing and/or authoring your business logic, you have three main options for sharing it with others (in order of complexity).
+If you have customized and/or authored your business logic, you have three main options for sharing your work with others. 
 
 ### Option 1:  Package up with a Riverscapes Project
 
@@ -189,14 +207,14 @@ Most users will have no idea what business logic is. If you have customized busi
 
 For an advanced user, you can send them the `*.xml` business logic file and corresponding  `*.lyr` layer files the `symbology` keys point to, and then instruct them as follows:
 
-1. Place the `*.xml` business logic file in the `%APPDATA%\RAVE\RaveBusinessLogic`folder (note they may need to create this folder if it does not exist).
-2. Place all the `*.lyr` layer file(s) in the `%APPDATA%\RAVE\Symbology\esri\[NAME]`folder where `[NAME]` is the same case and name as the project type (e.g. for `brat.xml` business logic this would be a subfolder of name `brat`. Note, they may need to create this `Sybmology` folder if it does not exist.
+1. Place the `*.xml` business logic file in the `%APPDATA%\RAVE\RaveBusinessLogic` folder. (They may need to create this folder if it does not exist).
+2. Place all the `*.lyr` layer file(s) in the `%APPDATA%\RAVE\Symbology\esri\[NAME]`folder where `[NAME]` is the same case and name as the project type (e.g. for `brat.xml` business logic this would be a subfolder of name `brat`. Note, they may need to create this `Symbology` folder if it does not exist.
 3. Load a riverscapes project, or if a project is already loaded **Refresh Project Hierarchy** tree.
 
 This video illustrates how this works:
 
 <YouTubeEmbed videoId="L7JGVlAaua0"/>
 
-## Option 3: Suggesting a New Default Business Logic for Existing or New Riverscape Project Type
+### Option 3: Suggesting a New Default Business Logic for Existing or New Riverscape Project Type
 
 If you would like the Riverscapes Consortium development team to consider your business logic updates and symbology updates for the next release of the Viewer, propose a pull request to the [Riverscapes XML repository](https://github.com/Riverscapes/RiverscapesXML). If you are part of the Riverscapes Consortium development team, you can do this by making a local branch, making your commits and pushes to that branch (name it something logical like `ProposedSymbologyMyModel`) and then log a pull request and ask for a review. If you are not part of the development team, you can fork the repo, make your changes on your own repo and then submit a pull request.  This request will be reviewed by the development team and they may ask for fixes after testing it. If accepted, this will be merged into the main branch and reflected in the next release.
