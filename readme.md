@@ -6,6 +6,15 @@ This repository hosts the documentation for viewer.riverscapes.net.
 
 Read about [Contributing to Riverscapes Documentation, on docs.riverscapes.net](docs.riverscapes.net/get-involved/documentation).
 
+### Development server
+
+To run the server locally, open the Docs code-workspace, and then execute these terminal commands:
+
+```sh
+yarn install
+yarn start
+```
+
 ## Riverscapes Analysis and Explorer AddIn
 
 This repository contains the source code for the Riverscapes Viewer Addin for ArcGIS, formerly known as Riverscapes Analysis Viewer and Explorer (RAVE). The code is written in C# using Visual Studio 2015 and consists of several code projects within a single solution:
