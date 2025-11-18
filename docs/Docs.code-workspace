@@ -12,7 +12,7 @@
     },
   ],
   "settings": {
-   "window.title": "Riverscapes Viewer Docs${separator}${activeEditorShort}${separator}${rootName}",
+    "window.title": "Riverscapes Viewer Docs${separator}${activeEditorShort}${separator}${rootName}",
     "[mdx]": {
       "editor.wordWrap": "bounded",
       "editor.wordWrapColumn": 80
@@ -44,6 +44,7 @@
       "**/node_modules/**": true
     },
     "terminal.integrated.defaultProfile.linux": "zsh",
+    "terminal.integrated.cwd": "./",
     // Riverscapes documentation standards
     // treat mdx as markdown
     "files.associations": {
