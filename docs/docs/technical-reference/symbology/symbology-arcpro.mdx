@@ -1,0 +1,108 @@
+---
+title: ArcPro Viewer Symbology
+description: How to implement map symbology in ArcPro Viewer
+position: 2
+---
+
+ArcPro stores symbology in proprietary ESRI `.lyrx` files, which contain two bits of information. First they possess a path to a specific GIS dataset on your computer and second they store the definition of how the dataset should be symbolized. The Riverscapes Viewer only uses the latter and ignores the path to the dataset itself. In this way the Viewer can apply the symbology stored in a single `.lyrx` file across Riverscapes projects.
+
+## ArcPro Viewer - How To Create a `.lyrx` File
+
+1. Add the layer in question to your ArcPro project. You can do this using the Viewer or navigate to the layer within a Riverscapes project using a folder connection in the `Catalog` pane.
+2. Use the `Symbology` pane to symbolize the layer, most likely referencing an existing `.qml` file. For more instructions on the symbology process in ArcPro, see the [Symbology Basics section](#ArcPro-Symbology-Basics) further down. 
+3. Once you are satisfied, right click on the layer in the `Contents` pane and hover over `Sharing`, then choose `Save As Layer File`. Be sure to name the file according to the symbology key in the Business Logic.
+
+It's best practice to check your work, so you should test your `.lyrx` file before adding it to a pull request.
+
+1. Add another instance of your layer to your ArcPro project.
+2. Open the `Symbology` pane for that layer, and click the three lines in the top right corner of the pane, and select `Import Symbology...`
+3. The `Apply Symbology From Layer` tool will open up in the `Geoprocessing` pane. Your layer will be automatically populated as the `Input Layer` dropdown.
+4. Click the yellow folder icon next to the `Symbology Layer` dropdown, and navigate to your newly created `.lyrx` file.
+5. Click `Run` and verify that your layer is symbolized as expected.
+    - Sometimes, ArcPro will give you an error about invalid fields. To get around this, hover your mouse over the area under `Symbology Fields` and click the red X, then try running the tool again. 
+
+## ArcPro Symbology Basics
+
+:::warning
+
+ArcPro is generally more frustrating to work with than QGIS when it comes to symbology curation. Be patient and prepared for headaches. Hopefully the information in this section will help the process go more smoothly.
+
+:::
+
+All symbology work is done in the `Symbology` pane, which is accessed by right clicking the layer you want to symbolize in the `Contents` pane and selecting `Symbology`.
+
+- By default, layers will be symbolized as a "Single Symbol". Click the dropdown under **Primary symbology** to change the symbology type. Select "Unique Values" for categorical symbology and "Graduated Colors" for graduated symbology. Rule-based symbology will be discussed later.
+
+- The `Field` dropdown is used to select which attribute is being symbolized.
+- For graduated symbology, you have the option to select the number of classes with the `Classes` dropdown. This dropdown can be finicky, so see the section in Symbology Tips about [adjusting number of classes](#Adjusting-number-of-classes).
+- For categorical symbology, classes should automatically populate based on what ArcPro finds in the attribute table. If some (or all) classes are missing, click the plus button to `Add unlisted values`. This button is found in the ribbon separating the top and bottom sections of the Symbology pane. From there, select each of the missing classes and click `OK`. 
+    - If there are classes still missing, then it's probably because ArcPro isn't finding them in the attribute table. You will need to [manually add these attribute values to the attribute table](#Creating-symbology-for-feature-values-not-in-the-attribute-table). 
+- For graduated symbology, double click the boxes in the `Upper Value` column to edit class breaks. Note that you are only inputting the upper value for the class break, unlike in QGIS where you input both the lower and upper boundaries of each class.
+- Editing the labels is done the same way, by double clicking the boxes in the `Label` column.
+- Edit each symbol by double-clicking on them. The `Gallery` tab opens automatically, you will need to switch to the `Properties` tab where you can edit fill color, outline color, and outline width. 
+- To copy over colors from existing QGIS symbology, click the `Color` dropdown and select `Color Properties...`. Here, you can copy over a HEX (or RGB, HSL, etc...) value from QGIS, and also adjust the color transparency (Note that QGIS uses opacity while ArcPro uses transparency. These are inverses of eachother, so 10% opacity is 90% transparency). 
+
+<!-- - All IGO symbology uses scale-based sizing, which is detailed [here](PLACEHOLDER).-->
+
+### Rule-based Symbology 
+
+Rule-based symbology provides more freedom than either categorical or graduated symbology by using expressions. ArcPro doesn't have its own "Rule-based" symbology type like QGIS does, but a similar effect can be achieved because ArcPro *does* allow symbology to be defined using an expression. ArcPro uses its own language (*because of course it does*), Arcade, for building expressions. 
+
+1. To set an expression, first change **Primary symbology** to either "Unique Values" or "Graduated Colors", whatever is closest to the symbology you are trying to create. 
+2. Next to field, click the chi (*X*) symbol to open the Expression Builder.
+3. In the past, I have fed rules that I created in QGIS into AI to create corresponding Arcade expressions. There is documentation for the Arcade language from ESRI, so it's up to you how you'd like to proceed. 
+
+## ArcPro Symbology Tips
+
+### Editing symbols for all classes at once
+
+- ArcPro allows top-level symbol editing like QGIS does. To access this, first make sure that you have all of the classes you want to symbolize.
+- Looking at the bottom section of the Symbology pane, click the "More" dropdown in the top-right, then click "Format all symbols"
+- Switch from the "Gallery" tab to the "Properties" tab
+- Here, you can set outline width and color for all symbols instead of editing each one individually.
+- Make sure to click `Apply` to save changes (ArcPro will throw a warning if you leave symbol formatting without applying, so don't worry)
+
+### Creating symbology for feature values not in the attribute table
+
+It's common that the layer you are symbolizing doesn't include the full range of attribute values that need to be symbolized. In QGIS, this isn't an issue, but ArcPro won't let you symbolize something not found in that layer's attribute table, for both graduated and categorical symbology. 
+
+- For graduated symbology, this limitation is only for minimum values. For example, the Baseflow metric is symbolized with six classes, with the first class ranging from 0-0.1 cubic feet per second. There probably isn't an attribute whose value for base flow is 0 cfs, and ArcPro won't let you symbolize "values out of range". 
+    - However, even if your layer doesn't include baseflow values over 1000 cfs, ArcPro has no problem with you creating classes that have max values greater than what's in your attribute table. 
+
+- For categorical symbology, this limitation applies to all categories not present in the attribute table. For example, Waterbodies are symbolized in multiple project types, and are classified using FCodes. One singular project is unlikely to contain all of the 30 plus waterbody types. 
+
+How to work around these limitations? The easiest work around is to manually edit the attribute table, which takes a few steps.
+
+1. First, you need to export the layer as a feature class so that you are able to edit the attribute table. If you don't, ArcPro won't save your edits and will give you an error that your update failed. To export, right click your layer in the `Contents` pane, and click `Data`, then `Export Features`.
+2. In the pop-up pane, keep the "Input Features" box the same, and optionally choose a name for your exported layer (I usually just append the layer name with an underscore and "edited"). Do not change the output location from the default geodatabase. For some reason this causes issues, so save yourself the frustration! Click `OK`. 
+    - If you've been exporting multiple layers, sometimes ArcPro will save the attribute fields from the previous instance of feature exporting. This caused me a great deal of confusion when I was working on IGO layers across multiple projects! I had exported the IGOs from an Anthropogenic Context project so that I could edit the attribute values for symbology purposes, but my exported feature class had the attribute values from the BRAT project I was previously working on! If this happens to you, simply click the "Fields" dropdown in the Export Features pop-up, and click the three lines next to the `Edit` button. Then, click `Reset` and `Yes` to confirm.
+3. Right click on your new feature class in the `Contents` pane and click `Attribute Table`. From here, simply click any cell and start typing to edit attribute values.
+    - For graduated symbology, you only need to change one entry to your minimum value (which is usually 0, but could be negative)
+    - For categorical symbology, you will need to add all classes not present in the attribute table. If you are not sure what all of the possibilities are, you will need to ask Jordan. 
+4. After you are done adding attribute values, click the `Edit` tab in the top ribbon and click the purple `Save` icon to save your edits.
+    - Since you're only editing the feature class you created, you don't have to worry about your edits "messing up" the original data. 
+5. Now you should be able to update the minimum value for graduated symbology, or hit the green plus icon to add the rest of the classes for categorical symbology!
+
+### Adjusting number of classes
+
+As a general rule, you should set the number of symbology classes *before* editing class breaks, labels, and symbols. Once you start editing, ArcPro has the tendency to grey out the `Classes` dropdown, preventing you from changing the number of classes. There are two ways to work around this:
+
+- The best way is to right click an existing class, and select `Insert Break Above` or `Insert Break Below`, depending on where you want to add a class. I didn't know about this function until recently, so I will add the previous work around for posterity.
+- To get the `Classes` dropdown to be editable again, you need to switch the `Field` dropdown to something else, and then switch it back to the field you want to symbolize. This will get rid of *all* symbology edits that you've done (symbols, labels, class breaks return to default), but will give you the option to edit the `Classes` dropdown. I can't imagine a situation where this option would be better than using the `Insert Break` function because you lose all of your work.
+
+### Editing class breaks and labels
+
+- Editing class breaks in graduated symbology will reset all labels to their default.
+- To avoid wasting effort, set class breaks and double-check their accuracy *before* editing the label text. 
+
+## Video Demonstrations
+
+### Creating a .lyrx file and ArcPro Symbology Basics
+
+<YouTubeEmbed videoId="huDo1mnaHPE" />
+
+### ArcPro Symbology Tips
+
+<YouTubeEmbed videoId="jLlWL1zZWE4" />
+
+*Page created by Chloe Seeborg for USU's Riverscapes Assessment and Monitoring (RAM) Laboratory*

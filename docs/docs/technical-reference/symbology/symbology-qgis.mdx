@@ -1,56 +1,113 @@
 ---
 title: QViewer Symbology
 description: How map symbology works in QViewer
-/* spellchecker: ignore slyr */
+position: 1
 ---
 
-Here are step by step instructions for curating symbology in QGIS.
+QGIS is generally the easiest platform for curating symbology, so it's where I would recommend starting when creating or updating any symbology. Here you'll find step by step instructions for curating symbology in QGIS.
 
-## QViewer How-to Create a Q Layer File (`*.qml`)
+## How-to Create a (`.qml`) File 
 
-Note: Be sure you are working within a [branch](https://thenewstack.io/dont-mess-with-the-master-working-with-branches-in-git-and-github/) of a given repository. Here are some [instructions on how to create a branch](https://docs.github.com/en/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository).
+1. Open the properties pane for the layer you want to symbolize. You can do this by either double-clicking the layer in the `Layers` pane or by right clicking your layer and selecting Properties. On the left side of the pane, switch to the `Symbology` tab.
+2. Symbolize the layer to your liking. See the [Symbology Basics section](#QGIS-Symbology-Basics) for more detailed instructions.
+3. At the bottom of the symbology tab, there is a dropdown button that says `Style`. Click the dropdown and select `Save Style...` which will open the Save Layer Style pop-up.
+4. Click the three dots to the right of File and choose where to save the file, as well as give it a name. Naming should reflect what's being referenced in the Business Logic.
+5. Click `OK`.
 
-1. Symbolize the layer to your liking.
+To test your newly created `.qml` file before adding it to a pull request...
 
-2. Once the layer has been symbolized, right click the layer within the layers panel.
+1. Add another instance of your layer to your QGIS project (you could also duplicate your layer and switch the symbology type to Single Symbol).
+2. Open up the Symbology tab of the properties pane.
+3. Click the `Style` dropdown at the bottom, and select `Load Style...`
+4. Navigate to your saved `.qml` file using the three dots to the right of File.
+5. Click `OK` and verify that the symbology looks how you intended. 
 
-3. Scroll down to *Export* and select *Save as QGIS Layer Style File* (Since QGIS doesn't recognize `.lyr` files, we will need to export our symbology as `.qml` files).
+## QGIS Symbology Basics
 
-4. Save your `*.qml` within *RiverscapesXML > Symbology > qgis*  with appropriate naming.
+The first step to symbolizing a layer in QGIS is to choose the symbology type. The dropdown at the top of the Symbology tab has options for no symbol, single symbol, categorized, graduated, and rule-based. You're most likely going to be creating categorized or graduated symbology, so those will be described first, followed by [rule-based symbology](#Rule-Based-Symbology). 
 
-   - Naming should reflect what's being referenced in the Business Logic.
+1. After selecting your symbology type, click the Value dropdown to choose which attribute is being symbolized.
+2. The next dropdown is used to make top-level edits to all symbols in that layer. If the symbology you're creating has common traits across classes, you can apply those here to save time. Click the rectangle next to Symbol to open the `Symbol Settings` pop-up (you can also click the dropdown arrow on the right side and select `Configure Symbol...`). Here, you can set color opacity and sizing options (line width, circle size, circle outline width, polygon outline width, etc...). Click `OK` when you are finished to apply changes and return to the Symbology tab.
+3. Use the green + button to add however many classes you need. If you need to remove a class, select the class so that it is highlighted and click the red - button.
+4. Set the values and legend labels for each class.
+   - For **categorical symbology**, double click in the Value column for each class and type in the attribute value. This is case sensitive so double-check that your entries are accurate for the symbology to work! Legend labels are also edited by double clicking in the Legend column and typing your label.
+   - For **graduated symbology**, double click in the Values column to open the Enter Class Bounds pop-up. Type in the upper and lower values for each of your classes. Edit the legend labels by double clicking the space in the Legend column and typing your label.
+5. Edit the symbols for each class by double clicking the symbol in the Symbol column to open the Symbol Selector pop-up. 
+   - This pop-up is also accessible in the Layers pane the same way (double clicking the symbol)
+6. You will automatically be set to the top-level symbol editing, which will say **Marker**, **Line**, or **Fill**, depending on your geometry type (point, line, polygon), where you can edit color, as well as size (point) or width (line).
+   - For color editing, see the [Color Editing Section](#Color-Editing). 
+7. To access more symbol options, click the line underneath **Marker** or **Line** or **Fill** that says Simple Marker, Simple Line, or Simple Fill. Here, you have access to more options, such as stroke (outline) color and width for points and polygons, as well as dash patterns in stroke style for all three geometry types. 
+8. Keep in mind, after finishing with the Symbol Selector pop-up, click `OK` (or ENTER on your keyboard) to save changes, or `Cancel` (ESC) to discard changes. 
+9. Back in the Symbology tab, click `Apply` to apply your changes while keeping the Properties pane open, or click `OK` to apply changes and close the Properties pane. 
 
-   - If the layer is used for multiple tools (BRAT, RSContext, VBET, etc.) then be sure to save it within the *Shared* folder.
-   - If the layer is unique to a particular tool, save it in the folder for that specific tool.
+**Bonus Tip:** You can copy and paste symbols within and between layers! In the Properties or Layers pane, right click on your symbol and click "Copy Symbol", and then right click your destination symbol and click "Paste Symbol". This only works if you are copy and pasting within the same geometry type. See the [Color Editing section](#Color-Editing) for how to copy and paste colors, which works within and across geometry types. 
 
-5. Commit your changes to the branch and create a pull request.
+### Color Editing
 
-<YouTubeEmbed videoId="cbAsvdh7_Ws"/>
+QGIS provides a lot of options when it comes to color selection, so they get their own section! 
 
-## How-to Convert from  a `*.lyr` to  a `*.qml`
+- In the Symbol Selector pop-up, click the arrow dropdown to the right of Color to...
+   - Choose a color using the color wheel 
+   - Set opacity in the box beneath the wheel 
+   - Copy the current color
+   - Paste a color that you've copied
+   - Pick a color from your QGIS app (activates a color dropper tool)
+   - Open the Select Color pop-up (click "Choose Color...")
 
-Often times, we may already have symbology that exists as an ESRI *.lyr file that we want to convert into a QGIS `*.qml` file. Here are a couple of ways in which we can do that.
+The copy and paste color functions are very useful if you are using the same colors across multiple layers, like if you're creating the same symbology for point, line, and polygon layers. 
 
-### SLYR TOOL
+The Select Color pop-up can also be accessed by simply clicking the rectangle next to Color (instead of clicking the dropdown arrow and selecting "Choose Color...") and has even more functions...
+- On the top left side of the pop-up, you can choose between a color ramp, color wheel, color swatches, and color picker.
+   - The color swatches have the option to switch between Recent colors, Standard colors, Project colors, and New layer colors.
+- On the right side of the pop-up, you can enter in HSV or RGB values, or type in values in HTML notation (you can switch between RRGGBB, RRGGBBAA, rgb, and rgba using the arrow dropdown). Selecting RRGGBB is useful for copying colors to paste over into ArcPro.
 
-The quickest and easiest way to convert `.lyr` to `.qml` is by using the [SLYR Tool](https://north-road.com/slyr/).
+### Rule Based Symbology
 
-Note: You will need the ET-AL SLYR account details in order to run the licensed version
+Rule-Based symbology provides even more freedom for class designations than you could achieve with either categorical or graduated symbology. It uses expressions that are very similar to SQL to define classes. A quick way to understand how QGIS rules are created is to change existing graduated or categorical symbology to rule-based (you could technically achieve all symbology goals by using rule-based symbology, but it's only necessary for more complicated scenarios). QGIS will automatically create corresponding rules for each class. 
 
-1. Downloading and installing the SLYR plugin for QGIS
+Creating rule-based symbology from scratch...
 
-   Important: Before installing the licensed version of SLYR, you must first uninstall the community version (if installed) and restart QGIS
+1. Use the drop down at the top of the Symbology tab to select Rule-based.
+2. Use the green + button to add however many classes you need, and select any unneeded classes and use the red - button to remove them.
+3. Double click a class to open the "Edit Rule" pop-up. 
+   - Edit the text in the box next to Label to update the legend for that class.
+   - Select the circle next to Filter (if it isn't already selected), and click the `E` (epsilson) button to open the Expression Builder pop-up, and [set your expression](#Setting-your-expression) 
+   - Edit your symbol, the same way you would in the Symbol Selector pop-up (see steps 6 and 7 in [QGIS Symbology Basics](#QGIS-Symbology-Basics))
 
-   1. Download the installer from [https://usuwatershed:JloiY%24%29o%7Bskp@north-road.com/qgis_plugins/2872eb8e-bc44-46ac-9f11-f124c0ce4915/slyr_install.zip](https://usuwatershed:JloiY%24%29o%7Bskp@north-road.com/qgis_plugins/2872eb8e-bc44-46ac-9f11-f124c0ce4915/slyr_install.zip)
-   2. Unzip the downloaded file, and then drag the extracted "install_slyr_qgis.py" over a running QGIS install. The script will add a connection to the private plugins repository, and install the SLYR plugin for you.
-   3. After the plugin is installed, the SLYR options dialog will open. You must enter your unique license key at this screen, exactly as it appears at the end of this email.
+#### Setting your expression
 
-2. To use the plugin
+The left side of the Expression Builder pop-up is where you'll build your rule, the center section contains the function editor, and the right side provides information about whatever is selected in the function editor. Double click an item to add it to your expression building area. 
 
-   1. Navigate to the tool within the QGIS Processing Toolbox.
-   2. Select the LYR datasets dropdown and open up the Convert LYR to QML tool.
-   3. Simply drag and drop the `.lyr` file that you want converted into a `.qml` and save it within *RiverscapesXML > Symbology > qgis*  with appropriate naming.
-   4. Once the *.qml has been created, double check that the symbology was properly converted and commit your changes.
-      - Although this tool has been shown to work correctly more times than not, it is important that you always check the *.qml output and make sure the symbology was accurately converted.
+You'll likely use items from these dropdowns for building your expression...
+- Fields and Values dropdown: Contains all the attribute field names and values for your layer.
+- Operators dropdown
+- Conditionals dropdown
 
-<YouTubeEmbed videoId="lxYP79fkAQY"/>
+**General expression building tips**
+
+- Field names are enclosed in quotes, for example: "Ownership" and "oCC_EX"
+- Text attribute values are enclosed in apostrophes, for example: 'State'
+- Numeric attribute values do not need to be enclosed in anything, for example: 5
+- If your expression is invalid, the "Preview:" area will let you know
+- Return to the "Edit Rule" pop-up and click `Test` to the right of `E` to see if your rule returns any features (keep in mind that a rule still may be valid if it returns no features, but if there are known features in your layer that should be picked up by that rule and aren't, then you know something is wrong with your rule)
+
+**Example Expressions**
+ 
+- This expression returns objects where the Ownership attribute is State: "Ownership" = 'State'
+- This expression returns objects that have an existing dam capacity between 1 and 5, including 5: "oCC_EX" > 1 AND "oCC_EX" <= 5
+
+## Video Demonstrations
+
+### Creating and Testing `.qml` files
+
+<YouTubeEmbed videoId="Fni3u4Ellvg"/>
+
+### QGIS Symbology Basics
+
+<YouTubeEmbed videoId="FFWo-8eMu9o"/>
+
+### QGIS Rule-based Symbology
+
+<YouTubeEmbed videoId="oN2M-Ya9gAs"/>
+
+*Page updated by Chloe Seeborg for USU's Riverscapes Assessment and Monitoring (RAM) Laboratory*
