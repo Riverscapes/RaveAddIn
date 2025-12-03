@@ -21,15 +21,13 @@ It's best practice to check your work, so you should test your `.lyrx` file befo
 5. Click `Run` and verify that your layer is symbolized as expected.
     - Sometimes, ArcPro will give you an error about invalid fields. To get around this, hover your mouse over the area under `Symbology Fields` and click the red X, then try running the tool again. 
 
-## ArcPro Symbology Basics and Tips
+## ArcPro Symbology Basics
 
 :::warning
 
 ArcPro is generally more frustrating to work with than QGIS when it comes to symbology curation. Be patient and prepared for headaches. Hopefully the information in this section will help the process go more smoothly.
 
 :::
-
-### Symbology Basics
 
 All symbology work is done in the `Symbology` pane, which is accessed by right clicking the layer you want to symbolize in the `Contents` pane and selecting `Symbology`.
 
@@ -46,7 +44,7 @@ All symbology work is done in the `Symbology` pane, which is accessed by right c
 
 <!-- - All IGO symbology uses scale-based sizing, which is detailed [here](PLACEHOLDER).-->
 
-#### Rule-based Symbology 
+### Rule-based Symbology 
 
 Rule-based symbology provides more freedom than either categorical or graduated symbology by using expressions. ArcPro doesn't have its own "Rule-based" symbology type like QGIS does, but a similar effect can be achieved because ArcPro *does* allow symbology to be defined using an expression. ArcPro uses its own language (*because of course it does*), Arcade, for building expressions. 
 
@@ -54,9 +52,9 @@ Rule-based symbology provides more freedom than either categorical or graduated 
 2. Next to field, click the chi (*X*) symbol to open the Expression Builder.
 3. In the past, I have fed rules that I created in QGIS into AI to create corresponding Arcade expressions. There is documentation for the Arcade language from ESRI, so it's up to you how you'd like to proceed. 
 
-### Symbology Tips
+## ArcPro Symbology Tips
 
-#### Editing symbols for all classes at once
+### Editing symbols for all classes at once
 
 - ArcPro allows top-level symbol editing like QGIS does. To access this, first make sure that you have all of the classes you want to symbolize.
 - Looking at the bottom section of the Symbology pane, click the "More" dropdown in the top-right, then click "Format all symbols"
@@ -64,7 +62,7 @@ Rule-based symbology provides more freedom than either categorical or graduated 
 - Here, you can set outline width and color for all symbols instead of editing each one individually.
 - Make sure to click `Apply` to save changes (ArcPro will throw a warning if you leave symbol formatting without applying, so don't worry)
 
-#### Creating symbology for feature values not in the attribute table
+### Creating symbology for feature values not in the attribute table
 
 It's common that the layer you are symbolizing doesn't include the full range of attribute values that need to be symbolized. In QGIS, this isn't an issue, but ArcPro won't let you symbolize something not found in that layer's attribute table, for both graduated and categorical symbology. 
 
@@ -85,14 +83,14 @@ How to work around these limitations? The easiest work around is to manually edi
     - Since you're only editing the feature class you created, you don't have to worry about your edits "messing up" the original data. 
 5. Now you should be able to update the minimum value for graduated symbology, or hit the green plus icon to add the rest of the classes for categorical symbology!
 
-#### Adjusting number of classes
+### Adjusting number of classes
 
 As a general rule, you should set the number of symbology classes *before* editing class breaks, labels, and symbols. Once you start editing, ArcPro has the tendency to grey out the `Classes` dropdown, preventing you from changing the number of classes. There are two ways to work around this:
 
 - The best way is to right click an existing class, and select `Insert Break Above` or `Insert Break Below`, depending on where you want to add a class. I didn't know about this function until recently, so I will add the previous work around for posterity.
 - To get the `Classes` dropdown to be editable again, you need to switch the `Field` dropdown to something else, and then switch it back to the field you want to symbolize. This will get rid of *all* symbology edits that you've done (symbols, labels, class breaks return to default), but will give you the option to edit the `Classes` dropdown. I can't imagine a situation where this option would be better than using the `Insert Break` function because you lose all of your work.
 
-#### Editing class breaks and labels
+### Editing class breaks and labels
 
 - Editing class breaks in graduated symbology will reset all labels to their default.
 - To avoid wasting effort, set class breaks and double-check their accuracy *before* editing the label text. 
