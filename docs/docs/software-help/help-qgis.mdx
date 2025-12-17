@@ -11,61 +11,118 @@ The QGIS Version of the Riverscapes Viewer is a free plugin for QGIS that helps 
 
 If you have not already installed the Riverscapes Viewer, you can do so by following the instructions on the [installation page](/Deploy/install-qgis).
 
-The Viewer consists of a toolbar and a project explorer panel. The toolbar contains buttons for opening projects and updating resources. The project explorer panel contains a tree view of the project layers. This is the main way for adding layers to the map.
+The Viewer consists of a toolbar and a project explorer panel. The toolbar contains a menu with buttons for opening projects and updating resources, along with a small handfull of related tools. The project explorer panel contains a tree view of the project layers. This is the main way for adding layers to the map.
 
-![Riverscapes Viewer](/images/qviewer/qris_toolbar_map_project.png)
+![Riverscapes Viewer](/images/qviewer/viewer-overview.png)
 
-After you have installed the plugin, locate the toolbar in QGIS. If it is not visible then enable it from the **View > Toolbars** menu. Check the box next to the Riverscapes Viewer to make it visible.
+After you have installed the plugin, locate the toolbar in QGIS. If it is not visible then enable "Riverscapes Viewer" from the **View > Toolbars** menu. Check the box next to the Riverscapes Viewer to make it visible.
 
-The four buttons on the toolbar are (left to right):
+The **Riverscapes Viewer Menu** contains the following:
 
-1. Open and close the Riverscapes Viewer project explorer dockable panel.
-1. Open a riverscapes project and load it into the project explorer dockable panel.
-1. Close all currently open projects within the project explorer dockable panel.
-1. Get information and help about the Riverscapes Viewer as well as [update resources](/software-help/help-qgis/#updating-resources) that come with the software.
+![Riverscapes Viewer Project Explorer](/images/qviewer/qviewer_tools_menu_v1.0.5.windows.png)
+- [**Open Riverscapes Project**](#open-a-project): Open a riverscapes project and load it into the project explorer dockable panel.
+- **Close All Riverscapes Projects**:  Close all currently open projects within the project explorer dockable panel.
+- **Browse Data Exchange Projects in Map Area**: Opens your web browser to the Riverscapes Data Exchange page showing projects within the current map extent.
+- **Show Riverscapes Viewer Panel**: Show or Hide the Riverscapes Viewer project explorer dockable panel. This does not open or close projects, it only shows or hides the panel.
+- **Tools Menu**
+  - [**Update Resources**](#updating-resources): Update the business logic and symbology resources for the Riverscapes Viewer.
+  - **Open Resources Folder**: Open the folder on your computer where the Riverscapes Viewer resources are stored.
+  - **Generate Project Bounds**: Generate a centroid, bounding box, and polygon extent to use for creating a new riverscapes project.
+  - [**Settings**](#settings): Open the Riverscapes Viewer settings dialog to change options.  
+- **Help Menu**: 
+  - **Riverscapes Viewer Online Help**: Get information and help about the Riverscapes Viewer as well as [update resources](/software-help/help-qgis/#updating-resources) that come with the software.
+  - **About Riverscapes Viewer**: View version information about the Riverscapes Viewer plugin.
 
 ## Open a Project
 
-Click on the second button on the toolbar to open a riverscapes project. This will open a file dialog where you can select a project file. The project file is a `*.rs.xml` file that defines the project layers.
+Click on **Open Riverscapes Project** under the Riverscapes Viewer menu to open a Riverscapes project. This will open a file dialog where you can select a project file. The project file is a `*.rs.xml` file that defines the project layers.
 
-After the selecting file, the project will be loaded into the Riverscapes Viewer Project Explorer panel. If the project type possesses a default project view it will be loaded into the map.
+After the selecting file, the project will be loaded into the project explorer panel. If the project type possesses a default project view it will be loaded into the map.
 
-### Adding Layers to the Map
+### Project Explorer Panel
+
+The project explorer panel displays a tree view of the Riverscapes Project with its layers, datasets and views. Right clicking on the nodes within the project explorer panel will give you additional options for interacting with the project and its layers.
+
+![Riverscapes Viewer Project Explorer](/images/qviewer/qris_project_right_click.png)
+
+- **Project Node**: Right click on the project name for the following:
+  - Collapse/Expand All Child Nodes
+  - **Upload Project to Data Exchange**: Upload the project to the [Riverscapes Data Exchange](https://data.riverscapes.net). See the [Uploading Projects](/software-help/help-qgis-uploader) page for more information.
+  - **Browse Project Folder**: Open the folder on your computer where the project files are stored.
+  - **View Project Metadata**: View information about the project in the metadata panel. See the [Metadata Panel](#metadata-panel) section for more information.
+  - **View Project in Data Exchange**: Open your web browser to the Riverscapes Data Exchange page for this project (if it has been uploaded).
+  - **Add All Layers to Map**: Add all layers in the project to the map.
+  - **Refresh Project Hierarchy**: Reload the project file and update the project explorer panel.
+  - **Close Project**: Close the project and remove it from the project explorer panel.
+- **Layer and Dataset Nodes**: 
+  - **Add Layer to Map**: Add the selected layer to the map.
+  - **View Layer Metadata**: View information about the layer in the metadata panel. See the [Metadata Panel](#metadata-panel) section for more information.
+  - **Browse Folder**: Open the folder on your computer where the layer files are stored.
+- **View Nodes**:
+  - **Add View to Map**: Add the selected project view to the map.
+- **Folder Nodes**:
+  - **Collapse/Expand All Child Nodes**: Collapse or expand all child nodes within the folder.
+  - **Add All Layers to Map**: Add all layers within the folder to the map.
+
+### Project Layers
 
 To add layers to the map, simply double click them in the project explorer panel. They will be added to the map in a structure that reflects the project explorer panel (and is defined in the [business logic](/technical-reference/business-logic) for this project type).
 
-Right click on any layer in the tree and choose "View Layer Metadata" to show information stored in the project about the chosen layer in the metadata panel.
-
-### Metadata Panel
-
-The metadata panel displays information about the project, including the Model Version, Date Created, and id, or about individual layers
-
-![layer metadata in metadata panel](/images/qviewer/qris_layer_metadata.png).
-
-### Adding Base Layers to the Map
-
-The Riverscapes Viewer comes with a set of base layers that can be added to the map. Expand the basemap node in the project explorer panel and double click the layer you want to add to the map.
-
-## Project Views
+### Project Views
 
 Project views are predefined, curated views that can be added to the map with a single click. They allow for quickly adding the more popular ways of viewing a specific project type. Project views are defined in the [business logic](/technical-reference/business-logic) for the project type.
 
+### Base Layers
+
+The Riverscapes Viewer comes with a collection of web map base layers that can be added to the map. Expand the basemap node in the project explorer panel and double click the layer you want to add to the map.
+
+### Metadata Panel
+
+The Metadata panel displays information about the project and its layers, accessed by right clicking on the project or layer in the project explorer panel and choosing "View Project Metadata" or "View Layer Metadata".  When the panel is opened, it will display metadata for the selected project or layer. You can change the displayed metadata by clicking on different projects or layers in the project explorer panel.
+
+The top section of the metadata panel displays a description of the project or layer. The bottom section displays a table of metadata fields and their values.
+
+![layer metadata in metadata panel](/images/qviewer/metadata.png).
+
 ## Settings
 
-The Riverscapes Viewer has a few options that can be set in the Settings dialog. To open the options dialog, from the Riverscapes toolbar choose `Tools → Settings`.
+The Riverscapes Viewer has a number of options that can be set in the Settings dialog. To open the options dialog, from the Riverscapes toolbar choose `Tools → Settings`.
 
-![Settings menu](/images/qviewer/qviewer_settings_menu_v1.0.5.windows.png)
+![Settings menu](/images/qviewer/viewer-settings.png)
 
-- You can choose to include or exclude basemaps from the project explorer panel.
-- You can choose a region for certain basemaps. Currently the region options are "United States" and "New Zealand".
-- You can choose to automatically update resources when the Riverscapes Viewer is first loaded.
-- You can choose to enable or disable opening of the default project view when a project is opened.
+The settings dialog allows you to set the following options:
+- Choose to include or exclude basemaps from the project explorer panel.
+- Specify the region for certain basemaps. Currently the region options are "United States" and "New Zealand".
+- Choose to automatically update resources when the Riverscapes Viewer is first loaded.
+- Choose to enable or disable opening of the default project view when a project is opened.
+- Select the default docking location for the Riverscapes Viewer project explorer panel.
+- (Advanced users) Specify a Local Business Logic folder to override the default business logic that comes with the Riverscapes Viewer. This is useful for testing new business logic files.
+
+Use the **Reset** button to reset all settings to their default values.
+
+To save your changes, click the **Apply** button. To close the dialog without saving changes, click the **Cancel** button.
+
+Settings are saved between QGIS sessions.
 
 ## Updating resources
 
 You can update the [business logic](/technical-reference/business-logic) and [symbology](/technical-reference/symbology/) for the Riverscapes Viewer by choosing `Tools → Update resources` from the toolbar. This will download the latest versions of these resources and place them on your computer in the correct location.
 
 This operation will report the number of successfully updated files in the QGIS message panel.
+
+## Generate Project Bounds
+
+The Riverscapes Viewer can help you generate a centroid, bounding box, and polygon extent for use when creating a new riverscapes project. To do this, first make sure you have your desired polygon layer in the map, and any desired features selected, then choose `Tools → Generate Project Bounds` from the toolbar.
+
+![Generate Project Bounds](/images/qviewer/project-bounds.png)
+
+In the Project Bounds dialog:
+1. Make sure the correct polygon layer is selected in the dropdown, and click the **Use Selected Features Only** checkbox if you want to use only the selected features in the layer.
+2. Specify the precision (number of decimal places) for the output coordinates.
+3. Review the xml of the generated centroid and bounding box.
+4. If you want to generate the Project Bounds geojson file, click the **Include Project Bounds geojson file** checkbox, then click the "Save Bounds File" button to choose a location to save the file. The geojson file will be saved to the specified location and the reference will be included in the output xml.
+5. Copy the output xml to your clipboard by clicking the **Copy** button.
+6. You can then close the dialog by clicking the **Close** button.
 
 ## Uploading Projects
 
