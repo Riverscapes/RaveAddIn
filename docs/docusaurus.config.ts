@@ -7,7 +7,7 @@ import type * as Preset from '@docusaurus/preset-classic'
 const config: Config = {
   title: 'Riverscapes Viewer', // Site title displayed in the browser tab
   tagline: 'A free way to view riverscape data with curated symbology', // Short description shown in meta tags
-  favicon: '/images/logos/Viewer.svg', // Path to site favicon
+  favicon: 'https://cdn.riverscapes.net/icons/products/viewer/viewer.svg', // Path to site favicon
 
   future: {
     v4: true, // Enables compatibility with upcoming Docusaurus v4 features
@@ -45,7 +45,7 @@ const config: Config = {
   ],
 
   themeConfig: {
-    image: '/images/logos/Viewer.svg', // Social sharing image
+    image: 'https://cdn.riverscapes.net/icons/products/viewer/viewer.svg', // Social sharing image
     algolia: {
       // The application ID provided by Algolia
       appId: '4TGS8ZPIMY',
@@ -63,7 +63,7 @@ const config: Config = {
       title: 'Riverscapes Viewer',
       logo: {
         alt: 'Riverscapes Viewer Logo',
-        src: '/images/logos/Viewer.svg',
+        src: 'https://cdn.riverscapes.net/icons/products/viewer/viewer.svg',
       },
       items: [
         // {
