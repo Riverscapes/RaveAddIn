@@ -1,0 +1,65 @@
+---
+title: Downloading Riverscapes Projects from QViewer
+description: Using QGIS to Download Projects from the Riverscapes Data Exchange
+sidebar_position: 6
+---
+
+With the Riverscapes Viewer for QGIS you can download riverscapes projects from the [Riverscapes Data Exchange](https://data.riverscapes.net). This feature allows you to browse the Data Exchange, select a project, and download it directly into your local workspace.
+
+:::tip
+Downloading projects via the Viewer is the easiest way to get started with Riverscapes data in QGIS. It automatically handles the folder structure and prepares the project for viewing.
+:::
+
+## Before You Begin
+
+1. **Riverscapes Login:** You must be logged in to access and download projects.
+2. **Local Storage:** Ensure you have enough disk space for the project you are downloading.
+
+## Getting Started
+
+To open the download dialog:
+1. Click the **Download Project** button in the Riverscapes toolbar.
+2. Or right-click in the project explorer and choose `Download Project from Data Exchange`.
+
+## Step 1: Project Selection
+
+Find a project on the [Riverscapes Data Exchange](https://data.riverscapes.net) and copy either its **Project ID (UUID)** or the **URL** of the project page.
+
+1. Paste the ID or URL into the input box.
+2. Click **Verify Project**.
+3. Once verified, you will see the project details, including the name, owner, and total number of files.
+
+Click `Next` to proceed.
+
+## Step 2: Location Selection
+
+Choose where on your computer the project should be saved.
+
+1. **Parent Folder:** Select the directory where you want the project folder to be created.
+2. **Folder Name:** This defaults to the project name but can be customized.
+
+Click `Next` to proceed to file selection.
+
+## Step 3: File Selection
+
+In this step, you can choose exactly which files you want to download. You don't always need everything!
+
+- **New:** Files that don't exist locally yet.
+- **Up to date:** Files that already exist locally and match the version on the Data Exchange (these are locked by default).
+- **Update available:** Files that exist locally but have a newer version available online.
+- **Mandatory:** The `project.rs.xml` file is always required and selected by default.
+
+Use the checkboxes to select the files you need. Click `Download` to begin.
+
+## Step 4: Download Status
+
+The final step shows the progress of the download.
+
+1. **Overall Progress:** Shows the total percentage and data transferred.
+2. **File Progress:** Shows which specific file is currently being downloaded.
+3. **Completion:** Once complete, the project will be automatically added to your Riverscapes Viewer project explorer.
+
+## Notes
+
+- If you are updating an existing project, the downloader will only download the files that have changed, saving time and bandwidth.
+- You can cancel the download at any time, but the project may be in an incomplete state until the download is resumed and finished.
