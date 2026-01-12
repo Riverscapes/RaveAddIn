@@ -1,6 +1,7 @@
 ---
 title: Uploading Projects
 description: Using QGIS to Upload Projects into the Riverscapes Data Exchange
+slug: upload
 sidebar_position: 5
 ---
 
@@ -24,49 +25,43 @@ This feature requires that you have the following:
 
 ![upload menu](/images/qviewer/uploader-menu.png)
 
-A web browser will open and you will be prompted to login to the Riverscapes Data Exchange. After you have successfully logged in, focus will return to QGIS and the project upload form (see below). If you already have an active Riverscapes login then it will be detected and you will not need to login again. Should you want to change Riverscapes logins you can click the `Reset` button (4) to logout and be prompted for a different login.
+A web browser will open and you will be prompted to login to the Riverscapes Data Exchange. After you have successfully logged in, focus will return to QGIS and the project upload form.
+
+## Step 1: Project Details
+
+The first step involves configuring the project metadata and ownership.
 
 ![uploader](/images/qviewer/uploader.png)
 
-The project name is shown at the top of the form (1), followed by the local path (2) where the project is located on your computer. ALWAYS check that both these fields are correct and that you are attempting to upload the correct project!
+1. **Project Verification:** The project name and local path are shown at the top. ALWAYS check that both these fields are correct!
+2. **New or Update Project:** If your project originated from the Data Exchange, you can choose `Modify existing project`. Otherwise, choose `Upload as new project`.
+    - **No remote delete:** If unchecked, files on the Data Exchange that are not in your local copy will be removed.
+3. **Project Ownership:** Choose whether to assign the project to an organization or your personal account.
+4. **Visibility:** Pick **PUBLIC**, **PRIVATE**, or **SECRET**. This is only available for new projects.
+5. **Tags:** Add descriptive tags to help others find your project.
 
-## New or Update Project
+Click `Next` to proceed to file selection.
 
-If your riverscapes project originated from the Data Exchange then you will have the option to modify the existing project (i.e. overwrite the version that's in the Data Exchange) (5). If you choose to modify it you can choose whether you want to keep all files on the Data Exchange ("no remote delete"). This is useful if you have downloaded a partial copy of a project from the Data Exchange and want to upload just the parts that you downloaded while keeping all the other files that exist online. Unchecking the "No remote delete" box when modifying existing projects will upload your local copy and remove any files on the Data Exchange that do not appear in your local copy.
+## Step 2: File Selection
 
-For projects that originated in the Data Exchange, clicking the `Visit` button will launch a web browser and take you to the project details for the relevant project.
+In the second step, you will see a list of all files in your project and their status relative to the Data Exchange (New, Update, or Delete).
 
-If the project has never been stored in the Data Exchange, you will be limited to the "Upload as new project" option.
+- **New:** Files that don't exist on the Data Exchange yet.
+- **Update:** Files that have changed locally and need to be re-uploaded.
+- **Delete:** Files that exist on the Data Exchange but not locally (these will be removed unless "No remote delete" was checked in Step 1).
 
-## Project Ownership
+Review the list carefully and ensure it matches your expectations. Click `Upload` to begin the process.
 
-If the project has never been stored in the Data Exchange, you can choose whether to assign the new project to an organization or leave it associated with your Riverscapes user account (shown above in 3). Note that the list of available organizations is limited to only those to which you have `write` privileges. If you don't see the desired organization, then visit the [list of organizations](https://data.riverscapes.net/s?type=Organization) in the Data Exchange and contact the organization administrator to request access.
+## Step 3: Upload Status
 
-## Visibility
+The final step shows the progress of your upload.
 
-Pick the appropriate visibility for the project in the Data Exchange. Note that this option is only available when uploading new projects. Modifying an existing project will retain its existing visibility.
+1. **Progress:** A progress bar and detailed status labels show you exactly which file is being uploaded and how much is remaining.
+2. **Logs:** You can click `View Log` at any time to see a detailed technical log of the upload process.
+3. **Completion:** Once finished, the status will show "Upload complete".
 
-- **PUBLIC** projects are visible, downloadable and searchable by any user in the system (applies to both user owned AND organization owned).
-- **PRIVATE** Can be searched by all users, but only owners of the project (user owned projects) or members of the organization (org-owned projects) can see, download or modify the project and data layers.
-- **SECRET** projects are identical to PRIVATE projects with one exception: they are not searchable or visible to users who do not explicitly have access.
+Click `View in Data Exchange` to see your project online.
 
-## Tags
-
-Use the `Add` and `Remove` buttons to add tags (8) to the project in the Data Exchange. Projects that originated from the Data Exchange pre-populate the list with the existing tags.
-
-Tags are strongly recommended because they are an excellent means by which to search the Data Exchange.
-
-## Upload Status
-
-Before you click `Start` to begin the Upload process you should review the proposed number of files to be added, updated or deleted. Pause and genuinely contemplate if the numbers make sense!
-
-## Uploading
-
-Clicking `Start` will commence project upload into the Data Exchange. There's one final prompt to ensure that you do indeed want to upload the project. You can cancel the process part way through and any files that have already been uploaded will be removed from the Data Exchange. The project is not considered part of the Data Exchange until ALL files are successfully uploaded.
-
-Once the upload is complete, the Data Exchange does a final check to validate the project and its files. The status will appear as "Waiting for Upload Completion" for a few seconds during this step (9).
-
-After the project upload is complete you can click the `View in Data Exchange` button (10) to open a browser and navigate to the project details of the newly uploaded project in the Data Exchange.
 
 ## Notes
 
