@@ -2,17 +2,17 @@
 title: ArcGIS Pro
 banner: true
 description: Riverscapes Viewer for ArcGIS Pro
-sidebar_position: 4
+sidebar_position: 3
 ---
 
 To install the Riverscapes Viewer for first time in ArcGIS Pro:
 
 1. Close all ESRI products.
-1. [Download](https://github.com/Riverscapes/ArcProViewer/releases) the latest Riverscapes Viewer addinx file.
+1. Download the latest [Riverscapes Viewer addinx file](https://github.com/Riverscapes/ArcProViewer/releases).
 1. Once the addinx file is downloaded, double click it to install the AddIn. You will be prompted with a confirmation that the installation is complete.
 1. Restart ArcGIS Pro and the Riverscapes Viewer toolbar will be available as one of the top level Menu items.
 
-:::caution
+:::info
   The Riverscapes Viewer for ArcPro works in Azure virtual environments. Follow the same steps as above to install the addin. The addin will persist between sessions and be available to you when you log back in.
 :::
 
@@ -21,6 +21,14 @@ To install the Riverscapes Viewer for first time in ArcGIS Pro:
 ## Updating Resources 
 
 You will want to update resources just about every time you use the Riverscapes Viewer (including on a new install) to make sure you have the latest [symbology](/technical-reference/symbology) and [business logic](/technical-reference/business-logic). To do this, you simply go to the Riverscapes Viewer toolbar and click the update (circular arrow) button. This then downloads the latest files from the [RiverscapesXML repo](https://github.com/Riverscapes/RiverscapesXML) and places them in a local resource folder. You can browse to that resource folder from the toolbar by choosing `Help → Find Resources Folder`.
+
+:::note
+Updating Resources currently locks the ArcGIS Pro interface while it is downloading. Wait several minutes for the process to complete, after which time the user interface will become responsive again.
+:::
+
+## Minimum Requirements
+
+The Riverscapes Viewer requires ArcGIS Pro 3.4 or above.
 
 ## Video Demonstration
 
