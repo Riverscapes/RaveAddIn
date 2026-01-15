@@ -6,6 +6,8 @@ This repository hosts the documentation for viewer.riverscapes.net.
 
 Read about [Contributing to Riverscapes Documentation, on docs.riverscapes.net](docs.riverscapes.net/get-involved/documentation).
 
+Note that the QGIS Riverscapes Viewer repository can be found at https://github.com/Riverscapes/QRAVEPlugin
+
 ### Development server
 
 To run the server locally, open the Docs code-workspace, and then execute these terminal commands:
