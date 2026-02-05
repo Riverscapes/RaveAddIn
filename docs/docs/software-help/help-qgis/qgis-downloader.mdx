@@ -1,7 +1,8 @@
 ---
-title: Downloading Riverscapes Projects from QViewer
-description: Using QGIS to Download Projects from the Riverscapes Data Exchange
-sidebar_position: 6
+title: Downloading Riverscapes Projects using Viewer
+description: Using Viewer for QGIS to download projects from the Riverscapes Data Exchange
+sidebar_position: 2
+sidebar_label: Downloading Projects
 ---
 
 With the Riverscapes Viewer for QGIS you can download riverscapes projects from the [Riverscapes Data Exchange](https://data.riverscapes.net). This feature allows you to browse the Data Exchange, select a project, and download it directly into your local workspace.
@@ -18,6 +19,7 @@ Downloading projects via the Viewer is the easiest way to get started with River
 ## Getting Started
 
 To open the download dialog:
+
 1. Click the **Download Project** button in the Riverscapes toolbar.
 2. Or right-click in the project explorer and choose `Download Project from Data Exchange`.
 
@@ -31,6 +33,8 @@ Find a project on the [Riverscapes Data Exchange](https://data.riverscapes.net) 
 
 Click `Next` to proceed.
 
+![Verify step in download dialog](/images/qviewer/qviewer_download_project_verify_step_v1.1.1.windows.min.png)
+
 ## Step 2: Location Selection
 
 Choose where on your computer the project should be saved.
@@ -42,7 +46,7 @@ Click `Next` to proceed to file selection.
 
 ## Step 3: File Selection
 
-In this step, you can choose exactly which files you want to download. You don't always need everything!
+In this step, you can choose exactly which files you want to download. You don't always need everything! Each file will have one of the following *Status* values:
 
 - **New:** Files that don't exist locally yet.
 - **Up to date:** Files that already exist locally and match the version on the Data Exchange (these are locked by default).
@@ -50,6 +54,8 @@ In this step, you can choose exactly which files you want to download. You don't
 - **Mandatory:** The `project.rs.xml` file is always required and selected by default.
 
 Use the checkboxes to select the files you need. Click `Download` to begin.
+
+![File selection step in download dialog](/images/qviewer/qviewer_download_project_choosefiles_step_v1.1.1.windows.min.png "File selection step, showing a large file deselected")
 
 ## Step 4: Download Status
 
