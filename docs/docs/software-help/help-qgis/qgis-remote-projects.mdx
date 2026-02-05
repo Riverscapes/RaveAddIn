@@ -6,11 +6,42 @@ sidebar_position: 4
 sidebar_label: Remote Projects
 ---
 
+benefit statement...
 
-get the project ID or the URL. There are multiple ways to do this. 
+## Requirements
 
-You will need 
+You will need:
 
 1. A Riverscapes account. Visit the [Riverscapes Data Exchange](https://data.riverscapes.net) and create one first if you don't have one already. See also [help on creating an account](https://docs.riverscapes.net/products/data-exchange/help/signup) on our documentation site.
+2. A reasonably good internet connection for streaming layers. 
 
-you will need a free account. https://docs.riverscapes.net/products/data-exchange/help/signup 
+## Usage
+
+### Find and identify the Data Exchange project you want view
+
+The first step in viewing a remote project in QGIS to Get the project ID. Unless it was sent to you, the easiest way to do that is to browse the Riverscapes Data Exchange at [data.riverscapes.net](https://data.riverscapes.net) and use the powerful search features. Once you find the project, you can get the Project ID in many ways:
+
+* on a project page, you can copy the URL
+* on a project page, there is a widget in top right corner to copy the project to clipboard, shown below. Choose `Copy project ID`.
+* on a project page, in the overview tab, the PROJECT ID is displayed, and there is a copy to clipboard button next to it
+* in project 'cards' shown in search results, the kebob menu has a Copy Project ID to clipboard option
+* in project table view, there is a copy project to clipboard button
+![Data Exchange Copy Project to clipboard](/images/qviewer/data_exchange_copy_project_to_clipboard.png)
+
+If you have the project downloaded and loaded into the riverscapes viewer, you can also get the project ID from the riverscapes metadata panel under 'Warehouse Meta', `id`. Right click on it and choose 'Copy value'.
+
+### Load a remote project
+
+* From the Riverscapes Viewer toolbar button, choose Open Remote Project as shown.
+![menu](/images/qviewer/qviewer_menu_remote_project_highlighted_v1.1.1_windows.min.png)
+* Paste the Project id in the dialog. 
+* A browser window will open to authenticate your account (only once per QGIS session).
+* The project will appear in the Riverscapes Viewer Pane, and the default view will open in the map.
+
+## Limitations
+
+This is a new feature in version 1.1. Not all features of the viewer for local projects are implemented for remote projects.
+
+:::info
+  This feature is only available in Riverscapes Viewer for QGIS. It is not available in the ArcGIS or ArcGIS Pro versions of the Viewer.
+:::
