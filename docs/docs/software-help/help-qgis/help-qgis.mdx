@@ -14,7 +14,7 @@ If you have not already installed the Riverscapes Viewer plugin, you can do so b
 
 The Viewer plugin provides a toolbar, a project explorer panel, and a metadata panel. The toolbar contains a menu with buttons for loading projects and supporting resources, along with a small handfull of related tools. The project explorer panel contains a tree view of the project layers, and provides the main way to add layers to the map.
 
-![Riverscapes Viewer](/images/qviewer/viewer-overview.png)
+![Riverscapes Viewer](/images/qviewer/qviewer_overview_rcat_v1.1.1.windows-1280.min.png)
 
 After you have installed the plugin, locate the toolbar in QGIS. If the toolbar is not visible, use the QGIS `View →  Toolbars` menu and check the box next to _Riverscapes Viewer_ to make it visible.
 
@@ -58,14 +58,14 @@ Every element within the panel tree has useful options presented in a context me
 Right click on the project name for the following options as shown:
 ![Riverscapes Viewer project menu](/images/qviewer/qviewer_panel_right-click-menu_v1.1.1.windows.min.png)
 
-- **Collapse All Child Nodes/Expand All Child Nodes**: 
-- **Zoom Map to Project**: Zooms the QGIS map view to the extent of the Project as defined by the bounding box in the `project.rs.xml`.
+- **Collapse All Child Nodes/Expand All Child Nodes**: Collapse or expands the nodes of the project tree/
+- **Zoom Map to Project**: Zooms the QGIS map view to the extent of the Project as defined by the bounding box in the `project.rs.xml` (for local projects) or the project_bounds.geojson (for remote projects).
 - **Upload Project to Data Exchange**: Upload the project to the [Riverscapes Data Exchange](https://data.riverscapes.net). See the [Uploading Projects](/software-help/help-qgis-uploader) page for more information.
-- **Download or Update Project**: 
+- **Download or Update Project**: Download the project or selected files from the project on the data exchange to a local folder. See the [Downloading Projects](qgis-downloader) page for more information.
 - **Browse Project Folder**: Open the folder on your computer where the project files are stored.
 - **View Project Metadata**: View information about the project in the metadata panel. See the [Metadata Panel](#metadata-panel) section for more information.
 - **View Project in Data Exchange**: Open your web browser to the Riverscapes Data Exchange page for this project (if it has been uploaded).
-- **Add All Layers to Map**: Add all layers in the project to the map.
+- **Add All Layers to Map**: Add all layers in the project to the QGIS map.
 - **Refresh Project Hierarchy**: Reload the project file and update the project explorer panel.
 - **Close Project**: Close the project and remove it from the project explorer panel.
 

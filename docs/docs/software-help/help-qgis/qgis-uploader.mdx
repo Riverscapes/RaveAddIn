@@ -5,7 +5,7 @@ slug: qgis-uploader
 sidebar_position: 3
 ---
 
-With the Riverscapes Viewer for QGIS you can upload riverscapes projects into the [Riverscapes Data Exchange](https://data.riverscapes.net). This feature is intended for uploading a single riverscapes project at a time. You should use the [Riverscapes Command Line Interface](https://docs.riverscapes.net/products/rscli) (rscli) if your goal is to upload more than a handful of projects. The uploader can be used both to upload a new project, or to make changes to an existing project.
+With the Riverscapes Viewer for QGIS you can upload riverscapes projects into the [Riverscapes Data Exchange](https://data.riverscapes.net). This feature is intended for uploading a single riverscapes project at a time. You should use the [Riverscapes Command Line Interface](https://docs.riverscapes.net/products/rscli) (rscli) if your goal is to upload more than a handful of projects. The uploader can be used both to upload a new project, or to make changes to an existing project. It allows selective uploading of specific files.
 
 :::info
   This feature is only available in Riverscapes Viewer for QGIS. It is not available in the ArcGIS or ArcGIS Pro versions of the Viewer.
@@ -21,7 +21,7 @@ This feature requires that you have the following:
 ## Getting Started
 
 1. Open the project you want to upload with the Riverscapes Viewer.
-1. Right click on the project node in the Riverscapes Viewer pane and choose `Upload Project to Data Exchange`.
+2. Right click on the project node in the Riverscapes Viewer pane and choose `Upload Project to Data Exchange`.
 
 ![upload menu](/images/qviewer/qviewer_panel_right-click-menu_uploadcircled_v1.1.1.windows.min.png)
 
@@ -53,16 +53,22 @@ Click `Next` to proceed to file selection.
 
 ## Step 2: File Selection
 
-In the second step, you will see a list of all files in your project and their status relative to the Data Exchange. (New, Update, or Delete).
+In the second step, you will see a list of all files in your project, their size, and their status relative to the Data Exchange. For each file you can choose what happens with it, depending on its Status:
 
-- **New** Files that don't exist on the Data Exchange yet.
-- **No change** Files that already exist on the Data Exchange.
-- **Update** Files that have changed locally and need to be re-uploaded.
-- **Delete** Files that exist on the Data Exchange but not locally. These will be removed from the data exchange only if the option "Delete remote files that are not present locally" is selected.
+- **New** Files that don't exist on the Data Exchange yet. These will be uploaded if the checkbox is selected.
+- **No change** Files that already exist on the Data Exchange. These will be left on the server if the checkbox is selected, but will be **deleted** if the checkbox is deselected.
+- **Update** Files that have changed locally and need to be re-uploaded. They will be uploaded if the checkbox is selected.
+- **Delete** Files that exist on the Data Exchange but not locally. These will be removed from the data exchange only if the checkbox is selected **and** the option "Delete remote files that are not present locally" is also selected.
 
-For each file you can choose whether to upload it. For a file that exists, unchecking this box will delete the remote file.
+![uploader file selection](/images/qviewer/uploader_step2_fileselection_v1.1.1.windows.min.png)
 
-Review the list carefully and the summary of what will be changed at the bottom to ensure it matches your expectations. Click `Start Upload` to begin the process.
+Review the list carefully and check the summary of what will be changed at the bottom to ensure it matches your expectations. In the screenshot above:
+
+* the 2 files that will be uploaded are `initial_point.geojson` (status *New*) & `project.rs.xml` (status *Update*)
+* the 1 file that will be deleted is `original_project.rs.xml` (status *No change*)!
+* `rcat.log` (status *Delete*) will not be removed from the server because "Delete remote files that are not present locally" is unchecked.
+
+Click `Start Upload` to begin the process.
 
 ### Notes
 
@@ -70,8 +76,8 @@ Review the list carefully and the summary of what will be changed at the bottom 
 Modifying an existing project in the Data Exchange is permanent and cannot be undone.
 :::
 
-- For projects that originated from the Data Exchange, a comprehensive file hash check is used to determine which files have changed relative to those that already exist online. Only files that have changed are uploaded.
-- Note that the simple act of adding a GeoPackage layer to the map in QGIS will ever so slightly change the underlying GeoPackage file on disk. This means that downloading, viewing and then re-uploading a Riverscapes project will likely detect changes in GeoPackages that have been used, even if you haven't explicitly made any changes to the data. This is a limitation of the GeoPackage format and not a bug in the uploader. Given that most Riverscapes project types have a [default project view](https://viewer.riverscapes.net/technical-reference/business-logic/#project-views) that loads one or more GeoPackage layers into the map, this is a common scenario. The uploader will detect these changes. You can choose whether or not to upload the modified GeoPackages. Either way this is not a problem, but it is something to be aware of.
+- For projects that originated from the Data Exchange, a comprehensive *file hash check*, essentially a digital fingerprint, to determine which files have changed relative to those that already exist online. To save time and bandwidth, only files that have changed and are selected are uploaded.
+- Simply opening a GeoPackage layer in QGIS can sometimes alter the file's digital fingerprint on your disk. This happens because QGIS and its underlying database enginge (SQLite) perform minor 'housekeeping" tasks, such as updating timestamps, the moment a file is accessed. With any change, no matter how small, the uploader will flag these GeoPackages as changed (Status: *Update*), even if you didn't edit any data. You can choose whether or not to upload these modified files.
 
 ## Step 3: Upload Status
 
@@ -83,7 +89,8 @@ The final step shows the progress of your upload.
 
 Click `View in Data Exchange` to see your project online.
 
-
 ## Video Demonstration
+
+This video demonstrates uploading in an older version of the Viewer. A new video is coming soon.
 
 <YouTubeEmbed videoId="Rs6RnAHAsNY?si=pj7B50YYxs7swcZC"/>
