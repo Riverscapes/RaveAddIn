@@ -6,7 +6,9 @@ sidebar_position: 4
 sidebar_label: Remote Projects
 ---
 
-Sometimes you want to browse and interact with projects in the Data Exchange in QGIS, but without downloading those projects as local files. The **Remote Projects** feature (new in version 1.1) makes it possible to connect to a project on the Data Exchange and view any of its layers (raster and vector) using tile services that will stream only the information needed to display what you've selected in the visible area of your map window. This can be useful when you are interested in a small portion of a very large project. Once you have loaded a remote project, if you do need to do further analysis and want the local files, the viewer context menu makes it easy to [**download**](qgis-downloader) the project either in its entirety, or selectively choosing specific layers.
+Sometimes you want to browse and interact with projects in the Data Exchange in QGIS, but without downloading those projects as local files. Alternatively, you might want to view a project and would otherwise use the [Web Viewer](/software-help/help-web), but you want to contextualize a project alongside other data that you have on your computer.
+
+The **Remote Projects** feature (new in version 1.1) makes it possible to connect to a project on the Data Exchange and view any of its layers (raster and vector) using tile services that will stream only the information needed to display what you've selected in the visible area of your map window. This can be useful when you are interested in a small portion of a very large project. Once you have loaded a remote project, if you do need to do further analysis and want the local files, the viewer context menu makes it easy to [**download**](qgis-downloader) the project either in its entirety, or selectively choosing specific layers.
 
 ## Requirements
 
@@ -23,10 +25,10 @@ The first step in viewing a remote project in QGIS to get the project's ID, a 36
 
 * on a project page, you can copy the URL. This contains the project ID and the remote projects dialog will parse it from the page URL. 
 * on a project page, there is a widget in top right corner to copy the project to clipboard, shown below. Choose `Copy project ID`.
-* on a project page, in the overview tab, the PROJECT ID is displayed, and there is a copy to clipboard button next to it
-* in project 'cards' shown in search results, the kebob menu has a Copy Project ID to clipboard option
+* on a project page, in the overview tab, the PROJECT ID is displayed, and there is a copy to clipboard button next to it.
+* in project 'cards' shown in search results, the kebob menu has a Copy Project ID to clipboard option.
 * in project table view, there is a copy project to clipboard button
-![Data Exchange Copy Project to clipboard](/images/qviewer/data_exchange_copy_project_to_clipboard.png)
+![Data Exchange Copy Project to clipboard](/images/qviewer/data_exchange_copy_project_to_clipboard.png).
 
 If you have the project downloaded and loaded into the riverscapes viewer, you can also get the project ID from the riverscapes metadata panel under 'Warehouse Meta', `id`. Right click on it and choose 'Copy value'.
 
@@ -41,7 +43,9 @@ If you have the project downloaded and loaded into the riverscapes viewer, you c
 
 ## Limitations
 
-This is a new feature in version 1.1. Not all features of the viewer for local projects are implemented for remote projects.
+- This is a new feature in version 1.1. Not all features of the viewer for local projects are implemented for remote projects.
+- QGIS can be quite sluggish with web map tiles. Zoom in to reduce the amount of tiles needed.
+- Web map tiles are essentially PNG images served over the internet. You cannot perform analysis on these tiles. They are merely for display. Download the project if you want to work with the data directly, such as filtering or geoprocessing.
 
 :::info
   This feature is only available in Riverscapes Viewer for QGIS. It is not available in the ArcGIS or ArcGIS Pro versions of the Viewer.
