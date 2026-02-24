@@ -7,8 +7,10 @@ sidebar_label: Downloading Projects
 
 With the Riverscapes Viewer for QGIS you can download riverscapes projects from the [Riverscapes Data Exchange](https://data.riverscapes.net). This feature (new in version 1.1) allows you to browse the Data Exchange, select a project, and download it directly to your local computer workspace.
 
-:::tip
 Downloading projects via the Viewer is the easiest way to get started with Riverscapes data in QGIS. It automatically handles the folder structure and prepares the project for viewing.
+
+:::warning
+See the networking requirements at the bottom of this page if you experience problems with this feature or the Viewer fails attempting to download data.
 :::
 
 ## Before You Begin
@@ -69,3 +71,9 @@ The final step shows the progress of the download.
 
 - If you are updating an existing project, the downloader will only download the files that have changed, saving time and bandwidth.
 - You can cancel the download at any time, but the project may be in an incomplete state until the download is resumed and finished.
+
+### Networking Requirements
+
+The download feature makes `POST` requests to https://api.data.riverscapes.net via port 443 as well as `GET` requests over port 80.
+
+Contact your IT administrator if the download feature fails with HTTPS warnings. You might need to request that your IT administrator configures your network to allow communication to `api.data.riverscapes.net` over port 443.

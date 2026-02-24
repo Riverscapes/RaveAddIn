@@ -11,6 +11,10 @@ With the Riverscapes Viewer for QGIS you can upload riverscapes projects into th
   This feature is only available in Riverscapes Viewer for QGIS. It is not available in the ArcGIS or ArcGIS Pro versions of the Viewer.
 :::
 
+:::warning
+See the networking requirements at the bottom of this page if you experience problems with this feature or the Viewer fails attempting to upload data.
+:::
+
 ## Before You Begin
 
 This feature requires that you have the following:
@@ -94,3 +98,9 @@ Click `View in Data Exchange` to see your project online.
 This video demonstrates uploading a project to the Data Exchange using the Viewer (ver 1.1 / 2026-February).
 
 <YouTubeEmbed videoId="itc7YQbW2IY?si=K7q7wVnk1EZJa42V"/>
+
+# Networking Requirements
+
+The download feature makes `POST` requests to https://api.data.riverscapes.net via port 443 as well as `GET` requests over port 80.
+
+Contact your IT administrator if the download feature fails with HTTPS warnings. You might need to request that your IT administrator configures your network to allow communication to `api.data.riverscapes.net` over port 443.
