@@ -9,83 +9,107 @@ We decided to simplify the work necessary to bring our QML files from QRave into
 
 The raster `.txt` format we are using is based on the `r.colors` spec and we use it when we run [gdalDem](https://gdal.org/programs/gdaldem.html) to "bake-in" the symbology. The spec for this file is compatible with both [`r.colors`](https://grass.osgeo.org/grass82/manuals/r.colors.html) and ESRI HDR color table files (.clr).
 
-So how do we convert our QML raster symbolization to color ramps for the web? It depends on the type of symbology you're using
+The right approach depends on which QGIS renderer your layer uses — read on to find yours.
 
-## File naming
+---
 
-The only trick here is putting it in the right place with the right file name
+## File placement
 
-The filename must be `somename.txt` and the `somename` part should match what's in the symbology attribute in the business logic XML file (this is the same naming convention as the qml files. 
+The filename must follow the pattern `somename.txt`, where `somename` matches the `symbology` attribute in your business logic XML — the same naming convention used for `.qml` files.
 
-So if my business logic looks like this:
+For example, given this business logic entry:
 
-``` xml
- <Node label="Detrended DEM (HAND - Height Above Nearest Drainge)" xpath="Raster[@id='HAND']" type="raster" symbology="hand" transparency="40" />
+```xml
+<Node label="Detrended DEM (HAND - Height Above Nearest Drainage)" xpath="Raster[@id='HAND']" type="raster" symbology="hand" transparency="40" />
 ```
 
-then my file name should be `hand.txt`
+the file should be named `hand.txt`.
 
-## **_CASE MATTERS_**
+:::warning Case sensitivity
+The `.txt` extension must always be lowercase, and the filename must match the business logic XML **exactly** — including capitalization.
+:::
 
-the `.txt` part should always be lowercase and the case of the filename should match EXACTLY what's in the business logic XML
+These files should live alongside the `.json` files for the WebRAVE vectors:
 
-
-## Folder naming
-
-These files should live alongside the `.json` files for the webRAVE vectors
-
-``` bash
-# so if I want to put in a file shared across all projects then
+```bash
+# Shared across all projects:
 RiverscapesXML/Symbology/web/Shared/whatever.txt
-# otherwise, for project-specific symbologies
+
+# Project-specific:
 RiverscapesXML/Symbology/web/ProjectTypeName/whatever.txt
 ```
 
-----------------------------------------------------------------------
+---
 
-## Singleband pseudocolor
+## The `.txt` file format
 
-This is the easiest one. Basically it's just clicking the save button and naming the file.
-
-1. Use QGIS and QViewer to load up the raster layer you want to symbolize for the web (assuming you already have a `.qml` for this layer of course)
-2. Open the symbology menu and click the little save icon. 
-
-That's it. Now just name it and put it in the right folder and push it to git.
-
-Here's an example of the DEM symbolozation
+Every `.txt` color ramp file has the same basic structure: a header line declaring the interpolation mode, followed by one comma-separated row per color stop.
 
 ```
 # QGIS Generated Color Map Export File
 INTERPOLATION:INTERPOLATED
-1259.3421630859375,255,235,176,255,1259
-1670.69324584960941138,38,115,0,255,1671
-2082.04432861328132276,115,77,0,255,2082
-2505.860595703125,255,255,255,255,2506
+1259.34,255,235,176,255,My Label
 ```
 
 The columns are:
 
-Value | Red | Green | Blue | Alpha | Label
--- | -- | -- | -- | -- | --
-FLOAT | Int (0-255) | Int (0-255) | Int (0-255) | Int (0-255) | TEXT
+| Value | Red | Green | Blue | Alpha | Label |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| FLOAT | Int (0–255) | Int (0–255) | Int (0–255) | Int (0–255) | TEXT |
 
-So even if the last column looks like a number you can have a text value if you want like so:
+The label column is always treated as text, so you can use descriptive names like `Open Water` or numeric stand-ins like `1259` — your choice.
 
-```
-# QGIS Generated Color Map Export File
-INTERPOLATION:INTERPOLATED
-1259.3421630859375,255,235,176,255,Small
-1670.69324584960941138,38,115,0,255,Medium
-2082.04432861328132276,115,77,0,255,Large
-2505.860595703125,255,255,255,255,Huge
-```
+---
 
-### Example: `dem.txt`
+## Understanding the interpolation modes
 
-Here's what the `dem.txt` file looks like:
+The `INTERPOLATION:` header controls how QGIS (and subsequently gdaldem) fills in colors between your defined stops. There are three modes:
+
+| QGIS Renderer (UI name) | `.txt` header | Behavior | Best for |
+| :--- | :--- | :--- | :--- |
+| Singleband pseudocolor | `INTERPOLATION:INTERPOLATED` | Smooth linear gradient between stops | Continuous data (DEMs, temperature, precipitation) |
+| Paletted / Unique values | `INTERPOLATION:DISCRETE` | Stepped color blocks, no blending | Grouped ranges (elevation bands, risk levels, statistical bins) |
+| Paletted / Unique values (exact) | `INTERPOLATION:EXACT` | Strict per-value matching; everything else is NoData | Categorical data (land-cover codes, classified integers) |
+
+### 1. `INTERPOLATION:INTERPOLATED` (Linear / Smooth)
+
+QGIS creates a **smooth gradient** between your color stops, linearly blending colors for any value that falls between them.
+
+- **How it works:** If you set `0` to **Blue** and `100` to **Red**, a pixel with value `50` will render as **Purple** — a perfect 50/50 blend.
+- **Best used for:** Continuous data where smooth transitions represent reality, such as Digital Elevation Models (DEMs), temperature maps, or precipitation data.
+
+### 2. `INTERPOLATION:DISCRETE` (Stepped / Banded)
+
+QGIS creates **color bands or blocks**. The color at each stop applies to the entire range of values up to the next stop, with no blending between them — producing sharp, distinct boundaries.
+
+- **How it works:** If you assign `0` to **Blue**, `50` to **White**, and `100` to **Red**, all pixels from `0` up to `49.99` will be solid Blue. At exactly `50` the color snaps to solid White, and stays White until it reaches `100`.
+- **Best used for:** Grouping continuous data into classified ranges — contour-style elevation bands, heat maps grouped by risk level (Low/Medium/High), or statistical bins.
+
+### 3. `INTERPOLATION:EXACT` (Strict Matching)
+
+There is **no blending and no grouping**. A color is applied *only* if a pixel's value matches a defined stop exactly; everything else renders as transparent (NoData).
+
+- **How it works:** If you assign `1` to **Green** and `2` to **Yellow**, only pixels that are exactly `1.000` or `2.000` get those colors. A pixel with value `1.5` will be transparent.
+- **Best used for:** Categorical or classified data where in-between values are meaningless — for example, a land-cover map where `1 = Forest`, `2 = Water`, `3 = Urban`.
+
+---
+
+## Exporting from QGIS
+
+### Singleband pseudocolor → `INTERPOLATION:INTERPOLATED`
+
+Use this for continuous, smoothly varying data like DEMs or temperature surfaces.
+
+1. Load your raster layer in QGIS using QViewer (assuming you already have a `.qml` for this layer).
+2. Open the Layer Styling panel, confirm the renderer is set to **Singleband pseudocolor**.
+3. Click the small **save** icon to export the color map.
+
+Name the exported file according to the [file placement rules above](#file-placement) and commit it to git.
+
+#### Example: `dem.txt`
 
 ```txt
- # QGIS Generated Color Map Export File
+# QGIS Generated Color Map Export File
 INTERPOLATION:INTERPOLATED
 1129.3089599609375,255,235,176,255,1129
 1482.00189819335946595,38,115,0,255,1482
@@ -93,24 +117,31 @@ INTERPOLATION:INTERPOLATED
 2198.075439453125,255,255,255,255,2198
 ```
 
-Note that even though the values of the raster are exact floats derived from the raster you were symbolizing they will be converted when symbolizing other rasterss. Since this labeled as `INTERPOLATION:INTERPOLATED` the values will be converted to a percent when the tiling happens. For the example above this will be converted into the following object at tile-time:
+The label column can hold descriptive text instead of numbers — `Small`, `Medium`, `Large` works just as well as the raw float values.
+
+Note that the exact float values exported by QGIS are specific to the raster you were symbolizing. When applied to other rasters, these values are converted to percentages at tile-time so the color ramp stretches correctly across the new data range.
+
+<details>
+<summary>Under the hood: tile-time conversion</summary>
+
+When the tiling pipeline processes an `INTERPOLATED` file, it converts the absolute values to percentages and produces an internal representation like this:
 
 ```json
 {
   "gdalDem": "0%,255,235,176,255\n33%,38,115,0,255\n66%,115,77,0,255\n100%,255,255,255,255\nnv,0,0,0,0",
   "legend": [
-    ["rgba(255,235,176,255)","0%"],
-    ["rgba(38,115,0,255)","33%"],
-    ["rgba(115,77,0,255)","66%"],
-    ["rgba(255,255,255,255)","100%"]
+    ["rgba(255,235,176,255)", "0%"],
+    ["rgba(38,115,0,255)", "33%"],
+    ["rgba(115,77,0,255)", "66%"],
+    ["rgba(255,255,255,255)", "100%"]
   ],
   "rampType": "INTERPOLATED"
 }
 ```
 
-The "legend" entry is what the legend inside the web viewer will say and the "gdalDem" entry is what we actually pass to the gdalDem command as a file:
+The `legend` array drives the legend displayed in the web viewer. The `gdalDem` string is written to a temp file and passed directly to the `gdaldem` command:
 
-```csv
+```
 0%,255,235,176,255
 33%,38,115,0,255
 66%,115,77,0,255
@@ -118,17 +149,22 @@ The "legend" entry is what the legend inside the web viewer will say and the "gd
 nv,0,0,0,0
 ```
 
-`nv` means nodata value and we set this automatically to allow transparency in the raster.
+`nv` is the NoData value — it is set automatically to ensure transparent rendering of NoData pixels.
 
-----------------------------------------------------------------------
+</details>
 
-## Palletted, unique colors
+---
 
-1. Use QGIS and QViewer to load up the raster layer you want to symbolize for the web (assuming you already have a `.qml` for this layer of course)
+### Paletted / Unique values → `INTERPOLATION:DISCRETE` or `INTERPOLATION:EXACT`
 
-2. Beside the "Delete All" button there's a little menu button. Click that and choose **"Export Color Map to File"**. 
+Use this for classified or categorical rasters where pixel values represent discrete categories rather than a continuous range.
 
-You will get a `.clr` file that  looks like this:
+**Exporting from QGIS:**
+
+1. Load your raster layer in QGIS using QViewer (assuming you already have a `.qml` for this layer).
+2. Next to the **Delete All** button, click the small menu button and choose **Export Color Map to File**.
+
+This produces a space-separated `.clr` file:
 
 ```
 1 31 213 223 255 Small
@@ -138,7 +174,11 @@ You will get a `.clr` file that  looks like this:
 6 230 87 51 255 Scientifically Ginormous
 ```
 
-Note this isn't comma-separate so we need to convert this format to be like the one for singleband pseudocolor above. Another major difference is that we need to use the `INTERPOLATION:DISCRETE` line. Here's what this file looks like after I convert it:
+You will need to manually convert this to the comma-separated `.txt` format and choose the appropriate `INTERPOLATION:` header for your data — see the two options below.
+
+#### Using `INTERPOLATION:DISCRETE`
+
+Use this when your categories represent *ranges* or *groups* and you want all values between two stops to inherit the lower stop's color.
 
 ```
 # QGIS Generated Color Map Export File
@@ -147,11 +187,28 @@ INTERPOLATION:DISCRETE
 3,98,218,162,255,Medium
 4,62,212,79,255,Large
 5,217,210,69,255,Huge
-6,230,87,51,255,Scientifically,Ginormous
+6,230,87,51,255,Scientifically Ginormous
 ```
 
-again, the the columns are:
+#### Using `INTERPOLATION:EXACT`
 
-Value | Red | Green | Blue | Alpha | Label
--- | -- | -- | -- | -- | --
-FLOAT | Int (0-255) | Int (0-255) | Int (0-255) | Int (0-255) | TEXT
+Use this when your raster uses strict integer codes where in-between values are meaningless (e.g. a land-cover classification). Only pixels whose values match a table entry exactly will be colored; everything else renders as transparent (NoData).
+
+```
+# QGIS Generated Color Map Export File
+INTERPOLATION:EXACT
+-9999,255,255,255,255,(-9999) No Data
+0,0,0,0,255,None
+11,0,92,230,255,Open Water
+12,255,255,255,255,Perennial Ice/Snow
+31,0,0,0,255,Barren-Rock/Sand/Clay
+381,255,115,223,255,Inter-Mountain Basins Big Sagebrush Steppe
+383,255,255,190,255,Inter-Mountain Basins Sparsely Vegetated Systems
+384,255,255,190,255,Rocky Mountain Alpine/Montane Sparsely Vegetated Systems
+385,255,255,190,255,North American Warm Desert Sparsely Vegetated Systems
+386,205,205,102,255,Western Great Plains Shortgrass Prairie
+387,137,205,102,255,Western Great Plains Foothill and Piedmont Grassland
+388,132,140,200,255,Wyoming Basins Dwarf Sagebrush Shrubland and Steppe
+```
+
+In this example, a value of `382` has no entry in the table — it won't render at all. This is the key difference from `DISCRETE`, where `382` would inherit the color of the nearest lower stop (`381`).
