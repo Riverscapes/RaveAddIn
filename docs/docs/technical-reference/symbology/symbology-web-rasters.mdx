@@ -68,7 +68,7 @@ The `INTERPOLATION:` header controls how QGIS (and subsequently gdaldem) fills i
 | QGIS Renderer (UI name) | `.txt` header | Behavior | Best for |
 | :--- | :--- | :--- | :--- |
 | Singleband pseudocolor | `INTERPOLATION:INTERPOLATED` | Smooth linear gradient between stops | Continuous data (DEMs, temperature, precipitation) |
-| Paletted / Unique values | `INTERPOLATION:DISCRETE` | Stepped color blocks, no blending | Grouped ranges (elevation bands, risk levels, statistical bins) |
+| Singleband pseudocolor (clamped) | `INTERPOLATION:DISCRETE` | Smooth gradient between stops; values below the lowest or above the highest stop are clamped to the edge color | Continuous data where the color ramp range should stay fixed (slope, aspect, bathymetry) |
 | Paletted / Unique values (exact) | `INTERPOLATION:EXACT` | Strict per-value matching; everything else is NoData | Categorical data (land-cover codes, classified integers) |
 
 ### 1. `INTERPOLATION:INTERPOLATED` (Linear / Smooth)
@@ -78,12 +78,13 @@ QGIS creates a **smooth gradient** between your color stops, linearly blending c
 - **How it works:** If you set `0` to **Blue** and `100` to **Red**, a pixel with value `50` will render as **Purple** — a perfect 50/50 blend.
 - **Best used for:** Continuous data where smooth transitions represent reality, such as Digital Elevation Models (DEMs), temperature maps, or precipitation data.
 
-### 2. `INTERPOLATION:DISCRETE` (Stepped / Banded)
+### 2. `INTERPOLATION:DISCRETE` (Clamped / Fixed-Range)
 
-QGIS creates **color bands or blocks**. The color at each stop applies to the entire range of values up to the next stop, with no blending between them — producing sharp, distinct boundaries.
+The tiler builds a **smooth gradient** between your color stops (same as INTERPOLATED), but it does **not** stretch the color ramp to fit the raster's full data range. Instead, the color ramp stays fixed at its own elevation range, and any pixel value falling outside that range receives the nearest edge color.
 
-- **How it works:** If you assign `0` to **Blue**, `50` to **White**, and `100` to **Red**, all pixels from `0` up to `49.99` will be solid Blue. At exactly `50` the color snaps to solid White, and stays White until it reaches `100`.
-- **Best used for:** Grouping continuous data into classified ranges — contour-style elevation bands, heat maps grouped by risk level (Low/Medium/High), or statistical bins.
+- **How it works:** If your color ramp defines stops at `10` (Blue) and `90` (Red), a pixel with value `50` will render as a smooth blend (Purple). But a pixel with value `5` (below the lowest stop) gets solid **Blue** (clamped), and a pixel with value `120` (above the highest stop) gets solid **Red** (clamped).
+- **Key difference from INTERPOLATED:** With INTERPOLATED, the entire ramp is stretched so the raster's min and max align with the first and last color stops. With DISCRETE, the ramp stays in its original range and values outside that range are clamped to the edge colors.
+- **Best used for:** Continuous data where the color ramp's value range is meaningful and shouldn't be stretched — for example, slope maps where 0–30° has a fixed color scheme and steeper slopes should all show the same "max" color, or bathymetry where depth bands should stay put.
 
 ### 3. `INTERPOLATION:EXACT` (Strict Matching)
 
@@ -155,9 +156,9 @@ nv,0,0,0,0
 
 ---
 
-### Paletted / Unique values → `INTERPOLATION:DISCRETE` or `INTERPOLATION:EXACT`
+### Paletted / Unique values → `INTERPOLATION:EXACT` only
 
-Use this for classified or categorical rasters where pixel values represent discrete categories rather than a continuous range.
+For paletted (categorical) rasters, use **`INTERPOLATION:EXACT`** — this gives strict per-value matching.
 
 **Exporting from QGIS:**
 
@@ -174,21 +175,13 @@ This produces a space-separated `.clr` file:
 6 230 87 51 255 Scientifically Ginormous
 ```
 
-You will need to manually convert this to the comma-separated `.txt` format and choose the appropriate `INTERPOLATION:` header for your data — see the two options below.
+You will need to manually convert this to the comma-separated `.txt` format with the `INTERPOLATION:EXACT` header.
 
-#### Using `INTERPOLATION:DISCRETE`
+:::note `INTERPOLATION:DISCRETE` is not for categorical data
+Despite its name, `INTERPOLATION:DISCRETE` performs **smooth linear interpolation** between color stops with edge clamping — it does **not** produce stepped blocks. It is designed for continuous data (like slope surfaces) where you want a fixed-range gradient, not for categorical/paletted rasters.
 
-Use this when your categories represent *ranges* or *groups* and you want all values between two stops to inherit the lower stop's color.
-
-```
-# QGIS Generated Color Map Export File
-INTERPOLATION:DISCRETE
-1,31,213,223,255,Small
-3,98,218,162,255,Medium
-4,62,212,79,255,Large
-5,217,210,69,255,Huge
-6,230,87,51,255,Scientifically Ginormous
-```
+For truly stepped or blocky rendering, use `INTERPOLATION:EXACT` with every integer value in your range listed explicitly.
+:::
 
 #### Using `INTERPOLATION:EXACT`
 
@@ -211,4 +204,4 @@ INTERPOLATION:EXACT
 388,132,140,200,255,Wyoming Basins Dwarf Sagebrush Shrubland and Steppe
 ```
 
-In this example, a value of `382` has no entry in the table — it won't render at all. This is the key difference from `DISCRETE`, where `382` would inherit the color of the nearest lower stop (`381`).
+In this example, a value of `382` has no entry in the table — it won't render at all. This is a key difference from `INTERPOLATED`, where `382` would be smoothly blended between the nearest stops.
